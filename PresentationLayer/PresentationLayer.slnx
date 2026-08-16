@@ -1,3 +1,5 @@
 <Solution>
+  <Project Path="../BusinessLayer/BusinessLayer.csproj" />
+  <Project Path="../DataLinkLayer/DataLinkLayer.csproj" />
   <Project Path="PresentationLayer.csproj" />
 </Solution>
