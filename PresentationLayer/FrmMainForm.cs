@@ -9,9 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer {
-    public partial class Form1 : Form {
-        public Form1() {
+    public partial class FrmMainForm : Form {
+        public FrmMainForm() {
             InitializeComponent();
+        }
+
+        private void peopleToolStripMenuItem_Click(object sender, EventArgs e) {
+            FrmPeople frm = new FrmPeople();
+            frm.ShowDialog();
         }
     }
 }
