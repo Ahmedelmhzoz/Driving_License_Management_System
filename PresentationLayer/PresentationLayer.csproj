@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmAddOrUpdatePerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddOrUpdatePerson.Designer.cs">
+      <DependentUpon>FrmAddOrUpdatePerson.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,13 +67,32 @@
     <Compile Include="FrmPeople.Designer.cs">
       <DependentUpon>FrmPeople.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPersonDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPersonDetails.Designer.cs">
+      <DependentUpon>FrmPersonDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ucPersonDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucPersonDetails.Designer.cs">
+      <DependentUpon>ucPersonDetails.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmAddOrUpdatePerson.resx">
+      <DependentUpon>FrmAddOrUpdatePerson.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMainForm.resx">
       <DependentUpon>FrmMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPeople.resx">
       <DependentUpon>FrmPeople.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPersonDetails.resx">
+      <DependentUpon>FrmPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -79,6 +104,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ucPersonDetails.resx">
+      <DependentUpon>ucPersonDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -107,6 +135,69 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\id-card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\name.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\national.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\citizenship.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gender.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\location.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\country.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phone-call.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\date-of-birth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\man.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\woman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\details.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\updateData.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\send-mail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phoneCall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addImage1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
