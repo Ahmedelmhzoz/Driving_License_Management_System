@@ -65,6 +65,7 @@ namespace PresentationLayer {
             Person newPerson = new Person();
             FrmAddOrUpdatePerson frm = new FrmAddOrUpdatePerson(newPerson);
             frm.ShowDialog();
+            dgvPeople.DataSource = Person.getAllPeople();
         }
 
         private void editToolStripMenuItem_Click_1(object sender, EventArgs e) {

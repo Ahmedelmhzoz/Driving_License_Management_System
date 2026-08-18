@@ -25,8 +25,9 @@ namespace DataLinkLayer {
         public string Address { get; set; }
         public int NationalityCountryID { get; set; }
     }
-    public static class DataAccess {
-        static string connectionSettings = "Server=.;Database=DVLD;User ID = sa;password=123456;";
+    public static class PeopleData {
+       static string connectionSettings = "Server=.;Database=DVLD;User ID = sa;password=123456;";
+
         public enum enSearchCategory {
             enPersonID = 0, enNationalNo = 1, enFirst = 2, enSecond = 3, enThird = 4,
             enLast = 5, enNationality = 6, enGender = 7, enPhone = 8, enEmail = 9
@@ -198,27 +199,7 @@ namespace DataLinkLayer {
             return false;
         }
 
-        public static DataTable getAllCountries() {
-            DataTable dt = new DataTable();
-            try {
-                using (SqlConnection conn = new SqlConnection(connectionSettings)) {
-                    string query = "Select * from Countries";
-                    using (SqlCommand cmd = new SqlCommand(query, conn)) {
-                        conn.Open();
-                        using (SqlDataReader reader = cmd.ExecuteReader()) {
-                            if (reader.HasRows) {
-                                dt.Load(reader);
-                            }
-                        }
-                    }
-                }
-
-            }
-            catch (Exception ex) {
-                System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
-            }
-            return dt;
-        }
+       
         public static bool IsNationalExists(string NatNo) {
             try {
                 using (SqlConnection conn = new SqlConnection(connectionSettings)) {
@@ -254,22 +235,6 @@ namespace DataLinkLayer {
             }
 
             return (rowsAffected > 0);
-        }
-        public static bool isUserExistsForPerson(int personId) {
-            try {
-                using (SqlConnection connection = new SqlConnection(connectionSettings)) {
-                    using (SqlCommand command = new SqlCommand("Select found = 1 FROM Users WHERE PersonID = @PersonID", connection)) {
-                        command.Parameters.AddWithValue("@PersonID", personId);
-                        connection.Open();
-                        object result = command.ExecuteScalar();
-                        return (result != null);
-                    }
-                }
-            }
-            catch (Exception ex) {
-                System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
-                return false;
-            }
         }
     }
 

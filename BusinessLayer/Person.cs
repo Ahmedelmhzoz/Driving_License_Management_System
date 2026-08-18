@@ -7,7 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using static DataLinkLayer.DataAccess;
+using static DataLinkLayer.PeopleData;
 
 namespace BusinessLayer {
     public enum enPersonMode { addPerson = 0, updatePerson = 1 }
@@ -81,7 +81,7 @@ namespace BusinessLayer {
         }
 
         public static DataTable getAllPeople() {
-            return DataAccess.getPeople();
+            return PeopleData.getPeople();
         }
         
         public static DataTable getCurrentSearchResult(string currentTxt, string category) {
@@ -99,12 +99,12 @@ namespace BusinessLayer {
                 case "Email": searchMode = enSearchCategory.enEmail; break;
                 default: break;
             }
-            return DataAccess.searchResultByCategory(searchMode, currentTxt);
+            return PeopleData.searchResultByCategory(searchMode, currentTxt);
         }
 
         public static Person findPerson(string NationalNum) {
             PersonDTO person = null;
-            if ((person = DataAccess.getPerson(NationalNum)) != null) {
+            if ((person = PeopleData.getPerson(NationalNum)) != null) {
                 Person originalPerson = new Person(person, enPersonMode.updatePerson);
                 return originalPerson;
             }
@@ -136,26 +136,14 @@ namespace BusinessLayer {
             }
         }
         public static bool isNationalNumExists(string natNo) {
-            return DataAccess.IsNationalExists(natNo);
+            return PeopleData.IsNationalExists(natNo);
         }
         public static bool deletePerson(int personID) {
-            if (DataAccess.isUserExistsForPerson(personID)) {
+            if (UsersData.isUserExistsForPerson(personID)) {
                 return false;
             }
             return deleteAPerson(personID);
         }
     }
-    public class County { 
-        public int countyID;
-        public string countryName;
-        public County() {
-            countyID = -1;
-            countryName = "";
-        }
-        public static DataTable getCountries() {
-            return DataAccess.getAllCountries();
-        }
-
-
-    }
+   
 }
