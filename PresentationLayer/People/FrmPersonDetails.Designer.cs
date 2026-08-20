@@ -24,7 +24,6 @@
         /// </summary>
         private void InitializeComponent() {
             this.label1 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.ucPersonDetails1 = new PresentationLayer.ucPersonDetails();
             this.SuspendLayout();
@@ -39,18 +38,6 @@
             this.label1.Size = new System.Drawing.Size(523, 77);
             this.label1.TabIndex = 2;
             this.label1.Text = "Person details";
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F);
-            this.linkLabel1.Location = new System.Drawing.Point(1555, 603);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(185, 42);
-            this.linkLabel1.TabIndex = 3;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Set image";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // openFileDialog1
             // 
@@ -70,13 +57,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1924, 1052);
-            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ucPersonDetails1);
             this.Name = "FrmPersonDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPersonDetails";
-            this.Load += new System.EventHandler(this.FrmPersonDetails_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -86,7 +71,6 @@
 
         private ucPersonDetails ucPersonDetails1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

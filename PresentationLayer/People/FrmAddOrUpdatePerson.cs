@@ -119,7 +119,7 @@ namespace PresentationLayer {
         }
 
         private void txtEmail_Validating(object sender, CancelEventArgs e) {
-            if (string.IsNullOrEmpty(txtEmail.Text)) {
+            if (string.IsNullOrWhiteSpace(txtEmail.Text)) {
                 e.Cancel = false;
                 errorProvider1.SetError(txtEmail, "");
                 return;
@@ -145,7 +145,14 @@ namespace PresentationLayer {
                 Helpers.ShowErrorMessage("Please fill the required fields");
                 return;
             }
-            enPersonMode WhatPersonModeWas = currentPerson.currentMode;
+            if (Person.isNationalNumExists(txtNatNo.Text)) {
+                errorProvider1.SetError(txtNatNo, "There is another person have this national number!");
+                return;
+            }
+            if (lblOperation.Text == "Add new person") {
+                currentPerson.currentMode = enPersonMode.addPerson; // if we remove this if condition:
+                                                                    // if he add a new person, then he didnt close the form and add another person the old person will be updated with the new person2 data
+            }
             currentPerson.firstName = txtFirst.Text.Trim();
             currentPerson.secondName = txtSecond.Text.Trim();
             currentPerson.thirdName = txtThird.Text.Trim();
@@ -159,7 +166,7 @@ namespace PresentationLayer {
             currentPerson.NationalityCountryID = Convert.ToInt32(cbCountries.SelectedValue);
             if (currentPerson.Save()) {
                 Helpers.SuccessfulMessage("Person saves successfully!");
-                if (WhatPersonModeWas == enPersonMode.addPerson) {
+                if (lblOperation.Text == "Add new person") {
                     lblpersonID.Text = currentPerson.personID.ToString();
                     lblpersonID.BackColor = Color.SpringGreen;
                 }
@@ -191,5 +198,7 @@ namespace PresentationLayer {
             btnRemove.Enabled = false;
             lblRemove.ForeColor = Color.DarkGray;
         }
+
+
     }
 }

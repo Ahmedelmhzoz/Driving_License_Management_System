@@ -54,13 +54,17 @@ namespace DataLinkLayer {
             }
             return dt;
         }
-        public static DataTable searchResultByCategory(enSearchCategory mode, string currentText) {
+        public static DataTable searchResultByCategory(enSearchCategory mode, string currentText, bool withoutLinkedPersons) {
             DataTable dt = new DataTable();
             SqlConnection conn = new SqlConnection(connectionSettings);
             string[] searchModes = { "PersonID", "NationalNo", "FirstName", "SecondName", "ThirdName",
                 "LastName", "CountryName", "Gender", "Phone", "Email" };
             string searchMode = searchModes[(int)mode];
-            string query = $"Select * from People_View where {searchMode} Like @CurrentText + '%'";
+            string LikeOrEqual = (searchMode == "PersonID" ? " = @CurrentText" : " Like @CurrentText + '%'");
+            string query = $"Select * from People_View where {searchMode} {LikeOrEqual}";
+            if (withoutLinkedPersons) {
+                query += " and PersonID not in (select PersonID from Users)";
+            }
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@CurrentText", currentText);
             try {
@@ -81,13 +85,13 @@ namespace DataLinkLayer {
             return dt;
         }
 
-        public static PersonDTO getPerson(string nationalNum) {
+        public static PersonDTO getPerson(int personID) {
             PersonDTO person = null;
             try {
                 using (SqlConnection conn = new SqlConnection(connectionSettings)) {
-                    string query = "select * from People_View where NationalNo = @NN";
+                    string query = "select * from People_View where PersonID = @ID";
                     using (SqlCommand cmd = new SqlCommand(query, conn)) {
-                        cmd.Parameters.AddWithValue("@NN", nationalNum);
+                        cmd.Parameters.AddWithValue("@ID", personID);
                         conn.Open();
                         using (SqlDataReader reader = cmd.ExecuteReader()) {
                             if (reader.Read()) {

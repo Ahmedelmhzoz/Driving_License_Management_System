@@ -83,28 +83,32 @@ namespace BusinessLayer {
         public static DataTable getAllPeople() {
             return PeopleData.getPeople();
         }
-        
-        public static DataTable getCurrentSearchResult(string currentTxt, string category) {
-            enSearchCategory searchMode = enSearchCategory.enPersonID;
-            switch (category) {
-                case "Person ID": searchMode = enSearchCategory.enPersonID; break;
-                case "National No.": searchMode = enSearchCategory.enNationalNo; break;
-                case "First Name": searchMode = enSearchCategory.enFirst; break;
-                case "Second Name": searchMode = enSearchCategory.enSecond; break;
-                case "Third Name": searchMode = enSearchCategory.enThird; break;
-                case "Last Name": searchMode = enSearchCategory.enLast; break;
-                case "Nationality": searchMode = enSearchCategory.enNationality; break;
-                case "Gender": searchMode = enSearchCategory.enGender; break;
-                case "Phone": searchMode = enSearchCategory.enPhone; break;
-                case "Email": searchMode = enSearchCategory.enEmail; break;
-                default: break;
-            }
-            return PeopleData.searchResultByCategory(searchMode, currentTxt);
-        }
 
-        public static Person findPerson(string NationalNum) {
+        static enSearchCategory _ConvertCategoryToEnum(string category) {
+            switch (category) {
+                case "Person ID": return enSearchCategory.enPersonID;
+                case "National No.": return enSearchCategory.enNationalNo; 
+                case "First Name": return enSearchCategory.enFirst; 
+                case "Second Name": return enSearchCategory.enSecond; 
+                case "Third Name": return enSearchCategory.enThird; 
+                case "Last Name": return enSearchCategory.enLast; 
+                case "Nationality": return enSearchCategory.enNationality; 
+                case "Gender": return enSearchCategory.enGender; 
+                case "Phone": return enSearchCategory.enPhone; 
+                case "Email": return enSearchCategory.enEmail; 
+                default: return enSearchCategory.enPersonID;
+            }
+        }
+        
+        public static DataTable getCurrentSearchResult(string currentTxt, string category, bool withoutLinkedPersons = false) {
+            // withoutLinkedPersons if true filters the people result to only persons who arent linked to user
+            enSearchCategory searchMode = _ConvertCategoryToEnum(category);
+
+            return PeopleData.searchResultByCategory(searchMode, currentTxt, withoutLinkedPersons);
+        }
+        public static Person findPerson(int PersonID) {
             PersonDTO person = null;
-            if ((person = PeopleData.getPerson(NationalNum)) != null) {
+            if ((person = PeopleData.getPerson(PersonID)) != null) {
                 Person originalPerson = new Person(person, enPersonMode.updatePerson);
                 return originalPerson;
             }
@@ -113,11 +117,11 @@ namespace BusinessLayer {
             }
         }
 
-        public int addPerson() {
+        private int addPerson() {
             PersonDTO personToAdd = toDTO();
             return addAPerson(personToAdd);
         }
-        public bool updatePerson() {
+        private bool updatePerson() {
             PersonDTO personToAdd = toDTO();
             return updateAPerson(personToAdd);
         }

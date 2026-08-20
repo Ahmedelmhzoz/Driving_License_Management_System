@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,9 +10,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer {
-    public partial class FrmUsers : Form {
-        public FrmUsers() {
+    public partial class FrmPersonDetails : Form {
+        public FrmPersonDetails(Person person) {
             InitializeComponent();
+            ucPersonDetails1.loadData(person);
         }
     }
 }
