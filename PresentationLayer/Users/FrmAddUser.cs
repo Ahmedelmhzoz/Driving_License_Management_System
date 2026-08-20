@@ -70,7 +70,7 @@ namespace PresentationLayer.Users {
             }
             else if (tcAddUser.SelectedIndex == 0 && currentUser.currentMode == enUserMode.addUser) { // if he went to the find person in add mode
                 if (ucGetPersonWithFilter.thereIsPersonSelected())
-                    ucGetPersonWithFilter.refrechResult();
+                    ucGetPersonWithFilter.refrechResult(false);
             }
             else if (tcAddUser.SelectedIndex == 1 && currentUser.currentMode == enUserMode.updateUser) { // if he went to the user tab in update mode
                 lblPersonID.Text = ucPersonDetails.returnPersonID().ToString();
