@@ -4,3 +4,6 @@ D:\ابو هدهود\كورس 19 DVLD\DataLinkLayer\obj\Debug\DataLinkLayer.cspr
 D:\ابو هدهود\كورس 19 DVLD\DataLinkLayer\obj\Debug\DataLinkLayer.csproj.CoreCompileInputs.cache
 D:\ابو هدهود\كورس 19 DVLD\DataLinkLayer\obj\Debug\DataLinkLayer.dll
 D:\ابو هدهود\كورس 19 DVLD\DataLinkLayer\obj\Debug\DataLinkLayer.pdb
+D:\ابو هدهود\كورس 19 DVLD\DataLinkLayer\bin\Debug\System.Configuration.ConfigurationManager.dll
+D:\ابو هدهود\كورس 19 DVLD\DataLinkLayer\bin\Debug\System.Configuration.ConfigurationManager.xml
+D:\ابو هدهود\كورس 19 DVLD\DataLinkLayer\obj\Debug\DataLink.461B8218.Up2Date

@@ -48,11 +48,11 @@ namespace PresentationLayer.Users {
             }
             return isValid;
         }
-        public void refrechResult() {
+        public void refrechResult(bool showMessageWhenNotFound = true) {
             currentSearchResult = Person.getCurrentSearchResult(txtSearch.Text, cbFilterBy.Text, true);// will get only persons who aren't linked to users 
             lblRecordsNo.Text = currentSearchResult.Rows.Count.ToString();
             if (currentSearchResult.Rows.Count == 0) {
-                _NoResultScreen();
+                _NoResultScreen(showMessageWhenNotFound);
                 return;
             }
             currentIDX = 0;
@@ -68,9 +68,10 @@ namespace PresentationLayer.Users {
             OnPersonSelection?.Invoke(true);
         }
         
-        void _NoResultScreen() {
+        void _NoResultScreen(bool showMessageWhenNotFound = true) {
             ucPersonViewer.returnToDefault();
-            Helpers.ShowErrorMessage($"There is no result have {cbFilterBy.Text} = {txtSearch.Text}");
+            if (showMessageWhenNotFound)
+                Helpers.ShowErrorMessage($"There is no result have {cbFilterBy.Text} = {txtSearch.Text}");
             btnNextPerson.Enabled = false;
             lblNext.ForeColor = Color.DimGray;
             OnPersonSelection?.Invoke(false);

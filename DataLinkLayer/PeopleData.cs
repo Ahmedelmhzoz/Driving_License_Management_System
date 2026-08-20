@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataLinkLayer {
     public class PersonDTO {
@@ -26,7 +21,7 @@ namespace DataLinkLayer {
         public int NationalityCountryID { get; set; }
     }
     public static class PeopleData {
-       static string connectionSettings = "Server=.;Database=DVLD;User ID = sa;password=123456;";
+        static string connectionSettings = ConfigurationManager.ConnectionStrings["DVLD_DB"].ConnectionString;
 
         public enum enSearchCategory {
             enPersonID = 0, enNationalNo = 1, enFirst = 2, enSecond = 3, enThird = 4,

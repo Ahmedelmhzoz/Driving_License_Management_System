@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataLinkLayer {
     public class CountriesData {
-        static string connectionSettings = "Server=.;Database=DVLD;User ID = sa;password=123456;";
+        static string connectionSettings = ConfigurationManager.ConnectionStrings["DVLD_DB"].ConnectionString;
 
         public static DataTable getAllCountries() {
             DataTable dt = new DataTable();
