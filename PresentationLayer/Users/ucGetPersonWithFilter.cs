@@ -95,5 +95,11 @@ namespace PresentationLayer.Users {
             }
             return false;
         }
+
+        private void button1_Click(object sender, EventArgs e) {
+            Person newPerson = new Person();
+            FrmAddOrUpdatePerson frm = new FrmAddOrUpdatePerson(newPerson);
+            frm.ShowDialog();
+        }
     }
 }

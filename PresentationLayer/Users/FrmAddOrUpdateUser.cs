@@ -10,16 +10,16 @@ using System.Windows.Forms;
 using  BusinessLayer;
 
 namespace PresentationLayer.Users {
-    public partial class FrmAddUser : Form {
+    public partial class FrmAddOrUpdateUser : Form {
         User currentUser = null;
         bool personIsFounded = false;
-        public FrmAddUser() {
+        public FrmAddOrUpdateUser() {
             InitializeComponent();
             ucGetPersonWithFilter.OnPersonSelection += _ButtonActivation;
             currentUser = new User();
         }
 
-        public FrmAddUser(User user) {
+        public FrmAddOrUpdateUser(User user) {
             InitializeComponent();
             currentUser = user;
         }
@@ -27,11 +27,13 @@ namespace PresentationLayer.Users {
             if (currentUser.currentMode == enUserMode.addUser) {
                 lblProcess.Text = "Add new user";
                 tpPerson.Text = "Find Person";
+                tpCreateUser.Text = "Create user";
                 ucGetPersonWithFilter.Visible = true;
                 ucPersonDetails.Visible = false;
             } else {
                 lblProcess.Text = "Update user";
                 tpPerson.Text = "Person details";
+                tpCreateUser.Text = "Update user";
                 personIsFounded = true;
                 ucPersonDetails.Visible = true;
                 Person person = Person.findPerson(currentUser.personID);
@@ -74,6 +76,7 @@ namespace PresentationLayer.Users {
             }
             else if (tcAddUser.SelectedIndex == 1 && currentUser.currentMode == enUserMode.updateUser) { // if he went to the user tab in update mode
                 lblPersonID.Text = ucPersonDetails.returnPersonID().ToString();
+                lblID.Text = currentUser.userID.ToString();
                 txtUsername.Text = currentUser.Username;
                 txtPassword.Text = currentUser.password;
                 txtPasswordConf.Text = currentUser.password;
@@ -131,7 +134,7 @@ namespace PresentationLayer.Users {
             }
             if (txtPasswordConf.Text != txtPassword.Text) { // we check again because we let the user go out of confirmation box even if its not valid
                                                             // so we check again to avoid pressing save and save despite wrong confirmation
-                errorProvider1.SetError(txtPasswordConf, "Password confirmation is required!");
+                errorProvider1.SetError(txtPasswordConf, "Password Confirmation donsn't match the password you set!");
                 isValid = false;
             }
             return isValid;

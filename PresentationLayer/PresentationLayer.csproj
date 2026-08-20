@@ -80,11 +80,23 @@
     <Compile Include="People\FrmPersonDetails.Designer.cs">
       <DependentUpon>FrmPersonDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Users\FrmAddUser.cs">
+    <Compile Include="Users\FrmAddOrUpdateUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Users\FrmAddUser.Designer.cs">
-      <DependentUpon>FrmAddUser.cs</DependentUpon>
+    <Compile Include="Users\FrmAddOrUpdateUser.Designer.cs">
+      <DependentUpon>FrmAddOrUpdateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\FrmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\FrmChangePassword.Designer.cs">
+      <DependentUpon>FrmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\FrmUserDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\FrmUserDetails.Designer.cs">
+      <DependentUpon>FrmUserDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Users\FrmUsers.cs">
       <SubType>Form</SubType>
@@ -100,6 +112,12 @@
     </Compile>
     <Compile Include="People\ucPersonDetails.Designer.cs">
       <DependentUpon>ucPersonDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\ucUserInformations.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Users\ucUserInformations.Designer.cs">
+      <DependentUpon>ucUserInformations.cs</DependentUpon>
     </Compile>
     <Compile Include="Users\ucGetPersonWithFilter.cs">
       <SubType>UserControl</SubType>
@@ -122,8 +140,14 @@
     <EmbeddedResource Include="People\FrmPersonDetails.resx">
       <DependentUpon>FrmPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Users\FrmAddUser.resx">
-      <DependentUpon>FrmAddUser.cs</DependentUpon>
+    <EmbeddedResource Include="Users\FrmAddOrUpdateUser.resx">
+      <DependentUpon>FrmAddOrUpdateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\FrmChangePassword.resx">
+      <DependentUpon>FrmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\FrmUserDetails.resx">
+      <DependentUpon>FrmUserDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\FrmUsers.resx">
       <DependentUpon>FrmUsers.cs</DependentUpon>
@@ -140,6 +164,9 @@
     </Compile>
     <EmbeddedResource Include="People\ucPersonDetails.resx">
       <DependentUpon>ucPersonDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\ucUserInformations.resx">
+      <DependentUpon>ucUserInformations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\ucGetPersonWithFilter.resx">
       <DependentUpon>ucGetPersonWithFilter.cs</DependentUpon>
@@ -286,6 +313,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\enter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reset-password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\log-out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Active1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\details1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddPerson1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
