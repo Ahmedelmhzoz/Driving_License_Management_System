@@ -29,10 +29,15 @@ namespace PresentationLayer {
             if (cbFilterBy.Text == "None") {
                 txtSearch.Visible = false;
                 dgvUsers.DataSource = User.getUsers();
+                return;
             }
+           
             else {
                 txtSearch.Visible = true;
-                dgvUsers.DataSource = User.getCurrentSearchResult(txtSearch.Text, cbFilterBy.Text, currentStatue);
+                if (string.IsNullOrWhiteSpace(txtSearch.Text)) 
+                    dgvUsers.DataSource = User.getUsers();
+                else
+                    dgvUsers.DataSource = User.getCurrentSearchResult(txtSearch.Text, cbFilterBy.Text, currentStatue);
             }
         }
 
@@ -80,7 +85,7 @@ namespace PresentationLayer {
         }
 
         private void btnAddUser_Click(object sender, EventArgs e) {
-            FrmAddUser frm = new FrmAddUser();
+            FrmAddOrUpdateUser frm = new FrmAddOrUpdateUser();
             frm.ShowDialog();
             dgvUsers.DataSource = User.getUsers();
         }
@@ -88,9 +93,20 @@ namespace PresentationLayer {
         private void editToolStripMenuItem_Click(object sender, EventArgs e) {
             string username = dgvUsers.CurrentRow.Cells[3].Value.ToString();
             User user = User.getUserByUserName(username);
-            FrmAddUser frm = new FrmAddUser(user);
+            FrmAddOrUpdateUser frm = new FrmAddOrUpdateUser(user);
             frm.ShowDialog();
             dgvUsers.DataSource = User.getUsers();
+        }
+
+        private void showDetials_Click(object sender, EventArgs e) {
+            string username = dgvUsers.CurrentRow.Cells[3].Value.ToString();
+            User user = User.getUserByUserName(username);
+            FrmUserDetails frm = new FrmUserDetails(user);
+            frm.ShowDialog();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e) {
+            this.Close();
         }
     }
 }

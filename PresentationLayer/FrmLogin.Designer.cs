@@ -35,6 +35,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -159,6 +160,20 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnClose.ForeColor = System.Drawing.Color.Transparent;
+            this.btnClose.Image = global::PresentationLayer.Properties.Resources.close1;
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Location = new System.Drawing.Point(1679, 1066);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(230, 83);
+            this.btnClose.TabIndex = 50;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -166,6 +181,7 @@
             this.BackgroundImage = global::PresentationLayer.Properties.Resources.ChatGPT_Image_Aug_20__2026__12_40_37_PM;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1933, 1198);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.chkActive);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox1);
@@ -200,5 +216,6 @@
         private System.Windows.Forms.CheckBox chkActive;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button btnClose;
     }
 }

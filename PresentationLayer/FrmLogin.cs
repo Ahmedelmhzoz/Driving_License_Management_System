@@ -96,8 +96,9 @@ namespace PresentationLayer {
 
                     ImportantSessionData.user = user;
                     FrmMainForm Frm = new FrmMainForm();
-                    this.Close();
+                    this.Hide();
                     Frm.ShowDialog();
+                    this.Close();
                 }
             }
             else {
@@ -109,6 +110,10 @@ namespace PresentationLayer {
 
         private void btnLogin_Click(object sender, EventArgs e) {
             _LoginProcess();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e) {
+            this.Close();
         }
     }
 }

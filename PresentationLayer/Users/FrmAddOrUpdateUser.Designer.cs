@@ -1,5 +1,5 @@
 ﻿namespace PresentationLayer.Users {
-    partial class FrmAddUser {
+    partial class FrmAddOrUpdateUser {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -26,9 +26,9 @@
             this.components = new System.ComponentModel.Container();
             this.tcAddUser = new System.Windows.Forms.TabControl();
             this.tpPerson = new System.Windows.Forms.TabPage();
-            this.ucPersonDetails = new PresentationLayer.ucPersonDetails();
             this.btnNext = new System.Windows.Forms.Button();
             this.ucGetPersonWithFilter = new PresentationLayer.Users.ucGetPersonWithFilter();
+            this.ucPersonDetails = new PresentationLayer.ucPersonDetails();
             this.tpCreateUser = new System.Windows.Forms.TabPage();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -88,14 +88,6 @@
             this.tpPerson.TabIndex = 0;
             this.tpPerson.Text = "Find person";
             // 
-            // ucPersonDetails
-            // 
-            this.ucPersonDetails.BackColor = System.Drawing.SystemColors.WindowText;
-            this.ucPersonDetails.Location = new System.Drawing.Point(69, 155);
-            this.ucPersonDetails.Name = "ucPersonDetails";
-            this.ucPersonDetails.Size = new System.Drawing.Size(1922, 855);
-            this.ucPersonDetails.TabIndex = 21;
-            // 
             // btnNext
             // 
             this.btnNext.BackColor = System.Drawing.Color.DeepSkyBlue;
@@ -118,6 +110,14 @@
             this.ucGetPersonWithFilter.Name = "ucGetPersonWithFilter";
             this.ucGetPersonWithFilter.Size = new System.Drawing.Size(1961, 1237);
             this.ucGetPersonWithFilter.TabIndex = 0;
+            // 
+            // ucPersonDetails
+            // 
+            this.ucPersonDetails.BackColor = System.Drawing.SystemColors.WindowText;
+            this.ucPersonDetails.Location = new System.Drawing.Point(69, 155);
+            this.ucPersonDetails.Name = "ucPersonDetails";
+            this.ucPersonDetails.Size = new System.Drawing.Size(1922, 855);
+            this.ucPersonDetails.TabIndex = 21;
             // 
             // tpCreateUser
             // 
@@ -378,7 +378,7 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // FrmAddUser
+            // FrmAddOrUpdateUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -387,7 +387,7 @@
             this.Controls.Add(this.lblProcess);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.tcAddUser);
-            this.Name = "FrmAddUser";
+            this.Name = "FrmAddOrUpdateUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAddUser";
             this.Load += new System.EventHandler(this.FrmAddUser_Load);

@@ -27,15 +27,17 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblNext = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnNextPerson = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ucPersonViewer = new PresentationLayer.ucPersonDetails();
             this.lblRecordsNo = new System.Windows.Forms.Label();
             this.lbl = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnNextPerson = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.ucPersonViewer = new PresentationLayer.ucPersonDetails();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -43,6 +45,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Black;
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.lblNext);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnNextPerson);
@@ -50,6 +54,7 @@
             this.groupBox1.Controls.Add(this.txtSearch);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cbFilterBy);
+            this.groupBox1.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.groupBox1.Location = new System.Drawing.Point(23, 29);
             this.groupBox1.Name = "groupBox1";
@@ -63,7 +68,7 @@
             this.lblNext.AutoSize = true;
             this.lblNext.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Bold);
             this.lblNext.ForeColor = System.Drawing.Color.DimGray;
-            this.lblNext.Location = new System.Drawing.Point(1357, 34);
+            this.lblNext.Location = new System.Drawing.Point(1338, 34);
             this.lblNext.Name = "lblNext";
             this.lblNext.Size = new System.Drawing.Size(203, 35);
             this.lblNext.TabIndex = 12;
@@ -79,29 +84,6 @@
             this.label1.Size = new System.Drawing.Size(121, 35);
             this.label1.TabIndex = 11;
             this.label1.Text = "Search";
-            // 
-            // btnNextPerson
-            // 
-            this.btnNextPerson.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnNextPerson.Enabled = false;
-            this.btnNextPerson.Image = global::PresentationLayer.Properties.Resources.nextUser;
-            this.btnNextPerson.Location = new System.Drawing.Point(1354, 80);
-            this.btnNextPerson.Name = "btnNextPerson";
-            this.btnNextPerson.Size = new System.Drawing.Size(216, 85);
-            this.btnNextPerson.TabIndex = 10;
-            this.btnNextPerson.UseVisualStyleBackColor = false;
-            this.btnNextPerson.Click += new System.EventHandler(this.btnNextPerson_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnSearch.Image = global::PresentationLayer.Properties.Resources.search;
-            this.btnSearch.Location = new System.Drawing.Point(1083, 80);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(216, 85);
-            this.btnSearch.TabIndex = 9;
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSearch
             // 
@@ -144,14 +126,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // ucPersonViewer
-            // 
-            this.ucPersonViewer.BackColor = System.Drawing.SystemColors.WindowText;
-            this.ucPersonViewer.Location = new System.Drawing.Point(-6, 272);
-            this.ucPersonViewer.Name = "ucPersonViewer";
-            this.ucPersonViewer.Size = new System.Drawing.Size(1911, 896);
-            this.ucPersonViewer.TabIndex = 0;
-            // 
             // lblRecordsNo
             // 
             this.lblRecordsNo.AutoSize = true;
@@ -173,6 +147,59 @@
             this.lbl.Size = new System.Drawing.Size(450, 39);
             this.lbl.TabIndex = 8;
             this.lbl.Text = "# Search result persons: ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(1598, 34);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(194, 35);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Add person";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.button1.Image = global::PresentationLayer.Properties.Resources.AddPerson1;
+            this.button1.Location = new System.Drawing.Point(1586, 79);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(216, 85);
+            this.button1.TabIndex = 13;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnNextPerson
+            // 
+            this.btnNextPerson.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnNextPerson.Enabled = false;
+            this.btnNextPerson.Image = global::PresentationLayer.Properties.Resources.nextUser;
+            this.btnNextPerson.Location = new System.Drawing.Point(1334, 80);
+            this.btnNextPerson.Name = "btnNextPerson";
+            this.btnNextPerson.Size = new System.Drawing.Size(216, 85);
+            this.btnNextPerson.TabIndex = 10;
+            this.btnNextPerson.UseVisualStyleBackColor = false;
+            this.btnNextPerson.Click += new System.EventHandler(this.btnNextPerson_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnSearch.Image = global::PresentationLayer.Properties.Resources.search;
+            this.btnSearch.Location = new System.Drawing.Point(1083, 80);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(216, 85);
+            this.btnSearch.TabIndex = 9;
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // ucPersonViewer
+            // 
+            this.ucPersonViewer.BackColor = System.Drawing.SystemColors.WindowText;
+            this.ucPersonViewer.Location = new System.Drawing.Point(-6, 272);
+            this.ucPersonViewer.Name = "ucPersonViewer";
+            this.ucPersonViewer.Size = new System.Drawing.Size(1911, 896);
+            this.ucPersonViewer.TabIndex = 0;
             // 
             // ucGetPersonWithFilter
             // 
@@ -208,5 +235,7 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label lblRecordsNo;
         private System.Windows.Forms.Label lbl;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button1;
     }
 }
