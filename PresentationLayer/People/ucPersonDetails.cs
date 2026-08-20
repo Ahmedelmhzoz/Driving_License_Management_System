@@ -26,6 +26,7 @@ namespace PresentationLayer {
             lblName.Text = currentPerson.firstName + ' ' + currentPerson.secondName + ' '
                 + currentPerson.thirdName + ' ' + currentPerson.lastName;
             lblNationalNum.Text = currentPerson.NationalNo;
+            lblGender.Text = currentPerson.gender;
             if (currentPerson.email != "") lblEmail.Text = currentPerson.email;
             lblAddress.Text = currentPerson.Address;
             lblCountry.Text = currentPerson.country;
@@ -42,13 +43,24 @@ namespace PresentationLayer {
                 pbProfileImg.Tag = null;
             }
         } 
-        public bool isThereImage() {
-            return pbProfileImg.Tag != null;
+        public void returnToDefault() {
+            lblpersonID.Text = "Unknown";
+            lblName.Text = "Unknown";
+            lblNationalNum.Text = "Unknown";
+            lblGender.Text = "Unknown";
+            lblEmail.Text = "Unknown";
+            lblAddress.Text = "Unknown";
+            lblDateOfBirth.Text = "Unknown";
+            lblPhone.Text = "Unknown";
+            lblCountry.Text = "Unknown";
+
+            pbProfileImg.Image = Properties.Resources.man;
+            pbProfileImg.Tag = null;
         }
-        public void setImage(string imagePath) {
-            pbProfileImg.Image = Image.FromFile(imagePath);
-            person.imagePath = imagePath;
-            person.Save();
+
+        public int returnPersonID() {
+                return Convert.ToInt32(lblpersonID.Text);
         }
+
     }
 }

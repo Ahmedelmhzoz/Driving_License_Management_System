@@ -25,6 +25,8 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblRemove = new System.Windows.Forms.Label();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnAddImage = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -68,8 +70,6 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnClose = new System.Windows.Forms.Button();
-            this.lblRemove = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -134,6 +134,28 @@
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Person informations ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Georgia", 7F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(1921, 411);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(143, 29);
+            this.label2.TabIndex = 67;
+            this.label2.Text = "Add image";
+            // 
+            // lblRemove
+            // 
+            this.lblRemove.AutoSize = true;
+            this.lblRemove.Font = new System.Drawing.Font("Georgia", 7F, System.Drawing.FontStyle.Bold);
+            this.lblRemove.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblRemove.Location = new System.Drawing.Point(1689, 411);
+            this.lblRemove.Name = "lblRemove";
+            this.lblRemove.Size = new System.Drawing.Size(193, 29);
+            this.lblRemove.TabIndex = 66;
+            this.lblRemove.Text = "Remove image";
             // 
             // btnRemove
             // 
@@ -559,28 +581,6 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // lblRemove
-            // 
-            this.lblRemove.AutoSize = true;
-            this.lblRemove.Font = new System.Drawing.Font("Georgia", 7F, System.Drawing.FontStyle.Bold);
-            this.lblRemove.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblRemove.Location = new System.Drawing.Point(1689, 411);
-            this.lblRemove.Name = "lblRemove";
-            this.lblRemove.Size = new System.Drawing.Size(193, 29);
-            this.lblRemove.TabIndex = 66;
-            this.lblRemove.Text = "Remove image";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Georgia", 7F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(1921, 411);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 29);
-            this.label2.TabIndex = 67;
-            this.label2.Text = "Add image";
             // 
             // FrmAddOrUpdatePerson
             // 

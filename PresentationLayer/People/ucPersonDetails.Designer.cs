@@ -141,7 +141,7 @@
             this.lblCountry.AutoSize = true;
             this.lblCountry.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.lblCountry.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblCountry.Location = new System.Drawing.Point(1250, 719);
+            this.lblCountry.Location = new System.Drawing.Point(1331, 710);
             this.lblCountry.Name = "lblCountry";
             this.lblCountry.Size = new System.Drawing.Size(186, 39);
             this.lblCountry.TabIndex = 42;
@@ -152,7 +152,7 @@
             this.lblPhone.AutoSize = true;
             this.lblPhone.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.lblPhone.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblPhone.Location = new System.Drawing.Point(1250, 575);
+            this.lblPhone.Location = new System.Drawing.Point(1331, 566);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(186, 39);
             this.lblPhone.TabIndex = 41;
@@ -163,7 +163,7 @@
             this.lblDateOfBirth.AutoSize = true;
             this.lblDateOfBirth.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.lblDateOfBirth.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblDateOfBirth.Location = new System.Drawing.Point(1250, 441);
+            this.lblDateOfBirth.Location = new System.Drawing.Point(1331, 432);
             this.lblDateOfBirth.Name = "lblDateOfBirth";
             this.lblDateOfBirth.Size = new System.Drawing.Size(186, 39);
             this.lblDateOfBirth.TabIndex = 40;
@@ -172,7 +172,7 @@
             // pictureBox10
             // 
             this.pictureBox10.Image = global::PresentationLayer.Properties.Resources.country;
-            this.pictureBox10.Location = new System.Drawing.Point(1180, 730);
+            this.pictureBox10.Location = new System.Drawing.Point(1261, 721);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(64, 39);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -182,7 +182,7 @@
             // pictureBox9
             // 
             this.pictureBox9.Image = global::PresentationLayer.Properties.Resources.phone_call;
-            this.pictureBox9.Location = new System.Drawing.Point(1180, 576);
+            this.pictureBox9.Location = new System.Drawing.Point(1261, 567);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(64, 39);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -192,7 +192,7 @@
             // pictureBox8
             // 
             this.pictureBox8.Image = global::PresentationLayer.Properties.Resources.date_of_birth;
-            this.pictureBox8.Location = new System.Drawing.Point(1180, 441);
+            this.pictureBox8.Location = new System.Drawing.Point(1261, 432);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(64, 39);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -204,7 +204,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label11.Location = new System.Drawing.Point(913, 441);
+            this.label11.Location = new System.Drawing.Point(994, 432);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(252, 39);
             this.label11.TabIndex = 36;
@@ -215,7 +215,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label10.Location = new System.Drawing.Point(913, 576);
+            this.label10.Location = new System.Drawing.Point(994, 567);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(140, 39);
             this.label10.TabIndex = 35;
@@ -226,7 +226,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label9.Location = new System.Drawing.Point(913, 720);
+            this.label9.Location = new System.Drawing.Point(994, 711);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(160, 39);
             this.label9.TabIndex = 34;

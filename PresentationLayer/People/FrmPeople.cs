@@ -22,6 +22,7 @@ namespace PresentationLayer {
             if (dgvPeople.Rows.Count > 0) {
                 dgvPeople.Columns["Address"].Visible = false;
                 dgvPeople.Columns["ImagePath"].Visible = false;
+                dgvPeople.Columns["NationalityCountryID"].Visible = false;
             }
             lblRecordsNo.Text = dgvPeople.Rows.Count.ToString();
    
@@ -33,12 +34,16 @@ namespace PresentationLayer {
                 dgvPeople.DataSource = Person.getAllPeople();
             } else {
                 txtSearch.Visible = true;
+                dgvPeople.DataSource = Person.getCurrentSearchResult(txtSearch.Text, cbFilterBy.Text);
             }
                 
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e) {
-            dgvPeople.DataSource = Person.getCurrentSearchResult(txtSearch.Text, cbFilterBy.Text);
+            if (txtSearch.Text == "")
+                dgvPeople.DataSource = Person.getAllPeople();
+            else
+                dgvPeople.DataSource = Person.getCurrentSearchResult(txtSearch.Text, cbFilterBy.Text);
         }
 
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e) {
@@ -54,8 +59,8 @@ namespace PresentationLayer {
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e) {
             Person person = null;
-            string selectedNationalNo = dgvPeople.CurrentRow.Cells[1].Value.ToString();
-            if ((person = Person.findPerson(selectedNationalNo)) != null) {
+            int ID = (int)dgvPeople.CurrentRow.Cells[0].Value;
+            if ((person = Person.findPerson(ID)) != null) {
                 FrmPersonDetails frm = new FrmPersonDetails(person);
                 frm.ShowDialog();
             }
@@ -69,8 +74,8 @@ namespace PresentationLayer {
         }
 
         private void editToolStripMenuItem_Click_1(object sender, EventArgs e) {
-            string selectedNationalNo = dgvPeople.CurrentRow.Cells[1].Value.ToString();
-            Person personToEdit = Person.findPerson(selectedNationalNo);
+            int ID = (int)dgvPeople.CurrentRow.Cells[0].Value;
+            Person personToEdit = Person.findPerson(ID);
             FrmAddOrUpdatePerson frm = new FrmAddOrUpdatePerson(personToEdit);
             frm.ShowDialog();
             dgvPeople.DataSource = Person.getAllPeople();

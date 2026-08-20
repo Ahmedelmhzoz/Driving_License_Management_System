@@ -10,8 +10,11 @@ D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLa
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.FrmMainForm.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.FrmPeople.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.FrmPersonDetails.resources
+D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Users.FrmAddUser.resources
+D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.FrmUsers.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Properties.Resources.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.ucPersonDetails.resources
+D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Users.ucGetPersonWithFilter.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.csproj.GenerateResource.cache
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.csproj.CoreCompileInputs.cache
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\Presenta.9C561136.Up2Date

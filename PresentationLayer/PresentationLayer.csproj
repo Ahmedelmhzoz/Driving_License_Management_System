@@ -49,10 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmAddOrUpdatePerson.cs">
+    <Compile Include="Global\ImportantSessionData.cs" />
+    <Compile Include="People\FrmAddOrUpdatePerson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAddOrUpdatePerson.Designer.cs">
+    <Compile Include="People\FrmAddOrUpdatePerson.Designer.cs">
       <DependentUpon>FrmAddOrUpdatePerson.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMainForm.cs">
@@ -61,41 +62,65 @@
     <Compile Include="FrmMainForm.Designer.cs">
       <DependentUpon>FrmMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPeople.cs">
+    <Compile Include="People\FrmPeople.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPeople.Designer.cs">
+    <Compile Include="People\FrmPeople.Designer.cs">
       <DependentUpon>FrmPeople.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPersonDetails.cs">
+    <Compile Include="People\FrmPersonDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPersonDetails.Designer.cs">
+    <Compile Include="People\FrmPersonDetails.Designer.cs">
       <DependentUpon>FrmPersonDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helpers.cs" />
+    <Compile Include="Users\FrmAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\FrmAddUser.Designer.cs">
+      <DependentUpon>FrmAddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\FrmUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\FrmUsers.Designer.cs">
+      <DependentUpon>FrmUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global\Helpers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ucPersonDetails.cs">
+    <Compile Include="People\ucPersonDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucPersonDetails.Designer.cs">
+    <Compile Include="People\ucPersonDetails.Designer.cs">
       <DependentUpon>ucPersonDetails.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FrmAddOrUpdatePerson.resx">
+    <Compile Include="Users\ucGetPersonWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Users\ucGetPersonWithFilter.Designer.cs">
+      <DependentUpon>ucGetPersonWithFilter.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="People\FrmAddOrUpdatePerson.resx">
       <DependentUpon>FrmAddOrUpdatePerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMainForm.resx">
       <DependentUpon>FrmMainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPeople.resx">
+    <EmbeddedResource Include="People\FrmPeople.resx">
       <DependentUpon>FrmPeople.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPersonDetails.resx">
+    <EmbeddedResource Include="People\FrmPersonDetails.resx">
       <DependentUpon>FrmPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Users\FrmAddUser.resx">
+      <DependentUpon>FrmAddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\FrmUsers.resx">
+      <DependentUpon>FrmUsers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -104,8 +129,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ucPersonDetails.resx">
+    <EmbeddedResource Include="People\ucPersonDetails.resx">
       <DependentUpon>ucPersonDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\ucGetPersonWithFilter.resx">
+      <DependentUpon>ucGetPersonWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -198,6 +226,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Login\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\team-management.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nextUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\management1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\padlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\passwordConfirm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\employee.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

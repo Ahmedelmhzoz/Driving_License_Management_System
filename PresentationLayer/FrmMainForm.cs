@@ -18,5 +18,10 @@ namespace PresentationLayer {
             FrmPeople frm = new FrmPeople();
             frm.ShowDialog();
         }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e) {
+            FrmUsers frm = new FrmUsers();
+            frm.ShowDialog();
+        }
     }
 }
