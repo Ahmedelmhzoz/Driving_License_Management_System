@@ -71,8 +71,7 @@ namespace PresentationLayer.Users {
                 lblID.Text = "Unknown";
             }
             else if (tcAddUser.SelectedIndex == 0 && currentUser.currentMode == enUserMode.addUser) { // if he went to the find person in add mode
-                if (ucGetPersonWithFilter.thereIsPersonSelected())
-                    ucGetPersonWithFilter.refrechResult(false);
+                 ucGetPersonWithFilter.ReloadPersons();
             }
             else if (tcAddUser.SelectedIndex == 1 && currentUser.currentMode == enUserMode.updateUser) { // if he went to the user tab in update mode
                 lblPersonID.Text = ucPersonDetails.returnPersonID().ToString();
@@ -164,8 +163,8 @@ namespace PresentationLayer.Users {
                 if (WhatPersonModeWas == enUserMode.addUser) {
                     lblID.Text = currentUser.userID.ToString();
                     lblID.BackColor = Color.SpringGreen;
-                    
                     _LoginDataControlsEnablity(false);
+                    ucGetPersonWithFilter.currentPersonBecameAUser();
                     currentUser = new User();
                 } else {
                     this.Close();

@@ -27,6 +27,8 @@
             this.Personi = new System.Windows.Forms.Label();
             this.lblpersonID = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblUpdate = new System.Windows.Forms.Label();
+            this.btnUpdatePerson = new System.Windows.Forms.Button();
             this.lblCountry = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
             this.lblDateOfBirth = new System.Windows.Forms.Label();
@@ -100,6 +102,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblUpdate);
+            this.groupBox1.Controls.Add(this.btnUpdatePerson);
             this.groupBox1.Controls.Add(this.lblCountry);
             this.groupBox1.Controls.Add(this.lblPhone);
             this.groupBox1.Controls.Add(this.lblDateOfBirth);
@@ -136,6 +140,29 @@
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Person informations";
+            // 
+            // lblUpdate
+            // 
+            this.lblUpdate.AutoSize = true;
+            this.lblUpdate.Font = new System.Drawing.Font("Georgia", 8F, System.Drawing.FontStyle.Bold);
+            this.lblUpdate.ForeColor = System.Drawing.Color.DimGray;
+            this.lblUpdate.Location = new System.Drawing.Point(1113, 96);
+            this.lblUpdate.Name = "lblUpdate";
+            this.lblUpdate.Size = new System.Drawing.Size(283, 31);
+            this.lblUpdate.TabIndex = 43;
+            this.lblUpdate.Text = "Update person info";
+            // 
+            // btnUpdatePerson
+            // 
+            this.btnUpdatePerson.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnUpdatePerson.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnUpdatePerson.Image = global::PresentationLayer.Properties.Resources.updateData1;
+            this.btnUpdatePerson.Location = new System.Drawing.Point(1172, 146);
+            this.btnUpdatePerson.Name = "btnUpdatePerson";
+            this.btnUpdatePerson.Size = new System.Drawing.Size(167, 111);
+            this.btnUpdatePerson.TabIndex = 0;
+            this.btnUpdatePerson.UseVisualStyleBackColor = false;
+            this.btnUpdatePerson.Click += new System.EventHandler(this.btnUpdatePerson_Click);
             // 
             // lblCountry
             // 
@@ -458,5 +485,7 @@
         private System.Windows.Forms.PictureBox pbProfileImg;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.Label lblCountry;
+        private System.Windows.Forms.Button btnUpdatePerson;
+        private System.Windows.Forms.Label lblUpdate;
     }
 }

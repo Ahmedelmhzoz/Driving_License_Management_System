@@ -8,7 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading.Tasks;   
 using System.Windows.Forms;
 
 namespace PresentationLayer {
@@ -21,6 +21,9 @@ namespace PresentationLayer {
             InitializeComponent();
         }
         public void loadData(Person currentPerson) {
+            btnUpdatePerson.Enabled = true;
+            lblUpdate.ForeColor = Color.White;
+
             person = currentPerson;
             lblpersonID.Text = currentPerson.personID.ToString();
             lblName.Text = currentPerson.firstName + ' ' + currentPerson.secondName + ' '
@@ -44,6 +47,9 @@ namespace PresentationLayer {
             }
         } 
         public void returnToDefault() {
+            btnUpdatePerson.Enabled = false;
+            lblUpdate.ForeColor = Color.DimGray;
+
             lblpersonID.Text = "Unknown";
             lblName.Text = "Unknown";
             lblNationalNum.Text = "Unknown";
@@ -62,5 +68,12 @@ namespace PresentationLayer {
                 return Convert.ToInt32(lblpersonID.Text);
         }
 
+        private void btnUpdatePerson_Click(object sender, EventArgs e) {
+            if (person != null) {
+                FrmAddOrUpdatePerson frm = new FrmAddOrUpdatePerson(person);
+                frm.ShowDialog();
+                loadData(person);
+            }
+        }
     }
 }

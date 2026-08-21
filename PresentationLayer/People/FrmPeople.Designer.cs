@@ -195,7 +195,7 @@
             this.cToolStripMenuItem,
             this.phoneCallToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(398, 286);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(398, 341);
             // 
             // showDetailsToolStripMenuItem
             // 
