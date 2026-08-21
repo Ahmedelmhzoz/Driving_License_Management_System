@@ -88,6 +88,11 @@ namespace PresentationLayer {
                 errorProvider1.SetError(txtNatNo, "National No is required!");
                 isValid = false;
             }
+              bool IsSameAsOld = currentPerson.currentMode == enPersonMode.updatePerson && currentPerson.NationalNo == txtNatNo.Text.Trim();
+            if (Person.isNationalNumExists(txtNatNo.Text) && !IsSameAsOld) { // if he add a new person the he wanted to add directly the second, this validation will be matter
+                errorProvider1.SetError(txtNatNo, "There is another person have this national number!");
+                isValid = false;
+            } 
             if (string.IsNullOrWhiteSpace(txtPhone.Text)) {
                 errorProvider1.SetError(txtPhone, "Phone number is required!");
                 isValid = false;
@@ -106,10 +111,9 @@ namespace PresentationLayer {
         private void txtNatNo_Validating(object sender, CancelEventArgs e) {
             if (string.IsNullOrEmpty(txtNatNo.Text)) 
                 return;
-            if (currentPerson.currentMode == enPersonMode.updatePerson && txtNatNo.Text == currentPerson.NationalNo)
-                // if he in update mode and he let the national no, we won't consider validation
-                return; 
-            if (Person.isNationalNumExists(txtNatNo.Text)) { 
+            
+            bool IsSameAsOld = currentPerson.currentMode == enPersonMode.updatePerson && currentPerson.NationalNo == txtNatNo.Text.Trim();
+            if (Person.isNationalNumExists(txtNatNo.Text) && !IsSameAsOld) { 
                 e.Cancel = true;
                 errorProvider1.SetError(txtNatNo, "There is another person have this national number!");
             } else {
@@ -145,14 +149,8 @@ namespace PresentationLayer {
                 Helpers.ShowErrorMessage("Please fill the required fields");
                 return;
             }
-            if (Person.isNationalNumExists(txtNatNo.Text)) {
-                errorProvider1.SetError(txtNatNo, "There is another person have this national number!");
-                return;
-            }
-            if (lblOperation.Text == "Add new person") {
-                currentPerson.currentMode = enPersonMode.addPerson; // if we remove this if condition:
-                                                                    // if he add a new person, then he didnt close the form and add another person the old person will be updated with the new person2 data
-            }
+
+            enPersonMode whatPersonModeWas = currentPerson.currentMode;
             currentPerson.firstName = txtFirst.Text.Trim();
             currentPerson.secondName = txtSecond.Text.Trim();
             currentPerson.thirdName = txtThird.Text.Trim();
@@ -166,9 +164,12 @@ namespace PresentationLayer {
             currentPerson.NationalityCountryID = Convert.ToInt32(cbCountries.SelectedValue);
             if (currentPerson.Save()) {
                 Helpers.SuccessfulMessage("Person saves successfully!");
-                if (lblOperation.Text == "Add new person") {
+                if (whatPersonModeWas == enPersonMode.addPerson) {
                     lblpersonID.Text = currentPerson.personID.ToString();
                     lblpersonID.BackColor = Color.SpringGreen;
+                    // if we didn't add this line -> currentPerson = new Person();
+                    // if he add a new person, then he didnt close the form and add another person the old person will be updated with the new person2 data
+                    currentPerson = new Person();
                 }
                
             } else {
