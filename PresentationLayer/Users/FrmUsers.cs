@@ -26,19 +26,13 @@ namespace PresentationLayer {
         }
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e) {
-            if (cbFilterBy.Text == "None") {
+            if (cbFilterBy.Text == "None")
+                {txtSearch.Text = "";
                 txtSearch.Visible = false;
-                dgvUsers.DataSource = User.getUsers();
-                return;
             }
-           
-            else {
+            else 
                 txtSearch.Visible = true;
-                if (string.IsNullOrWhiteSpace(txtSearch.Text)) 
-                    dgvUsers.DataSource = User.getUsers();
-                else
-                    dgvUsers.DataSource = User.getCurrentSearchResult(txtSearch.Text, cbFilterBy.Text, currentStatue);
-            }
+            _FilterUsersWithState();
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e) {
@@ -48,7 +42,7 @@ namespace PresentationLayer {
                 dgvUsers.DataSource = User.getCurrentSearchResult(txtSearch.Text, cbFilterBy.Text, currentStatue);
         }
 
-        void filterUsersWithState() {
+        void _FilterUsersWithState() {
             if (cbFilterBy.Text == "None" || txtSearch.Text == "") {
                 dgvUsers.DataSource = User.selectUsersByState(currentStatue);
             }
@@ -59,21 +53,21 @@ namespace PresentationLayer {
         private void rbGeneral_CheckedChanged(object sender, EventArgs e) {
             if (rbGeneral.Checked) {
                 currentStatue = enUserStatus.enGeneral;
-                filterUsersWithState();
+                _FilterUsersWithState();
             }
         }
 
         private void rbActive_CheckedChanged(object sender, EventArgs e) {
             if (rbActive.Checked) {
                 currentStatue = enUserStatus.enActive;
-                filterUsersWithState();
+                _FilterUsersWithState();
             }
         }
 
         private void rbIsntActive_CheckedChanged(object sender, EventArgs e) {
             if (rbIsntActive.Checked) {
                 currentStatue = enUserStatus.enNotActive;
-                filterUsersWithState();
+                _FilterUsersWithState();
             }
         }
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e) {
@@ -107,6 +101,21 @@ namespace PresentationLayer {
 
         private void btnClose_Click(object sender, EventArgs e) {
             this.Close();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e) {
+            int userID = (int)dgvUsers.CurrentRow.Cells[0].Value;
+           
+            if (!User.didUserCreateApp(userID)) {
+                if (User.deleteUser(userID)) {
+                    Helpers.SuccessfulMessage($"The user with ID = {userID} was deleted successfully!");
+                } else {
+                    Helpers.ShowErrorMessage("Error happend while deleting");
+                }
+            } else {
+                Helpers.ShowErrorMessage($"The user with ID = {userID} participated in creating an Application, you cant delete this user");
+            }
+            _FilterUsersWithState();
         }
     }
 }

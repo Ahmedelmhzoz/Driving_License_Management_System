@@ -102,8 +102,8 @@ namespace PresentationLayer.Users {
             _ShowSearchResults();
         }
 
-        public bool thereIsPersonSelected() {
-            return currentSearchResult != null && currentSearchResult.Rows.Count > 0;
+        public bool thereIsResults() {
+            return currentSearchResult != null;
         }
         public int getPersonID() {
             return ucPersonViewer.returnPersonID();

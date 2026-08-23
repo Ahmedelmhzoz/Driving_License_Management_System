@@ -100,5 +100,12 @@ namespace BusinessLayer {
                     return updateUser();
             }
         }
+
+        public static bool didUserCreateApp(int ID) {
+            return UsersData.isUserFree(ID);
+        }
+        public static bool deleteUser(int ID) {
+            return UsersData.deleteAUser(ID);
+        }
     }
 }

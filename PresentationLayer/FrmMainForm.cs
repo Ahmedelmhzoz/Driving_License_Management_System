@@ -1,4 +1,5 @@
-﻿using PresentationLayer.Users;
+﻿using PresentationLayer.Manage_types;
+using PresentationLayer.Users;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,6 +39,16 @@ namespace PresentationLayer {
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e) {
             FrmChangePassword frm = new FrmChangePassword(ImportantSessionData.user);
+            frm.ShowDialog();
+        }
+
+        private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e) {
+            FrmApplicationTypes frm = new FrmApplicationTypes();
+            frm.ShowDialog();
+        }
+
+        private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e) {
+            FrmTestTypes frm = new FrmTestTypes();
             frm.ShowDialog();
         }
     }

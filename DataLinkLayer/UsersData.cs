@@ -189,7 +189,37 @@ namespace DataLinkLayer {
             }
             return ID;
         }
+        public static bool isUserFree(int ID) {
+            try {
+                using (SqlConnection conn = new SqlConnection(connectionSettings)) {
+                    using (SqlCommand cmd = new SqlCommand("Select found = 1 from Applications where CreatedByUserID = @ID", conn)) {
+                        cmd.Parameters.AddWithValue("@ID", ID);
+                        conn.Open();
+                        object result = cmd.ExecuteScalar();
+                        return result != null;
+                    }
+                }
+            }
+            catch (Exception ex) {
+                System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
+            }
+            return false;
+        }
+        public static bool deleteAUser(int ID) {
+            try {
+                using (SqlConnection conn = new SqlConnection(connectionSettings)) {
+                    using (SqlCommand cmd = new SqlCommand("delete from Users where UserID = @ID", conn)) {
+                        cmd.Parameters.AddWithValue("@ID", ID);
+                        conn.Open();
+                        int affectedRows = cmd.ExecuteNonQuery();
+                        return affectedRows > 0;
+                    }
+                }
+            }
+            catch (Exception ex) {
+                System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
+            }
+            return false;
+        }
     }
-        
-    
 }
