@@ -14,24 +14,25 @@ namespace PresentationLayer {
             InitializeComponent();
         }
         
-            
+        void _ReloadData() {
+            dgvPeople.DataSource = Person.getAllPeople();
+            lblRecordsNo.Text = dgvPeople.Rows.Count.ToString();
+        }
         private void FrmPeople_Load(object sender, EventArgs e) {
             cbFilterBy.SelectedIndex = 0;
             dgvPeople.RowTemplate.Height = 60;
-            dgvPeople.DataSource = Person.getAllPeople();
+            _ReloadData();
             if (dgvPeople.Rows.Count > 0) {
                 dgvPeople.Columns["Address"].Visible = false;
                 dgvPeople.Columns["ImagePath"].Visible = false;
                 dgvPeople.Columns["NationalityCountryID"].Visible = false;
             }
-            lblRecordsNo.Text = dgvPeople.Rows.Count.ToString();
-   
         }
 
         private void cbCategories_SelectedIndexChanged(object sender, EventArgs e) {
             if (cbFilterBy.Text == "None") {
                 txtSearch.Visible = false;
-                dgvPeople.DataSource = Person.getAllPeople();
+                _ReloadData();
             } else {
                 txtSearch.Visible = true;
                 dgvPeople.DataSource = Person.getCurrentSearchResult(txtSearch.Text, cbFilterBy.Text);
@@ -41,7 +42,7 @@ namespace PresentationLayer {
 
         private void txtSearch_TextChanged(object sender, EventArgs e) {
             if (txtSearch.Text == "")
-                dgvPeople.DataSource = Person.getAllPeople();
+                _ReloadData();
             else
                 dgvPeople.DataSource = Person.getCurrentSearchResult(txtSearch.Text, cbFilterBy.Text);
         }
@@ -70,7 +71,7 @@ namespace PresentationLayer {
             Person newPerson = new Person();
             FrmAddOrUpdatePerson frm = new FrmAddOrUpdatePerson(newPerson);
             frm.ShowDialog();
-            dgvPeople.DataSource = Person.getAllPeople();
+            _ReloadData();
         }
 
         private void editToolStripMenuItem_Click_1(object sender, EventArgs e) {
@@ -78,7 +79,7 @@ namespace PresentationLayer {
             Person personToEdit = Person.findPerson(ID);
             FrmAddOrUpdatePerson frm = new FrmAddOrUpdatePerson(personToEdit);
             frm.ShowDialog();
-            dgvPeople.DataSource = Person.getAllPeople();
+            _ReloadData();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -88,7 +89,7 @@ namespace PresentationLayer {
             } else {
                 Helpers.ShowErrorMessage("this Person is a user now, you cant delete user");
             }
-            dgvPeople.DataSource = Person.getAllPeople();
+            _ReloadData();
         }
 
         private void cToolStripMenuItem_Click(object sender, EventArgs e) {

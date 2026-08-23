@@ -49,13 +49,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmLogin.cs">
+    <Compile Include="Login\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLogin.Designer.cs">
+    <Compile Include="Login\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Global\ImportantSessionData.cs" />
+    <Compile Include="Manage types\FrmApplicationTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage types\FrmApplicationTypes.Designer.cs">
+      <DependentUpon>FrmApplicationTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage types\FrmEditApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage types\FrmEditApp.Designer.cs">
+      <DependentUpon>FrmEditApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage types\FrmEditTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage types\FrmEditTest.Designer.cs">
+      <DependentUpon>FrmEditTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage types\FrmTestTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage types\FrmTestTypes.Designer.cs">
+      <DependentUpon>FrmTestTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="People\FrmAddOrUpdatePerson.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,8 +149,20 @@
     <Compile Include="Users\ucGetPersonWithFilter.Designer.cs">
       <DependentUpon>ucGetPersonWithFilter.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FrmLogin.resx">
+    <EmbeddedResource Include="Login\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage types\FrmApplicationTypes.resx">
+      <DependentUpon>FrmApplicationTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage types\FrmEditApp.resx">
+      <DependentUpon>FrmEditApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage types\FrmEditTest.resx">
+      <DependentUpon>FrmEditTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage types\FrmTestTypes.resx">
+      <DependentUpon>FrmTestTypes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\FrmAddOrUpdatePerson.resx">
       <DependentUpon>FrmAddOrUpdatePerson.cs</DependentUpon>
@@ -264,7 +300,7 @@
     <None Include="Resources\delete.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Login\" />
+    <None Include="Resources\ManageAppTypes.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\team-management.png" />
@@ -337,6 +373,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\updateData1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AppType.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\feature.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sync.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ManageTestTypes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
