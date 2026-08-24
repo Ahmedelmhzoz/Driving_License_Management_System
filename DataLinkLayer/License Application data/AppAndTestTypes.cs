@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLinkLayer {
+namespace DataLinkLayer.License_Application_data {
     public static class AppAndTestTypes {
         static string connectionSettings = ConfigurationManager.ConnectionStrings["DVLD_DB"].ConnectionString;
         public static DataTable GetAllApplicationTypes() {

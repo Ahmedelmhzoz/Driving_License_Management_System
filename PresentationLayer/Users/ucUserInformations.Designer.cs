@@ -25,15 +25,15 @@
         private void InitializeComponent() {
             this.ucPersonDetails1 = new PresentationLayer.ucPersonDetails();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Personi = new System.Windows.Forms.Label();
-            this.lblUserID = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.lblActive = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Personi = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblUserID = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -68,50 +68,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Login informations";
             // 
-            // Personi
-            // 
-            this.Personi.AutoSize = true;
-            this.Personi.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
-            this.Personi.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Personi.Location = new System.Drawing.Point(60, 86);
-            this.Personi.Name = "Personi";
-            this.Personi.Size = new System.Drawing.Size(204, 39);
-            this.Personi.TabIndex = 10;
-            this.Personi.Text = "Person ID:";
-            // 
-            // lblUserID
-            // 
-            this.lblUserID.AutoSize = true;
-            this.lblUserID.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
-            this.lblUserID.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblUserID.Location = new System.Drawing.Point(352, 86);
-            this.lblUserID.Name = "lblUserID";
-            this.lblUserID.Size = new System.Drawing.Size(186, 39);
-            this.lblUserID.TabIndex = 11;
-            this.lblUserID.Text = "Unknown";
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
-            this.lblName.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblName.Location = new System.Drawing.Point(969, 86);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(186, 39);
-            this.lblName.TabIndex = 23;
-            this.lblName.Text = "Unknown";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(751, 86);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(132, 39);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Name:";
-            // 
             // lblActive
             // 
             this.lblActive.AutoSize = true;
@@ -122,6 +78,16 @@
             this.lblActive.Size = new System.Drawing.Size(186, 39);
             this.lblActive.TabIndex = 26;
             this.lblActive.Text = "Unknown";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::PresentationLayer.Properties.Resources.Active1;
+            this.pictureBox3.Location = new System.Drawing.Point(1584, 86);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(64, 39);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 25;
+            this.pictureBox3.TabStop = false;
             // 
             // label3
             // 
@@ -134,35 +100,69 @@
             this.label3.TabIndex = 24;
             this.label3.Text = "Is active?";
             // 
-            // pictureBox3
+            // lblName
             // 
-            this.pictureBox3.Image = global::PresentationLayer.Properties.Resources.Active1;
-            this.pictureBox3.Location = new System.Drawing.Point(1584, 86);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(64, 39);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 25;
-            this.pictureBox3.TabStop = false;
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
+            this.lblName.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.lblName.Location = new System.Drawing.Point(1005, 86);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(186, 39);
+            this.lblName.TabIndex = 23;
+            this.lblName.Text = "Unknown";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::PresentationLayer.Properties.Resources.name;
-            this.pictureBox2.Location = new System.Drawing.Point(899, 86);
+            this.pictureBox2.Location = new System.Drawing.Point(935, 86);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(64, 39);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 22;
             this.pictureBox2.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(721, 86);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(208, 39);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Username:";
+            // 
+            // Personi
+            // 
+            this.Personi.AutoSize = true;
+            this.Personi.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
+            this.Personi.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Personi.Location = new System.Drawing.Point(77, 86);
+            this.Personi.Name = "Personi";
+            this.Personi.Size = new System.Drawing.Size(163, 39);
+            this.Personi.TabIndex = 10;
+            this.Personi.Text = "User ID:";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PresentationLayer.Properties.Resources.id_card;
-            this.pictureBox1.Location = new System.Drawing.Point(282, 86);
+            this.pictureBox1.Location = new System.Drawing.Point(252, 86);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(64, 39);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
+            // 
+            // lblUserID
+            // 
+            this.lblUserID.AutoSize = true;
+            this.lblUserID.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
+            this.lblUserID.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.lblUserID.Location = new System.Drawing.Point(322, 86);
+            this.lblUserID.Name = "lblUserID";
+            this.lblUserID.Size = new System.Drawing.Size(186, 39);
+            this.lblUserID.TabIndex = 11;
+            this.lblUserID.Text = "Unknown";
             // 
             // ucUserInformations
             // 

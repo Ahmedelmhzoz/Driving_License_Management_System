@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Global;
 using BusinessLayer;
 namespace PresentationLayer {
     public partial class FrmPeople : Form {
@@ -37,7 +38,6 @@ namespace PresentationLayer {
                 txtSearch.Visible = true;
                 dgvPeople.DataSource = Person.getCurrentSearchResult(txtSearch.Text, cbFilterBy.Text);
             }
-                
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e) {

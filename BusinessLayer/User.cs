@@ -45,8 +45,18 @@ namespace BusinessLayer {
             string Password = "";
             int Id = -1, perId = -1;
             bool active = false;
-            if (UsersData.findUser(username,ref Password, ref Id, ref perId, ref active) != false) {
+            if (UsersData.findUserByUserName(username,ref Password, ref Id, ref perId, ref active) != false) {
                 return new User(Id, perId, username, Password, active);
+            }
+            return null;
+        }
+        public static User getUserByID(int userID) {
+            string username = "", password = "";
+            int personID = -1;
+            bool isActive = false;
+
+            if (UsersData.findUserByID(ref username, ref password, userID, ref personID, ref isActive)) {
+                return new User(userID, personID, username, password, isActive);
             }
             return null;
         }

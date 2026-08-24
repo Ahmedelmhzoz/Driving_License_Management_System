@@ -79,8 +79,8 @@
             // 
             this.tpPerson.BackColor = System.Drawing.Color.Black;
             this.tpPerson.Controls.Add(this.btnNext);
-            this.tpPerson.Controls.Add(this.ucGetPersonWithFilter);
             this.tpPerson.Controls.Add(this.ucPersonDetails);
+            this.tpPerson.Controls.Add(this.ucGetPersonWithFilter);
             this.tpPerson.Location = new System.Drawing.Point(10, 48);
             this.tpPerson.Name = "tpPerson";
             this.tpPerson.Padding = new System.Windows.Forms.Padding(3);

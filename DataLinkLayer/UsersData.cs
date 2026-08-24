@@ -45,7 +45,7 @@ namespace DataLinkLayer {
                 return false;
             }
         }
-        public static bool findUser(string username, ref string password, ref int userID, ref int personID, ref bool isActive) {
+        public static bool findUserByUserName(string username, ref string password, ref int userID, ref int personID, ref bool isActive) {
             try {
                 using (SqlConnection connection = new SqlConnection(connectionSettings)) {
                     using (SqlCommand command = new SqlCommand("Select * FROM Users WHERE UserName = @Username", connection)) {
@@ -53,11 +53,36 @@ namespace DataLinkLayer {
                         connection.Open();
                         using (SqlDataReader reader = command.ExecuteReader()) {
                             if (reader.Read()) {
-                                userID = (int)reader[0];
-                                personID = (int)reader[1];
-                                username = reader[2].ToString();
-                                password = reader[3].ToString();
-                                isActive = (bool)reader[4];
+                                userID = (int)reader["UserID"];
+                                personID = (int)reader["PersonID"];
+                                username = reader["UserName"].ToString();
+                                password = reader["Password"].ToString();
+                                isActive = (bool)reader["IsActive"];
+                                return true;
+                            }
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) {
+                System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
+                return false;
+            }
+        }
+        public static bool findUserByID(ref string username, ref string password, int userID, ref int personID, ref bool isActive) {
+            try {
+                using (SqlConnection connection = new SqlConnection(connectionSettings)) {
+                    using (SqlCommand command = new SqlCommand("Select * FROM Users WHERE UserID = @ID", connection)) {
+                        command.Parameters.AddWithValue("@ID", userID);
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader()) {
+                            if (reader.Read()) {
+                                userID = (int)reader["UserID"];
+                                personID = (int)reader["PersonID"];
+                                username = reader["UserName"].ToString();
+                                password = reader["Password"].ToString();
+                                isActive = (bool)reader["IsActive"];
                                 return true;
                             }
                             return false;
