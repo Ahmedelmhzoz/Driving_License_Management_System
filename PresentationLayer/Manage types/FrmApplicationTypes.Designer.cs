@@ -29,6 +29,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.cmsAppT = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showDetials = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvAppTypes = new System.Windows.Forms.DataGridView();
             this.ApplicationTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ApplicationTypeTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -36,7 +37,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.showDetials = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cmsAppT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppTypes)).BeginInit();
@@ -62,6 +62,14 @@
             this.showDetials});
             this.cmsAppT.Name = "contextMenuStrip1";
             this.cmsAppT.Size = new System.Drawing.Size(550, 56);
+            // 
+            // showDetials
+            // 
+            this.showDetials.Image = global::PresentationLayer.Properties.Resources.feature;
+            this.showDetials.Name = "showDetials";
+            this.showDetials.Size = new System.Drawing.Size(549, 52);
+            this.showDetials.Text = "Edit application type";
+            this.showDetials.Click += new System.EventHandler(this.showDetials_Click);
             // 
             // dgvAppTypes
             // 
@@ -152,7 +160,8 @@
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnClose.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnClose.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnClose.Image = global::PresentationLayer.Properties.Resources.close;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClose.Location = new System.Drawing.Point(1301, 1301);
@@ -162,14 +171,6 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // showDetials
-            // 
-            this.showDetials.Image = global::PresentationLayer.Properties.Resources.feature;
-            this.showDetials.Name = "showDetials";
-            this.showDetials.Size = new System.Drawing.Size(549, 52);
-            this.showDetials.Text = "Edit application type";
-            this.showDetials.Click += new System.EventHandler(this.showDetials_Click);
             // 
             // pictureBox1
             // 

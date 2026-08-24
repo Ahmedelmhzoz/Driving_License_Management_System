@@ -297,9 +297,10 @@
             // rbGeneral
             // 
             this.rbGeneral.AutoSize = true;
+            this.rbGeneral.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbGeneral.Location = new System.Drawing.Point(1106, 490);
             this.rbGeneral.Name = "rbGeneral";
-            this.rbGeneral.Size = new System.Drawing.Size(183, 36);
+            this.rbGeneral.Size = new System.Drawing.Size(200, 36);
             this.rbGeneral.TabIndex = 23;
             this.rbGeneral.TabStop = true;
             this.rbGeneral.Text = "Any status";
@@ -309,9 +310,10 @@
             // rbIsntActive
             // 
             this.rbIsntActive.AutoSize = true;
+            this.rbIsntActive.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbIsntActive.Location = new System.Drawing.Point(1459, 490);
             this.rbIsntActive.Name = "rbIsntActive";
-            this.rbIsntActive.Size = new System.Drawing.Size(183, 36);
+            this.rbIsntActive.Size = new System.Drawing.Size(207, 36);
             this.rbIsntActive.TabIndex = 24;
             this.rbIsntActive.TabStop = true;
             this.rbIsntActive.Text = "Isn\'t active";
@@ -321,9 +323,10 @@
             // rbActive
             // 
             this.rbActive.AutoSize = true;
+            this.rbActive.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbActive.Location = new System.Drawing.Point(1312, 490);
             this.rbActive.Name = "rbActive";
-            this.rbActive.Size = new System.Drawing.Size(129, 36);
+            this.rbActive.Size = new System.Drawing.Size(140, 36);
             this.rbActive.TabIndex = 25;
             this.rbActive.TabStop = true;
             this.rbActive.Text = "Active";
@@ -333,7 +336,8 @@
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnClose.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnClose.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnClose.Image = global::PresentationLayer.Properties.Resources.close;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClose.Location = new System.Drawing.Point(1704, 1422);

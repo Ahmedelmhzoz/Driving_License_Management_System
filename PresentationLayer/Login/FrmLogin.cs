@@ -5,16 +5,16 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Global;
+
 namespace PresentationLayer {
     public partial class FrmLogin : Form {
         public FrmLogin() {
             InitializeComponent();
         }
-        private string filePath = Path.Combine(Application.StartupPath, "RememberMe.txt"); 
+        private string filePath = Path.Combine(System.Windows.Forms.Application.StartupPath, "RememberMe.txt"); 
 
 
         private void FrmLogin_Load(object sender, EventArgs e) {

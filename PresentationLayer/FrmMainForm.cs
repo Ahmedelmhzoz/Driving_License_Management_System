@@ -1,4 +1,5 @@
-﻿using PresentationLayer.Manage_types;
+﻿using PresentationLayer.Local_DL_Appliaction;
+using PresentationLayer.Manage_types;
 using PresentationLayer.Users;
 using System;
 using System.Collections.Generic;
@@ -49,6 +50,17 @@ namespace PresentationLayer {
 
         private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e) {
             FrmTestTypes frm = new FrmTestTypes();
+            frm.ShowDialog();
+        }
+
+        private void LocalLicense_Click(object sender, EventArgs e) {
+            FrmSelectPersonForApp frm = new FrmSelectPersonForApp();
+            frm.ShowDialog();
+        }
+
+
+        private void localLicenseManagement_Click(object sender, EventArgs e) {
+            FrmLocalLicenseAppManagement frm = new FrmLocalLicenseAppManagement();
             frm.ShowDialog();
         }
     }

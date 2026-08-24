@@ -122,6 +122,7 @@
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnSave.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.Transparent;
             this.btnSave.Image = global::PresentationLayer.Properties.Resources.save1;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -136,6 +137,7 @@
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnClose.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.Transparent;
             this.btnClose.Image = global::PresentationLayer.Properties.Resources.close1;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;

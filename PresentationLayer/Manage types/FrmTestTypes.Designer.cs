@@ -28,15 +28,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvTestTypes = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.TestTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TestTypeTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TestTypeDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TestTypeFees = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmsTestType = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTestTypes)).BeginInit();
             this.cmsTestType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -86,17 +86,6 @@
             this.dgvTestTypes.Size = new System.Drawing.Size(1462, 843);
             this.dgvTestTypes.TabIndex = 37;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Georgia", 20F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(445, 326);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(684, 77);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "Manage Test Types";
-            // 
             // TestTypeID
             // 
             this.TestTypeID.DataPropertyName = "TestTypeID";
@@ -134,10 +123,30 @@
             this.cmsTestType.Name = "contextMenuStrip1";
             this.cmsTestType.Size = new System.Drawing.Size(405, 56);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Image = global::PresentationLayer.Properties.Resources.feature;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(404, 52);
+            this.toolStripMenuItem1.Text = "Edit Test type";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Georgia", 20F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(445, 326);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(684, 77);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Manage Test Types";
+            // 
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnClose.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnClose.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnClose.Image = global::PresentationLayer.Properties.Resources.close;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClose.Location = new System.Drawing.Point(1298, 1308);
@@ -157,14 +166,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 35;
             this.pictureBox1.TabStop = false;
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Image = global::PresentationLayer.Properties.Resources.feature;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(404, 52);
-            this.toolStripMenuItem1.Text = "Edit Test type";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // FrmTestTypes
             // 

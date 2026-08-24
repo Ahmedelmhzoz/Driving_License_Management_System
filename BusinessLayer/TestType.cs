@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataLinkLayer.License_Application_data;
 
 namespace BusinessLayer {
     public class TestType {
