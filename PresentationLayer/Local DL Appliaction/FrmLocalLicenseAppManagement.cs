@@ -1,7 +1,9 @@
 ﻿using BusinessLayer;
 using BusinessLayer.License_Applications;
+using Global;
 using System;
 using System.Collections.Generic;
+using Shared;
 using System.Windows.Forms;
 namespace PresentationLayer.Local_DL_Appliaction {
     public partial class FrmLocalLicenseAppManagement : Form {
@@ -55,7 +57,12 @@ namespace PresentationLayer.Local_DL_Appliaction {
         }
 
         private void showApplicationDetailsToolStripMenuItem_Click(object sender, EventArgs e) {
-
+            int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
+            LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
+            if (loaclLicenseApp != null) {
+                FrmLocalLicenseAppInfo frm = new FrmLocalLicenseAppInfo(loaclLicenseApp);
+                frm.ShowDialog();
+            }
         }
 
         private void editApp_Click(object sender, EventArgs e) {
@@ -66,6 +73,37 @@ namespace PresentationLayer.Local_DL_Appliaction {
                 frm.ShowDialog();
                 _ReloadData();
             }
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e) {
+            int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
+            if (LocalLicenseApp.deleteLocalLicenseApp(ID)) {
+                Helpers.SuccessfulMessage("Local driving license application was deleted successfully!");
+                _ReloadData();
+            }
+            else
+                Helpers.ShowErrorMessage("Error happend while deleting");
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e) {
+            int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
+            LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
+            if (loaclLicenseApp.cancelApplication()) {
+                Helpers.SuccessfulMessage("Local driving license application was canceled successfully!");
+                _ReloadData();
+            }
+            else
+                Helpers.ShowErrorMessage("Error happend while canceling");
+        }
+
+        private void cmsApp_Opening(object sender, System.ComponentModel.CancelEventArgs e) {
+            int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
+            LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
+            if (loaclLicenseApp == null) return;
+            if (loaclLicenseApp.appStatus != enApplicationStatus.enNew)
+                tsmiCancelApp.Enabled = false;
+            else
+                tsmiCancelApp.Enabled = true;
         }
     }
 }

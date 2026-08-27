@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static DataLinkLayer.PeopleData;
+using Shared;
 
 namespace DataLinkLayer.License_Application_data {
     public enum enLocalAppSearchCategory {
@@ -15,10 +11,9 @@ namespace DataLinkLayer.License_Application_data {
         enFullName = 3,
         enStatus = 4
     }
-    public class LicenseApplicationDTO {
+    public class LicenseApplicationDTO : ApplicationDTO {
         public int LocalDrivingLicenseApplicationID {  get; set; }
         public int LicenseClassID { get; set; }
-        public int appID { get; set; }
 
     }
     public static class LocalLicenseAppsData {
@@ -59,7 +54,7 @@ namespace DataLinkLayer.License_Application_data {
 
             using (SqlConnection connection = new SqlConnection(connectionString)) {
                 using (SqlCommand command = new SqlCommand(query, connection)) {
-                    command.Parameters.AddWithValue("@ApplicantID", localDTO.appID);
+                    command.Parameters.AddWithValue("@ApplicantID", localDTO.AppID);
                     command.Parameters.AddWithValue("@LicenseClassID", localDTO.LicenseClassID);
                     try {
                         connection.Open();
@@ -123,12 +118,9 @@ namespace DataLinkLayer.License_Application_data {
             DataTable dt = new DataTable();
             string query;
             string columnName = _convertEnumToColumn(category);
-            if (columnName == "LocalDrivingLicenseApplicationID") {
-                query = "Select * FROM Local_Driving_license_Application where LocalDrivingLicenseApplicationID = @searchText";
-            } 
-            else {
-                query = $"Select * FROM Local_Driving_license_Application where {columnName} like @searchText + '%'";
-            }
+           
+            query = $"Select * FROM Local_Driving_license_Application where {columnName} like @searchText + '%'";
+            
             using (SqlConnection conn = new SqlConnection(connectionString)) {
                 using (SqlCommand cmd = new SqlCommand(query, conn)) {
                     cmd.Parameters.AddWithValue("@searchText", searchText);
@@ -150,13 +142,23 @@ namespace DataLinkLayer.License_Application_data {
         public static LicenseApplicationDTO GetLocalLicenseAppByID(int localDrivingLicenseApplicationID) {
             LicenseApplicationDTO dto = null;
 
-            string query = @"SELECT LocalDrivingLicenseApplicationID, ApplicationID, LicenseClassID 
-                     FROM LocalDrivingLicenseApplications 
-                     WHERE LocalDrivingLicenseApplicationID = @LocalAppID";
+            string query = @"SELECT 
+                            a.ApplicationID,
+                            a.ApplicantPersonID,
+                            a.ApplicationDate,
+                            a.ApplicationTypeID,
+                            a.LastStatusDate,
+                            a.ApplicationStatus,
+                            a.PaidFees,
+                            a.CreatedByUserID,
+                            ld.LocalDrivingLicenseApplicationID,
+                            ld.LicenseClassID
+                            FROM Applications a inner join LocalDrivingLicenseApplications ld  on a.ApplicationID = ld.ApplicationID
+                            where ld.LocalDrivingLicenseApplicationID = @LicenseAppID;";
 
             using (SqlConnection conn = new SqlConnection(connectionString)) {
                 using (SqlCommand cmd = new SqlCommand(query, conn)) {
-                    cmd.Parameters.AddWithValue("@LocalAppID", localDrivingLicenseApplicationID);
+                    cmd.Parameters.AddWithValue("@LicenseAppID", localDrivingLicenseApplicationID);
 
                     try {
                         conn.Open();
@@ -164,8 +166,15 @@ namespace DataLinkLayer.License_Application_data {
                             if (reader.Read()) {
                                 dto = new LicenseApplicationDTO {
                                     LocalDrivingLicenseApplicationID = (int)reader["LocalDrivingLicenseApplicationID"],
-                                    appID = (int)reader["ApplicationID"],
-                                    LicenseClassID = (int)reader["LicenseClassID"]
+                                    LicenseClassID = (int)reader["LicenseClassID"],
+                                    AppID = (int)reader["ApplicationID"],
+                                    personID = (int)reader["ApplicantPersonID"],
+                                    AppDate = (DateTime)reader["ApplicationDate"],
+                                    ApplicaitionTypeID = (int)reader["ApplicationTypeID"],
+                                    appStatus = (enApplicationStatus)(byte)reader["ApplicationStatus"],
+                                    lastStatusDate = (DateTime)reader["LastStatusDate"],
+                                    paidFees = Convert.ToDecimal(reader["PaidFees"]),
+                                    createdByUserID = (int)reader["CreatedByUserID"]
                                 };
                             }
                         }
@@ -177,6 +186,70 @@ namespace DataLinkLayer.License_Application_data {
             }
 
             return dto;
+        }
+        public static bool updateLicenseApplication(LicenseApplicationDTO licenceDTO) {
+
+            string query = @"UPDATE LocalDrivingLicenseApplications
+                                SET LicenseClassID = @LicenseClassID WHERE LocalDrivingLicenseApplicationID = @ID";
+            using (SqlConnection conn = new SqlConnection(connectionString)) {
+                using (SqlCommand cmd = new SqlCommand(query, conn)) {
+                    cmd.Parameters.AddWithValue("@LicenseClassID", licenceDTO.LicenseClassID);
+                    cmd.Parameters.AddWithValue("@ID", licenceDTO.LocalDrivingLicenseApplicationID);
+                    try {
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                    catch (Exception ex) {
+                        System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
+                    }
+                }
+            }
+            return false;
+        }
+        public static int getPassedExams(int id) {
+            DataTable dt = new DataTable();
+
+            string query = @"SELECT PassedExams FROM Local_Driving_license_Application
+                    where LocalDrivingLicenseApplicationID = @ID";
+
+            using (SqlConnection connection = new SqlConnection(connectionString)) {
+                using (SqlCommand command = new SqlCommand(query, connection)) {
+                    command.Parameters.AddWithValue("ID", id);
+                    try {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+                        if (result != null && int.TryParse(result.ToString(), out int ExamsNo)) {
+                            return ExamsNo;
+                        }
+                    }
+                    catch (Exception ex) {
+                        System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
+                    }
+                }
+            }
+            return -1;
+        }
+        public static bool deleteLocalLicenseApplication(int licenseAppID) {
+            DataTable dt = new DataTable();
+
+            string query = @"DELETE FROM Applications 
+                    WHERE ApplicationID = (SELECT ApplicationID 
+                                           FROM LocalDrivingLicenseApplications 
+                                           WHERE LocalDrivingLicenseApplicationID = @ID)";
+            using (SqlConnection connection = new SqlConnection(connectionString)) {
+                using (SqlCommand command = new SqlCommand(query, connection)) {
+                    command.Parameters.AddWithValue("ID", licenseAppID);
+                    try {
+                        connection.Open();
+                        return command.ExecuteNonQuery() > 0;
+                    }
+                    catch (Exception ex) {
+                        System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
+                    }
+                }
+            }
+            return false;
         }
     }
 }

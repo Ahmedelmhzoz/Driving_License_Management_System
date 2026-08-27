@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Local DL Appliaction\FrmLocalLicenseAppInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Local DL Appliaction\FrmLocalLicenseAppInfo.Designer.cs">
+      <DependentUpon>FrmLocalLicenseAppInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Local DL Appliaction\FrmLocalLicenseAppManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,12 @@
     </Compile>
     <Compile Include="Local DL Appliaction\FrmSelectPersonForApp.Designer.cs">
       <DependentUpon>FrmSelectPersonForApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Local DL Appliaction\ucApplicationDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Local DL Appliaction\ucApplicationDetails.Designer.cs">
+      <DependentUpon>ucApplicationDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\FrmLogin.cs">
       <SubType>Form</SubType>
@@ -161,11 +173,17 @@
     <Compile Include="Users\ucGetPersonWithFilter.Designer.cs">
       <DependentUpon>ucGetPersonWithFilter.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Local DL Appliaction\FrmLocalLicenseAppInfo.resx">
+      <DependentUpon>FrmLocalLicenseAppInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Local DL Appliaction\FrmLocalLicenseAppManagement.resx">
       <DependentUpon>FrmLocalLicenseAppManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Local DL Appliaction\FrmSelectPersonForApp.resx">
       <DependentUpon>FrmSelectPersonForApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Local DL Appliaction\ucApplicationDetails.resx">
+      <DependentUpon>ucApplicationDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
@@ -243,6 +261,10 @@
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
       <Project>{9de9a9e0-3625-433f-8072-4c43114370ea}</Project>
       <Name>BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shared\Shared.csproj">
+      <Project>{00316162-e21a-4eea-b498-1591037e72a1}</Project>
+      <Name>Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -463,6 +485,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\progress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\currency1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\job-aplication.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\steering-wheel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icense %281%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\driving-license %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\driving-license %282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

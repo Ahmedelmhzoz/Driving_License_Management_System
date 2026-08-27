@@ -30,8 +30,6 @@
             this.tcApplicationManagement = new System.Windows.Forms.TabControl();
             this.tpPerson = new System.Windows.Forms.TabPage();
             this.btnNext = new System.Windows.Forms.Button();
-            this.ucPersonDetails = new PresentationLayer.ucPersonDetails();
-            this.ucGetPersonWithFilter = new PresentationLayer.Users.ucGetPersonWithFilter();
             this.tpAppInfo = new System.Windows.Forms.TabPage();
             this.lblSubmit = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
@@ -47,10 +45,12 @@
             this.lblAppFees = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblID = new System.Windows.Forms.Label();
+            this.lblAppID = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSubmitApp = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.ucPersonDetails = new PresentationLayer.ucPersonDetails();
+            this.ucGetPersonWithFilter = new PresentationLayer.Users.ucGetPersonWithFilter();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.tcApplicationManagement.SuspendLayout();
             this.tpPerson.SuspendLayout();
@@ -116,22 +116,6 @@
             this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // ucPersonDetails
-            // 
-            this.ucPersonDetails.BackColor = System.Drawing.SystemColors.WindowText;
-            this.ucPersonDetails.Location = new System.Drawing.Point(64, 151);
-            this.ucPersonDetails.Name = "ucPersonDetails";
-            this.ucPersonDetails.Size = new System.Drawing.Size(1922, 855);
-            this.ucPersonDetails.TabIndex = 21;
-            // 
-            // ucGetPersonWithFilter
-            // 
-            this.ucGetPersonWithFilter.BackColor = System.Drawing.Color.Black;
-            this.ucGetPersonWithFilter.Location = new System.Drawing.Point(81, 6);
-            this.ucGetPersonWithFilter.Name = "ucGetPersonWithFilter";
-            this.ucGetPersonWithFilter.Size = new System.Drawing.Size(1961, 1237);
-            this.ucGetPersonWithFilter.TabIndex = 0;
-            // 
             // tpAppInfo
             // 
             this.tpAppInfo.BackColor = System.Drawing.Color.Black;
@@ -149,7 +133,7 @@
             this.tpAppInfo.Controls.Add(this.lblAppFees);
             this.tpAppInfo.Controls.Add(this.label3);
             this.tpAppInfo.Controls.Add(this.label2);
-            this.tpAppInfo.Controls.Add(this.lblID);
+            this.tpAppInfo.Controls.Add(this.lblAppID);
             this.tpAppInfo.Controls.Add(this.label1);
             this.tpAppInfo.Controls.Add(this.btnSubmitApp);
             this.tpAppInfo.Location = new System.Drawing.Point(10, 48);
@@ -307,16 +291,16 @@
             this.label2.TabIndex = 26;
             this.label2.Text = "Application date:";
             // 
-            // lblID
+            // lblAppID
             // 
-            this.lblID.AutoSize = true;
-            this.lblID.Font = new System.Drawing.Font("Georgia", 14F, System.Drawing.FontStyle.Bold);
-            this.lblID.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblID.Location = new System.Drawing.Point(689, 181);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(259, 54);
-            this.lblID.TabIndex = 25;
-            this.lblID.Text = "Unknown";
+            this.lblAppID.AutoSize = true;
+            this.lblAppID.Font = new System.Drawing.Font("Georgia", 14F, System.Drawing.FontStyle.Bold);
+            this.lblAppID.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.lblAppID.Location = new System.Drawing.Point(689, 181);
+            this.lblAppID.Name = "lblAppID";
+            this.lblAppID.Size = new System.Drawing.Size(259, 54);
+            this.lblAppID.TabIndex = 25;
+            this.lblAppID.Text = "Unknown";
             // 
             // label1
             // 
@@ -357,6 +341,22 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // ucPersonDetails
+            // 
+            this.ucPersonDetails.BackColor = System.Drawing.SystemColors.WindowText;
+            this.ucPersonDetails.Location = new System.Drawing.Point(64, 151);
+            this.ucPersonDetails.Name = "ucPersonDetails";
+            this.ucPersonDetails.Size = new System.Drawing.Size(1922, 855);
+            this.ucPersonDetails.TabIndex = 21;
+            // 
+            // ucGetPersonWithFilter
+            // 
+            this.ucGetPersonWithFilter.BackColor = System.Drawing.Color.Black;
+            this.ucGetPersonWithFilter.Location = new System.Drawing.Point(81, 6);
+            this.ucGetPersonWithFilter.Name = "ucGetPersonWithFilter";
+            this.ucGetPersonWithFilter.Size = new System.Drawing.Size(1961, 1237);
+            this.ucGetPersonWithFilter.TabIndex = 0;
             // 
             // FrmSelectPersonForApp
             // 
@@ -406,7 +406,7 @@
         private System.Windows.Forms.Label lblAppFees;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.Label lblAppID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSubmitApp;
         private System.Windows.Forms.Label lblDate;

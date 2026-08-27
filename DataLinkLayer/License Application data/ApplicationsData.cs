@@ -5,10 +5,20 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using  Shared;
 
 namespace DataLinkLayer.License_Application_data {
-    public enum enApplicationStatus { enNew = 1, enCanceled = 2, enCompleted = 3 }
+   
+
     public class ApplicationDTO {
+        public ApplicationDTO() {
+            AppID = -1; createdByUserID = -1; personID = -1; ApplicaitionTypeID = -1;
+            AppDate = DateTime.Now;
+            lastStatusDate = DateTime.Now;
+            appStatus = enApplicationStatus.enNew;
+            paidFees = 0.0m;
+        }
+
         public int AppID;
         public int personID { get; set; }
         public DateTime AppDate { get; set; }
@@ -89,6 +99,28 @@ namespace DataLinkLayer.License_Application_data {
                 }
             }
             return appDTO;
+        }
+        public static bool UpdateStatus(int applicationID, byte newStatus, DateTime lastStatusDate) {
+            string query = @"UPDATE Applications 
+                    SET ApplicationStatus = @Status, LastStatusDate = @LastStatusDate 
+                       WHERE ApplicationID = @ID";
+
+            using (SqlConnection conn = new SqlConnection(connectionString)) {
+                using (SqlCommand cmd = new SqlCommand(query, conn)) {
+                    cmd.Parameters.AddWithValue("@Status", newStatus);
+                    cmd.Parameters.AddWithValue("@LastStatusDate", lastStatusDate);
+                    cmd.Parameters.AddWithValue("@ID", applicationID);
+
+                    try {
+                        conn.Open();
+                        return cmd.ExecuteNonQuery() > 0;
+                    }
+                    catch (Exception ex) {
+                        System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
+                        return false;
+                    }
+                }
+            }
         }
     }
 }

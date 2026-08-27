@@ -1,11 +1,7 @@
 ﻿using DataLinkLayer.License_Application_data;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using Shared;
 namespace BusinessLayer.License_Applications {
     public enum enHowDidSavingGo { enSaved = 1, enErrorWhileSavingLicenseApp = 2, enErrorWhileSavingOriginalApp = 3,
         enNotAllowedAge = 4
@@ -17,23 +13,24 @@ namespace BusinessLayer.License_Applications {
             LicenseAppID = -1;
             LicenseClassID = -1;
         }
-        LocalLicenseApp(ApplicationDTO appDTO, LicenseApplicationDTO licenseDTO) {
-            this.AppID = appDTO.AppID;
-            this.personID = appDTO.personID;
-            this.AppDate = appDTO.AppDate;
-            this.ApplicaitionTypeID = appDTO.ApplicaitionTypeID;
-            this.lastStatusDate = appDTO.lastStatusDate;
-            this.appStatus = appDTO.appStatus;
-            this.paidFees = appDTO.paidFees;
-            this.createdByUserID = appDTO.createdByUserID;
-            this.LicenseAppID = licenseDTO.LicenseClassID;
+        LocalLicenseApp(LicenseApplicationDTO licenseDTO) {
+            this.AppID = licenseDTO.AppID;
+            this.personID = licenseDTO.personID;
+            this.AppDate = licenseDTO.AppDate;
+            this.ApplicaitionTypeID = licenseDTO.ApplicaitionTypeID;
+            this.lastStatusDate = licenseDTO.lastStatusDate;
+            this.appStatus = licenseDTO.appStatus;
+            this.paidFees = licenseDTO.paidFees;
+            this.createdByUserID = licenseDTO.createdByUserID;
+            this.LicenseClassID = licenseDTO.LicenseClassID;
             this.LicenseAppID = licenseDTO.LocalDrivingLicenseApplicationID;
             this.currentMode = enAppMode.updateApp;
         }
         public LicenseApplicationDTO _toDTO() {
             return new LicenseApplicationDTO {
+                LocalDrivingLicenseApplicationID = this.LicenseAppID,
                 LicenseClassID = this.LicenseClassID,
-                appID = this.AppID,
+                AppID = this.AppID,
             };
         }
         public static int DidPersonMakeSameApplication(int personID, int LicenseClassID) {
@@ -74,27 +71,25 @@ namespace BusinessLayer.License_Applications {
                 return enHowDidSavingGo.enErrorWhileSavingLicenseApp;
             }
         }
-
-        // update license لآ
+        enHowDidSavingGo _UpdateLicenseApp() {
+            if (LocalLicenseAppsData.updateLicenseApplication(_toDTO())) {
+                return enHowDidSavingGo.enSaved;
+            }else {
+                return enHowDidSavingGo.enErrorWhileSavingLicenseApp;
+            }
+        }
         public enHowDidSavingGo SaveLicenseApp() {
-
             switch (currentMode) {
                 case enAppMode.addApp:
                     return _AddLicenseApp();
                 default:
-                    return enHowDidSavingGo.enSaved;
-                    
+                    return _UpdateLicenseApp();
             }
         }
         public static LocalLicenseApp getLocalLicenseAppByID(int id) {
-            LicenseApplicationDTO LicenseDto;
-            if ((LicenseDto = LocalLicenseAppsData.GetLocalLicenseAppByID(id)) != null) {
-                ApplicationDTO appDto;
-                if ((appDto = Applications.getPrimaryApplication(LicenseDto.appID)) != null) {
-                    return new LocalLicenseApp(appDto, LicenseDto);
-                }
-            }
-            return null;
+            LicenseApplicationDTO LicenseDto = LocalLicenseAppsData.GetLocalLicenseAppByID(id);
+            if (LicenseDto == null) return null;
+            return new LocalLicenseApp(LicenseDto);
         }
 
         private static enLocalAppSearchCategory _ConvertCategoryToEnum(string category) {
@@ -118,5 +113,14 @@ namespace BusinessLayer.License_Applications {
             return LocalLicenseAppsData.GetApplicationsSearchResult(currentTxt, searchCategory);
         }
 
+        public static int getPassedExams(int localLicenseApp) {
+            return LocalLicenseAppsData.getPassedExams(localLicenseApp);
+        }
+        public static bool deleteLocalLicenseApp(int localLicenseAppID) { 
+            return LocalLicenseAppsData.deleteLocalLicenseApplication(localLicenseAppID);
+        }
+        public  bool cancelApplication() {
+            return updateStatus(this.AppID, enApplicationStatus.enCanceled);
+        }
     }
 }

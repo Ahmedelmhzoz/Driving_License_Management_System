@@ -9,3 +9,5 @@ D:\ابو هدهود\كورس 19 DVLD\BusinessLayer\obj\Debug\BusinessLayer.cspr
 D:\ابو هدهود\كورس 19 DVLD\BusinessLayer\obj\Debug\Business.EA331CBA.Up2Date
 D:\ابو هدهود\كورس 19 DVLD\BusinessLayer\obj\Debug\BusinessLayer.dll
 D:\ابو هدهود\كورس 19 DVLD\BusinessLayer\obj\Debug\BusinessLayer.pdb
+D:\ابو هدهود\كورس 19 DVLD\BusinessLayer\bin\Debug\Shared.dll
+D:\ابو هدهود\كورس 19 DVLD\BusinessLayer\bin\Debug\Shared.pdb
