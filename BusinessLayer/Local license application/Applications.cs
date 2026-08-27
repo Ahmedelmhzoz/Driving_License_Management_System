@@ -1,10 +1,11 @@
 ﻿using DataLinkLayer.License_Application_data;
 using System;
+using Shared;
+using System.Net;
 
 namespace BusinessLayer {
-    public enum enAppMode { addApp = 0, updateApp = 1 }
     public class Applications {
-        protected int AppID { get; set; }
+        public int AppID { get; set; }
         public int personID { get; set; }
         public DateTime AppDate { get; set; }
         public int ApplicaitionTypeID { get; set; }
@@ -21,7 +22,6 @@ namespace BusinessLayer {
             paidFees = 0.0m;
             currentMode = enAppMode.addApp;
         }
-
         ApplicationDTO _toDTO() {
             return new ApplicationDTO {
                 personID = this.personID,
@@ -57,7 +57,17 @@ namespace BusinessLayer {
     
         protected static ApplicationDTO getPrimaryApplication(int appID) {
             ApplicationDTO dto = ApplicationsData.GetApplicationByID(appID);
+
+            
             return dto;
+        }
+
+        public Applications getBasicApplication() {
+            return this;
+        }
+        protected static bool updateStatus(int appID, enApplicationStatus newStatus) {
+            byte applicationStatus = (byte)newStatus;
+            return ApplicationsData.UpdateStatus(appID, applicationStatus, DateTime.Now);
         }
     }
 }

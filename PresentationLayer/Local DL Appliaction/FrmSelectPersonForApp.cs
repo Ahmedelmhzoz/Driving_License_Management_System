@@ -5,6 +5,7 @@ using PresentationLayer.Properties;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Shared;
 
 namespace PresentationLayer.Local_DL_Appliaction {
     public partial class FrmSelectPersonForApp : Form {
@@ -51,14 +52,14 @@ namespace PresentationLayer.Local_DL_Appliaction {
                 ucPersonDetails.Visible = true;
                 _fillApplicantInfoInCard();
 
+                cbLicenseClasses.SelectedValue = licenseApplication.LicenseClassID;
                 personIsFounded = true;
                 lblSubmit.ForeColor = Color.DimGray;
                 btnSubmitApp.Enabled = false;
-
                 lblSubmit.Text = "Update the application";
+
                 btnSubmitApp.BackgroundImage = Resources.editApplication;
-                cbLicenseClasses.SelectedIndex = licenseApplication.LicenseClassID;
-                lblID.Text = licenseApplication.LicenseAppID.ToString();
+                lblAppID.Text = licenseApplication.LicenseAppID.ToString();
                 lblDate.Text = licenseApplication.AppDate.ToLongDateString();
                 _putUserNameINlable();
             }
@@ -80,12 +81,12 @@ namespace PresentationLayer.Local_DL_Appliaction {
                 tcApplicationManagement.SelectedTab = tpPerson;
                 Helpers.ShowErrorMessage("You cant move to the next tap before you select a person");
             }
-            else if (tcApplicationManagement.SelectedTab == tpAppInfo && personIsFounded) {
+            else if (tcApplicationManagement.SelectedTab == tpAppInfo && personIsFounded && licenseApplication.currentMode == enAppMode.addApp) {
                 // if he moved to the next tap after selecting a person
-                lblID.BackColor = Color.Black;
+                lblAppID.BackColor = Color.Black;
                 cbLicenseClasses.SelectedIndex = 0;
-                lblDate.Text = DateTime.Now.ToShortDateString();
-                lblID.Text = "Unknown";
+                lblDate.Text = DateTime.Now.ToLongDateString();
+                lblAppID.Text = "Unknown";
             }
            
         }
@@ -113,8 +114,8 @@ namespace PresentationLayer.Local_DL_Appliaction {
             return successfulSaving;
         }
         void _AppAddedSuccessfully() {
-            lblID.Text = licenseApplication.LicenseAppID.ToString();
-            lblID.BackColor = Color.SpringGreen;
+            lblAppID.Text = licenseApplication.LicenseAppID.ToString();
+            lblAppID.BackColor = Color.SpringGreen;
             lblSubmit.ForeColor = Color.DimGray;
             btnSubmitApp.Enabled = false;
             licenseApplication = new LocalLicenseApp();
@@ -135,6 +136,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
             enAppMode WhatPersonModeWas = licenseApplication.currentMode;
             if (licenseApplication.currentMode == enAppMode.addApp) {
                 licenseApplication.AppDate = DateTime.Now;
+                licenseApplication.lastStatusDate = DateTime.Now;
                 licenseApplication.ApplicaitionTypeID = 1; // new local driving license application
                 licenseApplication.lastStatusDate = DateTime.Now;
                 AppType ldApp = AppType.getApplicationType(1);

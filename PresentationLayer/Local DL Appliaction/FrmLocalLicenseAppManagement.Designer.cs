@@ -38,20 +38,20 @@
             this.ApplicationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PassedExams = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ApplicationStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmsApp = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showApplicationDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.editApp = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiCancelApp = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblRecordsNo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.cmsApp = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.editApp = new System.Windows.Forms.ToolStripMenuItem();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.showApplicationDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocalApplications)).BeginInit();
             this.cmsApp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -184,6 +184,64 @@
             this.ApplicationStatus.MinimumWidth = 12;
             this.ApplicationStatus.Name = "ApplicationStatus";
             // 
+            // cmsApp
+            // 
+            this.cmsApp.Font = new System.Drawing.Font("Georgia", 14F, System.Drawing.FontStyle.Bold);
+            this.cmsApp.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.cmsApp.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showApplicationDetailsToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.editApp,
+            this.toolStripMenuItem1,
+            this.toolStripSeparator1,
+            this.tsmiCancelApp});
+            this.cmsApp.Name = "cmsApp";
+            this.cmsApp.Size = new System.Drawing.Size(725, 311);
+            this.cmsApp.Opening += new System.ComponentModel.CancelEventHandler(this.cmsApp_Opening);
+            // 
+            // showApplicationDetailsToolStripMenuItem
+            // 
+            this.showApplicationDetailsToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.job_application;
+            this.showApplicationDetailsToolStripMenuItem.Name = "showApplicationDetailsToolStripMenuItem";
+            this.showApplicationDetailsToolStripMenuItem.Size = new System.Drawing.Size(724, 60);
+            this.showApplicationDetailsToolStripMenuItem.Text = "Show application details";
+            this.showApplicationDetailsToolStripMenuItem.Click += new System.EventHandler(this.showApplicationDetailsToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(721, 6);
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // editApp
+            // 
+            this.editApp.Image = global::PresentationLayer.Properties.Resources.editApplication;
+            this.editApp.Name = "editApp";
+            this.editApp.Size = new System.Drawing.Size(724, 60);
+            this.editApp.Text = "Edit application";
+            this.editApp.Click += new System.EventHandler(this.editApp_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Image = global::PresentationLayer.Properties.Resources.cut_paper;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(724, 60);
+            this.toolStripMenuItem1.Text = "Delete application";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(721, 6);
+            // 
+            // tsmiCancelApp
+            // 
+            this.tsmiCancelApp.Image = global::PresentationLayer.Properties.Resources.cancel;
+            this.tsmiCancelApp.Name = "tsmiCancelApp";
+            this.tsmiCancelApp.Size = new System.Drawing.Size(724, 60);
+            this.tsmiCancelApp.Text = "Cancel application";
+            this.tsmiCancelApp.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -229,34 +287,6 @@
             this.label5.TabIndex = 37;
             this.label5.Text = "Filter By:";
             // 
-            // cmsApp
-            // 
-            this.cmsApp.Font = new System.Drawing.Font("Georgia", 14F, System.Drawing.FontStyle.Bold);
-            this.cmsApp.ImageScalingSize = new System.Drawing.Size(40, 40);
-            this.cmsApp.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showApplicationDetailsToolStripMenuItem,
-            this.toolStripMenuItem2,
-            this.editApp,
-            this.toolStripMenuItem1,
-            this.toolStripSeparator1,
-            this.toolStripMenuItem3});
-            this.cmsApp.Name = "cmsApp";
-            this.cmsApp.Size = new System.Drawing.Size(725, 256);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(721, 6);
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-            // 
-            // editApp
-            // 
-            this.editApp.Image = global::PresentationLayer.Properties.Resources.editApplication;
-            this.editApp.Name = "editApp";
-            this.editApp.Size = new System.Drawing.Size(724, 60);
-            this.editApp.Text = "Edit application";
-            this.editApp.Click += new System.EventHandler(this.editApp_Click);
-            // 
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.DeepSkyBlue;
@@ -293,33 +323,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
-            // 
-            // showApplicationDetailsToolStripMenuItem
-            // 
-            this.showApplicationDetailsToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.job_application;
-            this.showApplicationDetailsToolStripMenuItem.Name = "showApplicationDetailsToolStripMenuItem";
-            this.showApplicationDetailsToolStripMenuItem.Size = new System.Drawing.Size(724, 60);
-            this.showApplicationDetailsToolStripMenuItem.Text = "Show application details";
-            this.showApplicationDetailsToolStripMenuItem.Click += new System.EventHandler(this.showApplicationDetailsToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Image = global::PresentationLayer.Properties.Resources.cut_paper;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(724, 60);
-            this.toolStripMenuItem1.Text = "Delete application";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(721, 6);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Image = global::PresentationLayer.Properties.Resources.cancel;
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(724, 60);
-            this.toolStripMenuItem3.Text = "Cancel application";
             // 
             // FrmLocalLicenseAppManagement
             // 
@@ -374,6 +377,6 @@
         private System.Windows.Forms.ToolStripMenuItem editApp;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem tsmiCancelApp;
     }
 }
