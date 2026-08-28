@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Appointments.cs" />
     <Compile Include="Licenses.cs" />
     <Compile Include="Local license application\Applications.cs" />
     <Compile Include="Country.cs" />

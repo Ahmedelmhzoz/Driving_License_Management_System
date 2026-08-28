@@ -24,7 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.label1 = new System.Windows.Forms.Label();
-            this.ucUserInformations1 = new PresentationLayer.Users.ucUserInformations();
+            this.ucUserInformations1 = new PresentationLayer.Users.ucUserInformation();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -82,7 +82,7 @@
 
         #endregion
 
-        private ucUserInformations ucUserInformations1;
+        private ucUserInformation ucUserInformations1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
     }

@@ -135,6 +135,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
                 return;
             enAppMode WhatPersonModeWas = licenseApplication.currentMode;
             if (licenseApplication.currentMode == enAppMode.addApp) {
+                licenseApplication.personID = ucGetPersonWithFilter.getPersonID();
                 licenseApplication.AppDate = DateTime.Now;
                 licenseApplication.lastStatusDate = DateTime.Now;
                 licenseApplication.ApplicaitionTypeID = 1; // new local driving license application

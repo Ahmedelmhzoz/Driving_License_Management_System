@@ -25,6 +25,10 @@
         private void InitializeComponent() {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.applicationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.peopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.driversToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accountSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drivingLicenseServicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.LocalLicense = new System.Windows.Forms.ToolStripMenuItem();
@@ -34,10 +38,6 @@
             this.internationalLicenseManagement = new System.Windows.Forms.ToolStripMenuItem();
             this.manageApplicationTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageTestTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.peopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.driversToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.accountSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +57,7 @@
             this.accountSettingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(2008, 62);
+            this.menuStrip1.Size = new System.Drawing.Size(2008, 68);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -69,8 +69,39 @@
             this.manageApplicationTypesToolStripMenuItem,
             this.manageTestTypesToolStripMenuItem});
             this.applicationsToolStripMenuItem.Name = "applicationsToolStripMenuItem";
-            this.applicationsToolStripMenuItem.Size = new System.Drawing.Size(353, 64);
+            this.applicationsToolStripMenuItem.Size = new System.Drawing.Size(353, 58);
             this.applicationsToolStripMenuItem.Text = "Applications";
+            // 
+            // peopleToolStripMenuItem
+            // 
+            this.peopleToolStripMenuItem.Name = "peopleToolStripMenuItem";
+            this.peopleToolStripMenuItem.Size = new System.Drawing.Size(211, 58);
+            this.peopleToolStripMenuItem.Text = "People";
+            this.peopleToolStripMenuItem.Click += new System.EventHandler(this.peopleToolStripMenuItem_Click);
+            // 
+            // driversToolStripMenuItem
+            // 
+            this.driversToolStripMenuItem.Name = "driversToolStripMenuItem";
+            this.driversToolStripMenuItem.Size = new System.Drawing.Size(229, 58);
+            this.driversToolStripMenuItem.Text = "Drivers";
+            // 
+            // usersToolStripMenuItem
+            // 
+            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(185, 58);
+            this.usersToolStripMenuItem.Text = "Users";
+            this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
+            // 
+            // accountSettingsToolStripMenuItem
+            // 
+            this.accountSettingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.profileToolStripMenuItem,
+            this.changePasswordToolStripMenuItem,
+            this.logoutToolStripMenuItem});
+            this.accountSettingsToolStripMenuItem.Font = new System.Drawing.Font("Georgia", 13.9F, System.Drawing.FontStyle.Bold);
+            this.accountSettingsToolStripMenuItem.Name = "accountSettingsToolStripMenuItem";
+            this.accountSettingsToolStripMenuItem.Size = new System.Drawing.Size(447, 58);
+            this.accountSettingsToolStripMenuItem.Text = "Account settings";
             // 
             // drivingLicenseServicesToolStripMenuItem
             // 
@@ -95,7 +126,7 @@
             // 
             this.LocalLicense.Image = global::PresentationLayer.Properties.Resources.icense__1_;
             this.LocalLicense.Name = "LocalLicense";
-            this.LocalLicense.Size = new System.Drawing.Size(741, 66);
+            this.LocalLicense.Size = new System.Drawing.Size(886, 62);
             this.LocalLicense.Text = "Local driving license";
             this.LocalLicense.Click += new System.EventHandler(this.LocalLicense_Click);
             // 
@@ -111,16 +142,16 @@
             this.ManageApplicatons.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.localLicenseManagement,
             this.internationalLicenseManagement});
-            this.ManageApplicatons.Image = global::PresentationLayer.Properties.Resources.webpage_list;
+            this.ManageApplicatons.Image = global::PresentationLayer.Properties.Resources.job_application4;
             this.ManageApplicatons.Name = "ManageApplicatons";
-            this.ManageApplicatons.Size = new System.Drawing.Size(857, 66);
+            this.ManageApplicatons.Size = new System.Drawing.Size(809, 62);
             this.ManageApplicatons.Text = "Manage Applicatons";
             // 
             // localLicenseManagement
             // 
             this.localLicenseManagement.Image = global::PresentationLayer.Properties.Resources.LocalDrivingLicense;
             this.localLicenseManagement.Name = "localLicenseManagement";
-            this.localLicenseManagement.Size = new System.Drawing.Size(1247, 66);
+            this.localLicenseManagement.Size = new System.Drawing.Size(1172, 62);
             this.localLicenseManagement.Text = "Local driving license applications";
             this.localLicenseManagement.Click += new System.EventHandler(this.localLicenseManagement_Click);
             // 
@@ -128,61 +159,30 @@
             // 
             this.internationalLicenseManagement.Image = global::PresentationLayer.Properties.Resources.driving_license;
             this.internationalLicenseManagement.Name = "internationalLicenseManagement";
-            this.internationalLicenseManagement.Size = new System.Drawing.Size(1247, 66);
+            this.internationalLicenseManagement.Size = new System.Drawing.Size(1172, 62);
             this.internationalLicenseManagement.Text = "International driving license application";
             // 
             // manageApplicationTypesToolStripMenuItem
             // 
             this.manageApplicationTypesToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.AppType;
             this.manageApplicationTypesToolStripMenuItem.Name = "manageApplicationTypesToolStripMenuItem";
-            this.manageApplicationTypesToolStripMenuItem.Size = new System.Drawing.Size(857, 66);
+            this.manageApplicationTypesToolStripMenuItem.Size = new System.Drawing.Size(809, 62);
             this.manageApplicationTypesToolStripMenuItem.Text = "Manage application types";
             this.manageApplicationTypesToolStripMenuItem.Click += new System.EventHandler(this.manageApplicationTypesToolStripMenuItem_Click);
             // 
             // manageTestTypesToolStripMenuItem
             // 
-            this.manageTestTypesToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.ManageTestTypes;
+            this.manageTestTypesToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.exam_time;
             this.manageTestTypesToolStripMenuItem.Name = "manageTestTypesToolStripMenuItem";
-            this.manageTestTypesToolStripMenuItem.Size = new System.Drawing.Size(857, 66);
+            this.manageTestTypesToolStripMenuItem.Size = new System.Drawing.Size(809, 62);
             this.manageTestTypesToolStripMenuItem.Text = "Manage Test types";
             this.manageTestTypesToolStripMenuItem.Click += new System.EventHandler(this.manageTestTypesToolStripMenuItem_Click);
-            // 
-            // peopleToolStripMenuItem
-            // 
-            this.peopleToolStripMenuItem.Name = "peopleToolStripMenuItem";
-            this.peopleToolStripMenuItem.Size = new System.Drawing.Size(224, 62);
-            this.peopleToolStripMenuItem.Text = "People";
-            this.peopleToolStripMenuItem.Click += new System.EventHandler(this.peopleToolStripMenuItem_Click);
-            // 
-            // driversToolStripMenuItem
-            // 
-            this.driversToolStripMenuItem.Name = "driversToolStripMenuItem";
-            this.driversToolStripMenuItem.Size = new System.Drawing.Size(244, 62);
-            this.driversToolStripMenuItem.Text = "Drivers";
-            // 
-            // usersToolStripMenuItem
-            // 
-            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(198, 62);
-            this.usersToolStripMenuItem.Text = "Users";
-            this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
-            // 
-            // accountSettingsToolStripMenuItem
-            // 
-            this.accountSettingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.profileToolStripMenuItem,
-            this.changePasswordToolStripMenuItem,
-            this.logoutToolStripMenuItem});
-            this.accountSettingsToolStripMenuItem.Font = new System.Drawing.Font("Georgia", 13.9F, System.Drawing.FontStyle.Bold);
-            this.accountSettingsToolStripMenuItem.Name = "accountSettingsToolStripMenuItem";
-            this.accountSettingsToolStripMenuItem.Size = new System.Drawing.Size(447, 64);
-            this.accountSettingsToolStripMenuItem.Text = "Account settings";
             // 
             // profileToolStripMenuItem
             // 
             this.profileToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.Profile;
             this.profileToolStripMenuItem.Name = "profileToolStripMenuItem";
-            this.profileToolStripMenuItem.Size = new System.Drawing.Size(653, 66);
+            this.profileToolStripMenuItem.Size = new System.Drawing.Size(619, 62);
             this.profileToolStripMenuItem.Text = "Profile";
             this.profileToolStripMenuItem.Click += new System.EventHandler(this.profileToolStripMenuItem_Click);
             // 
@@ -190,7 +190,7 @@
             // 
             this.changePasswordToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.reset_password;
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(653, 66);
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(619, 62);
             this.changePasswordToolStripMenuItem.Text = "Change password";
             this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
@@ -198,7 +198,7 @@
             // 
             this.logoutToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.log_out;
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(653, 66);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(619, 62);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 

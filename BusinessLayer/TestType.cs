@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataLinkLayer.License_Application_data;
+using Shared;
 
 namespace BusinessLayer {
     public class TestType {
@@ -18,6 +19,12 @@ namespace BusinessLayer {
             TestTypeTitle = "";
             TestTypeDescription = "";
             TestTypeFees = 0.0m;
+        }
+        TestType(TestDTO dto) {
+            this.TestTypeID = dto.TestTypeID; 
+            this.TestTypeTitle = dto.TestTypeTitle;
+            this.TestTypeDescription = dto.description;
+            this.TestTypeFees = dto.TestTypeFees;
         }
 
         private TestType(int testTypeID, string testTypeTitle, string testTypeDescription, decimal testTypeFees) {
@@ -43,6 +50,12 @@ namespace BusinessLayer {
 
         public bool Save() {
             return AppAndTestTypes.UpdateTestType(TestTypeID, TestTypeTitle, TestTypeDescription, TestTypeFees);
+        }
+        public static TestType getTestTypeDetails(enTestType testType) {
+            TestDTO dto = AppAndTestTypes.getTestType(testType);
+            if (dto != null) 
+                return new TestType(dto);
+            return null;
         }
     }
 }
