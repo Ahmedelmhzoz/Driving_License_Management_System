@@ -139,7 +139,7 @@
             this.groupBox1.Size = new System.Drawing.Size(1868, 835);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Person informations";
+            this.groupBox1.Text = "Person information";
             // 
             // lblUpdate
             // 

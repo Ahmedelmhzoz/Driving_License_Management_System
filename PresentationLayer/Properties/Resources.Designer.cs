@@ -143,6 +143,16 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap appointmentsAdd {
+            get {
+                object obj = ResourceManager.GetObject("appointmentsAdd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap AppType {
             get {
                 object obj = ResourceManager.GetObject("AppType", resourceCulture);
@@ -383,6 +393,26 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap exam_time {
+            get {
+                object obj = ResourceManager.GetObject("exam-time", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap examination {
+            get {
+                object obj = ResourceManager.GetObject("examination", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap feature {
             get {
                 object obj = ResourceManager.GetObject("feature", resourceCulture);
@@ -493,6 +523,26 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap job_application3 {
+            get {
+                object obj = ResourceManager.GetObject("job-application3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap job_application4 {
+            get {
+                object obj = ResourceManager.GetObject("job-application4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap license {
             get {
                 object obj = ResourceManager.GetObject("license", resourceCulture);
@@ -596,6 +646,16 @@ namespace PresentationLayer.Properties {
         public static System.Drawing.Bitmap ManageTestTypes1 {
             get {
                 object obj = ResourceManager.GetObject("ManageTestTypes1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ManageTestTypes2 {
+            get {
+                object obj = ResourceManager.GetObject("ManageTestTypes2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -813,6 +873,16 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap streets {
+            get {
+                object obj = ResourceManager.GetObject("streets", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap sync {
             get {
                 object obj = ResourceManager.GetObject("sync", resourceCulture);
@@ -863,6 +933,26 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap vision {
+            get {
+                object obj = ResourceManager.GetObject("vision", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap vision1 {
+            get {
+                object obj = ResourceManager.GetObject("vision1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap webpage_list {
             get {
                 object obj = ResourceManager.GetObject("webpage-list", resourceCulture);
@@ -876,6 +966,16 @@ namespace PresentationLayer.Properties {
         public static System.Drawing.Bitmap woman {
             get {
                 object obj = ResourceManager.GetObject("woman", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap writtenTest {
+            get {
+                object obj = ResourceManager.GetObject("writtenTest", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

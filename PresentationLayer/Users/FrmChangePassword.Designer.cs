@@ -24,7 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            this.ucUserInformations1 = new PresentationLayer.Users.ucUserInformations();
+            this.ucUserInformations1 = new PresentationLayer.Users.ucUserInformation();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -218,7 +218,7 @@
 
         #endregion
 
-        private ucUserInformations ucUserInformations1;
+        private ucUserInformation ucUserInformations1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox1;

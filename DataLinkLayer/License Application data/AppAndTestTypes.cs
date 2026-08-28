@@ -1,13 +1,21 @@
-﻿using System;
+﻿using Shared;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataLinkLayer.License_Application_data {
+    public class TestDTO {                 
+        public int TestTypeID { get; set; }
+        public string TestTypeTitle { get; set; }
+        public decimal TestTypeFees { get; set; }
+        public string description { get; set; }
+    }
     public static class AppAndTestTypes {
         static string connectionSettings = ConfigurationManager.ConnectionStrings["DVLD_DB"].ConnectionString;
         public static DataTable GetAllApplicationTypes() {
@@ -156,6 +164,38 @@ namespace DataLinkLayer.License_Application_data {
             }
 
             return (rowsAffected > 0);
+        }
+
+        public static TestDTO getTestType(enTestType testType) {
+            int testID = Utilities.convertTestTypeToID(testType);
+
+            string query = @"SELECT TestTypeID, TestTypeTitle, TestTypeFees , TestTypeDescription
+                    FROM TestTypes 
+                    WHERE TestTypeID = @TestTypeID";
+
+            using (SqlConnection connection = new SqlConnection(connectionSettings)) {
+                using (SqlCommand command = new SqlCommand(query, connection)) {
+                    command.Parameters.AddWithValue("@TestTypeID", testID);
+
+                    try {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader()) {
+                            if (reader.Read()) {
+                                return new TestDTO {
+                                    TestTypeID = (int)reader["TestTypeID"],
+                                    TestTypeTitle = (string)reader["TestTypeTitle"],
+                                    TestTypeFees = Convert.ToDecimal(reader["TestTypeFees"]),
+                                    description = (string)reader["TestTypeDescription"]
+                                };
+                            }
+                        }
+                    }
+                    catch (Exception ex) {
+                        System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
+                    }
+                }
+            }
+            return null;
         }
     }
 }

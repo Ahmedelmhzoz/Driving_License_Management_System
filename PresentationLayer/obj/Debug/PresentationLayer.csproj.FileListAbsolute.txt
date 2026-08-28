@@ -34,3 +34,5 @@ D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLa
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Local_DL_Appliaction.ucApplicationDetails.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\bin\Debug\Shared.dll
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\bin\Debug\Shared.pdb
+D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Local_DL_Appliaction.ucLocalDrivingLicenseDetails.resources
+D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Local_DL_Appliaction.FrmAppointments.resources

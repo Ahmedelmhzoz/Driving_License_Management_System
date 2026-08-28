@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Local DL Appliaction\FrmAppointments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Local DL Appliaction\FrmAppointments.Designer.cs">
+      <DependentUpon>FrmAppointments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Local DL Appliaction\FrmLocalLicenseAppInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,12 @@
     </Compile>
     <Compile Include="Local DL Appliaction\ucApplicationDetails.Designer.cs">
       <DependentUpon>ucApplicationDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Local DL Appliaction\ucLocalDrivingLicenseDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Local DL Appliaction\ucLocalDrivingLicenseDetails.Designer.cs">
+      <DependentUpon>ucLocalDrivingLicenseDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\FrmLogin.cs">
       <SubType>Form</SubType>
@@ -173,6 +185,9 @@
     <Compile Include="Users\ucGetPersonWithFilter.Designer.cs">
       <DependentUpon>ucGetPersonWithFilter.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Local DL Appliaction\FrmAppointments.resx">
+      <DependentUpon>FrmAppointments.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Local DL Appliaction\FrmLocalLicenseAppInfo.resx">
       <DependentUpon>FrmLocalLicenseAppInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Local DL Appliaction\ucApplicationDetails.resx">
       <DependentUpon>ucApplicationDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Local DL Appliaction\ucLocalDrivingLicenseDetails.resx">
+      <DependentUpon>ucLocalDrivingLicenseDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
@@ -512,6 +530,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\driving-license %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vision.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appointmentsAdd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\streets.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\writtenTest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\examination.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vision1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ManageTestTypes2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\job-application3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\job-application4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exam-time.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
