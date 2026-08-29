@@ -26,6 +26,15 @@ namespace BusinessLayer {
         public string imagePath { get; set; }
         public string Address { get; set; }
         public int NationalityCountryID { get; set; }
+        public string FullName {
+            get {
+                if (string.IsNullOrWhiteSpace(thirdName)) {
+                    return $"{firstName} {secondName} {lastName}";
+                }
+
+                return $"{firstName} {secondName} {thirdName} {lastName}";
+            }
+        }
 
         public enPersonMode currentMode;
         public Person() {

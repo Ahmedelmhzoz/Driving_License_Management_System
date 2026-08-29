@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer.Users {
-    public partial class ucUserInformations : UserControl {
-        public ucUserInformations() {
+    public partial class ucUserInformation : UserControl {
+        public ucUserInformation() {
             InitializeComponent();
         }
         void _ShowData(User user) {

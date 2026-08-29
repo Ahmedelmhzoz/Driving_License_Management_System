@@ -15,6 +15,9 @@ namespace Global {
         public static void ShowGeneralMessage(string message, string title = "Process done successfully") {
             MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+        public static DialogResult ShowConfirmation(string message, string title = "Confirmation") {
+            return MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+        }
         public static string _ConverStatusEnumToString(enApplicationStatus status) {
             switch (status) {
                 case enApplicationStatus.enNew: return "New";
