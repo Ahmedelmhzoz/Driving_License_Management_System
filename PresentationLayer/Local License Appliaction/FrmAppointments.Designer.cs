@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -34,6 +35,9 @@
             this.AppointmentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PaidFees = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsLocked = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmsAppointment = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tmsiEditAppointment = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmsiTakeTest = new System.Windows.Forms.ToolStripMenuItem();
             this.lblLicense = new System.Windows.Forms.Label();
             this.lblRecordsNo = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,20 +46,21 @@
             this.pbTestType = new System.Windows.Forms.PictureBox();
             this.ucLocalDrivingLicenseDetails1 = new PresentationLayer.Local_DL_Appliaction.ucLocalDrivingLicenseDetails();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).BeginInit();
+            this.cmsAppointment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTestType)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTestType
             // 
-            this.lblTestType.AutoSize = true;
+            this.lblTestType.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTestType.Font = new System.Drawing.Font("Georgia", 15F, System.Drawing.FontStyle.Bold);
             this.lblTestType.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTestType.Location = new System.Drawing.Point(926, 213);
+            this.lblTestType.Location = new System.Drawing.Point(785, 202);
             this.lblTestType.Name = "lblTestType";
-            this.lblTestType.Size = new System.Drawing.Size(675, 58);
+            this.lblTestType.Size = new System.Drawing.Size(914, 58);
             this.lblTestType.TabIndex = 29;
             this.lblTestType.Text = "Vision test appointments";
-            this.lblTestType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTestType.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // dgvAppointments
             // 
@@ -81,6 +86,7 @@
             this.AppointmentDate,
             this.PaidFees,
             this.IsLocked});
+            this.dgvAppointments.ContextMenuStrip = this.cmsAppointment;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Georgia", 10.1F);
@@ -133,6 +139,32 @@
             this.IsLocked.HeaderText = "Is locked";
             this.IsLocked.MinimumWidth = 12;
             this.IsLocked.Name = "IsLocked";
+            // 
+            // cmsAppointment
+            // 
+            this.cmsAppointment.Font = new System.Drawing.Font("Georgia", 14F, System.Drawing.FontStyle.Bold);
+            this.cmsAppointment.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.cmsAppointment.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tmsiEditAppointment,
+            this.tmsiTakeTest});
+            this.cmsAppointment.Name = "cmsApp";
+            this.cmsAppointment.Size = new System.Drawing.Size(558, 124);
+            // 
+            // tmsiEditAppointment
+            // 
+            this.tmsiEditAppointment.Image = global::PresentationLayer.Properties.Resources.notes;
+            this.tmsiEditAppointment.Name = "tmsiEditAppointment";
+            this.tmsiEditAppointment.Size = new System.Drawing.Size(557, 60);
+            this.tmsiEditAppointment.Text = "Edit appointment";
+            this.tmsiEditAppointment.Click += new System.EventHandler(this.tmsiEditAppointment_Click);
+            // 
+            // tmsiTakeTest
+            // 
+            this.tmsiTakeTest.Image = global::PresentationLayer.Properties.Resources.test1;
+            this.tmsiTakeTest.Name = "tmsiTakeTest";
+            this.tmsiTakeTest.Size = new System.Drawing.Size(557, 60);
+            this.tmsiTakeTest.Text = "Take test";
+            this.tmsiTakeTest.Click += new System.EventHandler(this.tmsiTakeTest_Click);
             // 
             // lblLicense
             // 
@@ -192,12 +224,13 @@
             this.btnAdd.Size = new System.Drawing.Size(152, 83);
             this.btnAdd.TabIndex = 34;
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // pbTestType
             // 
             this.pbTestType.BackgroundImage = global::PresentationLayer.Properties.Resources.vision;
             this.pbTestType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbTestType.Location = new System.Drawing.Point(1161, 3);
+            this.pbTestType.Location = new System.Drawing.Point(1148, 3);
             this.pbTestType.Name = "pbTestType";
             this.pbTestType.Size = new System.Drawing.Size(217, 196);
             this.pbTestType.TabIndex = 0;
@@ -216,7 +249,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlText;
-            this.ClientSize = new System.Drawing.Size(2469, 1934);
+            this.ClientSize = new System.Drawing.Size(2469, 1941);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblRecordsNo);
             this.Controls.Add(this.label3);
@@ -231,6 +264,7 @@
             this.Text = "FrmAppointments";
             this.Load += new System.EventHandler(this.FrmAppointments_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).EndInit();
+            this.cmsAppointment.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbTestType)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -252,5 +286,8 @@
         private System.Windows.Forms.Label lblRecordsNo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.ContextMenuStrip cmsAppointment;
+        private System.Windows.Forms.ToolStripMenuItem tmsiEditAppointment;
+        private System.Windows.Forms.ToolStripMenuItem tmsiTakeTest;
     }
 }

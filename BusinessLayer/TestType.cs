@@ -20,7 +20,7 @@ namespace BusinessLayer {
             TestTypeDescription = "";
             TestTypeFees = 0.0m;
         }
-        TestType(TestDTO dto) {
+        TestType(TestTypeDTO dto) {
             this.TestTypeID = dto.TestTypeID; 
             this.TestTypeTitle = dto.TestTypeTitle;
             this.TestTypeDescription = dto.description;
@@ -52,7 +52,7 @@ namespace BusinessLayer {
             return AppAndTestTypes.UpdateTestType(TestTypeID, TestTypeTitle, TestTypeDescription, TestTypeFees);
         }
         public static TestType getTestTypeDetails(enTestType testType) {
-            TestDTO dto = AppAndTestTypes.getTestType(testType);
+            TestTypeDTO dto = AppAndTestTypes.getTestType(testType);
             if (dto != null) 
                 return new TestType(dto);
             return null;

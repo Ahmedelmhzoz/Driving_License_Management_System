@@ -16,6 +16,15 @@ namespace Shared
         enReplacementForDamaged = 3,
         enReplacementForLost = 4
     }
+    public enum enApplicationType {
+        NewLocalDrivingLicense = 1,
+        RenewDrivingLicense = 2,
+        ReplaceLostDrivingLicense = 3,
+        ReplaceDamagedDrivingLicense = 4,
+        ReleaseDetainedDrivingLicense = 5,
+        NewInternationalLicense = 6,
+        RetakeTest = 8 // its ID in database = 8
+    }
     public static class Utilities {
 
         public static int convertTestTypeToID(enTestType testType) {

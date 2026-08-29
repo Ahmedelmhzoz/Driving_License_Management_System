@@ -9,6 +9,16 @@ namespace BusinessLayer.License_Applications {
     public class LocalLicenseApp : Applications{
         public int LicenseAppID { get; set; }
         public int LicenseClassID { get; set; }
+        public LicenseClasses LicenseClassInfo {
+            get {
+               return LicenseClasses.getLicenseClassByID(this.LicenseClassID);
+            }
+        }
+        public Person personInfo {
+            get {
+                return Person.findPerson(this.personID);
+            }
+        }
         public LocalLicenseApp(){
             LicenseAppID = -1;
             LicenseClassID = -1;

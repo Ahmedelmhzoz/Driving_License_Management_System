@@ -1,11 +1,12 @@
 ﻿using DataLinkLayer;
+using DataLinkLayer.License_Application_data;
+using Shared;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataLinkLayer.License_Application_data;
 
 namespace BusinessLayer {
     public class AppType {
@@ -32,6 +33,9 @@ namespace BusinessLayer {
                 return new AppType(id, appType, fees);
             }
             return null;
+        }
+        public static AppType getApplicationType(enApplicationType appType) {
+            return getApplicationType((int)appType);
         }
         public bool Save() {
             return AppAndTestTypes.UpdateApplicationType(AppTypeID, AppTypeTitle, AppTypeFees);

@@ -49,40 +49,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Local DL Appliaction\FrmAppointments.cs">
+    <Compile Include="Local License Appliaction\FrmAddAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Local DL Appliaction\FrmAppointments.Designer.cs">
+    <Compile Include="Local License Appliaction\FrmAddAppointment.Designer.cs">
+      <DependentUpon>FrmAddAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Local License Appliaction\FrmAppointments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Local License Appliaction\FrmAppointments.Designer.cs">
       <DependentUpon>FrmAppointments.cs</DependentUpon>
     </Compile>
-    <Compile Include="Local DL Appliaction\FrmLocalLicenseAppInfo.cs">
+    <Compile Include="Local License Appliaction\FrmLocalLicenseAppInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Local DL Appliaction\FrmLocalLicenseAppInfo.Designer.cs">
+    <Compile Include="Local License Appliaction\FrmLocalLicenseAppInfo.Designer.cs">
       <DependentUpon>FrmLocalLicenseAppInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Local DL Appliaction\FrmLocalLicenseAppManagement.cs">
+    <Compile Include="Local License Appliaction\FrmLocalLicenseAppManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Local DL Appliaction\FrmLocalLicenseAppManagement.Designer.cs">
+    <Compile Include="Local License Appliaction\FrmLocalLicenseAppManagement.Designer.cs">
       <DependentUpon>FrmLocalLicenseAppManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Local DL Appliaction\FrmSelectPersonForApp.cs">
+    <Compile Include="Local License Appliaction\FrmSelectPersonForApp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Local DL Appliaction\FrmSelectPersonForApp.Designer.cs">
+    <Compile Include="Local License Appliaction\FrmSelectPersonForApp.Designer.cs">
       <DependentUpon>FrmSelectPersonForApp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Local DL Appliaction\ucApplicationDetails.cs">
+    <Compile Include="Local License Appliaction\FrmTakeTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Local License Appliaction\FrmTakeTest.Designer.cs">
+      <DependentUpon>FrmTakeTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Local License Appliaction\ucApplicationDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Local DL Appliaction\ucApplicationDetails.Designer.cs">
+    <Compile Include="Local License Appliaction\ucApplicationDetails.Designer.cs">
       <DependentUpon>ucApplicationDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Local DL Appliaction\ucLocalDrivingLicenseDetails.cs">
+    <Compile Include="Local License Appliaction\ucLocalDrivingLicenseDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Local DL Appliaction\ucLocalDrivingLicenseDetails.Designer.cs">
+    <Compile Include="Local License Appliaction\ucLocalDrivingLicenseDetails.Designer.cs">
       <DependentUpon>ucLocalDrivingLicenseDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\FrmLogin.cs">
@@ -173,11 +185,11 @@
     <Compile Include="People\ucPersonDetails.Designer.cs">
       <DependentUpon>ucPersonDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Users\ucUserInformations.cs">
+    <Compile Include="Users\ucUserInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Users\ucUserInformations.Designer.cs">
-      <DependentUpon>ucUserInformations.cs</DependentUpon>
+    <Compile Include="Users\ucUserInformation.Designer.cs">
+      <DependentUpon>ucUserInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="Users\ucGetPersonWithFilter.cs">
       <SubType>UserControl</SubType>
@@ -185,22 +197,28 @@
     <Compile Include="Users\ucGetPersonWithFilter.Designer.cs">
       <DependentUpon>ucGetPersonWithFilter.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Local DL Appliaction\FrmAppointments.resx">
+    <EmbeddedResource Include="Local License Appliaction\FrmAddAppointment.resx">
+      <DependentUpon>FrmAddAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Local License Appliaction\FrmAppointments.resx">
       <DependentUpon>FrmAppointments.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Local DL Appliaction\FrmLocalLicenseAppInfo.resx">
+    <EmbeddedResource Include="Local License Appliaction\FrmLocalLicenseAppInfo.resx">
       <DependentUpon>FrmLocalLicenseAppInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Local DL Appliaction\FrmLocalLicenseAppManagement.resx">
+    <EmbeddedResource Include="Local License Appliaction\FrmLocalLicenseAppManagement.resx">
       <DependentUpon>FrmLocalLicenseAppManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Local DL Appliaction\FrmSelectPersonForApp.resx">
+    <EmbeddedResource Include="Local License Appliaction\FrmSelectPersonForApp.resx">
       <DependentUpon>FrmSelectPersonForApp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Local DL Appliaction\ucApplicationDetails.resx">
+    <EmbeddedResource Include="Local License Appliaction\FrmTakeTest.resx">
+      <DependentUpon>FrmTakeTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Local License Appliaction\ucApplicationDetails.resx">
       <DependentUpon>ucApplicationDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Local DL Appliaction\ucLocalDrivingLicenseDetails.resx">
+    <EmbeddedResource Include="Local License Appliaction\ucLocalDrivingLicenseDetails.resx">
       <DependentUpon>ucLocalDrivingLicenseDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\FrmLogin.resx">
@@ -255,8 +273,8 @@
     <EmbeddedResource Include="People\ucPersonDetails.resx">
       <DependentUpon>ucPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Users\ucUserInformations.resx">
-      <DependentUpon>ucUserInformations.cs</DependentUpon>
+    <EmbeddedResource Include="Users\ucUserInformation.resx">
+      <DependentUpon>ucUserInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\ucGetPersonWithFilter.resx">
       <DependentUpon>ucGetPersonWithFilter.cs</DependentUpon>
@@ -560,6 +578,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\exam-time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\counter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exam-time1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appointmentsAdd1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\testing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\employee1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

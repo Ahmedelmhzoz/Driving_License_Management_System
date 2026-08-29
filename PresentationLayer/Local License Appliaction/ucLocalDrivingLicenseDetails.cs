@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace PresentationLayer.Local_DL_Appliaction {
     public partial class ucLocalDrivingLicenseDetails : UserControl {
@@ -30,6 +31,11 @@ namespace PresentationLayer.Local_DL_Appliaction {
                 btnShowLicense.Enabled = true;
                 lblLicense.ForeColor = Color.White;
             }
+        }
+        public void AnExamWasPassed() {
+            int passedExams = Convert.ToInt32(lblPassedExams.Text);
+            passedExams++;
+            lblPassedExams.Text = passedExams.ToString();
         }
     }
 }

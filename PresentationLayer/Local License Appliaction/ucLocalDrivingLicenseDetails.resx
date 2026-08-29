@@ -117,39 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="TestAppointmentID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="AppointmentDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="PaidFees.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="IsLocked.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnClose.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAOVSURBVFhH7ZfZ
-        axRBEIc3MYK3JumajVHEWxAE9UFRPEBBRR9En0TF8+9QAqKiiAfig09BzXaNg6Lio0hURPFAxDMi2a7J
-        xigRPMHjQVtqpkfHymazm+CbHwSW/lVXV1fXdFcymf+Ui7VVWTTzlW8OeEhXAakLNH0CpB+AVACka4C0
-        F7BjMdvK6f0nsIM8HW4GTW2AZMv5U0hPAM22TJOtlu4qAnLt0zwM76Scd4I2RxXSmgY0E8c0mzGZVlvD
-        v0GbVZ5PhwDDjpT9TRXkZ0i/ZeH5+RWA9Nk54hTvyJy8P1ja9aDV1iikjVGwPNen91kMl0uzkkCOVgPS
-        N+fg3OhcWCtt+kJdahsJmpB9eEjflTZLpU1ROO2A9MEtfmJABWVtFfjhEZfFt3xU0uRvmmw1oLkbFZJP
-        Fwa0eEKTrVYYXnRB3C7pkyvXGb6qDdpHS72/RMcR15H1fFov9RhOF9KLOACzTcqMOkNjGy93DZPjCbxQ
-        XRDOlOMMIO10m3tWNAt8gTiD11zJPfTANADSV0B63BC8BKnzGGvsI9tSmCV1vk8UErk15kg5AzrcHxde
-        eERqDO88WUAGkV6cs9jbVwNojsX1Fe6WGgdwPYreN2ulliAWioIQY88VdjTKeQlezqyM6gDpqtT4jKIi
-        yQY0SWppZBCp38/4mKR9mmwunBzZamqTGgfwJUrPpbaRUpNEQfjmkVs43vkZGivtJBObzRBA+sk3rNR+
-        B1DX8nKU1CSNukv1J4DxQWGos/8otbKPYNypznpAevgvjoDf85JFyNUNSA/YztP01NP5bEVFGD9wvRVh
-        uM+Jh6XGuPTdS3aQ3q38DEcFhbq/Z8fwU842CmmX1PgzXOQcdBW7iPiGSxYotst0EJ6mBVLniwiQTOQj
-        Z2ZLOb6Kk65Hm61SZnhi9vSb4XI8gbOkfJorxxnwzfbk6IpexYznh1vcLjvL+RrKBYLuEUmn5CGtk/of
-        Us8xIJ3vNdJKiB+5887nrT59QlCYym2Um3C8zwmlsLZKaTrofHX33ZA43J3NLx9PDKLms0I47Z6mFpf2
-        73A2v0TalIQbSdf3s4MwKszADpJ2PeCm1DcbUt3xu3pNy6RZWXh+xxRuo5yjKJCo9dZmVW3QPiH6Ilpt
-        Df/mS4bTnXrzubG5ofz26dJvZXBP59OmSv4x4XeCv6gB1U8PrK2qz+XnceOiNF3hvpHTy7Xidt0KSHs8
-        pIVy6n9K8Qv1dSN483Le0wAAAABJRU5ErkJggg==
-</value>
-  </data>
 </root>

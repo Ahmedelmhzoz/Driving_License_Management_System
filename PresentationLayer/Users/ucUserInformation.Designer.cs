@@ -1,5 +1,5 @@
 ﻿namespace PresentationLayer.Users {
-    partial class ucUserInformations {
+    partial class ucUserInformation {
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -66,7 +66,7 @@
             this.groupBox1.Size = new System.Drawing.Size(1867, 200);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Login informations";
+            this.groupBox1.Text = "Login information";
             // 
             // lblActive
             // 
@@ -164,14 +164,14 @@
             this.lblUserID.TabIndex = 11;
             this.lblUserID.Text = "Unknown";
             // 
-            // ucUserInformations
+            // ucUserInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ucPersonDetails1);
-            this.Name = "ucUserInformations";
+            this.Name = "ucUserInformation";
             this.Size = new System.Drawing.Size(1945, 1098);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

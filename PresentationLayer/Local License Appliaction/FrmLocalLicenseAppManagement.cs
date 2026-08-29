@@ -11,7 +11,6 @@ namespace PresentationLayer.Local_DL_Appliaction {
             InitializeComponent();
         }
         void _ReloadData() {
-            dgvLocalApplications.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvLocalApplications.DataSource = LocalLicenseApp.getAllApplications();
             lblRecordsNo.Text = dgvLocalApplications.Rows.Count.ToString();
         }
@@ -100,50 +99,61 @@ namespace PresentationLayer.Local_DL_Appliaction {
             string status = (string)dgvLocalApplications.CurrentRow.Cells["ApplicationStatus"].Value;
             if (status == "Completed") {
                 tmsiDeleteApp.Enabled = false;
-                tmsiScheduleTest.Enabled = false;
                 editApp.Enabled = false;
                 tsmiCancelApp.Enabled = false;
             } else if (status == "New") {
                 tmsiDeleteApp.Enabled = true;
-                tmsiScheduleTest.Enabled = true;
                 editApp.Enabled = true;
                 tsmiCancelApp.Enabled = true;
             }
             else { // canceled
                 tmsiDeleteApp.Enabled = true;
-                tmsiScheduleTest.Enabled = false;
                 editApp.Enabled = false;
                 tsmiCancelApp.Enabled = false;
             }
         }
-        void _DisableAllMenuTests() {
+        void _DisableAllTestsMenu() {
             visionTestToolStripMenuItem.Enabled = false;
             writtenTestToolStripMenuItem.Enabled=false;
             streetTestToolStripMenuItem.Enabled = false;
         }
-        void _EnableTheNextExamItem() {
+        void _EnableExamsAtPersonProgress() {
             int passedExams = (int)dgvLocalApplications.CurrentRow.Cells["PassedExams"].Value;
-            switch (passedExams) {
-                case 0: tmsiScheduleTest.Enabled = true; visionTestToolStripMenuItem.Enabled = true; break;
-                case 1: tmsiScheduleTest.Enabled = true;  writtenTestToolStripMenuItem.Enabled = true; break;
-                case 2: tmsiScheduleTest.Enabled = true;  streetTestToolStripMenuItem.Enabled = true; break;
-                default: break;
+            if (passedExams >= 0) {
+                visionTestToolStripMenuItem.Enabled = true;
+            }
+            if (passedExams >= 1) {
+                writtenTestToolStripMenuItem.Enabled = true;
+            }
+            if (passedExams >= 2) {
+                streetTestToolStripMenuItem.Enabled = true;
             }
         }
         private void cmsApp_Opening(object sender, System.ComponentModel.CancelEventArgs e) {
-            _DisableAllMenuTests();
-            _EnableTheNextExamItem();
+            _DisableAllTestsMenu();
             _EnablityByStatus();
+            _EnableExamsAtPersonProgress();
         }
 
-        private void visionTestToolStripMenuItem_Click(object sender, EventArgs e) {
+        void _ShowScheduledTestsForm(enTestType testType) {
             int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
             LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
             if (loaclLicenseApp != null) {
-                FrmAppointments frm = new FrmAppointments(loaclLicenseApp, enTestType.enVision);
+                FrmAppointments frm = new FrmAppointments(loaclLicenseApp, testType);
                 frm.ShowDialog();
                 _ReloadData();
             }
+        }
+        private void visionTestToolStripMenuItem_Click(object sender, EventArgs e) {
+            _ShowScheduledTestsForm(enTestType.enVision);
+        }
+
+        private void writtenTestToolStripMenuItem_Click(object sender, EventArgs e) {
+            _ShowScheduledTestsForm(enTestType.enWritten);
+        }
+
+        private void streetTestToolStripMenuItem_Click(object sender, EventArgs e) {
+            _ShowScheduledTestsForm(enTestType.enStreet);
         }
     }
 }

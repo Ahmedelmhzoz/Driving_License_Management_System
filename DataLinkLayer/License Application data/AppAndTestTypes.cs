@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DataLinkLayer.License_Application_data {
-    public class TestDTO {                 
+    public class TestTypeDTO {                 
         public int TestTypeID { get; set; }
         public string TestTypeTitle { get; set; }
         public decimal TestTypeFees { get; set; }
@@ -166,7 +166,7 @@ namespace DataLinkLayer.License_Application_data {
             return (rowsAffected > 0);
         }
 
-        public static TestDTO getTestType(enTestType testType) {
+        public static TestTypeDTO getTestType(enTestType testType) {
             int testID = Utilities.convertTestTypeToID(testType);
 
             string query = @"SELECT TestTypeID, TestTypeTitle, TestTypeFees , TestTypeDescription
@@ -181,7 +181,7 @@ namespace DataLinkLayer.License_Application_data {
                         connection.Open();
                         using (SqlDataReader reader = command.ExecuteReader()) {
                             if (reader.Read()) {
-                                return new TestDTO {
+                                return new TestTypeDTO {
                                     TestTypeID = (int)reader["TestTypeID"],
                                     TestTypeTitle = (string)reader["TestTypeTitle"],
                                     TestTypeFees = Convert.ToDecimal(reader["TestTypeFees"]),

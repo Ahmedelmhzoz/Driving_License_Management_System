@@ -59,5 +59,9 @@ namespace PresentationLayer.Local_DL_Appliaction {
                     lblApplicantName.Text = newName;
             }
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e) {
+
+        }
     }
 }

@@ -24,10 +24,10 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dgvLocalApplications = new System.Windows.Forms.DataGridView();
@@ -39,8 +39,16 @@
             this.PassedExams = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ApplicationStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmsApp = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showApplicationDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.editApp = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmsiDeleteApp = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiCancelApp = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmsiScheduleTest = new System.Windows.Forms.ToolStripMenuItem();
+            this.visionTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.writtenTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.streetTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblRecordsNo = new System.Windows.Forms.Label();
@@ -48,14 +56,6 @@
             this.lblLicense = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.showApplicationDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editApp = new System.Windows.Forms.ToolStripMenuItem();
-            this.tmsiDeleteApp = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiCancelApp = new System.Windows.Forms.ToolStripMenuItem();
-            this.tmsiScheduleTest = new System.Windows.Forms.ToolStripMenuItem();
-            this.visionTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.writtenTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.streetTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocalApplications)).BeginInit();
             this.cmsApp.SuspendLayout();
@@ -90,21 +90,21 @@
             // dgvLocalApplications
             // 
             this.dgvLocalApplications.AllowUserToAddRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Georgia", 10.1F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            this.dgvLocalApplications.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Georgia", 10.1F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            this.dgvLocalApplications.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvLocalApplications.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLocalApplications.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Georgia", 10.1F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLocalApplications.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Georgia", 10.1F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLocalApplications.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvLocalApplications.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLocalApplications.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.LocalDrivingLicenseApplicationID,
@@ -115,25 +115,25 @@
             this.PassedExams,
             this.ApplicationStatus});
             this.dgvLocalApplications.ContextMenuStrip = this.cmsApp;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Georgia", 10.1F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLocalApplications.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Georgia", 10.1F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLocalApplications.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvLocalApplications.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgvLocalApplications.Location = new System.Drawing.Point(32, 556);
             this.dgvLocalApplications.Name = "dgvLocalApplications";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLocalApplications.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLocalApplications.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvLocalApplications.RowHeadersWidth = 102;
             this.dgvLocalApplications.RowTemplate.Height = 40;
             this.dgvLocalApplications.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -202,8 +202,16 @@
             this.tsmiCancelApp,
             this.tmsiScheduleTest});
             this.cmsApp.Name = "cmsApp";
-            this.cmsApp.Size = new System.Drawing.Size(725, 316);
+            this.cmsApp.Size = new System.Drawing.Size(725, 371);
             this.cmsApp.Opening += new System.ComponentModel.CancelEventHandler(this.cmsApp_Opening);
+            // 
+            // showApplicationDetailsToolStripMenuItem
+            // 
+            this.showApplicationDetailsToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.job_application;
+            this.showApplicationDetailsToolStripMenuItem.Name = "showApplicationDetailsToolStripMenuItem";
+            this.showApplicationDetailsToolStripMenuItem.Size = new System.Drawing.Size(724, 60);
+            this.showApplicationDetailsToolStripMenuItem.Text = "Show application details";
+            this.showApplicationDetailsToolStripMenuItem.Click += new System.EventHandler(this.showApplicationDetailsToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -211,10 +219,69 @@
             this.toolStripMenuItem2.Size = new System.Drawing.Size(721, 6);
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
+            // editApp
+            // 
+            this.editApp.Image = global::PresentationLayer.Properties.Resources.editApplication;
+            this.editApp.Name = "editApp";
+            this.editApp.Size = new System.Drawing.Size(724, 60);
+            this.editApp.Text = "Edit application";
+            this.editApp.Click += new System.EventHandler(this.editApp_Click);
+            // 
+            // tmsiDeleteApp
+            // 
+            this.tmsiDeleteApp.Image = global::PresentationLayer.Properties.Resources.cut_paper;
+            this.tmsiDeleteApp.Name = "tmsiDeleteApp";
+            this.tmsiDeleteApp.Size = new System.Drawing.Size(724, 60);
+            this.tmsiDeleteApp.Text = "Delete application";
+            this.tmsiDeleteApp.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(721, 6);
+            // 
+            // tsmiCancelApp
+            // 
+            this.tsmiCancelApp.Image = global::PresentationLayer.Properties.Resources.cancel;
+            this.tsmiCancelApp.Name = "tsmiCancelApp";
+            this.tsmiCancelApp.Size = new System.Drawing.Size(724, 60);
+            this.tsmiCancelApp.Text = "Cancel application";
+            this.tsmiCancelApp.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // 
+            // tmsiScheduleTest
+            // 
+            this.tmsiScheduleTest.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.visionTestToolStripMenuItem,
+            this.writtenTestToolStripMenuItem,
+            this.streetTestToolStripMenuItem});
+            this.tmsiScheduleTest.Image = global::PresentationLayer.Properties.Resources.examination;
+            this.tmsiScheduleTest.Name = "tmsiScheduleTest";
+            this.tmsiScheduleTest.Size = new System.Drawing.Size(724, 60);
+            this.tmsiScheduleTest.Text = "Show Scheduled tests";
+            // 
+            // visionTestToolStripMenuItem
+            // 
+            this.visionTestToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.vision1;
+            this.visionTestToolStripMenuItem.Name = "visionTestToolStripMenuItem";
+            this.visionTestToolStripMenuItem.Size = new System.Drawing.Size(486, 62);
+            this.visionTestToolStripMenuItem.Text = "Vision test";
+            this.visionTestToolStripMenuItem.Click += new System.EventHandler(this.visionTestToolStripMenuItem_Click);
+            // 
+            // writtenTestToolStripMenuItem
+            // 
+            this.writtenTestToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.writtenTest;
+            this.writtenTestToolStripMenuItem.Name = "writtenTestToolStripMenuItem";
+            this.writtenTestToolStripMenuItem.Size = new System.Drawing.Size(486, 62);
+            this.writtenTestToolStripMenuItem.Text = "Written test";
+            this.writtenTestToolStripMenuItem.Click += new System.EventHandler(this.writtenTestToolStripMenuItem_Click);
+            // 
+            // streetTestToolStripMenuItem
+            // 
+            this.streetTestToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.streets;
+            this.streetTestToolStripMenuItem.Name = "streetTestToolStripMenuItem";
+            this.streetTestToolStripMenuItem.Size = new System.Drawing.Size(486, 62);
+            this.streetTestToolStripMenuItem.Text = "Street test";
+            this.streetTestToolStripMenuItem.Click += new System.EventHandler(this.streetTestToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -298,71 +365,6 @@
             this.btnAdd.TabIndex = 33;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // showApplicationDetailsToolStripMenuItem
-            // 
-            this.showApplicationDetailsToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.job_application;
-            this.showApplicationDetailsToolStripMenuItem.Name = "showApplicationDetailsToolStripMenuItem";
-            this.showApplicationDetailsToolStripMenuItem.Size = new System.Drawing.Size(724, 60);
-            this.showApplicationDetailsToolStripMenuItem.Text = "Show application details";
-            this.showApplicationDetailsToolStripMenuItem.Click += new System.EventHandler(this.showApplicationDetailsToolStripMenuItem_Click);
-            // 
-            // editApp
-            // 
-            this.editApp.Image = global::PresentationLayer.Properties.Resources.editApplication;
-            this.editApp.Name = "editApp";
-            this.editApp.Size = new System.Drawing.Size(724, 60);
-            this.editApp.Text = "Edit application";
-            this.editApp.Click += new System.EventHandler(this.editApp_Click);
-            // 
-            // tmsiDeleteApp
-            // 
-            this.tmsiDeleteApp.Image = global::PresentationLayer.Properties.Resources.cut_paper;
-            this.tmsiDeleteApp.Name = "tmsiDeleteApp";
-            this.tmsiDeleteApp.Size = new System.Drawing.Size(724, 60);
-            this.tmsiDeleteApp.Text = "Delete application";
-            this.tmsiDeleteApp.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
-            // tsmiCancelApp
-            // 
-            this.tsmiCancelApp.Image = global::PresentationLayer.Properties.Resources.cancel;
-            this.tsmiCancelApp.Name = "tsmiCancelApp";
-            this.tsmiCancelApp.Size = new System.Drawing.Size(724, 60);
-            this.tsmiCancelApp.Text = "Cancel application";
-            this.tsmiCancelApp.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
-            // 
-            // tmsiScheduleTest
-            // 
-            this.tmsiScheduleTest.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.visionTestToolStripMenuItem,
-            this.writtenTestToolStripMenuItem,
-            this.streetTestToolStripMenuItem});
-            this.tmsiScheduleTest.Image = global::PresentationLayer.Properties.Resources.examination;
-            this.tmsiScheduleTest.Name = "tmsiScheduleTest";
-            this.tmsiScheduleTest.Size = new System.Drawing.Size(724, 60);
-            this.tmsiScheduleTest.Text = "Schedule test";
-            // 
-            // visionTestToolStripMenuItem
-            // 
-            this.visionTestToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.vision1;
-            this.visionTestToolStripMenuItem.Name = "visionTestToolStripMenuItem";
-            this.visionTestToolStripMenuItem.Size = new System.Drawing.Size(486, 62);
-            this.visionTestToolStripMenuItem.Text = "Vision test";
-            this.visionTestToolStripMenuItem.Click += new System.EventHandler(this.visionTestToolStripMenuItem_Click);
-            // 
-            // writtenTestToolStripMenuItem
-            // 
-            this.writtenTestToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.writtenTest;
-            this.writtenTestToolStripMenuItem.Name = "writtenTestToolStripMenuItem";
-            this.writtenTestToolStripMenuItem.Size = new System.Drawing.Size(486, 62);
-            this.writtenTestToolStripMenuItem.Text = "Written test";
-            // 
-            // streetTestToolStripMenuItem
-            // 
-            this.streetTestToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.streets;
-            this.streetTestToolStripMenuItem.Name = "streetTestToolStripMenuItem";
-            this.streetTestToolStripMenuItem.Size = new System.Drawing.Size(486, 62);
-            this.streetTestToolStripMenuItem.Text = "Street test";
             // 
             // pictureBox1
             // 

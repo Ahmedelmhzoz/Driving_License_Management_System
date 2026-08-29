@@ -17,7 +17,6 @@ D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLa
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.FrmUsers.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Properties.Resources.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.ucPersonDetails.resources
-D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Users.ucUserInformations.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Users.ucGetPersonWithFilter.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.csproj.GenerateResource.cache
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.csproj.CoreCompileInputs.cache
@@ -36,3 +35,6 @@ D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\bin\Debug\Shared.dll
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\bin\Debug\Shared.pdb
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Local_DL_Appliaction.ucLocalDrivingLicenseDetails.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Local_DL_Appliaction.FrmAppointments.resources
+D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Users.ucUserInformation.resources
+D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Local_DL_Appliaction.FrmAddAppointment.resources
+D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Local_DL_Appliaction.FrmTakeTest.resources

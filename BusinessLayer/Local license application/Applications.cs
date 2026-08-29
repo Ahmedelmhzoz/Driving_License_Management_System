@@ -2,6 +2,7 @@
 using System;
 using Shared;
 using System.Net;
+using System.Security.Cryptography.X509Certificates;
 
 namespace BusinessLayer {
     public class Applications {
@@ -14,7 +15,7 @@ namespace BusinessLayer {
         public decimal paidFees { get; set; }
         public int createdByUserID { get; set; }
         public enAppMode currentMode { get; set; }
-        protected Applications() {
+        public Applications() {
             AppID = -1; createdByUserID = -1; personID = -1;  ApplicaitionTypeID = -1;
             AppDate = DateTime.Now;
             lastStatusDate = DateTime.Now;
@@ -34,17 +35,16 @@ namespace BusinessLayer {
             };
         }
 
-        int _addApplication() {
+        bool _addApplication() {
             ApplicationDTO appDTO = _toDTO();
-            return ApplicationsData.AddNewApplication(appDTO);
+            AppID = ApplicationsData.AddNewApplication(appDTO);
+            return (AppID != -1);
         }
 
-        protected bool Save() {
+        public bool Save() {
             switch (currentMode) {
                 case enAppMode.addApp:
-                    int appID;
-                    if ((appID = _addApplication()) != -1) {
-                        this.AppID = appID;
+                    if (_addApplication()) {
                         currentMode = enAppMode.updateApp;
                         return true;
                     }
