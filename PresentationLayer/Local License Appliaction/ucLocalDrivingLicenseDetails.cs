@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
 using BusinessLayer.License_Applications;
+using PresentationLayer.Local_License;
 using Shared;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,10 @@ namespace PresentationLayer.Local_DL_Appliaction {
         public ucLocalDrivingLicenseDetails() {
             InitializeComponent();
         }
+        LocalLicenseApp licenseApp = null;
         public void loadData(LocalLicenseApp licenseApp) {
+            this.licenseApp = licenseApp;
+
             lblApplicationID.Text = licenseApp.LicenseAppID.ToString();
             lblLicenseClass.Text = licenseApp.LicenseClassID.ToString();
             LicenseClasses Class = LicenseClasses.getLicenseClassByID(licenseApp.LicenseClassID);
@@ -36,6 +40,14 @@ namespace PresentationLayer.Local_DL_Appliaction {
             int passedExams = Convert.ToInt32(lblPassedExams.Text);
             passedExams++;
             lblPassedExams.Text = passedExams.ToString();
+        }
+
+        private void btnShowLicense_Click(object sender, EventArgs e) {
+            LocalLicense license = LocalLicense.GetLicenseByApplicationID(licenseApp.AppID);
+            if (license == null) return;
+
+            FrmLocalLicenseDetails frm = new FrmLocalLicenseDetails(license);
+            frm.ShowDialog();
         }
     }
 }

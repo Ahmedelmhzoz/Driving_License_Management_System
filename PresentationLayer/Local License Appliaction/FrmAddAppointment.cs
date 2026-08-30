@@ -59,17 +59,17 @@ namespace PresentationLayer.Local_DL_Appliaction {
 
                 lblAppointmentID.Text = appointment.TestAppointmentID.ToString();
 
-                if (appointment.AppointmentDate < DateTime.Now) // if user created an appointment and the appointment date was passed
+                if (appointment.AppointmentDate.Date < DateTime.Today) // if user created an appointment and the appointment date was passed
                     dpAppointmentDate.MinDate = appointment.AppointmentDate;
                 else
-                    dpAppointmentDate.MinDate = DateTime.Now;
+                    dpAppointmentDate.MinDate = DateTime.Today;
 
                 dpAppointmentDate.Value = appointment.AppointmentDate;
 
             } else {
                 lblTestFees.Text = "$" + tType.TestTypeFees.ToString("0.##");
 
-                dpAppointmentDate.MinDate = DateTime.Now;
+                dpAppointmentDate.MinDate = DateTime.Today;
             }
         }
      
@@ -87,7 +87,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
             newRetakeApplication.ApplicaitionTypeID = (int)enApplicationType.RetakeTest;
             newRetakeApplication.paidFees = appType.AppTypeFees;
             newRetakeApplication.createdByUserID = ImportantSessionData.user.userID;
-            if (newRetakeApplication.Save()) {
+            if (newRetakeApplication.SaveApplication()) {
                 return true;
             }
             return false;
@@ -100,7 +100,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
                     appointment.RetakeTestApplicationID = newRetakeApplication.AppID;
                 } 
                 else {
-                    Helpers.ShowErrorMessage("Error happed while saving retake app");
+                    Helpers.ShowErrorMessage("Error happend while saving retake app");
                 }
             }
 
@@ -112,7 +112,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
                 appointment.IsLocked = false;
             }
 
-            if (dpAppointmentDate.Value < DateTime.Now) {
+            if (dpAppointmentDate.Value.Date < DateTime.Today) {
                 Helpers.ShowErrorMessage("The date cannot be chosen in the past");
                 return;
             }

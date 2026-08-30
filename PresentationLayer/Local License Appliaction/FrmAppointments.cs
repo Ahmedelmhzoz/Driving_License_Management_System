@@ -75,8 +75,16 @@ namespace PresentationLayer.Local_DL_Appliaction {
         }
         
         bool _HasTheExamDatePassed(TestAppointments appointment) {
-            if (appointment.AppointmentDate < DateTime.Now) {
+            if (appointment.AppointmentDate.Date < DateTime.Today) {
                 Helpers.ShowErrorMessage("The exam time has passed, schedule a new test");
+                return true;
+            }
+            return false;
+        }
+
+        bool _TestDayDidntCome(TestAppointments appointment) {
+            if (appointment.AppointmentDate.Date > DateTime.Today) {
+                Helpers.ShowErrorMessage("It's still time for the exam to start, please wait");
                 return true;
             }
             return false;
@@ -87,7 +95,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
             TestAppointments selectedAppointment = TestAppointments.FindAppointmentByID(AppointmentID);
 
 
-            FrmTakeTest TakeTestFrm = new FrmTakeTest(selectedAppointment);
+           
             if (selectedAppointment.IsLocked) {
                 Helpers.ShowErrorMessage("The test is already taken");
                 return;
@@ -97,12 +105,17 @@ namespace PresentationLayer.Local_DL_Appliaction {
                 selectedAppointment.IsLocked = true;
                 selectedAppointment.Save();
                 dgvAppointments.CurrentRow.Cells["IsLocked"].Value = true;
+                return;
             }
 
+            if (_TestDayDidntCome(selectedAppointment)) {
+                return;
+            }
+
+            FrmTakeTest TakeTestFrm = new FrmTakeTest(selectedAppointment);
             TakeTestFrm.OnPassExam += WasApplicantPassTheExam;
             TakeTestFrm.ShowDialog();
             _fillDgvWithAppropraitData();
         }
-
     }
 }
