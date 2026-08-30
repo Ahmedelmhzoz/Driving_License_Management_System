@@ -208,7 +208,7 @@
             // 
             this.dpAppointmentDate.Location = new System.Drawing.Point(545, 623);
             this.dpAppointmentDate.Name = "dpAppointmentDate";
-            this.dpAppointmentDate.Size = new System.Drawing.Size(454, 38);
+            this.dpAppointmentDate.Size = new System.Drawing.Size(531, 38);
             this.dpAppointmentDate.TabIndex = 57;
             // 
             // lblTestFees

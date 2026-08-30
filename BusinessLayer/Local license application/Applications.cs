@@ -1,8 +1,6 @@
 ﻿using DataLinkLayer.License_Application_data;
 using System;
 using Shared;
-using System.Net;
-using System.Security.Cryptography.X509Certificates;
 
 namespace BusinessLayer {
     public class Applications {
@@ -15,6 +13,11 @@ namespace BusinessLayer {
         public decimal paidFees { get; set; }
         public int createdByUserID { get; set; }
         public enAppMode currentMode { get; set; }
+        public Person personInfo {
+            get {
+                return Person.findPerson(this.personID);
+            }
+        }
         public Applications() {
             AppID = -1; createdByUserID = -1; personID = -1;  ApplicaitionTypeID = -1;
             AppDate = DateTime.Now;
@@ -25,6 +28,7 @@ namespace BusinessLayer {
         }
         ApplicationDTO _toDTO() {
             return new ApplicationDTO {
+                AppID = this.AppID,
                 personID = this.personID,
                 AppDate = this.AppDate,
                 ApplicaitionTypeID = this.ApplicaitionTypeID,
@@ -34,40 +38,50 @@ namespace BusinessLayer {
                 createdByUserID = this.createdByUserID,
             };
         }
-
-        bool _addApplication() {
+        public Applications(ApplicationDTO dto) {
+            if (dto != null) {
+                this.AppID = dto.AppID;
+                this.personID = dto.personID;
+                this.AppDate = dto.AppDate;
+                this.ApplicaitionTypeID = dto.ApplicaitionTypeID;
+                this.lastStatusDate = dto.lastStatusDate;
+                this.appStatus = dto.appStatus;
+                this.paidFees = dto.paidFees;
+                this.createdByUserID = dto.createdByUserID;
+                this.currentMode = enAppMode.updateApp;
+            }
+        }
+        bool _AddApplication() {
             ApplicationDTO appDTO = _toDTO();
             AppID = ApplicationsData.AddNewApplication(appDTO);
             return (AppID != -1);
         }
-
-        public bool Save() {
+        bool _UpdateApplication() {
+            return ApplicationsData.UpdateApplication(_toDTO());
+        }
+        public bool SaveApplication() {
             switch (currentMode) {
                 case enAppMode.addApp:
-                    if (_addApplication()) {
+                    if (_AddApplication()) {
                         currentMode = enAppMode.updateApp;
                         return true;
                     }
                     return false;
                 default:
-                    return true;
-                    //code
+                    return _UpdateApplication();
             }
         }
-    
-        protected static ApplicationDTO getPrimaryApplication(int appID) {
-            ApplicationDTO dto = ApplicationsData.GetApplicationByID(appID);
-
-            
-            return dto;
-        }
-
         public Applications getBasicApplication() {
             return this;
         }
         protected static bool updateStatus(int appID, enApplicationStatus newStatus) {
             byte applicationStatus = (byte)newStatus;
             return ApplicationsData.UpdateStatus(appID, applicationStatus, DateTime.Now);
+        }
+        public static Applications getApplicationByID(int appID) { 
+            ApplicationDTO dto = ApplicationsData.GetApplicationByID(appID);
+            if (dto == null) return null;
+            return new Applications(dto);
         }
     }
 }

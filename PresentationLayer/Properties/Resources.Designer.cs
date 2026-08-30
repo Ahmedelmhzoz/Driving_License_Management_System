@@ -63,6 +63,16 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap _checked {
+            get {
+                object obj = ResourceManager.GetObject("checked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Active {
             get {
                 object obj = ResourceManager.GetObject("Active", resourceCulture);
@@ -333,6 +343,26 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap driver {
+            get {
+                object obj = ResourceManager.GetObject("driver", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap driver1 {
+            get {
+                object obj = ResourceManager.GetObject("driver1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap driving_license {
             get {
                 object obj = ResourceManager.GetObject("driving-license", resourceCulture);
@@ -356,6 +386,16 @@ namespace PresentationLayer.Properties {
         public static System.Drawing.Bitmap driving_license__2_ {
             get {
                 object obj = ResourceManager.GetObject("driving-license (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap driving_license__3_ {
+            get {
+                object obj = ResourceManager.GetObject("driving-license (3)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -423,6 +463,16 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap employee2 {
+            get {
+                object obj = ResourceManager.GetObject("employee2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap enter {
             get {
                 object obj = ResourceManager.GetObject("enter", resourceCulture);
@@ -456,6 +506,16 @@ namespace PresentationLayer.Properties {
         public static System.Drawing.Bitmap examination {
             get {
                 object obj = ResourceManager.GetObject("examination", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap expired {
+            get {
+                object obj = ResourceManager.GetObject("expired", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -506,6 +566,16 @@ namespace PresentationLayer.Properties {
         public static System.Drawing.Bitmap icense__1_2 {
             get {
                 object obj = ResourceManager.GetObject("icense (1)2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icense__1_3 {
+            get {
+                object obj = ResourceManager.GetObject("icense (1)3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -863,6 +933,26 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap project {
+            get {
+                object obj = ResourceManager.GetObject("project", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap refuse {
+            get {
+                object obj = ResourceManager.GetObject("refuse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap reset_password {
             get {
                 object obj = ResourceManager.GetObject("reset-password", resourceCulture);
@@ -916,6 +1006,16 @@ namespace PresentationLayer.Properties {
         public static System.Drawing.Bitmap send_mail {
             get {
                 object obj = ResourceManager.GetObject("send-mail", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap show {
+            get {
+                object obj = ResourceManager.GetObject("show", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

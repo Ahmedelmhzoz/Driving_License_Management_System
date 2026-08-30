@@ -68,7 +68,44 @@ namespace DataLinkLayer.License_Application_data {
             return insertedApplicationID;
         }
 
+        public static ApplicationDTO GetApplicationInfoByID(int applicationID) {
+            ApplicationDTO dto = null;
 
+            using (SqlConnection connection = new SqlConnection(connectionString)) {
+                string query = @"SELECT ApplicationID, ApplicantPersonID, ApplicationDate, 
+                                        ApplicationTypeID, ApplicationStatus, LastStatusDate, 
+                                        PaidFees, CreatedByUserID
+                                 FROM Applications 
+                                 WHERE ApplicationID = @ApplicationID;";
+
+                using (SqlCommand command = new SqlCommand(query, connection)) {
+                    command.Parameters.AddWithValue("@ApplicationID", applicationID);
+
+                    try {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader()) {
+                            if (reader.Read()) {
+                                dto = new ApplicationDTO {
+                                    AppID = (int)reader["ApplicationID"],
+                                    personID = (int)reader["ApplicantPersonID"],
+                                    AppDate = (DateTime)reader["ApplicationDate"],
+                                    ApplicaitionTypeID = (int)reader["ApplicationTypeID"],
+                                    appStatus = (enApplicationStatus)reader["ApplicationStatus"],
+                                    lastStatusDate = (DateTime)reader["LastStatusDate"],
+                                    paidFees = (decimal)reader["PaidFees"],
+                                    createdByUserID = (int)reader["CreatedByUserID"]
+                                };
+                            }
+                        }
+                    }
+                    catch (Exception ex) {
+                        System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
+                        dto = null;
+                    }
+                }
+            }
+            return dto; 
+        }
         public static ApplicationDTO GetApplicationByID(int appID) {
             ApplicationDTO appDTO = null;
             string query = "SELECT * FROM Applications WHERE ApplicationID = @AppID";
@@ -121,6 +158,42 @@ namespace DataLinkLayer.License_Application_data {
                     }
                 }
             }
+        }
+        public static bool UpdateApplication(ApplicationDTO dto) {
+            int rowsAffected = 0;
+
+            using (SqlConnection connection = new SqlConnection(connectionString)) {
+                string query = @"UPDATE Applications
+                         SET ApplicantPersonID = @ApplicantPersonID,
+                             ApplicationDate   = @ApplicationDate,
+                             ApplicationTypeID = @ApplicationTypeID,
+                             ApplicationStatus = @ApplicationStatus,
+                             LastStatusDate    = @LastStatusDate,
+                             PaidFees          = @PaidFees,
+                             CreatedByUserID   = @CreatedByUserID
+                         WHERE ApplicationID   = @ApplicationID;";
+
+                using (SqlCommand command = new SqlCommand(query, connection)) {
+                    command.Parameters.AddWithValue("@ApplicationID", dto.AppID);
+                    command.Parameters.AddWithValue("@ApplicantPersonID", dto.personID);
+                    command.Parameters.AddWithValue("@ApplicationDate", dto.AppDate);
+                    command.Parameters.AddWithValue("@ApplicationTypeID", dto.ApplicaitionTypeID);
+                    command.Parameters.AddWithValue("@ApplicationStatus", dto.appStatus);
+                    command.Parameters.AddWithValue("@LastStatusDate", dto.lastStatusDate);
+                    command.Parameters.AddWithValue("@PaidFees", dto.paidFees);
+                    command.Parameters.AddWithValue("@CreatedByUserID", dto.createdByUserID);
+
+                    try {
+                        connection.Open();
+                        rowsAffected = command.ExecuteNonQuery();
+                    }
+                    catch (Exception ex) {
+                        System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
+                        return false;
+                    }
+                }
+            }
+            return (rowsAffected > 0);
         }
     }
 }

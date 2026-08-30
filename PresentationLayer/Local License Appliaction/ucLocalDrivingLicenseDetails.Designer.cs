@@ -23,7 +23,6 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.ucApplicationDetails1 = new PresentationLayer.Local_DL_Appliaction.ucApplicationDetails();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblLicense = new System.Windows.Forms.Label();
             this.btnShowLicense = new System.Windows.Forms.Button();
@@ -36,19 +35,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblApplicationID = new System.Windows.Forms.Label();
             this.Personi = new System.Windows.Forms.Label();
+            this.ucApplicationDetails1 = new PresentationLayer.Local_DL_Appliaction.ucApplicationDetails();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ucApplicationDetails1
-            // 
-            this.ucApplicationDetails1.BackColor = System.Drawing.SystemColors.ControlText;
-            this.ucApplicationDetails1.Location = new System.Drawing.Point(-3, 365);
-            this.ucApplicationDetails1.Name = "ucApplicationDetails1";
-            this.ucApplicationDetails1.Size = new System.Drawing.Size(2370, 794);
-            this.ucApplicationDetails1.TabIndex = 32;
             // 
             // groupBox1
             // 
@@ -96,6 +88,7 @@
             this.btnShowLicense.Size = new System.Drawing.Size(154, 83);
             this.btnShowLicense.TabIndex = 32;
             this.btnShowLicense.UseVisualStyleBackColor = false;
+            this.btnShowLicense.Click += new System.EventHandler(this.btnShowLicense_Click);
             // 
             // pictureBox3
             // 
@@ -192,6 +185,14 @@
             this.Personi.Size = new System.Drawing.Size(514, 39);
             this.Personi.TabIndex = 6;
             this.Personi.Text = "Local driving license app ID:";
+            // 
+            // ucApplicationDetails1
+            // 
+            this.ucApplicationDetails1.BackColor = System.Drawing.SystemColors.ControlText;
+            this.ucApplicationDetails1.Location = new System.Drawing.Point(-3, 365);
+            this.ucApplicationDetails1.Name = "ucApplicationDetails1";
+            this.ucApplicationDetails1.Size = new System.Drawing.Size(2370, 794);
+            this.ucApplicationDetails1.TabIndex = 32;
             // 
             // ucLocalDrivingLicenseDetails
             // 

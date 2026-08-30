@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using Shared;
 using System.Windows.Forms;
+using PresentationLayer.Local_License_Appliaction;
+using PresentationLayer.Local_License;
 namespace PresentationLayer.Local_DL_Appliaction {
     public partial class FrmLocalLicenseAppManagement : Form {
         public FrmLocalLicenseAppManagement() {
@@ -101,23 +103,28 @@ namespace PresentationLayer.Local_DL_Appliaction {
                 tmsiDeleteApp.Enabled = false;
                 editApp.Enabled = false;
                 tsmiCancelApp.Enabled = false;
+                tmsiScheduleTest.Enabled = true;
             } else if (status == "New") {
                 tmsiDeleteApp.Enabled = true;
                 editApp.Enabled = true;
                 tsmiCancelApp.Enabled = true;
+                tmsiScheduleTest.Enabled = true;
             }
             else { // canceled
                 tmsiDeleteApp.Enabled = true;
                 editApp.Enabled = false;
                 tsmiCancelApp.Enabled = false;
+                tmsiScheduleTest.Enabled = false;
             }
         }
         void _DisableAllTestsMenu() {
             visionTestToolStripMenuItem.Enabled = false;
             writtenTestToolStripMenuItem.Enabled=false;
             streetTestToolStripMenuItem.Enabled = false;
+            tmsiIssueLicense.Enabled = false;
+            tmsiShowLicense.Enabled = false;
         }
-        void _EnableExamsAtPersonProgress() {
+        void _EnableProcessesUnderPersonProgress() {
             int passedExams = (int)dgvLocalApplications.CurrentRow.Cells["PassedExams"].Value;
             if (passedExams >= 0) {
                 visionTestToolStripMenuItem.Enabled = true;
@@ -128,11 +135,18 @@ namespace PresentationLayer.Local_DL_Appliaction {
             if (passedExams >= 2) {
                 streetTestToolStripMenuItem.Enabled = true;
             }
+            string AppStatus = dgvLocalApplications.CurrentRow.Cells["ApplicationStatus"].Value.ToString();
+            if (passedExams == 3 && AppStatus == "New") { 
+                tmsiIssueLicense.Enabled = true;
+            }
+            if (passedExams == 3 && AppStatus == "Completed") {
+                tmsiShowLicense.Enabled = true;
+            }
         }
         private void cmsApp_Opening(object sender, System.ComponentModel.CancelEventArgs e) {
             _DisableAllTestsMenu();
             _EnablityByStatus();
-            _EnableExamsAtPersonProgress();
+            _EnableProcessesUnderPersonProgress();
         }
 
         void _ShowScheduledTestsForm(enTestType testType) {
@@ -154,6 +168,28 @@ namespace PresentationLayer.Local_DL_Appliaction {
 
         private void streetTestToolStripMenuItem_Click(object sender, EventArgs e) {
             _ShowScheduledTestsForm(enTestType.enStreet);
+        }
+
+        private void tmsiIssueLicense_Click(object sender, EventArgs e) {
+            int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
+            LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
+            if (loaclLicenseApp != null) {
+                FrmIssueLocalLicense frm = new FrmIssueLocalLicense(loaclLicenseApp);
+                frm.ShowDialog();
+                _ReloadData();
+            }
+        }
+        private void tmsiShowLicense_Click(object sender, EventArgs e) {
+            int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
+
+            LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
+            if (loaclLicenseApp == null){ Helpers.ShowErrorMessage("Cant get loaclLicenseApp"); return; }
+
+            LocalLicense license = LocalLicense.GetLicenseByApplicationID(loaclLicenseApp.AppID);
+            if (license == null) { Helpers.ShowErrorMessage("Cant get license"); return; }
+
+            FrmLocalLicenseDetails frm = new FrmLocalLicenseDetails(license);
+            frm.ShowDialog();
         }
     }
 }

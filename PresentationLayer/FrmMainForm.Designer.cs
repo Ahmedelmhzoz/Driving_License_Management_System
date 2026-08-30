@@ -25,10 +25,6 @@
         private void InitializeComponent() {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.applicationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.peopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.driversToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.accountSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drivingLicenseServicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.LocalLicense = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,6 +34,10 @@
             this.internationalLicenseManagement = new System.Windows.Forms.ToolStripMenuItem();
             this.manageApplicationTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageTestTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.peopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.driversToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accountSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +57,7 @@
             this.accountSettingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(2008, 68);
+            this.menuStrip1.Size = new System.Drawing.Size(2008, 62);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -71,37 +71,6 @@
             this.applicationsToolStripMenuItem.Name = "applicationsToolStripMenuItem";
             this.applicationsToolStripMenuItem.Size = new System.Drawing.Size(353, 58);
             this.applicationsToolStripMenuItem.Text = "Applications";
-            // 
-            // peopleToolStripMenuItem
-            // 
-            this.peopleToolStripMenuItem.Name = "peopleToolStripMenuItem";
-            this.peopleToolStripMenuItem.Size = new System.Drawing.Size(211, 58);
-            this.peopleToolStripMenuItem.Text = "People";
-            this.peopleToolStripMenuItem.Click += new System.EventHandler(this.peopleToolStripMenuItem_Click);
-            // 
-            // driversToolStripMenuItem
-            // 
-            this.driversToolStripMenuItem.Name = "driversToolStripMenuItem";
-            this.driversToolStripMenuItem.Size = new System.Drawing.Size(229, 58);
-            this.driversToolStripMenuItem.Text = "Drivers";
-            // 
-            // usersToolStripMenuItem
-            // 
-            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(185, 58);
-            this.usersToolStripMenuItem.Text = "Users";
-            this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
-            // 
-            // accountSettingsToolStripMenuItem
-            // 
-            this.accountSettingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.profileToolStripMenuItem,
-            this.changePasswordToolStripMenuItem,
-            this.logoutToolStripMenuItem});
-            this.accountSettingsToolStripMenuItem.Font = new System.Drawing.Font("Georgia", 13.9F, System.Drawing.FontStyle.Bold);
-            this.accountSettingsToolStripMenuItem.Name = "accountSettingsToolStripMenuItem";
-            this.accountSettingsToolStripMenuItem.Size = new System.Drawing.Size(447, 58);
-            this.accountSettingsToolStripMenuItem.Text = "Account settings";
             // 
             // drivingLicenseServicesToolStripMenuItem
             // 
@@ -142,14 +111,14 @@
             this.ManageApplicatons.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.localLicenseManagement,
             this.internationalLicenseManagement});
-            this.ManageApplicatons.Image = global::PresentationLayer.Properties.Resources.job_application4;
+            this.ManageApplicatons.Image = global::PresentationLayer.Properties.Resources.AppType;
             this.ManageApplicatons.Name = "ManageApplicatons";
             this.ManageApplicatons.Size = new System.Drawing.Size(809, 62);
             this.ManageApplicatons.Text = "Manage Applicatons";
             // 
             // localLicenseManagement
             // 
-            this.localLicenseManagement.Image = global::PresentationLayer.Properties.Resources.LocalDrivingLicense;
+            this.localLicenseManagement.Image = global::PresentationLayer.Properties.Resources.driving_license__3_;
             this.localLicenseManagement.Name = "localLicenseManagement";
             this.localLicenseManagement.Size = new System.Drawing.Size(1172, 62);
             this.localLicenseManagement.Text = "Local driving license applications";
@@ -164,7 +133,7 @@
             // 
             // manageApplicationTypesToolStripMenuItem
             // 
-            this.manageApplicationTypesToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.AppType;
+            this.manageApplicationTypesToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.job_application2;
             this.manageApplicationTypesToolStripMenuItem.Name = "manageApplicationTypesToolStripMenuItem";
             this.manageApplicationTypesToolStripMenuItem.Size = new System.Drawing.Size(809, 62);
             this.manageApplicationTypesToolStripMenuItem.Text = "Manage application types";
@@ -177,6 +146,37 @@
             this.manageTestTypesToolStripMenuItem.Size = new System.Drawing.Size(809, 62);
             this.manageTestTypesToolStripMenuItem.Text = "Manage Test types";
             this.manageTestTypesToolStripMenuItem.Click += new System.EventHandler(this.manageTestTypesToolStripMenuItem_Click);
+            // 
+            // peopleToolStripMenuItem
+            // 
+            this.peopleToolStripMenuItem.Name = "peopleToolStripMenuItem";
+            this.peopleToolStripMenuItem.Size = new System.Drawing.Size(211, 58);
+            this.peopleToolStripMenuItem.Text = "People";
+            this.peopleToolStripMenuItem.Click += new System.EventHandler(this.peopleToolStripMenuItem_Click);
+            // 
+            // driversToolStripMenuItem
+            // 
+            this.driversToolStripMenuItem.Name = "driversToolStripMenuItem";
+            this.driversToolStripMenuItem.Size = new System.Drawing.Size(229, 58);
+            this.driversToolStripMenuItem.Text = "Drivers";
+            // 
+            // usersToolStripMenuItem
+            // 
+            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(185, 58);
+            this.usersToolStripMenuItem.Text = "Users";
+            this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
+            // 
+            // accountSettingsToolStripMenuItem
+            // 
+            this.accountSettingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.profileToolStripMenuItem,
+            this.changePasswordToolStripMenuItem,
+            this.logoutToolStripMenuItem});
+            this.accountSettingsToolStripMenuItem.Font = new System.Drawing.Font("Georgia", 13.9F, System.Drawing.FontStyle.Bold);
+            this.accountSettingsToolStripMenuItem.Name = "accountSettingsToolStripMenuItem";
+            this.accountSettingsToolStripMenuItem.Size = new System.Drawing.Size(447, 58);
+            this.accountSettingsToolStripMenuItem.Text = "Account settings";
             // 
             // profileToolStripMenuItem
             // 

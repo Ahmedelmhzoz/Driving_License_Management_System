@@ -14,11 +14,7 @@ namespace BusinessLayer.License_Applications {
                return LicenseClasses.getLicenseClassByID(this.LicenseClassID);
             }
         }
-        public Person personInfo {
-            get {
-                return Person.findPerson(this.personID);
-            }
-        }
+       
         public LocalLicenseApp(){
             LicenseAppID = -1;
             LicenseClassID = -1;
@@ -67,7 +63,7 @@ namespace BusinessLayer.License_Applications {
         enHowDidSavingGo _AddLicenseApp() {
             if (!_IsPersonAgeValid())
                 return enHowDidSavingGo.enNotAllowedAge;
-            if (!base.Save()) {
+            if (!base.SaveApplication()) {
                 return enHowDidSavingGo.enErrorWhileSavingOriginalApp;
             }
 
