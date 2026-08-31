@@ -1,6 +1,7 @@
 ﻿using DataLinkLayer; 
 using System;
 using Shared;
+using System.Data;
 
 namespace BusinessLayer {
     public class LocalLicense {
@@ -99,6 +100,9 @@ namespace BusinessLayer {
         }
         public bool Save() {
             return _AddNewLicense();
+        }
+        public static DataTable getLicensesHistoryForPerosn(int perosnID) {
+            return LicensesData.getLicensesHistoryForPerson(perosnID);
         }
     }
 }

@@ -7,36 +7,43 @@ using Shared;
 using System.Windows.Forms;
 using PresentationLayer.Local_License_Appliaction;
 using PresentationLayer.Local_License;
+using PresentationLayer.Licenses;
 namespace PresentationLayer.Local_DL_Appliaction {
     public partial class FrmLocalLicenseAppManagement : Form {
         public FrmLocalLicenseAppManagement() {
             InitializeComponent();
         }
-        void _ReloadData() {
+        void _loadAllApplication() {
             dgvLocalApplications.DataSource = LocalLicenseApp.getAllApplications();
             lblRecordsNo.Text = dgvLocalApplications.Rows.Count.ToString();
+        }
+        void _ReloadData() {
+            if (cbFilterBy.Text == "None" || string.IsNullOrWhiteSpace(cbFilterBy.Text)) {
+                _loadAllApplication();
+            }
+            else {
+                dgvLocalApplications.DataSource = LocalLicenseApp.GetApplicationsSearchResult(txtSearch.Text, cbFilterBy.Text);
+            }
         }
         private void FrmLocalLicenseAppManagement_Load(object sender, EventArgs e) {
             cbFilterBy.SelectedIndex = 0;
             dgvLocalApplications.RowTemplate.Height = 70;
-            _ReloadData();
+            _loadAllApplication();
         }
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e) {
             if (cbFilterBy.Text == "None") {
+                txtSearch.Text = "";
                 txtSearch.Visible = false;
                 _ReloadData();
             }
             else {
                 txtSearch.Visible = true;
-                dgvLocalApplications.DataSource = LocalLicenseApp.GetApplicationsSearchResult(txtSearch.Text, cbFilterBy.Text);
+                _ReloadData();
             }
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e) {
-            if (txtSearch.Text == "")
-                _ReloadData();
-            else
-                dgvLocalApplications.DataSource = LocalLicenseApp.GetApplicationsSearchResult(txtSearch.Text, cbFilterBy.Text);
+            _ReloadData();
         }
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e) {
             if (cbFilterBy.Text == "L.D Application ID") {
@@ -115,14 +122,16 @@ namespace PresentationLayer.Local_DL_Appliaction {
                 editApp.Enabled = false;
                 tsmiCancelApp.Enabled = false;
                 tmsiScheduleTest.Enabled = false;
+                tmsiIssueLicense.Enabled = false;
             }
         }
-        void _DisableAllTestsMenu() {
+        void _DisableAllMenus() {
             visionTestToolStripMenuItem.Enabled = false;
             writtenTestToolStripMenuItem.Enabled=false;
             streetTestToolStripMenuItem.Enabled = false;
             tmsiIssueLicense.Enabled = false;
             tmsiShowLicense.Enabled = false;
+            tmsiHistory.Enabled = false;
         }
         void _EnableProcessesUnderPersonProgress() {
             int passedExams = (int)dgvLocalApplications.CurrentRow.Cells["PassedExams"].Value;
@@ -141,10 +150,11 @@ namespace PresentationLayer.Local_DL_Appliaction {
             }
             if (passedExams == 3 && AppStatus == "Completed") {
                 tmsiShowLicense.Enabled = true;
+                tmsiHistory.Enabled = true;
             }
         }
         private void cmsApp_Opening(object sender, System.ComponentModel.CancelEventArgs e) {
-            _DisableAllTestsMenu();
+            _DisableAllMenus();
             _EnablityByStatus();
             _EnableProcessesUnderPersonProgress();
         }
@@ -189,6 +199,18 @@ namespace PresentationLayer.Local_DL_Appliaction {
             if (license == null) { Helpers.ShowErrorMessage("Cant get license"); return; }
 
             FrmLocalLicenseDetails frm = new FrmLocalLicenseDetails(license);
+            frm.ShowDialog();
+        }
+
+        private void tmsiHistory_Click(object sender, EventArgs e) {
+            int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
+
+             LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
+            if (loaclLicenseApp == null) { Helpers.ShowErrorMessage("Cant get loaclLicenseApp"); return; }
+
+            if (loaclLicenseApp.personInfo == null) { Helpers.ShowErrorMessage("Cant get Person"); return; }
+
+            FrmLicensesHistory frm = new FrmLicensesHistory(loaclLicenseApp.personInfo);
             frm.ShowDialog();
         }
     }

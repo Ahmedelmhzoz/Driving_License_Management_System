@@ -111,6 +111,7 @@
             this.dgvAppointments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAppointments.Size = new System.Drawing.Size(2357, 502);
             this.dgvAppointments.TabIndex = 31;
+            this.dgvAppointments.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvAppointments_CellFormatting);
             // 
             // TestAppointmentID
             // 

@@ -25,10 +25,12 @@ namespace DataLinkLayer {
             string query = @"SELECT tv.TestAppointmentID,
                             tv.AppointmentDate,
                             tv.PaidFees,
-                            tv.IsLocked
+                            tv.IsLocked,
+                            tv.TestResult
                      FROM TestAppointments_View tv
                      WHERE tv.LocalDrivingLicenseApplicationID = @licenseID 
-                       AND tv.TestTypeTitle = @TestTitle";
+                       AND tv.TestTypeTitle = @TestTitle ORDER BY TestAppointmentID DESC";
+
 
             using (SqlConnection connection = new SqlConnection(connectionString)) {
                 using (SqlCommand command = new SqlCommand(query, connection)) {

@@ -6,6 +6,7 @@ using System;
 using System.Windows.Forms;
 using BusinessLayer;
 using Global;
+using System.Drawing;
 namespace PresentationLayer.Local_DL_Appliaction {
     public partial class FrmAppointments : Form {
         LocalLicenseApp licenseApp = null;
@@ -116,6 +117,35 @@ namespace PresentationLayer.Local_DL_Appliaction {
             TakeTestFrm.OnPassExam += WasApplicantPassTheExam;
             TakeTestFrm.ShowDialog();
             _fillDgvWithAppropraitData();
+        }
+
+        private void dgvAppointments_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e) {
+            if (dgvAppointments.Columns[e.ColumnIndex].Name == "TestResult") {
+                if (e.Value != DBNull.Value) {
+                    string status = e.Value.ToString();
+
+                    switch (status) {
+                        case "Passed":
+                            e.CellStyle.ForeColor = Color.Green;
+                            e.CellStyle.BackColor = Color.LightGreen;
+                            e.CellStyle.SelectionForeColor = Color.Green;
+
+                            break;
+
+                        case "Failed":
+                            e.CellStyle.ForeColor = Color.Red;
+                            e.CellStyle.BackColor = Color.Pink;
+                            e.CellStyle.SelectionForeColor = Color.Red;
+                            break;
+
+                        case "Not Taken Yet":
+                            e.CellStyle.ForeColor = Color.Orange;
+                            e.CellStyle.BackColor = Color.Yellow;
+                            e.CellStyle.SelectionForeColor = Color.Orange;
+                            break;
+                    }
+                }
+            }
         }
     }
 }
