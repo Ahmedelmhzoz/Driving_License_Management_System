@@ -49,16 +49,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Licenses\FrmLicensesHistory.cs">
+    <Compile Include="Licenses and drivers\FrmDrivers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Licenses\FrmLicensesHistory.Designer.cs">
+    <Compile Include="Licenses and drivers\FrmDrivers.Designer.cs">
+      <DependentUpon>FrmDrivers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Licenses and drivers\FrmLicensesHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licenses and drivers\FrmLicensesHistory.Designer.cs">
       <DependentUpon>FrmLicensesHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Licenses\ucDrivingLicenses.cs">
+    <Compile Include="Licenses and drivers\ucDrivingLicenses.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Licenses\ucDrivingLicenses.Designer.cs">
+    <Compile Include="Licenses and drivers\ucDrivingLicenses.Designer.cs">
       <DependentUpon>ucDrivingLicenses.cs</DependentUpon>
     </Compile>
     <Compile Include="Local License Appliaction\FrmAddAppointment.cs">
@@ -115,16 +121,16 @@
     <Compile Include="Local License Appliaction\ucLocalDrivingLicenseDetails.Designer.cs">
       <DependentUpon>ucLocalDrivingLicenseDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Licenses\FrmLocalLicenseDetails.cs">
+    <Compile Include="Licenses and drivers\FrmLocalLicenseDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Licenses\FrmLocalLicenseDetails.Designer.cs">
+    <Compile Include="Licenses and drivers\FrmLocalLicenseDetails.Designer.cs">
       <DependentUpon>FrmLocalLicenseDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Licenses\ucLocalLicenseDetails.cs">
+    <Compile Include="Licenses and drivers\ucLocalLicenseDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Licenses\ucLocalLicenseDetails.Designer.cs">
+    <Compile Include="Licenses and drivers\ucLocalLicenseDetails.Designer.cs">
       <DependentUpon>ucLocalLicenseDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\FrmLogin.cs">
@@ -227,10 +233,13 @@
     <Compile Include="Users\ucGetPersonWithFilter.Designer.cs">
       <DependentUpon>ucGetPersonWithFilter.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Licenses\FrmLicensesHistory.resx">
+    <EmbeddedResource Include="Licenses and drivers\FrmDrivers.resx">
+      <DependentUpon>FrmDrivers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Licenses and drivers\FrmLicensesHistory.resx">
       <DependentUpon>FrmLicensesHistory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Licenses\ucDrivingLicenses.resx">
+    <EmbeddedResource Include="Licenses and drivers\ucDrivingLicenses.resx">
       <DependentUpon>ucDrivingLicenses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Local License Appliaction\FrmAddAppointment.resx">
@@ -260,10 +269,10 @@
     <EmbeddedResource Include="Local License Appliaction\ucLocalDrivingLicenseDetails.resx">
       <DependentUpon>ucLocalDrivingLicenseDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Licenses\FrmLocalLicenseDetails.resx">
+    <EmbeddedResource Include="Licenses and drivers\FrmLocalLicenseDetails.resx">
       <DependentUpon>FrmLocalLicenseDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Licenses\ucLocalLicenseDetails.resx">
+    <EmbeddedResource Include="Licenses and drivers\ucLocalLicenseDetails.resx">
       <DependentUpon>ucLocalLicenseDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\FrmLogin.resx">
@@ -695,6 +704,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\history2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\driver2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

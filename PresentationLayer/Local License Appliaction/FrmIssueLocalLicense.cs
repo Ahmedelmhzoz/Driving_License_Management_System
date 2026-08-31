@@ -39,7 +39,7 @@ namespace PresentationLayer.Local_License_Appliaction {
             newLicense.ApplicationID = licenseApp.AppID;
             newLicense.DriverID = Driver.driverID;
             newLicense.LicenseClassID = licenseApp.LicenseClassID;
-            newLicense.IssueDate = Driver.creationDate;
+            newLicense.IssueDate = DateTime.Now;
 
             byte validityLength = licenseApp.LicenseClassInfo.DefaultValidityLength;
             newLicense.ExpirationDate = DateTime.Now.AddYears(validityLength);

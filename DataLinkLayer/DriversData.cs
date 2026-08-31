@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using Shared;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -112,6 +113,48 @@ namespace DataLinkLayer {
                 }
             }
             return null;
+        }
+        public static DataTable GetDriversByFilter(enDriverFilterColumn filterColumn, string filterValue) {
+            DataTable dt = new DataTable();
+            string actualColumnName = "";
+            switch (filterColumn) {
+                case enDriverFilterColumn.DriverID:
+                    actualColumnName = "DriverID";
+                    break;
+
+                case enDriverFilterColumn.PersonID:
+                    actualColumnName = "PersonID";
+                    break;
+
+                case enDriverFilterColumn.NationalNo:
+                    actualColumnName = "NationalNo";
+                    break;
+
+                default :
+                    actualColumnName = "FullName";
+                    break;
+            }
+
+            using (SqlConnection connection = new SqlConnection(connectionSettings)) {
+                string query = $@"SELECT * FROM Drivers_View 
+                       WHERE {actualColumnName} LIKE '%' + @filterValue + '%' 
+                       ORDER BY DriverID DESC;";
+                using (SqlCommand command = new SqlCommand(query, connection)) {
+                    command.Parameters.AddWithValue("@filterValue", filterValue.Trim());
+                    try {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader()) {
+                            if (reader.HasRows) {
+                                dt.Load(reader);
+                            }
+                        }
+                    }
+                    catch (Exception ex) {
+                        System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
+                    }
+                }
+            }
+            return dt;
         }
     }
 }

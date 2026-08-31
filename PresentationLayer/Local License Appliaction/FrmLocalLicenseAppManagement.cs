@@ -18,7 +18,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
             lblRecordsNo.Text = dgvLocalApplications.Rows.Count.ToString();
         }
         void _ReloadData() {
-            if (cbFilterBy.Text == "None" || string.IsNullOrWhiteSpace(cbFilterBy.Text)) {
+            if (cbFilterBy.Text == "None" || string.IsNullOrWhiteSpace(txtSearch.Text)) {
                 _loadAllApplication();
             }
             else {
@@ -60,11 +60,6 @@ namespace PresentationLayer.Local_DL_Appliaction {
             frm.ShowDialog();
             _ReloadData();
         }
-
-        private void toolStripMenuItem2_Click(object sender, EventArgs e) {
-
-        }
-
         private void showApplicationDetailsToolStripMenuItem_Click(object sender, EventArgs e) {
             int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
             LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
@@ -133,7 +128,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
             tmsiShowLicense.Enabled = false;
             tmsiHistory.Enabled = false;
         }
-        void _EnableProcessesUnderPersonProgress() {
+        void _EnableProcessesUnderPersonProgress(int selectedPersonID) {
             int passedExams = (int)dgvLocalApplications.CurrentRow.Cells["PassedExams"].Value;
             if (passedExams >= 0) {
                 visionTestToolStripMenuItem.Enabled = true;
@@ -150,13 +145,21 @@ namespace PresentationLayer.Local_DL_Appliaction {
             }
             if (passedExams == 3 && AppStatus == "Completed") {
                 tmsiShowLicense.Enabled = true;
+            }
+            if (Drivers.isPersonAlreadyDriver(selectedPersonID)) {
                 tmsiHistory.Enabled = true;
             }
         }
         private void cmsApp_Opening(object sender, System.ComponentModel.CancelEventArgs e) {
             _DisableAllMenus();
             _EnablityByStatus();
-            _EnableProcessesUnderPersonProgress();
+            int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
+
+            LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
+            if (loaclLicenseApp == null) { Helpers.ShowErrorMessage("Cant get loaclLicenseApp"); return; }
+
+            
+            _EnableProcessesUnderPersonProgress(loaclLicenseApp.personID);
         }
 
         void _ShowScheduledTestsForm(enTestType testType) {

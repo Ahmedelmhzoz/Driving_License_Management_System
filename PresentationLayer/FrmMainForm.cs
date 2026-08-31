@@ -1,4 +1,5 @@
-﻿using PresentationLayer.Local_DL_Appliaction;
+﻿using PresentationLayer.Licenses_and_drivers;
+using PresentationLayer.Local_DL_Appliaction;
 using PresentationLayer.Manage_types;
 using PresentationLayer.Users;
 using System;
@@ -61,6 +62,11 @@ namespace PresentationLayer {
 
         private void localLicenseManagement_Click(object sender, EventArgs e) {
             FrmLocalLicenseAppManagement frm = new FrmLocalLicenseAppManagement();
+            frm.ShowDialog();
+        }
+
+        private void driversToolStripMenuItem_Click(object sender, EventArgs e) {
+            FrmDrivers frm = new FrmDrivers();
             frm.ShowDialog();
         }
     }
