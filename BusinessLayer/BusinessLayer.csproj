@@ -45,17 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Drivers.cs" />
+    <Compile Include="Licenses and drivers\Drivers.cs" />
     <Compile Include="Appointments and tests\TestAppointments.cs" />
-    <Compile Include="Licenses\DetainedLicense.cs" />
-    <Compile Include="Licenses\LocalLicense.cs" />
+    <Compile Include="Licenses and drivers\DetainedLicense.cs" />
+    <Compile Include="Licenses and drivers\LocalLicense.cs" />
     <Compile Include="Local license application\Applications.cs" />
     <Compile Include="Country.cs" />
     <Compile Include="Local license application\LocalLicenseApp.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Local license application\AppType.cs" />
-    <Compile Include="Licenses\LicenseClasses.cs" />
+    <Compile Include="Licenses and drivers\LicenseClasses.cs" />
     <Compile Include="Appointments and tests\Tests.cs" />
     <Compile Include="Appointments and tests\TestType.cs" />
     <Compile Include="User.cs" />

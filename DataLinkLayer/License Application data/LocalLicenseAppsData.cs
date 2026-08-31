@@ -81,7 +81,7 @@ namespace DataLinkLayer.License_Application_data {
                                     ApplicationDate, 
                                     PassedExams, 
                                     ApplicationStatus 
-                             FROM Local_Driving_license_Application;";
+                             FROM Local_Driving_license_Application ORDER BY LocalDrivingLicenseApplicationID DESC;";
 
             using (SqlConnection connection = new SqlConnection(connectionString)) {
                 using (SqlCommand command = new SqlCommand(query, connection)) {
@@ -119,7 +119,7 @@ namespace DataLinkLayer.License_Application_data {
             string query;
             string columnName = _convertEnumToColumn(category);
            
-            query = $"Select * FROM Local_Driving_license_Application where {columnName} like @searchText + '%'";
+            query = $"Select * FROM Local_Driving_license_Application where {columnName} like @searchText + '%' ORDER BY LocalDrivingLicenseApplicationID DESC;";
             
             using (SqlConnection conn = new SqlConnection(connectionString)) {
                 using (SqlCommand cmd = new SqlCommand(query, conn)) {

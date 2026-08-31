@@ -403,6 +403,16 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap driving_license1 {
+            get {
+                object obj = ResourceManager.GetObject("driving-license1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap edit_info {
             get {
                 object obj = ResourceManager.GetObject("edit-info", resourceCulture);
@@ -536,6 +546,36 @@ namespace PresentationLayer.Properties {
         public static System.Drawing.Bitmap gender {
             get {
                 object obj = ResourceManager.GetObject("gender", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap history {
+            get {
+                object obj = ResourceManager.GetObject("history", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap history1 {
+            get {
+                object obj = ResourceManager.GetObject("history1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap history2 {
+            get {
+                object obj = ResourceManager.GetObject("history2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -49,6 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Licenses\FrmLicensesHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licenses\FrmLicensesHistory.Designer.cs">
+      <DependentUpon>FrmLicensesHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Licenses\ucDrivingLicenses.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Licenses\ucDrivingLicenses.Designer.cs">
+      <DependentUpon>ucDrivingLicenses.cs</DependentUpon>
+    </Compile>
     <Compile Include="Local License Appliaction\FrmAddAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,16 +115,16 @@
     <Compile Include="Local License Appliaction\ucLocalDrivingLicenseDetails.Designer.cs">
       <DependentUpon>ucLocalDrivingLicenseDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Local License\FrmLocalLicenseDetails.cs">
+    <Compile Include="Licenses\FrmLocalLicenseDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Local License\FrmLocalLicenseDetails.Designer.cs">
+    <Compile Include="Licenses\FrmLocalLicenseDetails.Designer.cs">
       <DependentUpon>FrmLocalLicenseDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Local License\ucLocalLicenseDetails.cs">
+    <Compile Include="Licenses\ucLocalLicenseDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Local License\ucLocalLicenseDetails.Designer.cs">
+    <Compile Include="Licenses\ucLocalLicenseDetails.Designer.cs">
       <DependentUpon>ucLocalLicenseDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\FrmLogin.cs">
@@ -215,6 +227,12 @@
     <Compile Include="Users\ucGetPersonWithFilter.Designer.cs">
       <DependentUpon>ucGetPersonWithFilter.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Licenses\FrmLicensesHistory.resx">
+      <DependentUpon>FrmLicensesHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Licenses\ucDrivingLicenses.resx">
+      <DependentUpon>ucDrivingLicenses.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Local License Appliaction\FrmAddAppointment.resx">
       <DependentUpon>FrmAddAppointment.cs</DependentUpon>
     </EmbeddedResource>
@@ -242,10 +260,10 @@
     <EmbeddedResource Include="Local License Appliaction\ucLocalDrivingLicenseDetails.resx">
       <DependentUpon>ucLocalDrivingLicenseDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Local License\FrmLocalLicenseDetails.resx">
+    <EmbeddedResource Include="Licenses\FrmLocalLicenseDetails.resx">
       <DependentUpon>FrmLocalLicenseDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Local License\ucLocalLicenseDetails.resx">
+    <EmbeddedResource Include="Licenses\ucLocalLicenseDetails.resx">
       <DependentUpon>ucLocalLicenseDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\FrmLogin.resx">
@@ -665,6 +683,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\employee2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\history.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\history1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\driving-license1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\history2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
