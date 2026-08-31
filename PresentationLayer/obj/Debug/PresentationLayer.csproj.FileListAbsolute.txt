@@ -43,3 +43,4 @@ D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLa
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\Presenta.9C561136.Up2Date
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.exe
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.pdb
+D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Licenses_and_drivers.FrmDrivers.resources

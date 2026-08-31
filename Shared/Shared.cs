@@ -7,6 +7,13 @@ using System.Windows.Forms;
 
 namespace Shared
 {
+    public enum enDriverFilterColumn {
+        DriverID = 1,
+        PersonID = 2,
+        NationalNo = 3,
+        FullName = 4
+    }
+
     public enum enApplicationStatus { enNew = 1, enCanceled = 2, enCompleted = 3 }
     public enum enAppMode { addApp = 0, updateApp = 1 }
     public enum enTestType { enVision = 1, enWritten = 2, enStreet = 3}

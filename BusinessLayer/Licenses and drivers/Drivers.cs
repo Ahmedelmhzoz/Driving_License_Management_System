@@ -1,4 +1,5 @@
 ﻿using DataLinkLayer;
+using Shared;
 using System;
 using System.Data;
 
@@ -54,6 +55,9 @@ namespace BusinessLayer {
         }
         public bool Save() {
             return _AddNewDriver();
+        }
+        public static DataTable GetDriversByFilter(enDriverFilterColumn filterColumn, string filterValue) {
+            return clsDriverData.GetDriversByFilter(filterColumn, filterValue);
         }
     }
 }
