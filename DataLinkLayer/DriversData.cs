@@ -156,5 +156,34 @@ namespace DataLinkLayer {
             }
             return dt;
         }
+        public static DriverDTO FindDriverByID(int driverID) {
+            DriverDTO driver = null;
+            using (SqlConnection connection = new SqlConnection(connectionSettings)) {
+                string query = "SELECT * FROM Drivers WHERE DriverID = @DriverID";
+
+                using (SqlCommand command = new SqlCommand(query, connection)) {
+                    command.Parameters.AddWithValue("@DriverID", driverID);
+
+                    try {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader()) {
+                            if (reader.Read()) { 
+                                driver = new DriverDTO();
+                                driver.driverID = (int)reader["DriverID"];
+                                driver.personID = (int)reader["PersonID"];
+                                driver.createdByUserID = (int)reader["CreatedByUserID"];
+                                driver.creationDate = (DateTime)reader["CreatedDate"];
+
+                            }
+                        }
+                    }
+                    catch (Exception ex) {
+                        System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
+                        driver = null;
+                    }
+                }
+            }
+            return driver; 
+        }
     }
 }

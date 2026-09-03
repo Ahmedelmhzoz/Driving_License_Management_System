@@ -25,6 +25,7 @@
         private void InitializeComponent() {
             this.ucPersonDetails1 = new PresentationLayer.ucPersonDetails();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblAdmin = new System.Windows.Forms.Label();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lblNotes = new System.Windows.Forms.Label();
@@ -56,7 +57,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.object_277f6735_6c3a_4c25_bc3e_40690b72b5f2 = new System.Windows.Forms.Label();
             this.ucPersonDetails = new PresentationLayer.ucPersonDetails();
-            this.lblAdmin = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -117,7 +117,18 @@
             this.groupBox1.Size = new System.Drawing.Size(1872, 594);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "License information";
+            this.groupBox1.Text = "Local license information";
+            // 
+            // lblAdmin
+            // 
+            this.lblAdmin.AutoSize = true;
+            this.lblAdmin.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
+            this.lblAdmin.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.lblAdmin.Location = new System.Drawing.Point(1229, 497);
+            this.lblAdmin.Name = "lblAdmin";
+            this.lblAdmin.Size = new System.Drawing.Size(186, 39);
+            this.lblAdmin.TabIndex = 65;
+            this.lblAdmin.Text = "Unknown";
             // 
             // pictureBox10
             // 
@@ -445,17 +456,6 @@
             this.ucPersonDetails.Name = "ucPersonDetails";
             this.ucPersonDetails.Size = new System.Drawing.Size(1922, 855);
             this.ucPersonDetails.TabIndex = 0;
-            // 
-            // lblAdmin
-            // 
-            this.lblAdmin.AutoSize = true;
-            this.lblAdmin.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
-            this.lblAdmin.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblAdmin.Location = new System.Drawing.Point(1229, 497);
-            this.lblAdmin.Name = "lblAdmin";
-            this.lblAdmin.Size = new System.Drawing.Size(186, 39);
-            this.lblAdmin.TabIndex = 65;
-            this.lblAdmin.Text = "Unknown";
             // 
             // ucLocalLicenseDetails
             // 

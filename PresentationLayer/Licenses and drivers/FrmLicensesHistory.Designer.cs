@@ -36,11 +36,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Georgia", 20F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(723, 224);
+            this.label1.Location = new System.Drawing.Point(712, 224);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(559, 77);
+            this.label1.Size = new System.Drawing.Size(593, 77);
             this.label1.TabIndex = 38;
-            this.label1.Text = "License history";
+            this.label1.Text = "Licenses history";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pbTestType

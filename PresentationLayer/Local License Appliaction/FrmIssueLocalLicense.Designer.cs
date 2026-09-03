@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.ucLocalDrivingLicenseDetails1 = new PresentationLayer.Local_DL_Appliaction.ucLocalDrivingLicenseDetails();
+            this.ucLocalDrivingLicenseDetails1 = new PresentationLayer.Local_DL_Appliaction.ucLocalLicenseAppDetails();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNotes = new System.Windows.Forms.TextBox();
             this.pbDescription = new System.Windows.Forms.PictureBox();
@@ -214,7 +214,7 @@
 
         #endregion
 
-        private Local_DL_Appliaction.ucLocalDrivingLicenseDetails ucLocalDrivingLicenseDetails1;
+        private Local_DL_Appliaction.ucLocalLicenseAppDetails ucLocalDrivingLicenseDetails1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNotes;
         private System.Windows.Forms.PictureBox pbDescription;

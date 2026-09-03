@@ -44,7 +44,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.pbTestType = new System.Windows.Forms.PictureBox();
-            this.ucLocalDrivingLicenseDetails1 = new PresentationLayer.Local_DL_Appliaction.ucLocalDrivingLicenseDetails();
+            this.ucLocalDrivingLicenseDetails1 = new PresentationLayer.Local_DL_Appliaction.ucLocalLicenseAppDetails();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).BeginInit();
             this.cmsAppointment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTestType)).BeginInit();
@@ -276,7 +276,7 @@
 
         private System.Windows.Forms.PictureBox pbTestType;
         private System.Windows.Forms.Label lblTestType;
-        private ucLocalDrivingLicenseDetails ucLocalDrivingLicenseDetails1;
+        private ucLocalLicenseAppDetails ucLocalDrivingLicenseDetails1;
         private System.Windows.Forms.DataGridView dgvAppointments;
         private System.Windows.Forms.DataGridViewTextBoxColumn TestAppointmentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn AppointmentDate;

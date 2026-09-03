@@ -26,7 +26,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLocalLicenseAppInfo));
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.ucLocalDrivingLicenseDetails = new PresentationLayer.Local_DL_Appliaction.ucLocalDrivingLicenseDetails();
+            this.ucLocalDrivingLicenseDetails = new PresentationLayer.Local_DL_Appliaction.ucLocalLicenseAppDetails();
             this.SuspendLayout();
             // 
             // label1
@@ -86,6 +86,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnClose;
-        private ucLocalDrivingLicenseDetails ucLocalDrivingLicenseDetails;
+        private ucLocalLicenseAppDetails ucLocalDrivingLicenseDetails;
     }
 }

@@ -197,5 +197,28 @@ namespace DataLinkLayer.License_Application_data {
             }
             return null;
         }
+        public static decimal GetFees(enApplicationType applicationType) {
+            decimal fees = 0;
+            string query = "SELECT ApplicationFees FROM ApplicationTypes WHERE ApplicationTypeId = @ApplicationTypeId";
+
+            using (SqlConnection connection = new SqlConnection(connectionSettings)) {
+                using (SqlCommand command = new SqlCommand(query, connection)) {
+                    try {
+                        command.Parameters.AddWithValue("@ApplicationTypeId", (int)applicationType);
+
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && decimal.TryParse(result.ToString(), out decimal decimalResult)) {
+                            fees = decimalResult;
+                        }
+                    }
+                    catch (Exception ex) {
+                        System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
+                    }
+                }
+            }
+            return fees;
+        }
     }
 }

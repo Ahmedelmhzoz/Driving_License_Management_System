@@ -30,6 +30,8 @@
             this.tcApplicationManagement = new System.Windows.Forms.TabControl();
             this.tpPerson = new System.Windows.Forms.TabPage();
             this.btnNext = new System.Windows.Forms.Button();
+            this.ucPersonDetails = new PresentationLayer.ucPersonDetails();
+            this.ucGetPersonWithFilter = new PresentationLayer.Users.ucGetPersonWithFilter();
             this.tpAppInfo = new System.Windows.Forms.TabPage();
             this.lblSubmit = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
@@ -49,8 +51,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnSubmitApp = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.ucPersonDetails = new PresentationLayer.ucPersonDetails();
-            this.ucGetPersonWithFilter = new PresentationLayer.Users.ucGetPersonWithFilter();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.tcApplicationManagement.SuspendLayout();
             this.tpPerson.SuspendLayout();
@@ -116,6 +116,22 @@
             this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
+            // ucPersonDetails
+            // 
+            this.ucPersonDetails.BackColor = System.Drawing.SystemColors.WindowText;
+            this.ucPersonDetails.Location = new System.Drawing.Point(64, 151);
+            this.ucPersonDetails.Name = "ucPersonDetails";
+            this.ucPersonDetails.Size = new System.Drawing.Size(1922, 855);
+            this.ucPersonDetails.TabIndex = 21;
+            // 
+            // ucGetPersonWithFilter
+            // 
+            this.ucGetPersonWithFilter.BackColor = System.Drawing.Color.Black;
+            this.ucGetPersonWithFilter.Location = new System.Drawing.Point(81, 6);
+            this.ucGetPersonWithFilter.Name = "ucGetPersonWithFilter";
+            this.ucGetPersonWithFilter.Size = new System.Drawing.Size(1961, 1237);
+            this.ucGetPersonWithFilter.TabIndex = 0;
+            // 
             // tpAppInfo
             // 
             this.tpAppInfo.BackColor = System.Drawing.Color.Black;
@@ -179,6 +195,7 @@
             // cbLicenseClasses
             // 
             this.cbLicenseClasses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLicenseClasses.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbLicenseClasses.FormattingEnabled = true;
             this.cbLicenseClasses.Location = new System.Drawing.Point(698, 419);
             this.cbLicenseClasses.Name = "cbLicenseClasses";
@@ -341,22 +358,6 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // ucPersonDetails
-            // 
-            this.ucPersonDetails.BackColor = System.Drawing.SystemColors.WindowText;
-            this.ucPersonDetails.Location = new System.Drawing.Point(64, 151);
-            this.ucPersonDetails.Name = "ucPersonDetails";
-            this.ucPersonDetails.Size = new System.Drawing.Size(1922, 855);
-            this.ucPersonDetails.TabIndex = 21;
-            // 
-            // ucGetPersonWithFilter
-            // 
-            this.ucGetPersonWithFilter.BackColor = System.Drawing.Color.Black;
-            this.ucGetPersonWithFilter.Location = new System.Drawing.Point(81, 6);
-            this.ucGetPersonWithFilter.Name = "ucGetPersonWithFilter";
-            this.ucGetPersonWithFilter.Size = new System.Drawing.Size(1961, 1237);
-            this.ucGetPersonWithFilter.TabIndex = 0;
             // 
             // FrmSelectPersonForApp
             // 

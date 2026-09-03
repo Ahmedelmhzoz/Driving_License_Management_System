@@ -8,20 +8,20 @@ using DataLinkLayer;
 using DataLinkLayer.License_Application_data;
 
 namespace BusinessLayer {
-    public class LicenseClasses {
+    public class LicenseClass {
         public int LicenseClassID { get; set; }
         public string className { get; set; }
         public byte minimumAllowedAge { get; set; }
         public byte DefaultValidityLength { get; set; }
         public decimal classFees { get; set; }
-        public LicenseClasses() {
+        public LicenseClass() {
             LicenseClassID = -1;
             className = "";
             minimumAllowedAge = 0;
             DefaultValidityLength = 0;
             classFees = 0.0m;
         }
-        public LicenseClasses(LicenseClassDTO dto) {
+        public LicenseClass(LicenseClassDTO dto) {
             this.LicenseClassID = dto.LicenseClassID;
             this.className = dto.className;
             this.minimumAllowedAge = dto.minimumAllowedAge;
@@ -41,9 +41,9 @@ namespace BusinessLayer {
             };
         }
 
-        public static LicenseClasses getLicenseClassByID(int id) {
+        public static LicenseClass getLicenseClassByID(int id) {
             LicenseClassDTO DTO = LicenseClassesData.GetLicenseClassByID(id);
-            return new LicenseClasses(DTO);
+            return new LicenseClass(DTO);
         }
 
     }

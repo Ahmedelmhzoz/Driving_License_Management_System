@@ -49,10 +49,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Licenses and drivers\FrmDrivers.cs">
+    <Compile Include="International License\FrmInternationalApplication.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Licenses and drivers\FrmDrivers.Designer.cs">
+    <Compile Include="International License\FrmInternationalApplication.Designer.cs">
+      <DependentUpon>FrmInternationalApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="International License\FrmInternationalLicenseDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="International License\FrmInternationalLicenseDetails.Designer.cs">
+      <DependentUpon>FrmInternationalLicenseDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="International License\FrmInternationalLicensesManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="International License\FrmInternationalLicensesManagement.Designer.cs">
+      <DependentUpon>FrmInternationalLicensesManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="International License\ucInternationalLicenseDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="International License\ucInternationalLicenseDetails.Designer.cs">
+      <DependentUpon>ucInternationalLicenseDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Driver\FrmDrivers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Driver\FrmDrivers.Designer.cs">
       <DependentUpon>FrmDrivers.cs</DependentUpon>
     </Compile>
     <Compile Include="Licenses and drivers\FrmLicensesHistory.cs">
@@ -66,6 +90,12 @@
     </Compile>
     <Compile Include="Licenses and drivers\ucDrivingLicenses.Designer.cs">
       <DependentUpon>ucDrivingLicenses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Licenses and drivers\ucGetLicenseWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Licenses and drivers\ucGetLicenseWithFilter.Designer.cs">
+      <DependentUpon>ucGetLicenseWithFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="Local License Appliaction\FrmAddAppointment.cs">
       <SubType>Form</SubType>
@@ -115,11 +145,11 @@
     <Compile Include="Local License Appliaction\ucApplicationDetails.Designer.cs">
       <DependentUpon>ucApplicationDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Local License Appliaction\ucLocalDrivingLicenseDetails.cs">
+    <Compile Include="Local License Appliaction\ucLocalLicenseAppDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Local License Appliaction\ucLocalDrivingLicenseDetails.Designer.cs">
-      <DependentUpon>ucLocalDrivingLicenseDetails.cs</DependentUpon>
+    <Compile Include="Local License Appliaction\ucLocalLicenseAppDetails.Designer.cs">
+      <DependentUpon>ucLocalLicenseAppDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Licenses and drivers\FrmLocalLicenseDetails.cs">
       <SubType>Form</SubType>
@@ -227,13 +257,25 @@
     <Compile Include="Users\ucUserInformation.Designer.cs">
       <DependentUpon>ucUserInformation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Users\ucGetPersonWithFilter.cs">
+    <Compile Include="People\ucGetPersonWithFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Users\ucGetPersonWithFilter.Designer.cs">
+    <Compile Include="People\ucGetPersonWithFilter.Designer.cs">
       <DependentUpon>ucGetPersonWithFilter.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Licenses and drivers\FrmDrivers.resx">
+    <EmbeddedResource Include="International License\FrmInternationalApplication.resx">
+      <DependentUpon>FrmInternationalApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="International License\FrmInternationalLicenseDetails.resx">
+      <DependentUpon>FrmInternationalLicenseDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="International License\FrmInternationalLicensesManagement.resx">
+      <DependentUpon>FrmInternationalLicensesManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="International License\ucInternationalLicenseDetails.resx">
+      <DependentUpon>ucInternationalLicenseDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Driver\FrmDrivers.resx">
       <DependentUpon>FrmDrivers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses and drivers\FrmLicensesHistory.resx">
@@ -241,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses and drivers\ucDrivingLicenses.resx">
       <DependentUpon>ucDrivingLicenses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Licenses and drivers\ucGetLicenseWithFilter.resx">
+      <DependentUpon>ucGetLicenseWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Local License Appliaction\FrmAddAppointment.resx">
       <DependentUpon>FrmAddAppointment.cs</DependentUpon>
@@ -266,8 +311,8 @@
     <EmbeddedResource Include="Local License Appliaction\ucApplicationDetails.resx">
       <DependentUpon>ucApplicationDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Local License Appliaction\ucLocalDrivingLicenseDetails.resx">
-      <DependentUpon>ucLocalDrivingLicenseDetails.cs</DependentUpon>
+    <EmbeddedResource Include="Local License Appliaction\ucLocalLicenseAppDetails.resx">
+      <DependentUpon>ucLocalLicenseAppDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses and drivers\FrmLocalLicenseDetails.resx">
       <DependentUpon>FrmLocalLicenseDetails.cs</DependentUpon>
@@ -330,7 +375,7 @@
     <EmbeddedResource Include="Users\ucUserInformation.resx">
       <DependentUpon>ucUserInformation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Users\ucGetPersonWithFilter.resx">
+    <EmbeddedResource Include="People\ucGetPersonWithFilter.resx">
       <DependentUpon>ucGetPersonWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
@@ -707,6 +752,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\driver2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\looking-for-answer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\driving-license2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\international1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agreement.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\driving-license %285%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\history11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pilot-license.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\driving-license %286%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\driving-school.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pilot-license1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\driving-license %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\driving-license %286%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\driver3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -3,6 +3,7 @@ using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Net;
 using static System.Net.Mime.MediaTypeNames;
 
 
@@ -20,8 +21,24 @@ namespace DataLinkLayer {
         public enIssueReason IssueReason { get; set; }
         public int CreatedByUserID { get; set; }
     }
-    public static class LicensesData {
+    public static class LocalLicensesData {
         static string connectionString = ConfigurationManager.ConnectionStrings["DVLD_DB"].ConnectionString;
+
+        static LicenseDTO _MapReaderToLicenseDTO(SqlDataReader reader) {
+            return new LicenseDTO {
+                LicenseID = (int)reader["LicenseID"],
+                ApplicationID = (int)reader["ApplicationID"],
+                DriverID = (int)reader["DriverID"],
+                LicenseClassID = (int)reader["LicenseClass"],
+                IssueDate = (DateTime)reader["IssueDate"],
+                ExpirationDate = (DateTime)reader["ExpirationDate"],
+                Notes = reader["Notes"] == DBNull.Value ? string.Empty : (string)reader["Notes"],
+                PaidFees = (decimal)reader["PaidFees"],
+                IsActive = (bool)reader["IsActive"],
+                IssueReason = (enIssueReason)Convert.ToByte(reader["IssueReason"]),
+                CreatedByUserID = (int)reader["CreatedByUserID"]
+            };
+        }
         public static int AddNewLicense(LicenseDTO dto) {
             int newLicenseID = -1;
             using (SqlConnection connection = new SqlConnection(connectionString)) {
@@ -65,22 +82,6 @@ namespace DataLinkLayer {
 
             return newLicenseID;
         }
-        public static bool IsThereLicenseForApp(int applicationID) {
-            using (SqlConnection connection = new SqlConnection(connectionString)) {
-                using (SqlCommand command = new SqlCommand("SELECT found = 1 FROM Licenses where ApplicationID = @AppID", connection)) {
-                    command.Parameters.AddWithValue("@AppID", applicationID);
-                    try {
-                        connection.Open();
-                        object result = command.ExecuteScalar();
-                        return (result != null);
-                    }
-                    catch (Exception ex) {
-                        System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
-                    }
-                }
-            }
-            return false;
-        }
         public static LicenseDTO GetLicenseInfoByApplicationID(int applicationID) {
             LicenseDTO dto = null;
             using (SqlConnection connection = new SqlConnection(connectionString)) {
@@ -97,19 +98,7 @@ namespace DataLinkLayer {
                         connection.Open();
                         using (SqlDataReader reader = command.ExecuteReader()) {
                             if (reader.Read()) {
-                                dto = new LicenseDTO {
-                                    LicenseID = (int)reader["LicenseID"],
-                                    ApplicationID = (int)reader["ApplicationID"],
-                                    DriverID = (int)reader["DriverID"],
-                                    LicenseClassID = (int)reader["LicenseClass"],
-                                    IssueDate = (DateTime)reader["IssueDate"],
-                                    ExpirationDate = (DateTime)reader["ExpirationDate"],
-                                    Notes = reader["Notes"] == DBNull.Value ? string.Empty : (string)reader["Notes"],
-                                    PaidFees = (decimal)reader["PaidFees"],
-                                    IsActive = (bool)reader["IsActive"],
-                                    IssueReason = (enIssueReason)Convert.ToByte(reader["IssueReason"]),
-                                    CreatedByUserID = (int)reader["CreatedByUserID"]
-                                };
+                                dto = _MapReaderToLicenseDTO(reader);
                             }
                         }
                     }
@@ -120,17 +109,45 @@ namespace DataLinkLayer {
             }
             return dto;
         }
-        public static DataTable getLicensesHistoryForPerson(int personID) {
+        public static LicenseDTO GetLicenseInfoByID(int licenseID) {
+            LicenseDTO dto = null;
+            using (SqlConnection connection = new SqlConnection(connectionString)) {
+                string query = @"SELECT LicenseID, ApplicationID, DriverID, LicenseClass, 
+                                        IssueDate, ExpirationDate, Notes, PaidFees, 
+                                        IsActive, IssueReason, CreatedByUserID 
+                                 FROM Licenses 
+                                 WHERE LicenseID = @LicenseID;";
+
+                using (SqlCommand command = new SqlCommand(query, connection)) {
+                    command.Parameters.AddWithValue("@LicenseID", licenseID);
+
+                    try {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader()) {
+                            if (reader.Read()) {
+                                dto = _MapReaderToLicenseDTO(reader);
+                            }
+                        }
+                    }
+                    catch (Exception ex) {
+                        System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
+                    }
+                }
+            }
+            return dto;
+        }
+        public static DataTable getLocalLicensesHistoryForPerson(int personID) {
             DataTable dt = new DataTable();
             string query = @"SELECT l.LicenseID, 
                             l.ApplicationID, 
                             LTRIM(SUBSTRING(lc.ClassName, CHARINDEX('-', lc.ClassName) + 1, LEN(lc.ClassName))) as ClassName, 
                             CAST(l.IssueDate AS DATE) as IssueDate, 
                             CAST (l.ExpirationDate AS DATE) as ExpirationDate, 
-                            CASE  
-                                WHEN l.IsActive = 0 THEN 'Suspended' 
-                                WHEN l.IsActive = 1 THEN 'Active' 
-                            END AS licenseStatus 
+                            CASE 
+                                WHEN l.ExpirationDate < CAST(GETDATE() AS DATE) THEN 'Expired'
+                                WHEN l.IsActive = 0 THEN 'Suspended'
+                                WHEN l.IsActive = 1 THEN 'Active'
+                            END AS LicenseStatus
                             FROM Licenses l inner join LicenseClasses lc on l.LicenseClass = lc.LicenseClassID 
                             inner join Applications a on a.ApplicationID = l.ApplicationID 
                             WHERE a.ApplicationTypeID = 1 and a.ApplicantPersonID = @PersonID";
@@ -149,6 +166,26 @@ namespace DataLinkLayer {
                 }
             }
             return dt;
+        }
+        public static bool UpdateExpiredLicensesStatus() {
+            int rowsAffected = -1;
+            string query = @"UPDATE Licenses 
+                    SET IsActive = 0 
+                    WHERE ExpirationDate < GETDATE() AND IsActive = 1;";
+
+            using (SqlConnection connection = new SqlConnection(connectionString)) {
+                using (SqlCommand command = new SqlCommand(query, connection)) {
+                    try {
+                        connection.Open();
+                        rowsAffected = command.ExecuteNonQuery();
+                    }
+                    catch (Exception ex) {
+                        System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
+                        return false;
+                    }
+                }
+            }
+            return (rowsAffected >= 0);
         }
     }
 }

@@ -9,9 +9,9 @@ namespace BusinessLayer.License_Applications {
     public class LocalLicenseApp : Applications{
         public int LicenseAppID { get; set; }
         public int LicenseClassID { get; set; }
-        public LicenseClasses LicenseClassInfo {
+        public LicenseClass LicenseClassInfo {
             get {
-               return LicenseClasses.getLicenseClassByID(this.LicenseClassID);
+               return LicenseClass.getLicenseClassByID(this.LicenseClassID);
             }
         }
        
@@ -51,7 +51,7 @@ namespace BusinessLayer.License_Applications {
         }
         private bool _IsPersonAgeValid() {
             Person person = Person.findPerson(this.personID);
-            LicenseClasses licenseClass = LicenseClasses.getLicenseClassByID(this.LicenseClassID);
+            LicenseClass licenseClass = LicenseClass.getLicenseClassByID(this.LicenseClassID);
 
             int personAge = DateTime.Now.Year - person.dateOfBirth.Year;
             if (person.dateOfBirth.Date > DateTime.Now.AddYears(-personAge)) {

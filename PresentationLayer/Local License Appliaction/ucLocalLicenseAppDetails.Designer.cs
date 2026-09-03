@@ -1,5 +1,5 @@
 ﻿namespace PresentationLayer.Local_DL_Appliaction {
-    partial class ucLocalDrivingLicenseDetails {
+    partial class ucLocalLicenseAppDetails {
         /// <summary> 
         /// Required designer variable.
         /// </summary>

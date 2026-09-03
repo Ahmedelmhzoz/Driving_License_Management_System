@@ -24,6 +24,7 @@ namespace PresentationLayer.Local_License {
             lblIsActive.Text = "Unknown";
             lblIsDetained.Text = "Unknown";
             lblNotes.Text = "No Notes";
+            ucPersonDetails.returnToDefault();
         }
         public ucLocalLicenseDetails() {
             InitializeComponent();
@@ -42,11 +43,8 @@ namespace PresentationLayer.Local_License {
                     return "Unknown";
             }
         }
-        public void loadData(LocalLicense license) {
-            if (license == null) {
-                ResetLicenseInfo();
-                return;
-            }
+
+        void _ShowData(LocalLicense license) {
             lblLicenseID.Text = license.LicenseID.ToString();
             lblDriverID.Text = license.DriverID.ToString();
             lblLicenseClass.Text = (license.licenseInfo != null) ? license.licenseInfo.className : "Unknown";
@@ -61,11 +59,19 @@ namespace PresentationLayer.Local_License {
 
             Applications licenseBasicApp = license.applicationInfo;
 
-            if (licenseBasicApp == null) {  Helpers.ShowErrorMessage("Error while geting application"); return; }
+            if (licenseBasicApp == null) { Helpers.ShowErrorMessage("Error while geting application"); return; }
 
             if (licenseBasicApp.personInfo == null) { Helpers.ShowErrorMessage("Error while getting person info!"); return; }
 
             ucPersonDetails.loadData(licenseBasicApp.personInfo);
         }
+        public void loadData(LocalLicense license) {
+            if (license == null) {
+                ResetLicenseInfo();
+                return;
+            }
+            _ShowData(license);
+        }
+
     }
 }
