@@ -4,7 +4,7 @@ using System;
 using System.Data;
 
 namespace BusinessLayer {
-    public class Drivers {
+    public class Driver {
         public int driverID { get; set; }
         public int createdByUserID { get; set; }
         public DateTime creationDate { get; set; }
@@ -18,13 +18,13 @@ namespace BusinessLayer {
                 return _personInfo;
             }
         }
-        public Drivers() {
+        public Driver() {
             this.driverID = -1;
             this.personID = -1;
             this.createdByUserID = -1;
             this.creationDate = DateTime.Now;
         }
-        Drivers(DriverDTO dto) {
+        Driver(DriverDTO dto) {
             this.driverID = dto.driverID;
             this.personID = dto.personID;
             this.createdByUserID = dto.createdByUserID;
@@ -48,16 +48,21 @@ namespace BusinessLayer {
             this.driverID = clsDriverData.AddNewDriver(this.ToDTO());
             return (this.driverID != -1);
         }
-        public static Drivers findDriverByPersonID(int personID) {
+        public static Driver findDriverByPersonID(int personID) {
             DriverDTO dto = clsDriverData.findDriverByPersonID(personID);
             if (dto == null) return null;
-            return new Drivers(dto);
+            return new Driver(dto);
         }
         public bool Save() {
             return _AddNewDriver();
         }
         public static DataTable GetDriversByFilter(enDriverFilterColumn filterColumn, string filterValue) {
             return clsDriverData.GetDriversByFilter(filterColumn, filterValue);
+        }
+        public static Driver findDriverByID(int driverID) {
+            DriverDTO dto = clsDriverData.FindDriverByID(driverID);
+            if (dto == null) return null;
+            return new Driver(dto);
         }
     }
 }

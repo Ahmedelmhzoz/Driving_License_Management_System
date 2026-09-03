@@ -16,7 +16,7 @@ namespace BusinessLayer {
         public bool IsActive { get; set; }
         public enIssueReason IssueReason { get; set; }
         public int CreatedByUserID { get; set; }
-        private LicenseClasses _licenseInfo;
+        private LicenseClass _licenseInfo;
         private User _IssuerUser;
         public User issuerUserInfo {
             get {
@@ -26,10 +26,10 @@ namespace BusinessLayer {
                 return _IssuerUser;
             }
         }
-        public LicenseClasses licenseInfo {
+        public LicenseClass licenseInfo {
             get {
                 if (_licenseInfo == null) {
-                    _licenseInfo = LicenseClasses.getLicenseClassByID(LicenseClassID);
+                    _licenseInfo = LicenseClass.getLicenseClassByID(LicenseClassID);
                 }
                 return _licenseInfo;
             }
@@ -86,23 +86,27 @@ namespace BusinessLayer {
                 CreatedByUserID = this.CreatedByUserID
             };
         }
-        public static bool didLicenseIssuedForApp(int appID) {
-            return LicensesData.IsThereLicenseForApp(appID);
-        }
         public static LocalLicense GetLicenseByApplicationID(int applicationID) {
-            LicenseDTO dto = LicensesData.GetLicenseInfoByApplicationID(applicationID);
+            LicenseDTO dto = LocalLicensesData.GetLicenseInfoByApplicationID(applicationID);
+            if (dto == null) return null;
+            return new LocalLicense(dto);
+        }
+        public static LocalLicense GetLicenseByID(int licenseID) {
+            LicenseDTO dto = LocalLicensesData.GetLicenseInfoByID(licenseID);
             if (dto == null) return null;
             return new LocalLicense(dto);
         }
         private bool _AddNewLicense() {
-            this.LicenseID = LicensesData.AddNewLicense(this.ToDTO());
+            this.LicenseID = LocalLicensesData.AddNewLicense(this.ToDTO());
             return (this.LicenseID != -1);
         }
         public bool Save() {
             return _AddNewLicense();
         }
-        public static DataTable getLicensesHistoryForPerosn(int perosnID) {
-            return LicensesData.getLicensesHistoryForPerson(perosnID);
+        public static DataTable getLocalLicensesHistoryForPerosn(int perosnID) {
+            return LocalLicensesData.getLocalLicensesHistoryForPerson(perosnID);
         }
+
+       
     }
 }

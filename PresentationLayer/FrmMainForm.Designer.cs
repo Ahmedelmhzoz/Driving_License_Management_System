@@ -101,10 +101,11 @@
             // 
             // internationalLicense
             // 
-            this.internationalLicense.Image = global::PresentationLayer.Properties.Resources.international;
+            this.internationalLicense.Image = global::PresentationLayer.Properties.Resources.pilot_license;
             this.internationalLicense.Name = "internationalLicense";
             this.internationalLicense.Size = new System.Drawing.Size(886, 62);
             this.internationalLicense.Text = "International driving license";
+            this.internationalLicense.Click += new System.EventHandler(this.internationalLicense_Click);
             // 
             // ManageApplicatons
             // 
@@ -118,7 +119,7 @@
             // 
             // localLicenseManagement
             // 
-            this.localLicenseManagement.Image = global::PresentationLayer.Properties.Resources.driving_license__3_;
+            this.localLicenseManagement.Image = global::PresentationLayer.Properties.Resources.driving_license__6_1;
             this.localLicenseManagement.Name = "localLicenseManagement";
             this.localLicenseManagement.Size = new System.Drawing.Size(1172, 62);
             this.localLicenseManagement.Text = "Local driving license applications";
@@ -126,10 +127,11 @@
             // 
             // internationalLicenseManagement
             // 
-            this.internationalLicenseManagement.Image = global::PresentationLayer.Properties.Resources.driving_license;
+            this.internationalLicenseManagement.Image = global::PresentationLayer.Properties.Resources.driving_license__4_;
             this.internationalLicenseManagement.Name = "internationalLicenseManagement";
             this.internationalLicenseManagement.Size = new System.Drawing.Size(1172, 62);
             this.internationalLicenseManagement.Text = "International driving license application";
+            this.internationalLicenseManagement.Click += new System.EventHandler(this.internationalLicenseManagement_Click);
             // 
             // manageApplicationTypesToolStripMenuItem
             // 

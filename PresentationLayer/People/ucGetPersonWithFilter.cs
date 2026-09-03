@@ -35,7 +35,7 @@ namespace PresentationLayer.Users {
             bool isValid = true;
             errorProvider1.Clear();
             if (string.IsNullOrWhiteSpace(txtSearch.Text)) {
-                errorProvider1.SetError(txtSearch, "Please search for a person in the system");
+                errorProvider1.SetError(txtSearch, "Please search for a person");
                 isValid = false;
             }
             return isValid;

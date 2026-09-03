@@ -20,9 +20,9 @@ namespace PresentationLayer.Local_License_Appliaction {
             lblFees.Text = '$' + licenseApp.LicenseClassInfo.classFees.ToString("0.##");
         }
         private void btnIssueLicense_Click(object sender, EventArgs e) {
-            Drivers Driver = null;
-            if (!Drivers.isPersonAlreadyDriver(licenseApp.personID)) {
-                Driver = new Drivers();
+            Driver Driver = null;
+            if (!Driver.isPersonAlreadyDriver(licenseApp.personID)) {
+                Driver = new Driver();
                 Driver.creationDate = DateTime.Now;
                 Driver.createdByUserID = ImportantSessionData.user.userID;
                 Driver.personID = licenseApp.personID;
@@ -31,7 +31,7 @@ namespace PresentationLayer.Local_License_Appliaction {
                     return;
                 }
             } else {
-                Driver = Drivers.findDriverByPersonID(licenseApp.personID);
+                Driver = Driver.findDriverByPersonID(licenseApp.personID);
             }
         
 

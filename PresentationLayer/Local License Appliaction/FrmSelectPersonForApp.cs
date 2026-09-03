@@ -23,7 +23,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
         }
 
         void _fillComboBoxWithLicenseClasses() {
-            cbLicenseClasses.DataSource = LicenseClasses.getLicenseClasses();
+            cbLicenseClasses.DataSource = LicenseClass.getLicenseClasses();
             cbLicenseClasses.DisplayMember = "ClassName";
             cbLicenseClasses.ValueMember = "LicenseClassID";
         }

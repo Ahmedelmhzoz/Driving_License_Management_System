@@ -146,7 +146,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
             if (passedExams == 3 && AppStatus == "Completed") {
                 tmsiShowLicense.Enabled = true;
             }
-            if (Drivers.isPersonAlreadyDriver(selectedPersonID)) {
+            if (Driver.isPersonAlreadyDriver(selectedPersonID)) {
                 tmsiHistory.Enabled = true;
             }
         }

@@ -8,8 +8,13 @@ D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\bin\Debug\BusinessLayer.
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\bin\Debug\Shared.pdb
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\bin\Debug\DataLinkLayer.pdb
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.csproj.AssemblyReference.cache
+D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.International_License.FrmInternationalApplication.resources
+D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.International_License.FrmInternationalLicenseDetails.resources
+D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.International_License.ucInternationalLicenseDetails.resources
+D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Licenses_and_drivers.FrmDrivers.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Licenses.FrmLicensesHistory.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Licenses.ucDrivingLicenses.resources
+D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Licenses_and_drivers.ucGetLicenseWithFilter.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Local_DL_Appliaction.FrmAddAppointment.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Local_DL_Appliaction.FrmAppointments.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Local_License_Appliaction.FrmIssueLocalLicense.resources
@@ -18,7 +23,7 @@ D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLa
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Local_DL_Appliaction.FrmSelectPersonForApp.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Local_DL_Appliaction.FrmTakeTest.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Local_DL_Appliaction.ucApplicationDetails.resources
-D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Local_DL_Appliaction.ucLocalDrivingLicenseDetails.resources
+D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Local_DL_Appliaction.ucLocalLicenseAppDetails.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Local_License.FrmLocalLicenseDetails.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Local_License.ucLocalLicenseDetails.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.FrmLogin.resources
@@ -43,4 +48,4 @@ D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLa
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\Presenta.9C561136.Up2Date
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.exe
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.pdb
-D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Licenses_and_drivers.FrmDrivers.resources
+D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.International_License.FrmInternationalLicensesManagement.resources

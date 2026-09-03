@@ -1,4 +1,5 @@
-﻿using PresentationLayer.Licenses_and_drivers;
+﻿using PresentationLayer.International_License;
+using PresentationLayer.Licenses_and_drivers;
 using PresentationLayer.Local_DL_Appliaction;
 using PresentationLayer.Manage_types;
 using PresentationLayer.Users;
@@ -67,6 +68,16 @@ namespace PresentationLayer {
 
         private void driversToolStripMenuItem_Click(object sender, EventArgs e) {
             FrmDrivers frm = new FrmDrivers();
+            frm.ShowDialog();
+        }
+
+        private void internationalLicense_Click(object sender, EventArgs e) {
+            FrmInternationalApplication frm = new FrmInternationalApplication();
+            frm.ShowDialog();
+        }
+
+        private void internationalLicenseManagement_Click(object sender, EventArgs e) {
+            FrmInternationalLicensesManagement frm = new FrmInternationalLicensesManagement();
             frm.ShowDialog();
         }
     }

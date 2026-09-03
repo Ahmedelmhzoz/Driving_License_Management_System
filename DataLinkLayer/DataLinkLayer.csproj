@@ -47,12 +47,13 @@
   <ItemGroup>
     <Compile Include="DetainedLicensesData.cs" />
     <Compile Include="DriversData.cs" />
+    <Compile Include="InternationalLicensesData.cs" />
     <Compile Include="License Application data\AppAndTestTypes.cs" />
     <Compile Include="License Application data\ApplicationsData.cs" />
     <Compile Include="CountriesData.cs" />
     <Compile Include="License Application data\LicenseClassesData.cs" />
     <Compile Include="License Application data\LocalLicenseAppsData.cs" />
-    <Compile Include="LicensesData.cs" />
+    <Compile Include="LocalLicensesData.cs" />
     <Compile Include="PeopleData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestAppointmentsData.cs" />

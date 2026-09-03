@@ -34,6 +34,9 @@ namespace BusinessLayer {
             }
             return null;
         }
+        public static decimal getAppFees(enApplicationType appType) {
+            return AppAndTestTypes.GetFees(appType);
+        }
         public static AppType getApplicationType(enApplicationType appType) {
             return getApplicationType((int)appType);
         }

@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +20,7 @@ namespace PresentationLayer.Licenses {
 
         private void FrmLicensesHistory_Load(object sender, EventArgs e) {
             ucPersonDetails.loadData(person);
-            ucDrivingLicenses.loadLicensesForPerson(person.personID);
+            ucDrivingLicenses.loadLicensesHistoryForPerson(person.personID);
         }
 
         private void btnClose_Click(object sender, EventArgs e) {

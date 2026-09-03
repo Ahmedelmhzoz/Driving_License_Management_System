@@ -14,6 +14,31 @@ namespace Shared
         FullName = 4
     }
 
+    public enum enInternationalLicenseEligibility {
+        Valid = 0,                  
+        NotFound = 1,              
+        NotOrdinaryLicenseCLass = 2,              
+        NotActive = 3,             
+        HasActiveInternational = 4  
+    }
+    public enum enLicenseType {
+        Local = 0,
+        International = 1
+    }
+
+    public enum enLicenseStatus {
+        All = 0,
+        Active = 1,
+        Suspended = 2, 
+        Expired = 3
+    }
+
+    public enum enLicenseFilterBy {
+        None = 0,
+        InternationalLicenseID = 1,
+        DriverID = 2,
+        LicenseStatus = 3
+    }
     public enum enApplicationStatus { enNew = 1, enCanceled = 2, enCompleted = 3 }
     public enum enAppMode { addApp = 0, updateApp = 1 }
     public enum enTestType { enVision = 1, enWritten = 2, enStreet = 3}
@@ -52,4 +77,5 @@ namespace Shared
         }
 
     }
+
 }

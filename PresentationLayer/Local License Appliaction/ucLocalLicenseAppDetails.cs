@@ -14,8 +14,8 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 
 namespace PresentationLayer.Local_DL_Appliaction {
-    public partial class ucLocalDrivingLicenseDetails : UserControl {
-        public ucLocalDrivingLicenseDetails() {
+    public partial class ucLocalLicenseAppDetails : UserControl {
+        public ucLocalLicenseAppDetails() {
             InitializeComponent();
         }
         LocalLicenseApp licenseApp = null;
@@ -24,7 +24,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
 
             lblApplicationID.Text = licenseApp.LicenseAppID.ToString();
             lblLicenseClass.Text = licenseApp.LicenseClassID.ToString();
-            LicenseClasses Class = LicenseClasses.getLicenseClassByID(licenseApp.LicenseClassID);
+            LicenseClass Class = LicenseClass.getLicenseClassByID(licenseApp.LicenseClassID);
             lblLicenseClass.Text = Class != null ? Class.className : "Unknown";
 
             lblPassedExams.Text = LocalLicenseApp.getPassedExams(licenseApp.LicenseAppID).ToString();

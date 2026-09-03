@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PresentationLayer.Licenses_and_drivers {
     public partial class FrmDrivers : Form {
@@ -17,10 +18,13 @@ namespace PresentationLayer.Licenses_and_drivers {
             InitializeComponent();
         }
         void _LoadAllDrivers() {
-            dgvDrivers.DataSource = Drivers.GetAllDrivers();
+            dgvDrivers.DataSource = Driver.GetAllDrivers();
             lblRecordsNo.Text = dgvDrivers.Rows.Count.ToString();
         }
         private void FrmDrivers_Load(object sender, EventArgs e) {
+        
+
+
             cbFilterBy.SelectedIndex = 0;
             dgvDrivers.RowTemplate.Height = 70;
             _LoadAllDrivers();
@@ -38,7 +42,7 @@ namespace PresentationLayer.Licenses_and_drivers {
                 _LoadAllDrivers();
             }
             else {
-                dgvDrivers.DataSource = Drivers.GetDriversByFilter(_GetSelectedFilter(), txtSearch.Text);
+                dgvDrivers.DataSource = Driver.GetDriversByFilter(_GetSelectedFilter(), txtSearch.Text);
             }
         }
 
@@ -68,6 +72,10 @@ namespace PresentationLayer.Licenses_and_drivers {
 
         private void btnClose_Click(object sender, EventArgs e) {
             this.Close();
+        }
+
+        private void dgvInternationalLic_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e) {
+
         }
     }
 }
