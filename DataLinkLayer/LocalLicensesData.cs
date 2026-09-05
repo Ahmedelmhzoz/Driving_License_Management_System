@@ -167,25 +167,5 @@ namespace DataLinkLayer {
             }
             return dt;
         }
-        public static bool UpdateExpiredLicensesStatus() {
-            int rowsAffected = -1;
-            string query = @"UPDATE Licenses 
-                    SET IsActive = 0 
-                    WHERE ExpirationDate < GETDATE() AND IsActive = 1;";
-
-            using (SqlConnection connection = new SqlConnection(connectionString)) {
-                using (SqlCommand command = new SqlCommand(query, connection)) {
-                    try {
-                        connection.Open();
-                        rowsAffected = command.ExecuteNonQuery();
-                    }
-                    catch (Exception ex) {
-                        System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
-                        return false;
-                    }
-                }
-            }
-            return (rowsAffected >= 0);
-        }
     }
 }

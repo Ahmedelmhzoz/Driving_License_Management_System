@@ -124,7 +124,7 @@
             this.lblAdmin.AutoSize = true;
             this.lblAdmin.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.lblAdmin.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblAdmin.Location = new System.Drawing.Point(1229, 497);
+            this.lblAdmin.Location = new System.Drawing.Point(1305, 497);
             this.lblAdmin.Name = "lblAdmin";
             this.lblAdmin.Size = new System.Drawing.Size(186, 39);
             this.lblAdmin.TabIndex = 65;
@@ -133,7 +133,7 @@
             // pictureBox10
             // 
             this.pictureBox10.Image = global::PresentationLayer.Properties.Resources.employee2;
-            this.pictureBox10.Location = new System.Drawing.Point(1155, 488);
+            this.pictureBox10.Location = new System.Drawing.Point(1231, 488);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(68, 60);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -145,7 +145,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(889, 497);
+            this.label5.Location = new System.Drawing.Point(965, 497);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(260, 39);
             this.label5.TabIndex = 63;
@@ -158,9 +158,9 @@
             this.lblNotes.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.lblNotes.Location = new System.Drawing.Point(456, 497);
             this.lblNotes.Name = "lblNotes";
-            this.lblNotes.Size = new System.Drawing.Size(186, 39);
+            this.lblNotes.Size = new System.Drawing.Size(178, 39);
             this.lblNotes.TabIndex = 62;
-            this.lblNotes.Text = "Unknown";
+            this.lblNotes.Text = "No Notes";
             // 
             // pictureBox9
             // 
@@ -186,7 +186,7 @@
             // pictureBox8
             // 
             this.pictureBox8.Image = global::PresentationLayer.Properties.Resources.refuse;
-            this.pictureBox8.Location = new System.Drawing.Point(1155, 361);
+            this.pictureBox8.Location = new System.Drawing.Point(1231, 361);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(68, 60);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -198,7 +198,7 @@
             this.lblIsDetained.AutoSize = true;
             this.lblIsDetained.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.lblIsDetained.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblIsDetained.Location = new System.Drawing.Point(1229, 382);
+            this.lblIsDetained.Location = new System.Drawing.Point(1305, 382);
             this.lblIsDetained.Name = "lblIsDetained";
             this.lblIsDetained.Size = new System.Drawing.Size(186, 39);
             this.lblIsDetained.TabIndex = 58;
@@ -209,7 +209,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label10.Location = new System.Drawing.Point(921, 382);
+            this.label10.Location = new System.Drawing.Point(997, 382);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(228, 39);
             this.label10.TabIndex = 57;
@@ -282,7 +282,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::PresentationLayer.Properties.Resources.expired;
-            this.pictureBox4.Location = new System.Drawing.Point(1155, 252);
+            this.pictureBox4.Location = new System.Drawing.Point(1231, 252);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(68, 60);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -294,7 +294,7 @@
             this.lblExpiteDate.AutoSize = true;
             this.lblExpiteDate.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.lblExpiteDate.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblExpiteDate.Location = new System.Drawing.Point(1229, 273);
+            this.lblExpiteDate.Location = new System.Drawing.Point(1305, 273);
             this.lblExpiteDate.Name = "lblExpiteDate";
             this.lblExpiteDate.Size = new System.Drawing.Size(186, 39);
             this.lblExpiteDate.TabIndex = 49;
@@ -305,7 +305,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(847, 273);
+            this.label1.Location = new System.Drawing.Point(923, 273);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(302, 39);
             this.label1.TabIndex = 48;
@@ -314,7 +314,7 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = global::PresentationLayer.Properties.Resources.calendar;
-            this.pictureBox6.Location = new System.Drawing.Point(1155, 147);
+            this.pictureBox6.Location = new System.Drawing.Point(1231, 147);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(68, 60);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -326,7 +326,7 @@
             this.lblReleaseDate.AutoSize = true;
             this.lblReleaseDate.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.lblReleaseDate.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblReleaseDate.Location = new System.Drawing.Point(1229, 168);
+            this.lblReleaseDate.Location = new System.Drawing.Point(1305, 168);
             this.lblReleaseDate.Name = "lblReleaseDate";
             this.lblReleaseDate.Size = new System.Drawing.Size(186, 39);
             this.lblReleaseDate.TabIndex = 46;
@@ -337,7 +337,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(902, 168);
+            this.label7.Location = new System.Drawing.Point(978, 168);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(247, 39);
             this.label7.TabIndex = 45;
@@ -412,7 +412,7 @@
             this.lblLicenseClass.AutoSize = true;
             this.lblLicenseClass.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.lblLicenseClass.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblLicenseClass.Location = new System.Drawing.Point(1229, 66);
+            this.lblLicenseClass.Location = new System.Drawing.Point(1305, 66);
             this.lblLicenseClass.Name = "lblLicenseClass";
             this.lblLicenseClass.Size = new System.Drawing.Size(186, 39);
             this.lblLicenseClass.TabIndex = 17;
@@ -423,7 +423,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(766, 66);
+            this.label2.Location = new System.Drawing.Point(842, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(383, 39);
             this.label2.TabIndex = 15;
@@ -432,7 +432,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::PresentationLayer.Properties.Resources.steering_wheel;
-            this.pictureBox2.Location = new System.Drawing.Point(1155, 50);
+            this.pictureBox2.Location = new System.Drawing.Point(1231, 50);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(68, 55);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

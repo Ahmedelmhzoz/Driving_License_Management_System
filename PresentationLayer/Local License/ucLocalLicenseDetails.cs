@@ -24,6 +24,7 @@ namespace PresentationLayer.Local_License {
             lblIsActive.Text = "Unknown";
             lblIsDetained.Text = "Unknown";
             lblNotes.Text = "No Notes";
+            lblAdmin.Text = "Unknown";
             ucPersonDetails.returnToDefault();
         }
         public ucLocalLicenseDetails() {

@@ -107,6 +107,9 @@ namespace BusinessLayer {
             return LocalLicensesData.getLocalLicensesHistoryForPerson(perosnID);
         }
 
-       
+       //public bool RenewLicense(int licenseID) {
+       //     this.IsActive = false;
+
+       //}
     }
 }

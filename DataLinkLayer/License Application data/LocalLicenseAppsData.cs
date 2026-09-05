@@ -234,7 +234,7 @@ namespace DataLinkLayer.License_Application_data {
             DataTable dt = new DataTable();
 
             string query = @"DELETE FROM Applications 
-                    WHERE ApplicationID = (SELECT ApplicationID 
+                    WHERE ApplicationID = (SELECT ApplicationID  
                                            FROM LocalDrivingLicenseApplications 
                                            WHERE LocalDrivingLicenseApplicationID = @ID)";
             using (SqlConnection connection = new SqlConnection(connectionString)) {

@@ -79,22 +79,22 @@
     <Compile Include="Driver\FrmDrivers.Designer.cs">
       <DependentUpon>FrmDrivers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Licenses and drivers\FrmLicensesHistory.cs">
+    <Compile Include="Local License\FrmLicensesHistory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Licenses and drivers\FrmLicensesHistory.Designer.cs">
+    <Compile Include="Local License\FrmLicensesHistory.Designer.cs">
       <DependentUpon>FrmLicensesHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Licenses and drivers\ucDrivingLicenses.cs">
+    <Compile Include="Local License\ucDrivingLicenses.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Licenses and drivers\ucDrivingLicenses.Designer.cs">
+    <Compile Include="Local License\ucDrivingLicenses.Designer.cs">
       <DependentUpon>ucDrivingLicenses.cs</DependentUpon>
     </Compile>
-    <Compile Include="Licenses and drivers\ucGetLicenseWithFilter.cs">
+    <Compile Include="Local License\ucGetLicenseWithFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Licenses and drivers\ucGetLicenseWithFilter.Designer.cs">
+    <Compile Include="Local License\ucGetLicenseWithFilter.Designer.cs">
       <DependentUpon>ucGetLicenseWithFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="Local License Appliaction\FrmAddAppointment.cs">
@@ -151,16 +151,16 @@
     <Compile Include="Local License Appliaction\ucLocalLicenseAppDetails.Designer.cs">
       <DependentUpon>ucLocalLicenseAppDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Licenses and drivers\FrmLocalLicenseDetails.cs">
+    <Compile Include="Local License\FrmLocalLicenseDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Licenses and drivers\FrmLocalLicenseDetails.Designer.cs">
+    <Compile Include="Local License\FrmLocalLicenseDetails.Designer.cs">
       <DependentUpon>FrmLocalLicenseDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Licenses and drivers\ucLocalLicenseDetails.cs">
+    <Compile Include="Local License\ucLocalLicenseDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Licenses and drivers\ucLocalLicenseDetails.Designer.cs">
+    <Compile Include="Local License\ucLocalLicenseDetails.Designer.cs">
       <DependentUpon>ucLocalLicenseDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\FrmLogin.cs">
@@ -217,6 +217,12 @@
     </Compile>
     <Compile Include="People\FrmPersonDetails.Designer.cs">
       <DependentUpon>FrmPersonDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Renew license\FrmRenewLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Renew license\FrmRenewLicense.Designer.cs">
+      <DependentUpon>FrmRenewLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="Users\FrmAddOrUpdateUser.cs">
       <SubType>Form</SubType>
@@ -278,13 +284,13 @@
     <EmbeddedResource Include="Driver\FrmDrivers.resx">
       <DependentUpon>FrmDrivers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Licenses and drivers\FrmLicensesHistory.resx">
+    <EmbeddedResource Include="Local License\FrmLicensesHistory.resx">
       <DependentUpon>FrmLicensesHistory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Licenses and drivers\ucDrivingLicenses.resx">
+    <EmbeddedResource Include="Local License\ucDrivingLicenses.resx">
       <DependentUpon>ucDrivingLicenses.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Licenses and drivers\ucGetLicenseWithFilter.resx">
+    <EmbeddedResource Include="Local License\ucGetLicenseWithFilter.resx">
       <DependentUpon>ucGetLicenseWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Local License Appliaction\FrmAddAppointment.resx">
@@ -314,10 +320,10 @@
     <EmbeddedResource Include="Local License Appliaction\ucLocalLicenseAppDetails.resx">
       <DependentUpon>ucLocalLicenseAppDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Licenses and drivers\FrmLocalLicenseDetails.resx">
+    <EmbeddedResource Include="Local License\FrmLocalLicenseDetails.resx">
       <DependentUpon>FrmLocalLicenseDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Licenses and drivers\ucLocalLicenseDetails.resx">
+    <EmbeddedResource Include="Local License\ucLocalLicenseDetails.resx">
       <DependentUpon>ucLocalLicenseDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\FrmLogin.resx">
@@ -346,6 +352,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="People\FrmPersonDetails.resx">
       <DependentUpon>FrmPersonDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Renew license\FrmRenewLicense.resx">
+      <DependentUpon>FrmRenewLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\FrmAddOrUpdateUser.resx">
       <DependentUpon>FrmAddOrUpdateUser.cs</DependentUpon>
@@ -791,6 +800,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\driver3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\renewal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addApplication1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resume.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resume %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -216,7 +216,7 @@
             this.toolStripMenuItem1,
             this.tmsiHistory});
             this.cmsApp.Name = "cmsApp";
-            this.cmsApp.Size = new System.Drawing.Size(919, 575);
+            this.cmsApp.Size = new System.Drawing.Size(919, 520);
             this.cmsApp.Opening += new System.ComponentModel.CancelEventHandler(this.cmsApp_Opening);
             // 
             // showApplicationDetailsToolStripMenuItem
