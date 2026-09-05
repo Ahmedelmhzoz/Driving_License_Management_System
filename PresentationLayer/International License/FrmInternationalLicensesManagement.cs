@@ -140,5 +140,11 @@ namespace PresentationLayer.International_License {
             FrmLicensesHistory personDetails = new FrmLicensesHistory(person);
             personDetails.ShowDialog();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e) {
+            FrmInternationalApplication frm = new FrmInternationalApplication();
+            frm.ShowDialog();
+            _ReloadData();
+        }
     }
 }

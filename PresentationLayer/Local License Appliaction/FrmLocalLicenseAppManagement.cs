@@ -101,14 +101,15 @@ namespace PresentationLayer.Local_DL_Appliaction {
         }
         void _EnablityByStatus() {
             string status = (string)dgvLocalApplications.CurrentRow.Cells["ApplicationStatus"].Value;
+            int passedExamsNum = (int)dgvLocalApplications.CurrentRow.Cells["PassedExams"].Value;
             if (status == "Completed") {
                 tmsiDeleteApp.Enabled = false;
                 editApp.Enabled = false;
                 tsmiCancelApp.Enabled = false;
                 tmsiScheduleTest.Enabled = true;
             } else if (status == "New") {
-                tmsiDeleteApp.Enabled = true;
-                editApp.Enabled = true;
+                tmsiDeleteApp.Enabled = passedExamsNum >= 1 ? false : true;
+                editApp.Enabled = passedExamsNum >= 1 ? false : true;
                 tsmiCancelApp.Enabled = true;
                 tmsiScheduleTest.Enabled = true;
             }

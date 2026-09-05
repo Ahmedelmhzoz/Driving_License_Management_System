@@ -203,55 +203,6 @@ namespace DataLinkLayer {
             }
             return dt;
         }
-        public static DataTable GetLicensesByStatus(enLicenseStatus filterColumn) {
-            DataTable dt = new DataTable();
-            string actualStatusText = "";
-            switch (filterColumn) {
-                case enLicenseStatus.Active:
-                    actualStatusText = "Active";
-                    break;
-
-                case enLicenseStatus.Suspended:
-                    actualStatusText = "Suspended";
-                    break;
-
-                case enLicenseStatus.Expired:
-                    actualStatusText = "Expired";
-                    break;
-
-                default:
-                    actualStatusText = "";
-                    break;
-            }
-
-            using (SqlConnection connection = new SqlConnection(connectionString)) {
-                string query = $@"SELECT Iv.InternationalLicenseID, 
-                                Iv.DriverID,
-                                Iv.ApplicationID,    
-                                Iv.IssuedUsingLocalLicenseID,  
-                                Iv.IssueDate, 
-                                Iv.ExpirationDate , 
-                                Iv.LicenseStatus 
-                        FROM Internationl_Driving_Licenses Iv 
-                       WHERE LicenseStatus LIKE  @filterValue + '%' 
-                       ORDER BY InternationalLicenseID DESC;";
-                using (SqlCommand command = new SqlCommand(query, connection)) {
-                    command.Parameters.AddWithValue("@filterValue", actualStatusText.Trim());
-                    try {
-                        connection.Open();
-                        using (SqlDataReader reader = command.ExecuteReader()) {
-                            if (reader.HasRows) {
-                                dt.Load(reader);
-                            }
-                        }
-                    }
-                    catch (Exception ex) {
-                        System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
-                    }
-                }
-            }
-            return dt;
-        }
         public static InternationalLicenseDTO FindInternationalLicenseByID(int internationalLicenseID) {
             InternationalLicenseDTO license = null;
             using (SqlConnection connection = new SqlConnection(connectionString)) {
@@ -282,26 +233,6 @@ namespace DataLinkLayer {
                 }
             }
             return license;
-        }
-        public static bool UpdateExpiredLicensesStatus() {
-            int rowsAffected = -1;
-            string query = @"UPDATE InternationalLicenses 
-                    SET IsActive = 0 
-                    WHERE ExpirationDate < GETDATE() AND IsActive = 1;";
-
-            using (SqlConnection connection = new SqlConnection(connectionString)) {
-                using (SqlCommand command = new SqlCommand(query, connection)) {
-                    try {
-                        connection.Open();
-                        rowsAffected = command.ExecuteNonQuery();
-                    }
-                    catch (Exception ex) {
-                        System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
-                        return false;
-                    }
-                }
-            }
-            return (rowsAffected >= 0);
         }
     }
 }

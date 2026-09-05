@@ -87,7 +87,7 @@ namespace BusinessLayer {
         public static DataTable getIntLicenseHistoryForPersonID(int personID) {
             return InternationalLicenseData.getInternationalLicHistoryForPerson(personID);
         }
-
+        
         public static enInternationalLicenseEligibility IsChossenLocalLicenseValid(int localLicenseID, out int internationalLicenseID,
            out LocalLicense validLicense) {
             validLicense = null;
@@ -183,9 +183,6 @@ namespace BusinessLayer {
                 return new InternationalLicense(dto);
             }
             return null;
-        }
-        public static bool AutoUpdateExpiredLicenses() {
-            return InternationalLicenseData.UpdateExpiredLicensesStatus();
         }
     }
 }

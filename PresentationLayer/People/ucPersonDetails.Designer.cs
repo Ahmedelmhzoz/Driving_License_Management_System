@@ -169,7 +169,7 @@
             this.lblCountry.AutoSize = true;
             this.lblCountry.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.lblCountry.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblCountry.Location = new System.Drawing.Point(1331, 710);
+            this.lblCountry.Location = new System.Drawing.Point(1319, 710);
             this.lblCountry.Name = "lblCountry";
             this.lblCountry.Size = new System.Drawing.Size(186, 39);
             this.lblCountry.TabIndex = 42;
@@ -180,7 +180,7 @@
             this.lblPhone.AutoSize = true;
             this.lblPhone.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.lblPhone.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblPhone.Location = new System.Drawing.Point(1331, 566);
+            this.lblPhone.Location = new System.Drawing.Point(1319, 566);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(186, 39);
             this.lblPhone.TabIndex = 41;
@@ -191,7 +191,7 @@
             this.lblDateOfBirth.AutoSize = true;
             this.lblDateOfBirth.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.lblDateOfBirth.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblDateOfBirth.Location = new System.Drawing.Point(1331, 432);
+            this.lblDateOfBirth.Location = new System.Drawing.Point(1319, 432);
             this.lblDateOfBirth.Name = "lblDateOfBirth";
             this.lblDateOfBirth.Size = new System.Drawing.Size(186, 39);
             this.lblDateOfBirth.TabIndex = 40;
@@ -200,7 +200,7 @@
             // pictureBox10
             // 
             this.pictureBox10.Image = global::PresentationLayer.Properties.Resources.country;
-            this.pictureBox10.Location = new System.Drawing.Point(1261, 721);
+            this.pictureBox10.Location = new System.Drawing.Point(1249, 721);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(64, 39);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -210,7 +210,7 @@
             // pictureBox9
             // 
             this.pictureBox9.Image = global::PresentationLayer.Properties.Resources.phone_call;
-            this.pictureBox9.Location = new System.Drawing.Point(1261, 567);
+            this.pictureBox9.Location = new System.Drawing.Point(1249, 567);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(64, 39);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -220,7 +220,7 @@
             // pictureBox8
             // 
             this.pictureBox8.Image = global::PresentationLayer.Properties.Resources.date_of_birth;
-            this.pictureBox8.Location = new System.Drawing.Point(1261, 432);
+            this.pictureBox8.Location = new System.Drawing.Point(1249, 432);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(64, 39);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
