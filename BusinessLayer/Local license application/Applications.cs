@@ -83,5 +83,18 @@ namespace BusinessLayer {
             if (dto == null) return null;
             return new Applications(dto);
         }
+
+        public static ApplicationDTO createAppOfSomeKind(int userID, int personID, enApplicationType applicationType) {
+
+            ApplicationDTO newInternationalAppDTO = new ApplicationDTO();
+            newInternationalAppDTO.personID = personID;
+            newInternationalAppDTO.AppDate = DateTime.Now;
+            newInternationalAppDTO.lastStatusDate = DateTime.Now;
+            newInternationalAppDTO.ApplicaitionTypeID = (int)applicationType;
+            newInternationalAppDTO.appStatus = enApplicationStatus.enNew;
+            newInternationalAppDTO.paidFees = AppType.getAppFees(applicationType);
+            newInternationalAppDTO.createdByUserID = userID;
+            return newInternationalAppDTO;
+        }
     }
 }

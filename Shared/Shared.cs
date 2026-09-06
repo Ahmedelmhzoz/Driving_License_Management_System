@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
+﻿
 namespace Shared
 {
     public enum enDriverFilterColumn {
@@ -15,12 +9,35 @@ namespace Shared
     }
 
     public enum enInternationalLicenseEligibility {
-        Valid = 0,                  
+        Eligible = 0,                  
         NotFound = 1,              
         NotOrdinaryLicenseCLass = 2,              
         NotActive = 3,             
         HasActiveInternational = 4  
     }
+    public enum enLicenseRenewalResult {
+        Success,
+        BasicAppNotFound,
+        PersonNotFound,
+        Failed
+    }
+    public class LicenseRenewalResult {
+        public enLicenseRenewalResult Result { get; set; }
+        public int NewLicenseID { get; set; }
+        public int RenewApplicationID { get; set; }
+        public LicenseRenewalResult() {
+            Result = enLicenseRenewalResult.Failed;
+            NewLicenseID = -1;
+            RenewApplicationID = -1;
+        }
+    }
+
+    public enum enRenewalEligibility {  
+        Eligible,
+        LicenseNotEligibleActive,
+        LicenseNotEligibleSuspended
+    }
+  
     public enum enLicenseType {
         Local = 0,
         International = 1
@@ -77,5 +94,4 @@ namespace Shared
         }
 
     }
-
 }

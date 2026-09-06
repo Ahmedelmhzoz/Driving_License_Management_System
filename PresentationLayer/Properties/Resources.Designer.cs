@@ -233,6 +233,16 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap cancel1 {
+            get {
+                object obj = ResourceManager.GetObject("cancel1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap ChatGPT_Image_Aug_20__2026__12_40_37_PM {
             get {
                 object obj = ResourceManager.GetObject("ChatGPT Image Aug 20, 2026, 12_40_37 PM", resourceCulture);
@@ -1146,6 +1156,16 @@ namespace PresentationLayer.Properties {
         public static System.Drawing.Bitmap renewal {
             get {
                 object obj = ResourceManager.GetObject("renewal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap renewal1 {
+            get {
+                object obj = ResourceManager.GetObject("renewal1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

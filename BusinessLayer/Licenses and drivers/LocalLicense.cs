@@ -2,6 +2,7 @@
 using System;
 using Shared;
 using System.Data;
+using DataLinkLayer.License_Application_data;
 
 namespace BusinessLayer {
     public class LocalLicense {
@@ -13,7 +14,7 @@ namespace BusinessLayer {
         public DateTime ExpirationDate { get; set; }
         public string Notes { get; set; }
         public decimal PaidFees { get; set; }
-        public bool IsActive { get; set; }
+        public bool NotSuspended { get; set; }
         public enIssueReason IssueReason { get; set; }
         public int CreatedByUserID { get; set; }
         private LicenseClass _licenseInfo;
@@ -52,7 +53,7 @@ namespace BusinessLayer {
             this.ExpirationDate = DateTime.Now;
             this.Notes = string.Empty;
             this.PaidFees = 0;
-            this.IsActive = true;
+            this.NotSuspended = true;
             this.IssueReason = enIssueReason.enFirstTime;
             this.CreatedByUserID = -1;
         }
@@ -66,7 +67,7 @@ namespace BusinessLayer {
                 this.ExpirationDate = dto.ExpirationDate;
                 this.Notes = dto.Notes;
                 this.PaidFees = dto.PaidFees;
-                this.IsActive = dto.IsActive;
+                this.NotSuspended = dto.NotSuspended;
                 this.IssueReason = dto.IssueReason;
                 this.CreatedByUserID = dto.CreatedByUserID;
             }
@@ -81,7 +82,7 @@ namespace BusinessLayer {
                 ExpirationDate = this.ExpirationDate,
                 Notes = this.Notes,
                 PaidFees = this.PaidFees,
-                IsActive = this.IsActive,
+                NotSuspended = this.NotSuspended,
                 IssueReason = this.IssueReason,
                 CreatedByUserID = this.CreatedByUserID
             };
@@ -106,10 +107,52 @@ namespace BusinessLayer {
         public static DataTable getLocalLicensesHistoryForPerosn(int perosnID) {
             return LocalLicensesData.getLocalLicensesHistoryForPerson(perosnID);
         }
+        public enLicenseStatus licenseStatus() {
+            if (!this.NotSuspended) return enLicenseStatus.Suspended;
+            else if (this.ExpirationDate.Date < DateTime.Today) return enLicenseStatus.Expired;
+            else return enLicenseStatus.Active;
+        }
+        public bool canRenew() {
+            return licenseStatus() == enLicenseStatus.Expired && LocalLicensesData.getRenewalLicenseID(this.LicenseID) == -1;
+        }
+        LicenseDTO _createRenewalLocalLicense(int userID, string Notes) {
+            LicenseDTO localLicenseDTO = new LicenseDTO();
+            localLicenseDTO.LicenseID = this.LicenseID; // will updated from LicenseRenewalData
+            localLicenseDTO.DriverID = this.DriverID;
+            localLicenseDTO.LicenseClassID = this.LicenseClassID;
+            localLicenseDTO.IssueDate = DateTime.Now;
 
-       //public bool RenewLicense(int licenseID) {
-       //     this.IsActive = false;
+            if (licenseInfo == null) return null;
+            localLicenseDTO.ExpirationDate = localLicenseDTO.IssueDate.AddYears(licenseInfo.DefaultValidityLength);
+            localLicenseDTO.Notes = Notes;
+            localLicenseDTO.PaidFees = this.PaidFees;
+            localLicenseDTO.NotSuspended = true;
+            localLicenseDTO.IssueReason = enIssueReason.enRenew;
+            localLicenseDTO.CreatedByUserID = userID;
+            return localLicenseDTO;
+        }
 
-       //}
+        public LicenseRenewalResult Renew(int userID, string Notes) {
+            LicenseRenewalResult result = new LicenseRenewalResult();
+            if (!canRenew()) { result.Result = enLicenseRenewalResult.Failed; return result; }
+
+            if (this.applicationInfo == null) { result.Result = enLicenseRenewalResult.BasicAppNotFound; return result; }
+            
+
+            Person personOwnsLicense = this.applicationInfo.personInfo;
+            if (personOwnsLicense == null) { result.Result = enLicenseRenewalResult.PersonNotFound; return result; }
+
+            ApplicationDTO renewalApplication = Applications.createAppOfSomeKind(userID, personOwnsLicense.personID, enApplicationType.RenewDrivingLicense);
+            if (renewalApplication == null) { result.Result = enLicenseRenewalResult.Failed; return result; }
+
+            LicenseDTO Renewallicense = _createRenewalLocalLicense(userID, Notes);
+            if (Renewallicense == null) { result.Result = enLicenseRenewalResult.Failed; return result; }
+
+
+            return LicenseRenewalData.RenewLicense(renewalApplication, Renewallicense);
+        }
+        public int getRenewalLicenseID() {
+            return LocalLicensesData.getRenewalLicenseID(this.LicenseID);
+        }
     }
 }

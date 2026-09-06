@@ -1,4 +1,5 @@
 ﻿using DataLinkLayer;
+using DataLinkLayer.License_Application_data;
 using Shared;
 using System;
 using System.Data;
@@ -11,7 +12,7 @@ namespace BusinessLayer {
         public int IssuedUsingLocalLicenseID { get; set; }
         public DateTime IssueDate { get; set; }
         public DateTime ExpirationDate { get; set; }
-        public bool IsActive { get; set; }
+        public bool NotSuspended { get; set; }
         public int CreatedByUserID { get; set; }
 
         // Private Backing Fields for Lazy Loading
@@ -47,7 +48,7 @@ namespace BusinessLayer {
                 this.IssuedUsingLocalLicenseID,
                 this.IssueDate,
                 this.ExpirationDate,
-                this.IsActive,
+                this.NotSuspended,
                 this.CreatedByUserID
             );
         }
@@ -58,8 +59,8 @@ namespace BusinessLayer {
             this.IssuedUsingLocalLicenseID = -1;
             this.IssueDate = DateTime.Now;
             this.ExpirationDate = this.IssueDate.AddYears(1);
-            this.IsActive = true;
-            this.CreatedByUserID = -1;  
+            this.NotSuspended = true;
+            this.CreatedByUserID = -1;
         }
         public InternationalLicense(InternationalLicenseDTO DTO) {
             this.InternationalLicenseID = DTO.InternationalLicenseID;
@@ -68,7 +69,7 @@ namespace BusinessLayer {
             this.IssuedUsingLocalLicenseID = DTO.IssuedUsingLocalLicenseID;
             this.IssueDate = DTO.IssueDate;
             this.ExpirationDate = DTO.ExpirationDate;
-            this.IsActive = DTO.IsActive;
+            this.NotSuspended = DTO.NotSuspended;
             this.CreatedByUserID = DTO.CreatedByUserID;
         }
         public static int getInternationalIDByDriverID(int DriverID) {
@@ -87,7 +88,7 @@ namespace BusinessLayer {
         public static DataTable getIntLicenseHistoryForPersonID(int personID) {
             return InternationalLicenseData.getInternationalLicHistoryForPerson(personID);
         }
-        
+
         public static enInternationalLicenseEligibility IsChossenLocalLicenseValid(int localLicenseID, out int internationalLicenseID,
            out LocalLicense validLicense) {
             validLicense = null;
@@ -97,7 +98,7 @@ namespace BusinessLayer {
             if (localLicense == null)
                 return enInternationalLicenseEligibility.NotFound;
 
-            if (!localLicense.IsActive)
+            if (!localLicense.NotSuspended)
                 return enInternationalLicenseEligibility.NotActive;
 
             if (localLicense.LicenseClassID != 3)
@@ -109,24 +110,11 @@ namespace BusinessLayer {
                 return enInternationalLicenseEligibility.HasActiveInternational;
 
             validLicense = localLicense;
-            return enInternationalLicenseEligibility.Valid;
+            return enInternationalLicenseEligibility.Eligible;
         }
-        static Applications _CreateNewApp(LocalLicense localLicense, int userID) {
-            Applications newInternationalApp = new Applications();
-            newInternationalApp.personID = localLicense.applicationInfo.personID;
-            newInternationalApp.AppDate = DateTime.Now;
-            newInternationalApp.lastStatusDate = DateTime.Now;
-            newInternationalApp.ApplicaitionTypeID = (int)enApplicationType.NewInternationalLicense;
-            newInternationalApp.appStatus = enApplicationStatus.enNew;
-            newInternationalApp.paidFees = AppType.getAppFees(enApplicationType.NewInternationalLicense);
-            newInternationalApp.createdByUserID = userID;
-            if (!newInternationalApp.SaveApplication()) { return null; }
-            return newInternationalApp;
-        }
-
-        static InternationalLicense _CreateInternationalLicense(Applications newInternationalApp, LocalLicense localLicense, int userID) {
+        static InternationalLicense _CreateInternationalLicense(ApplicationDTO newInternationalApp, LocalLicense localLicense, int userID) {
             InternationalLicense internationalLicense = new InternationalLicense();
-            internationalLicense.ApplicationID = newInternationalApp.AppID;
+            internationalLicense.ApplicationID = newInternationalApp.AppID; // اعمل ترانزاكشن ضروري الكود هيبوظ 
             internationalLicense.DriverID = localLicense.DriverID;
             internationalLicense.IssuedUsingLocalLicenseID = localLicense.LicenseID;
             internationalLicense.CreatedByUserID = userID;
@@ -138,14 +126,21 @@ namespace BusinessLayer {
         public static InternationalLicense issueInternationaLicense(int localLicenseID, int userID) {
 
             LocalLicense localLicense = LocalLicense.GetLicenseByID(localLicenseID);
-
             if (localLicense == null) { return null; }
 
-            Applications newInternationalApp = null;
-            if ((newInternationalApp =_CreateNewApp(localLicense, userID)) == null) return null;
+            Applications basicApp = localLicense.applicationInfo;
+            if (basicApp == null) { return null; }
 
-            InternationalLicense intLicense = null;
-            if ((intLicense = _CreateInternationalLicense(newInternationalApp, localLicense, userID)) == null) return null;
+            Person person = basicApp.personInfo;
+            if (person == null) { return null; }
+
+
+            ApplicationDTO newInternationalApp = Applications.createAppOfSomeKind(userID, person.personID, enApplicationType.NewInternationalLicense);
+            if (newInternationalApp == null) return null;
+
+            InternationalLicense intLicense = _CreateInternationalLicense(newInternationalApp, localLicense, userID);
+            if (intLicense == null) return null;
+
             return intLicense;
         }
 
@@ -184,5 +179,76 @@ namespace BusinessLayer {
             }
             return null;
         }
+        InternationalLicenseDTO _createRenewalInterLicense(int userID) {
+            InternationalLicenseDTO interLicenseDTO = new InternationalLicenseDTO();
+            interLicenseDTO.InternationalLicenseID = this.InternationalLicenseID; // will be updated later in LicenseRenewalData
+            interLicenseDTO.DriverID = this.DriverID;
+            interLicenseDTO.IssueDate = DateTime.Now;
+            interLicenseDTO.ExpirationDate = interLicenseDTO.IssueDate.AddYears(1);
+            interLicenseDTO.IssuedUsingLocalLicenseID = this.IssuedUsingLocalLicenseID;
+            interLicenseDTO.NotSuspended = true;
+            interLicenseDTO.CreatedByUserID = userID;
+            return interLicenseDTO;
+        }
+        public enLicenseStatus licenseStatus() {
+            if (!this.NotSuspended) return enLicenseStatus.Suspended;
+            else if (this.ExpirationDate.Date < DateTime.Today) return enLicenseStatus.Expired;
+            else return enLicenseStatus.Active;
+        }
+        public bool canRenew() {
+            return licenseStatus() == enLicenseStatus.Expired && InternationalLicenseData.getRenewalLicenseID(this.InternationalLicenseID) == -1;
+        }
+        public LicenseRenewalResult Renew(int userID) {
+            if (!canRenew()) {
+                return new LicenseRenewalResult {
+                    Result = enLicenseRenewalResult.Failed
+                };
+            }
+
+            if (this.ApplicationInfo == null) {
+                return new LicenseRenewalResult {
+                    Result = enLicenseRenewalResult.BasicAppNotFound
+                };
+            }
+
+            Person personOwnsLicense = this.ApplicationInfo.personInfo;
+
+            if (personOwnsLicense == null) {
+                return new LicenseRenewalResult {
+                    Result = enLicenseRenewalResult.PersonNotFound
+                };
+            }
+
+            ApplicationDTO renewalApplication =
+                Applications.createAppOfSomeKind(
+                    userID,
+                    personOwnsLicense.personID,
+                    enApplicationType.RenewDrivingLicense
+                );
+
+            if (renewalApplication == null) {
+                return new LicenseRenewalResult {
+                    Result = enLicenseRenewalResult.Failed
+                };
+            }
+
+            InternationalLicenseDTO renewalLicense =
+                _createRenewalInterLicense(userID);
+
+            if (renewalLicense == null) {
+                return new LicenseRenewalResult {
+                    Result = enLicenseRenewalResult.Failed
+                };
+            }
+
+            return LicenseRenewalData.RenewLicense(
+                renewalApplication,
+                renewalLicense
+            );
+        }
+        public int getRenewalLicenseID() {
+            return InternationalLicenseData.getRenewalLicenseID(this.InternationalLicenseID);
+        }
+
     }
 }

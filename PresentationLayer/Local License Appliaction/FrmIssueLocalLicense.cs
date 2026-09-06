@@ -46,7 +46,7 @@ namespace PresentationLayer.Local_License_Appliaction {
 
             newLicense.Notes = txtNotes.Text;
             newLicense.PaidFees = licenseApp.LicenseClassInfo.classFees;
-            newLicense.IsActive = true;
+            newLicense.NotSuspended = true;
             newLicense.IssueReason = enIssueReason.enFirstTime;
             newLicense.CreatedByUserID = ImportantSessionData.user.userID;
             if (newLicense.Save()) {

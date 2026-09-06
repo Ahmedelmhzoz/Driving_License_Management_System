@@ -21,6 +21,7 @@ namespace PresentationLayer.International_License {
             lblIsActive.Text = "Unknown";
             lblLocalLic.Text = "Unknown";
             lblAdmin.Text = "Unknown";
+            ucPersonDetails.returnToDefault();
         }
         public ucInternationalLicenseDetails() {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace PresentationLayer.International_License {
             lblDriverID.Text = intLicense.DriverID.ToString();
             lblReleaseDate.Text = intLicense.IssueDate.ToShortDateString();
             lblExpiteDate.Text = intLicense.ExpirationDate.ToShortDateString();
-            lblIsActive.Text = intLicense.IsActive ? "Yes" : "No";
+            lblIsActive.Text = intLicense.NotSuspended ? "Yes" : "No";
 
             lblAdmin.Text = intLicense.CreatorUserInfo != null ? intLicense.CreatorUserInfo.Username : "Unknown";
 

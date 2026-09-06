@@ -41,6 +41,7 @@
             this.profileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.renewDrivingLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,7 +76,8 @@
             // drivingLicenseServicesToolStripMenuItem
             // 
             this.drivingLicenseServicesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
+            this.toolStripMenuItem1,
+            this.renewDrivingLicenseToolStripMenuItem});
             this.drivingLicenseServicesToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.license;
             this.drivingLicenseServicesToolStripMenuItem.Name = "drivingLicenseServicesToolStripMenuItem";
             this.drivingLicenseServicesToolStripMenuItem.Size = new System.Drawing.Size(809, 62);
@@ -88,7 +90,7 @@
             this.internationalLicense});
             this.toolStripMenuItem1.Image = global::PresentationLayer.Properties.Resources.icense__1_;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(668, 62);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(725, 62);
             this.toolStripMenuItem1.Text = "New driving license";
             // 
             // LocalLicense
@@ -205,6 +207,14 @@
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
+            // renewDrivingLicenseToolStripMenuItem
+            // 
+            this.renewDrivingLicenseToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.renewal;
+            this.renewDrivingLicenseToolStripMenuItem.Name = "renewDrivingLicenseToolStripMenuItem";
+            this.renewDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(725, 62);
+            this.renewDrivingLicenseToolStripMenuItem.Text = "Renew driving license";
+            this.renewDrivingLicenseToolStripMenuItem.Click += new System.EventHandler(this.renewDrivingLicenseToolStripMenuItem_Click);
+            // 
             // FrmMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -242,6 +252,7 @@
         private System.Windows.Forms.ToolStripMenuItem ManageApplicatons;
         private System.Windows.Forms.ToolStripMenuItem localLicenseManagement;
         private System.Windows.Forms.ToolStripMenuItem internationalLicenseManagement;
+        private System.Windows.Forms.ToolStripMenuItem renewDrivingLicenseToolStripMenuItem;
     }
 }
 

@@ -17,7 +17,7 @@ namespace DataLinkLayer {
         public int IssuedUsingLocalLicenseID { get; set; }
         public DateTime IssueDate { get; set; }
         public DateTime ExpirationDate { get; set; }
-        public bool IsActive { get; set; }
+        public bool NotSuspended { get; set; }
         public int CreatedByUserID { get; set; }
         public InternationalLicenseDTO() {}
         public InternationalLicenseDTO(
@@ -35,7 +35,7 @@ namespace DataLinkLayer {
             this.IssuedUsingLocalLicenseID = issuedUsingLocalLicenseID;
             this.IssueDate = issueDate;
             this.ExpirationDate = expirationDate;
-            this.IsActive = isActive;
+            this.NotSuspended = isActive;
             this.CreatedByUserID = createdByUserID;
         }
     }
@@ -78,7 +78,7 @@ namespace DataLinkLayer {
                     command.Parameters.AddWithValue("@IssuedUsingLocalLicenseID", dto.IssuedUsingLocalLicenseID);
                     command.Parameters.AddWithValue("@IssueDate", dto.IssueDate);
                     command.Parameters.AddWithValue("@ExpirationDate", dto.ExpirationDate);
-                    command.Parameters.AddWithValue("@IsActive", dto.IsActive);
+                    command.Parameters.AddWithValue("@IsActive", dto.NotSuspended);
                     command.Parameters.AddWithValue("@CreatedByUserID", dto.CreatedByUserID);
 
                     try {
@@ -222,7 +222,7 @@ namespace DataLinkLayer {
                                 license.IssuedUsingLocalLicenseID = (int)reader["IssuedUsingLocalLicenseID"];
                                 license.IssueDate = (DateTime)reader["IssueDate"];
                                 license.ExpirationDate = (DateTime)reader["ExpirationDate"];
-                                license.IsActive = (bool)reader["IsActive"]; 
+                                license.NotSuspended = (bool)reader["IsActive"]; 
                             }
                         }
                     }
@@ -233,6 +233,27 @@ namespace DataLinkLayer {
                 }
             }
             return license;
+        }
+        public static int getRenewalLicenseID(int oldLicense) {
+            using (SqlConnection connection = new SqlConnection(connectionString)) {
+                using (SqlCommand command = new SqlCommand("SELECT NewLicenseID FROM InternationalLicenseRenewals WHERE OldLicenseID = @OldLicenseID", connection)) {
+                    try {
+                        command.Parameters.AddWithValue("@OldLicenseID", oldLicense);
+                        connection.Open();
+
+                        object result = command.ExecuteScalar();
+
+                        if (result != null) {
+                            return Convert.ToInt32(result);
+                        }
+                    }
+                    catch (Exception ex) {
+                        System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
+                        return -1;
+                    }
+                }
+            }
+            return -1;
         }
     }
 }
