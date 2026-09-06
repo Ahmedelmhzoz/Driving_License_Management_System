@@ -52,7 +52,7 @@ namespace PresentationLayer.Local_License {
             lblReleaseDate.Text = license.IssueDate.ToShortDateString();
             lblReleaseReason.Text = _GetIssueReasonText(license.IssueReason);
             lblExpiteDate.Text = license.ExpirationDate.ToShortDateString();
-            lblIsActive.Text = license.IsActive ? "Yes" : "No";
+            lblIsActive.Text = license.NotSuspended ? "Yes" : "No";
             lblNotes.Text = string.IsNullOrWhiteSpace(license.Notes) ? "No Notes" : license.Notes;
             lblIsDetained.Text = DetainedLicense.IsLicenseDetained(license.LicenseID) ? "Yes" : "No";
 

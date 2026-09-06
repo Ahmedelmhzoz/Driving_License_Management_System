@@ -1,5 +1,6 @@
 ﻿using Shared;
 using System;
+using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -17,7 +18,7 @@ namespace DataLinkLayer {
         public DateTime ExpirationDate { get; set; }
         public string Notes { get; set; }
         public decimal PaidFees { get; set; }
-        public bool IsActive { get; set; }
+        public bool NotSuspended { get; set; }
         public enIssueReason IssueReason { get; set; }
         public int CreatedByUserID { get; set; }
     }
@@ -34,7 +35,7 @@ namespace DataLinkLayer {
                 ExpirationDate = (DateTime)reader["ExpirationDate"],
                 Notes = reader["Notes"] == DBNull.Value ? string.Empty : (string)reader["Notes"],
                 PaidFees = (decimal)reader["PaidFees"],
-                IsActive = (bool)reader["IsActive"],
+                NotSuspended = (bool)reader["IsActive"],
                 IssueReason = (enIssueReason)Convert.ToByte(reader["IssueReason"]),
                 CreatedByUserID = (int)reader["CreatedByUserID"]
             };
@@ -61,7 +62,7 @@ namespace DataLinkLayer {
                         command.Parameters.AddWithValue("@Notes", dto.Notes.Trim());
 
                     command.Parameters.AddWithValue("@PaidFees", dto.PaidFees);
-                    command.Parameters.AddWithValue("@IsActive", dto.IsActive);
+                    command.Parameters.AddWithValue("@IsActive", dto.NotSuspended);
                     command.Parameters.AddWithValue("@IssueReason", (byte)dto.IssueReason);
                     command.Parameters.AddWithValue("@CreatedByUserID", dto.CreatedByUserID);
 
@@ -150,7 +151,7 @@ namespace DataLinkLayer {
                             END AS LicenseStatus
                             FROM Licenses l inner join LicenseClasses lc on l.LicenseClass = lc.LicenseClassID 
                             inner join Applications a on a.ApplicationID = l.ApplicationID 
-                            WHERE a.ApplicationTypeID = 1 and a.ApplicantPersonID = @PersonID";
+                            WHERE a.ApplicantPersonID = @PersonID";
             using (SqlConnection connection = new SqlConnection(connectionString)) {
                 using (SqlCommand command = new SqlCommand(query, connection)) {
                     command.Parameters.AddWithValue("@PersonID", personID);
@@ -167,5 +168,26 @@ namespace DataLinkLayer {
             }
             return dt;
         }
-    }
+        public static int getRenewalLicenseID(int oldLicense) {
+            using (SqlConnection connection = new SqlConnection(connectionString)) {
+                using (SqlCommand command = new SqlCommand("SELECT NewLicenseID FROM LocalLicenseRenewals WHERE OldLicenseID = @OldLicenseID", connection)) {
+                    try {
+                        command.Parameters.AddWithValue("@OldLicenseID", oldLicense);
+                        connection.Open();
+
+                        object result = command.ExecuteScalar();
+
+                        if (result != null) {
+                            return Convert.ToInt32(result);
+                        }
+                    }
+                    catch (Exception ex) {
+                        System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
+                        return -1;
+                    }
+                }
+            }
+            return -1;
+        }
+    } 
 }

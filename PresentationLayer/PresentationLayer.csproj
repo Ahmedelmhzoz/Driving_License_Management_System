@@ -91,12 +91,6 @@
     <Compile Include="Local License\ucDrivingLicenses.Designer.cs">
       <DependentUpon>ucDrivingLicenses.cs</DependentUpon>
     </Compile>
-    <Compile Include="Local License\ucGetLicenseWithFilter.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Local License\ucGetLicenseWithFilter.Designer.cs">
-      <DependentUpon>ucGetLicenseWithFilter.cs</DependentUpon>
-    </Compile>
     <Compile Include="Local License Appliaction\FrmAddAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -289,9 +283,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Local License\ucDrivingLicenses.resx">
       <DependentUpon>ucDrivingLicenses.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Local License\ucGetLicenseWithFilter.resx">
-      <DependentUpon>ucGetLicenseWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Local License Appliaction\FrmAddAppointment.resx">
       <DependentUpon>FrmAddAppointment.cs</DependentUpon>
@@ -812,6 +803,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\resume %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\renewal1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

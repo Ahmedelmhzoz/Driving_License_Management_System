@@ -53,6 +53,7 @@
     <Compile Include="CountriesData.cs" />
     <Compile Include="License Application data\LicenseClassesData.cs" />
     <Compile Include="License Application data\LocalLicenseAppsData.cs" />
+    <Compile Include="LicenseRenewalData.cs" />
     <Compile Include="LocalLicensesData.cs" />
     <Compile Include="PeopleData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

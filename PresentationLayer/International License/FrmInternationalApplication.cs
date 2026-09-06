@@ -11,8 +11,7 @@ using System.Windows.Forms;
 namespace PresentationLayer.International_License {
     public partial class FrmInternationalApplication : Form {
         bool ValidLicenseWasFound = false;
-        bool licenseWasIssuedSuccessfully = false;
-        private InternationalLicense intLicnesesCreatedForCurrPerson = null;
+        private InternationalLicense currentInternationalLicense = null;
         public FrmInternationalApplication() {
             InitializeComponent();
         }
@@ -35,7 +34,7 @@ namespace PresentationLayer.International_License {
                     Helpers.ShowErrorMessage($"Person already has an Active International License with ID = {activeInternationalLicenseID}");
                     return false;
 
-                case enInternationalLicenseEligibility.Valid:
+                case enInternationalLicenseEligibility.Eligible:
                     return true;
             }
             return false;
@@ -82,10 +81,10 @@ namespace PresentationLayer.International_License {
             else if (tcInternationApp.SelectedTab == tbInternationalIssuing && ValidLicenseWasFound) {
                 _ResetInternatioalLicTab();
             }
-            else if (tcInternationApp.SelectedTab == tbSelectLocalLic && licenseWasIssuedSuccessfully) {
+            else if (tcInternationApp.SelectedTab == tbSelectLocalLic && currentInternationalLicense != null) {
                 ucLocalLicenseDetails.ResetLicenseInfo();
                 txtSearch.Text = string.Empty;
-                licenseWasIssuedSuccessfully = false;
+                currentInternationalLicense = null;
                 ValidLicenseWasFound = false;
             }
         }
@@ -94,12 +93,11 @@ namespace PresentationLayer.International_License {
             InternationalLicense intLicense = InternationalLicense.issueInternationaLicense(localLicenseID, ImportantSessionData.user.userID);
 
             if (intLicense != null) {
-                Helpers.SuccessfulMessage($"International driving license issued successfully");
-                licenseWasIssuedSuccessfully = true;
+                Helpers.SuccessfulMessage("International driving license issued successfully");
                 lblApplicationID.Text = intLicense.ApplicationID.ToString();
                 lblInterLicID.Text = intLicense.InternationalLicenseID.ToString();
                 _ColoringLblsAndButtonsEnablityByStatus(false);
-                intLicnesesCreatedForCurrPerson = intLicense;
+                currentInternationalLicense = intLicense;
             }
             else {
                 Helpers.ShowErrorMessage("Error Happend while saving international license");
@@ -107,7 +105,7 @@ namespace PresentationLayer.International_License {
         }
 
         private void btnShowHistory_Click(object sender, EventArgs e) {
-            Person currPerson = intLicnesesCreatedForCurrPerson.ApplicationInfo.personInfo;
+            Person currPerson = currentInternationalLicense.ApplicationInfo.personInfo;
 
             if (currPerson != null) {
                 FrmLicensesHistory frm = new FrmLicensesHistory(currPerson);
@@ -116,14 +114,22 @@ namespace PresentationLayer.International_License {
         }
 
         private void btnShowLicense_Click(object sender, EventArgs e) {
-            if (intLicnesesCreatedForCurrPerson != null) {
-                FrmInternationalLicenseDetails frm = new FrmInternationalLicenseDetails(intLicnesesCreatedForCurrPerson);
+            if (currentInternationalLicense != null) {
+                FrmInternationalLicenseDetails frm = new FrmInternationalLicenseDetails(currentInternationalLicense);
                 frm.ShowDialog();
             }
         }
+        bool _isTxtBoxFilled() {
+            errorProvider1.Clear();
+            if (string.IsNullOrWhiteSpace(txtSearch.Text)) {
+                errorProvider1.SetError(txtSearch, "Please search for the ID for a local license with CLass 3 (Ordinary driving licene) and active");
+                return false;
+            }
+            return true;
+        }
 
         private void btnApplyForApp_Click(object sender, EventArgs e) {
-            if (string.IsNullOrWhiteSpace(txtSearch.Text)) return;
+            if (!_isTxtBoxFilled()) return;
 
             int licenseID = Convert.ToInt32(txtSearch.Text.Trim());
             enInternationalLicenseEligibility response =
@@ -135,10 +141,7 @@ namespace PresentationLayer.International_License {
         }
 
         private void btnSearch_Click(object sender, EventArgs e) {
-            if (string.IsNullOrWhiteSpace(txtSearch.Text)) {
-                errorProvider1.SetError(txtSearch, "Please search for a ID for local license with CLass 3 (Ordinary driving licene) and active");
-                return;
-            }
+            if (!_isTxtBoxFilled()) return;
             int licenseID = Convert.ToInt32(txtSearch.Text.Trim());
 
             LocalLicense validLicense = LocalLicense.GetLicenseByID(licenseID);

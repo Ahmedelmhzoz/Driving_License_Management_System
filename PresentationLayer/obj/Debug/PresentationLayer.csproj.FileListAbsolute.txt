@@ -10,11 +10,11 @@ D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\bin\Debug\DataLinkLayer.
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.csproj.AssemblyReference.cache
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.International_License.FrmInternationalApplication.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.International_License.FrmInternationalLicenseDetails.resources
+D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.International_License.FrmInternationalLicensesManagement.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.International_License.ucInternationalLicenseDetails.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Licenses_and_drivers.FrmDrivers.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Licenses.FrmLicensesHistory.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Licenses.ucDrivingLicenses.resources
-D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Licenses_and_drivers.ucGetLicenseWithFilter.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Local_DL_Appliaction.FrmAddAppointment.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Local_DL_Appliaction.FrmAppointments.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Local_License_Appliaction.FrmIssueLocalLicense.resources
@@ -35,6 +35,7 @@ D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLa
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.FrmMainForm.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.FrmPeople.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.FrmPersonDetails.resources
+D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Renew_license.FrmRenewLicense.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Users.FrmAddOrUpdateUser.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Users.FrmChangePassword.resources
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Users.FrmUserDetails.resources
@@ -48,5 +49,3 @@ D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLa
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\Presenta.9C561136.Up2Date
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.exe
 D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.pdb
-D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.International_License.FrmInternationalLicensesManagement.resources
-D:\ابو هدهود\كورس 19 DVLD\PresentationLayer\obj\Debug\PresentationLayer.Renew_license.FrmRenewLicense.resources
