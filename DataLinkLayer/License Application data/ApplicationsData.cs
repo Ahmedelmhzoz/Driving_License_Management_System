@@ -195,5 +195,47 @@ namespace DataLinkLayer.License_Application_data {
             }
             return (rowsAffected > 0);
         }
+        public static int addApplicationInTransaction( ApplicationDTO application, SqlConnection connection,SqlTransaction transaction) {
+            const string query = @"
+                INSERT INTO Applications
+                (
+                    ApplicantPersonID,
+                    ApplicationDate,
+                    ApplicationTypeID,
+                    ApplicationStatus,
+                    LastStatusDate,
+                    PaidFees,
+                    CreatedByUserID
+                ) 
+                VALUES 
+                (
+                    @ApplicantPersonID,
+                    @ApplicationDate,
+                    @ApplicationTypeID,
+                    @ApplicationStatus,
+                    @LastStatusDate,
+                    @PaidFees,
+                    @CreatedByUserID
+                );
+                SELECT SCOPE_IDENTITY();";
+
+            using (SqlCommand command = new SqlCommand(query, connection, transaction)) {
+                command.Parameters.AddWithValue("@ApplicantPersonID", application.AppID);
+                command.Parameters.AddWithValue("@ApplicationDate", application.AppDate);
+                command.Parameters.AddWithValue("@ApplicationTypeID", application.ApplicaitionTypeID);
+                command.Parameters.AddWithValue(
+                    "@ApplicationStatus",
+                    (int)enApplicationStatus.enCompleted);
+
+                command.Parameters.AddWithValue("@LastStatusDate", application.lastStatusDate);
+                command.Parameters.AddWithValue("@PaidFees", application.paidFees);
+                command.Parameters.AddWithValue("@CreatedByUserID", application.createdByUserID);
+                object result = command.ExecuteScalar();
+                if (result == null || result == DBNull.Value)
+                    throw new Exception("Failed to create application.");
+
+                return Convert.ToInt32(result);
+            }
+        }
     }
 }

@@ -19,7 +19,16 @@ namespace DataLinkLayer {
         public DateTime ExpirationDate { get; set; }
         public bool NotSuspended { get; set; }
         public int CreatedByUserID { get; set; }
-        public InternationalLicenseDTO() {}
+        public InternationalLicenseDTO() {
+            this.InternationalLicenseID = -1;
+            this.ApplicationID = -1;
+            this.DriverID = -1;
+            this.IssuedUsingLocalLicenseID = -1;
+            this.IssueDate = DateTime.Now;
+            this.ExpirationDate = this.IssueDate.AddYears(1);
+            this.NotSuspended = true;
+            this.CreatedByUserID = -1;
+        }
         public InternationalLicenseDTO(
             int internationalLicenseID,
             int applicationID,
@@ -254,6 +263,62 @@ namespace DataLinkLayer {
                 }
             }
             return -1;
+        }
+        public static int addInternationalLicenseInTransaction( InternationalLicenseDTO interLicenseDTO, SqlConnection connection, SqlTransaction transaction) {
+            string query = @"
+                        INSERT INTO InternationalLicenses
+                        (
+                            ApplicationID,
+                            DriverID,
+                            IssuedUsingLocalLicenseID,
+                            IssueDate,
+                            ExpirationDate,
+                            IsActive,
+                            CreatedByUserID
+                        )
+                        VALUES
+                        (
+                            @ApplicationID,
+                            @DriverID,
+                            @IssuedUsingLocalLicenseID,
+                            @IssueDate,
+                            @ExpirationDate,
+                            @IsActive,
+                            @CreatedByUserID
+                        );
+
+                        SELECT SCOPE_IDENTITY();";
+
+            using (SqlCommand command = new SqlCommand(query, connection, transaction)) {
+                command.Parameters.AddWithValue(
+                    "@ApplicationID", interLicenseDTO.ApplicationID);
+
+                command.Parameters.AddWithValue(
+                    "@DriverID", interLicenseDTO.DriverID);
+
+                command.Parameters.AddWithValue(
+                    "@IssuedUsingLocalLicenseID",
+                    interLicenseDTO.IssuedUsingLocalLicenseID);
+
+                command.Parameters.AddWithValue(
+                    "@IssueDate", interLicenseDTO.IssueDate);
+
+                command.Parameters.AddWithValue(
+                    "@ExpirationDate", interLicenseDTO.ExpirationDate);
+
+                command.Parameters.AddWithValue(
+                    "@IsActive", interLicenseDTO.NotSuspended);
+
+                command.Parameters.AddWithValue(
+                    "@CreatedByUserID", interLicenseDTO.CreatedByUserID);
+
+                object result = command.ExecuteScalar();
+
+                if (result == null || result == DBNull.Value)
+                    throw new Exception("Failed to create international license.");
+
+                return Convert.ToInt32(result);
+            }
         }
     }
 }

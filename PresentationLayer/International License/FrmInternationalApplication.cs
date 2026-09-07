@@ -90,14 +90,14 @@ namespace PresentationLayer.International_License {
         }
         private void btnIssueLicense_Click(object sender, EventArgs e) {
             int localLicenseID = Convert.ToInt32(txtSearch.Text);
-            InternationalLicense intLicense = InternationalLicense.issueInternationaLicense(localLicenseID, ImportantSessionData.user.userID);
+            InternationalLicense interIssueResult = InternationalLicense.issueInternationaLicense(localLicenseID, ImportantSessionData.user.userID);
 
-            if (intLicense != null) {
+            if (interIssueResult != null) {
                 Helpers.SuccessfulMessage("International driving license issued successfully");
-                lblApplicationID.Text = intLicense.ApplicationID.ToString();
-                lblInterLicID.Text = intLicense.InternationalLicenseID.ToString();
+                lblApplicationID.Text = interIssueResult.ApplicationID.ToString();
+                lblInterLicID.Text = interIssueResult.InternationalLicenseID.ToString();
                 _ColoringLblsAndButtonsEnablityByStatus(false);
-                currentInternationalLicense = intLicense;
+                currentInternationalLicense = interIssueResult; 
             }
             else {
                 Helpers.ShowErrorMessage("Error Happend while saving international license");
