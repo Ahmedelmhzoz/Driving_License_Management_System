@@ -112,14 +112,12 @@ namespace BusinessLayer {
             validLicense = localLicense;
             return enInternationalLicenseEligibility.Eligible;
         }
-        static InternationalLicense _CreateInternationalLicense(ApplicationDTO newInternationalApp, LocalLicense localLicense, int userID) {
+        static InternationalLicense _CreateInternationalLicense(LocalLicense localLicense, int userID) {
             InternationalLicense internationalLicense = new InternationalLicense();
-            internationalLicense.ApplicationID = newInternationalApp.AppID; // اعمل ترانزاكشن ضروري الكود هيبوظ 
+            internationalLicense.ApplicationID = -1; 
             internationalLicense.DriverID = localLicense.DriverID;
             internationalLicense.IssuedUsingLocalLicenseID = localLicense.LicenseID;
             internationalLicense.CreatedByUserID = userID;
-
-            if (!internationalLicense.Save()) { return null; }
             return internationalLicense;
         }
 
@@ -138,7 +136,7 @@ namespace BusinessLayer {
             ApplicationDTO newInternationalApp = Applications.createAppOfSomeKind(userID, person.personID, enApplicationType.NewInternationalLicense);
             if (newInternationalApp == null) return null;
 
-            InternationalLicense intLicense = _CreateInternationalLicense(newInternationalApp, localLicense, userID);
+            InternationalLicense intLicense = _CreateInternationalLicense(localLicense, userID);
             if (intLicense == null) return null;
 
             return intLicense;

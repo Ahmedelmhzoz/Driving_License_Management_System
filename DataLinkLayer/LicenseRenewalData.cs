@@ -26,8 +26,8 @@ namespace DataLinkLayer {
                 command.Parameters.AddWithValue("@PaidFees", appDTO.paidFees);
                 command.Parameters.AddWithValue("@CreatedByUserID", appDTO.createdByUserID);
                 object result = command.ExecuteScalar();
-                if (result != null) return Convert.ToInt32(result);
-                return -1;
+                if (result == null) throw new Exception("Failed to create renewal application.");
+                return Convert.ToInt32(result);
             }
         }
 
@@ -53,10 +53,10 @@ namespace DataLinkLayer {
                 command.Parameters.AddWithValue("@IssueReason", (byte)licenseDTO.IssueReason);
                 command.Parameters.AddWithValue("@CreatedByUserID", licenseDTO.CreatedByUserID);
                 object result = command.ExecuteScalar();
-                if (result != null) {
-                    return Convert.ToInt32(result);
-                }
-                return -1;
+                if (result == null) throw new Exception("Failed to create local renewal license.");
+
+
+                return Convert.ToInt32(result);
             }
         }
         static void _bindLocalIDsInRenewalTable(int oldLocalLicenseID, int newLocalLicenseID, SqlConnection connection, SqlTransaction transaction) {
@@ -76,13 +76,12 @@ namespace DataLinkLayer {
                 SqlTransaction transaction = connection.BeginTransaction();
                 try {
                     int renewAppID = _createApp(appDTO, connection, transaction);
-                    if (renewAppID == -1) throw new Exception("Failed to create renewal application.");
 
                     int expiredLicenseID = licenseDTO.LicenseID;
                     licenseDTO.ApplicationID = renewAppID;
                     
                     int newLicenseID = _createRenewalLocalLicense(licenseDTO, connection, transaction);
-                    if (newLicenseID == -1) throw new Exception("Failed to create renewal license.");
+                   
 
                     _bindLocalIDsInRenewalTable(expiredLicenseID, newLicenseID, connection, transaction);
 
@@ -120,10 +119,9 @@ namespace DataLinkLayer {
                 command.Parameters.AddWithValue("@IsActive", interLicenseDTO.NotSuspended);
                 command.Parameters.AddWithValue("@CreatedByUserID", interLicenseDTO.CreatedByUserID);
                 object result = command.ExecuteScalar();
-                if (result != null) {
-                    return Convert.ToInt32(result); // assign the renewed license ID
-                }
-                return -1;
+                if (result == null) throw new Exception("Failed to create Internationl license.");
+                
+                return Convert.ToInt32(result);
             }
          }
 
@@ -142,15 +140,12 @@ namespace DataLinkLayer {
                 SqlTransaction transaction = connection.BeginTransaction();
                 try {
                     int renewAppID = _createApp(appDTO, connection, transaction);
-                    if (renewAppID == -1) throw new Exception("Failed to create renewal application.");
 
                     int expiredLicenseID = licenseDTO.InternationalLicenseID;
                     licenseDTO.ApplicationID = renewAppID;
                     int newLicenseID = _createRenewalInternationalLicense(licenseDTO, connection, transaction);
 
-                    if (newLicenseID == -1) throw new Exception("Failed to create renewal license.");
                     _bindInterIDsInRenewalTable(expiredLicenseID, newLicenseID, connection, transaction);
-                    throw new Exception("TEST TRANSACTION ROLLBACK");
                     transaction.Commit();
                     return new LicenseRenewalResult {
                         Result = enLicenseRenewalResult.Success,
