@@ -150,7 +150,7 @@ namespace DataLinkLayer {
 
                     if (newLicenseID == -1) throw new Exception("Failed to create renewal license.");
                     _bindInterIDsInRenewalTable(expiredLicenseID, newLicenseID, connection, transaction);
-
+                    throw new Exception("TEST TRANSACTION ROLLBACK");
                     transaction.Commit();
                     return new LicenseRenewalResult {
                         Result = enLicenseRenewalResult.Success,

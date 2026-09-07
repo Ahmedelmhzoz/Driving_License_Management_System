@@ -6,13 +6,13 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Resources;
+using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
 namespace PresentationLayer.Renew_license {
     public partial class FrmRenewLicense : Form {
         public FrmRenewLicense() {
             InitializeComponent();
         }
-        bool ValidLicenseWasFound = false;
         LocalLicense selectedLocalLicense = null;
         InternationalLicense selectedInternationalLicense = null;
 
@@ -98,8 +98,30 @@ namespace PresentationLayer.Renew_license {
         }
         void _NoResultSettings() {
             ucLocalLicenseDetails.ResetLicenseInfo();
-            ValidLicenseWasFound = false;
             _RenewalEnablity(false);
+        }
+        bool _DoseLicenseAbleToRenew() {
+            if (rbLocal.Checked) {
+                if (selectedLocalLicense != null) {
+                    if (selectedLocalLicense.canRenew()) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                }
+            }
+            else {
+                if (selectedInternationalLicense != null) {
+                    if (selectedInternationalLicense.canRenew()) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                }
+            }
+            return false;
         }
         private void btnSearch_Click(object sender, EventArgs e) {
             if (!_isTxtBoxFilled()) return;
@@ -159,25 +181,21 @@ namespace PresentationLayer.Renew_license {
         private void btnGoToRenewTab_Click(object sender, EventArgs e) {
             if (rbLocal.Checked) {
                 if (selectedLocalLicense != null) {
-                    if (selectedLocalLicense.canRenew()) {
-                        ValidLicenseWasFound = true;
+                    if (_DoseLicenseAbleToRenew()) {
                         tcRenewalApp.SelectedTab = tbRenewalApp;
                     }
                     else {
                         _reasonOfRejection(selectedLocalLicense.licenseStatus());
-                        ValidLicenseWasFound = false;
                     }
                 }
             }
             else {
                 if (selectedInternationalLicense != null) {
-                    if (selectedInternationalLicense.canRenew()) {
-                        ValidLicenseWasFound = true;
+                    if (_DoseLicenseAbleToRenew()) {
                         tcRenewalApp.SelectedTab = tbRenewalApp;
                     }
                     else {
                         _reasonOfRejection(selectedInternationalLicense.licenseStatus());
-                        ValidLicenseWasFound = false;
                     }
                 }
             }
@@ -237,11 +255,11 @@ namespace PresentationLayer.Renew_license {
             btnRenewLicense.Enabled = IsDefault;
         }
         private void tcRenewalApp_SelectedIndexChanged(object sender, EventArgs e) {
-            if (tcRenewalApp.SelectedTab == tbRenewalApp && !ValidLicenseWasFound) {
+            if (tcRenewalApp.SelectedTab == tbRenewalApp && !_DoseLicenseAbleToRenew()) {
                 tcRenewalApp.SelectedTab = tbSelectLicense;
                 Helpers.ShowErrorMessage("Please enter an (Expired) License ID");
             }
-            else if (tcRenewalApp.SelectedTab == tbRenewalApp && ValidLicenseWasFound) {
+            else if (tcRenewalApp.SelectedTab == tbRenewalApp && _DoseLicenseAbleToRenew()) {
                 _ResetRenewalTab();
                 _ColoringLblsAndButtonsEnablityByStatus(true);
             }
@@ -254,8 +272,6 @@ namespace PresentationLayer.Renew_license {
                     lblNewLicenseID.Text = result.NewLicenseID.ToString();
                     lblRenewalAppID.Text = result.RenewApplicationID.ToString();
                     _ColoringLblsAndButtonsEnablityByStatus(false);
-                    ValidLicenseWasFound = false;
-                    //_NoResultSettings();
                 } 
             } 
             else {
@@ -265,11 +281,8 @@ namespace PresentationLayer.Renew_license {
                     lblNewLicenseID.Text = result.NewLicenseID.ToString();
                     lblRenewalAppID.Text = result.RenewApplicationID.ToString();
                     _ColoringLblsAndButtonsEnablityByStatus(false);
-                    ValidLicenseWasFound = false;
-                    //_NoResultSettings();
                 }
             }
         }
-
     }
 }

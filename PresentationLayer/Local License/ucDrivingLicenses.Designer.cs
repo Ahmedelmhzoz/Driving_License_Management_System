@@ -53,6 +53,12 @@
             this.licenseStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.internationalLicensesTab = new System.Windows.Forms.TabPage();
             this.dgvInternationalLic = new System.Windows.Forms.DataGridView();
+            this.InternationalLicenseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IssuedUsingLocalLicenseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.licenseStatusForInt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -94,12 +100,6 @@
             this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InternationalLicenseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IssuedUsingLocalLicenseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.licenseStatusForInt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbHistory.SuspendLayout();
             this.tbLicensesHistory.SuspendLayout();
             this.localLicensesTab.SuspendLayout();
@@ -175,7 +175,7 @@
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -272,7 +272,7 @@
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -286,6 +286,48 @@
             this.dgvInternationalLic.Size = new System.Drawing.Size(1741, 517);
             this.dgvInternationalLic.TabIndex = 31;
             this.dgvInternationalLic.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvInternationalLic_CellFormatting);
+            // 
+            // InternationalLicenseID
+            // 
+            this.InternationalLicenseID.DataPropertyName = "InternationalLicenseID";
+            this.InternationalLicenseID.HeaderText = "Int.License ID";
+            this.InternationalLicenseID.MinimumWidth = 12;
+            this.InternationalLicenseID.Name = "InternationalLicenseID";
+            // 
+            // dataGridViewTextBoxColumn32
+            // 
+            this.dataGridViewTextBoxColumn32.DataPropertyName = "ApplicationID";
+            this.dataGridViewTextBoxColumn32.HeaderText = "App.ID";
+            this.dataGridViewTextBoxColumn32.MinimumWidth = 12;
+            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
+            // 
+            // IssuedUsingLocalLicenseID
+            // 
+            this.IssuedUsingLocalLicenseID.DataPropertyName = "IssuedUsingLocalLicenseID";
+            this.IssuedUsingLocalLicenseID.HeaderText = "L.License ID";
+            this.IssuedUsingLocalLicenseID.MinimumWidth = 12;
+            this.IssuedUsingLocalLicenseID.Name = "IssuedUsingLocalLicenseID";
+            // 
+            // dataGridViewTextBoxColumn34
+            // 
+            this.dataGridViewTextBoxColumn34.DataPropertyName = "IssueDate";
+            this.dataGridViewTextBoxColumn34.HeaderText = "Issue date";
+            this.dataGridViewTextBoxColumn34.MinimumWidth = 12;
+            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
+            // 
+            // dataGridViewTextBoxColumn35
+            // 
+            this.dataGridViewTextBoxColumn35.DataPropertyName = "ExpirationDate";
+            this.dataGridViewTextBoxColumn35.HeaderText = "Expiration date";
+            this.dataGridViewTextBoxColumn35.MinimumWidth = 12;
+            this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
+            // 
+            // licenseStatusForInt
+            // 
+            this.licenseStatusForInt.DataPropertyName = "licenseStatus";
+            this.licenseStatusForInt.HeaderText = "License status";
+            this.licenseStatusForInt.MinimumWidth = 12;
+            this.licenseStatusForInt.Name = "licenseStatusForInt";
             // 
             // tabControl1
             // 
@@ -734,48 +776,6 @@
             this.dataGridViewTextBoxColumn30.MinimumWidth = 12;
             this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
             this.dataGridViewTextBoxColumn30.Width = 250;
-            // 
-            // InternationalLicenseID
-            // 
-            this.InternationalLicenseID.DataPropertyName = "InternationalLicenseID";
-            this.InternationalLicenseID.HeaderText = "Int.License ID";
-            this.InternationalLicenseID.MinimumWidth = 12;
-            this.InternationalLicenseID.Name = "InternationalLicenseID";
-            // 
-            // dataGridViewTextBoxColumn32
-            // 
-            this.dataGridViewTextBoxColumn32.DataPropertyName = "ApplicationID";
-            this.dataGridViewTextBoxColumn32.HeaderText = "App.ID";
-            this.dataGridViewTextBoxColumn32.MinimumWidth = 12;
-            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
-            // 
-            // IssuedUsingLocalLicenseID
-            // 
-            this.IssuedUsingLocalLicenseID.DataPropertyName = "IssuedUsingLocalLicenseID";
-            this.IssuedUsingLocalLicenseID.HeaderText = "L.License ID";
-            this.IssuedUsingLocalLicenseID.MinimumWidth = 12;
-            this.IssuedUsingLocalLicenseID.Name = "IssuedUsingLocalLicenseID";
-            // 
-            // dataGridViewTextBoxColumn34
-            // 
-            this.dataGridViewTextBoxColumn34.DataPropertyName = "IssueDate";
-            this.dataGridViewTextBoxColumn34.HeaderText = "Issue date";
-            this.dataGridViewTextBoxColumn34.MinimumWidth = 12;
-            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
-            // 
-            // dataGridViewTextBoxColumn35
-            // 
-            this.dataGridViewTextBoxColumn35.DataPropertyName = "ExpirationDate";
-            this.dataGridViewTextBoxColumn35.HeaderText = "Expiration date";
-            this.dataGridViewTextBoxColumn35.MinimumWidth = 12;
-            this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
-            // 
-            // licenseStatusForInt
-            // 
-            this.licenseStatusForInt.DataPropertyName = "licenseStatus";
-            this.licenseStatusForInt.HeaderText = "License status";
-            this.licenseStatusForInt.MinimumWidth = 12;
-            this.licenseStatusForInt.Name = "licenseStatusForInt";
             // 
             // ucDrivingLicenses
             // 
