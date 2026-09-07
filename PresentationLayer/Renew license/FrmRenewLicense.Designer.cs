@@ -24,68 +24,68 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRenewLicense));
             this.lblProcess = new System.Windows.Forms.Label();
             this.tcRenewalApp = new System.Windows.Forms.TabControl();
             this.tbSelectLicense = new System.Windows.Forms.TabPage();
             this.lblGoToRenewTab = new System.Windows.Forms.Label();
+            this.btnGoToRenewTab = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblLicenseType = new System.Windows.Forms.Label();
+            this.pbLicense = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.rbInternational = new System.Windows.Forms.RadioButton();
             this.rbLocal = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
+            this.ucLocalLicenseDetails = new PresentationLayer.Local_License.ucLocalLicenseDetails();
+            this.ucInternationalLicenseDetails = new PresentationLayer.International_License.ucInternationalLicenseDetails();
             this.tbRenewalApp = new System.Windows.Forms.TabPage();
             this.lblRenew = new System.Windows.Forms.Label();
+            this.btnRenewLicense = new System.Windows.Forms.Button();
             this.txtNote = new System.Windows.Forms.TextBox();
+            this.pbNote = new System.Windows.Forms.PictureBox();
             this.lblNote = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.lblTotalFees = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label13 = new System.Windows.Forms.Label();
             this.lblLicenseFees = new System.Windows.Forms.Label();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.lblAppFees = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pbOldLicense = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lblOldLicenseID = new System.Windows.Forms.Label();
             this.lblExpireDate = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lblReleseDate = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblNewLicenseID = new System.Windows.Forms.Label();
+            this.pbRenewalLicense = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblRenewalAppID = new System.Windows.Forms.Label();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnGoToRenewTab = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.pbLicense = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.btnRenewLicense = new System.Windows.Forms.Button();
-            this.pbNote = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pbOldLicense = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pbRenewalLicense = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.ucLocalLicenseDetails = new PresentationLayer.Local_License.ucLocalLicenseDetails();
-            this.ucInternationalLicenseDetails = new PresentationLayer.International_License.ucInternationalLicenseDetails();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tcRenewalApp.SuspendLayout();
             this.tbSelectLicense.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.tbRenewalApp.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLicense)).BeginInit();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.tbRenewalApp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbNote)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -96,6 +96,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRenewalLicense)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblProcess
@@ -150,6 +151,18 @@
             this.lblGoToRenewTab.TabIndex = 27;
             this.lblGoToRenewTab.Text = "Renew";
             // 
+            // btnGoToRenewTab
+            // 
+            this.btnGoToRenewTab.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnGoToRenewTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnGoToRenewTab.Image = global::PresentationLayer.Properties.Resources.refresh;
+            this.btnGoToRenewTab.Location = new System.Drawing.Point(1921, 1605);
+            this.btnGoToRenewTab.Name = "btnGoToRenewTab";
+            this.btnGoToRenewTab.Size = new System.Drawing.Size(197, 85);
+            this.btnGoToRenewTab.TabIndex = 26;
+            this.btnGoToRenewTab.UseVisualStyleBackColor = false;
+            this.btnGoToRenewTab.Click += new System.EventHandler(this.btnGoToRenewTab_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnSearch);
@@ -165,6 +178,18 @@
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search for local license";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
+            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSearch.Location = new System.Drawing.Point(1225, 66);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(216, 85);
+            this.btnSearch.TabIndex = 23;
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSearch
             // 
@@ -195,6 +220,16 @@
             this.lblLicenseType.Text = "Local driving license:";
             this.lblLicenseType.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // pbLicense
+            // 
+            this.pbLicense.Image = ((System.Drawing.Image)(resources.GetObject("pbLicense.Image")));
+            this.pbLicense.Location = new System.Drawing.Point(435, 75);
+            this.pbLicense.Name = "pbLicense";
+            this.pbLicense.Size = new System.Drawing.Size(68, 55);
+            this.pbLicense.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLicense.TabIndex = 22;
+            this.pbLicense.TabStop = false;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.pictureBox9);
@@ -210,6 +245,26 @@
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Driving license type";
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Location = new System.Drawing.Point(74, 114);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(63, 39);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox9.TabIndex = 27;
+            this.pictureBox9.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(74, 56);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(63, 39);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 26;
+            this.pictureBox8.TabStop = false;
             // 
             // rbInternational
             // 
@@ -249,6 +304,22 @@
             this.label4.Size = new System.Drawing.Size(121, 35);
             this.label4.TabIndex = 24;
             this.label4.Text = "Search";
+            // 
+            // ucLocalLicenseDetails
+            // 
+            this.ucLocalLicenseDetails.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ucLocalLicenseDetails.Location = new System.Drawing.Point(-29, 228);
+            this.ucLocalLicenseDetails.Name = "ucLocalLicenseDetails";
+            this.ucLocalLicenseDetails.Size = new System.Drawing.Size(2192, 1519);
+            this.ucLocalLicenseDetails.TabIndex = 32;
+            // 
+            // ucInternationalLicenseDetails
+            // 
+            this.ucInternationalLicenseDetails.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ucInternationalLicenseDetails.Location = new System.Drawing.Point(9, 221);
+            this.ucInternationalLicenseDetails.Name = "ucInternationalLicenseDetails";
+            this.ucInternationalLicenseDetails.Size = new System.Drawing.Size(2154, 1616);
+            this.ucInternationalLicenseDetails.TabIndex = 33;
             // 
             // tbRenewalApp
             // 
@@ -303,6 +374,18 @@
             this.lblRenew.TabIndex = 81;
             this.lblRenew.Text = "Renew";
             // 
+            // btnRenewLicense
+            // 
+            this.btnRenewLicense.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnRenewLicense.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRenewLicense.BackgroundImage")));
+            this.btnRenewLicense.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnRenewLicense.Location = new System.Drawing.Point(1905, 1586);
+            this.btnRenewLicense.Name = "btnRenewLicense";
+            this.btnRenewLicense.Size = new System.Drawing.Size(216, 85);
+            this.btnRenewLicense.TabIndex = 80;
+            this.btnRenewLicense.UseVisualStyleBackColor = false;
+            this.btnRenewLicense.Click += new System.EventHandler(this.btnRenewLicense_Click);
+            // 
             // txtNote
             // 
             this.txtNote.Location = new System.Drawing.Point(732, 934);
@@ -310,6 +393,16 @@
             this.txtNote.Name = "txtNote";
             this.txtNote.Size = new System.Drawing.Size(1239, 154);
             this.txtNote.TabIndex = 79;
+            // 
+            // pbNote
+            // 
+            this.pbNote.Image = ((System.Drawing.Image)(resources.GetObject("pbNote.Image")));
+            this.pbNote.Location = new System.Drawing.Point(611, 959);
+            this.pbNote.Name = "pbNote";
+            this.pbNote.Size = new System.Drawing.Size(80, 82);
+            this.pbNote.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbNote.TabIndex = 78;
+            this.pbNote.TabStop = false;
             // 
             // lblNote
             // 
@@ -344,6 +437,16 @@
             this.label9.TabIndex = 66;
             this.label9.Text = "Created by:";
             // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(609, 740);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(72, 68);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 67;
+            this.pictureBox6.TabStop = false;
+            // 
             // lblTotalFees
             // 
             this.lblTotalFees.AutoSize = true;
@@ -354,6 +457,16 @@
             this.lblTotalFees.Size = new System.Drawing.Size(243, 51);
             this.lblTotalFees.TabIndex = 64;
             this.lblTotalFees.Text = "Unknown";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(1650, 559);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(72, 74);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 65;
+            this.pictureBox3.TabStop = false;
             // 
             // label13
             // 
@@ -376,6 +489,16 @@
             this.lblLicenseFees.Size = new System.Drawing.Size(243, 51);
             this.lblLicenseFees.TabIndex = 61;
             this.lblLicenseFees.Text = "Unknown";
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(619, 559);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(72, 74);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 62;
+            this.pictureBox10.TabStop = false;
             // 
             // label10
             // 
@@ -409,6 +532,26 @@
             this.lblAppFees.Size = new System.Drawing.Size(243, 51);
             this.lblAppFees.TabIndex = 57;
             this.lblAppFees.Text = "Unknown";
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(1650, 394);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(72, 74);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 59;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pbOldLicense
+            // 
+            this.pbOldLicense.Image = ((System.Drawing.Image)(resources.GetObject("pbOldLicense.Image")));
+            this.pbOldLicense.Location = new System.Drawing.Point(1650, 232);
+            this.pbOldLicense.Name = "pbOldLicense";
+            this.pbOldLicense.Size = new System.Drawing.Size(72, 71);
+            this.pbOldLicense.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbOldLicense.TabIndex = 56;
+            this.pbOldLicense.TabStop = false;
             // 
             // label5
             // 
@@ -465,6 +608,26 @@
             this.label8.TabIndex = 47;
             this.label8.Text = "Relese date:";
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(619, 394);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(72, 81);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 50;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(619, 226);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(72, 69);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 49;
+            this.pictureBox4.TabStop = false;
+            // 
             // lblReleseDate
             // 
             this.lblReleseDate.AutoSize = true;
@@ -498,6 +661,16 @@
             this.lblNewLicenseID.TabIndex = 34;
             this.lblNewLicenseID.Text = "Unknown";
             // 
+            // pbRenewalLicense
+            // 
+            this.pbRenewalLicense.Image = ((System.Drawing.Image)(resources.GetObject("pbRenewalLicense.Image")));
+            this.pbRenewalLicense.Location = new System.Drawing.Point(1650, 82);
+            this.pbRenewalLicense.Name = "pbRenewalLicense";
+            this.pbRenewalLicense.Size = new System.Drawing.Size(72, 71);
+            this.pbRenewalLicense.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbRenewalLicense.TabIndex = 35;
+            this.pbRenewalLicense.TabStop = false;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -520,169 +693,9 @@
             this.lblRenewalAppID.TabIndex = 31;
             this.lblRenewalAppID.Text = "Unknown";
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // btnGoToRenewTab
-            // 
-            this.btnGoToRenewTab.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnGoToRenewTab.BackgroundImage = global::PresentationLayer.Properties.Resources.renewal;
-            this.btnGoToRenewTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnGoToRenewTab.Location = new System.Drawing.Point(1921, 1605);
-            this.btnGoToRenewTab.Name = "btnGoToRenewTab";
-            this.btnGoToRenewTab.Size = new System.Drawing.Size(197, 85);
-            this.btnGoToRenewTab.TabIndex = 26;
-            this.btnGoToRenewTab.UseVisualStyleBackColor = false;
-            this.btnGoToRenewTab.Click += new System.EventHandler(this.btnGoToRenewTab_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnSearch.BackgroundImage = global::PresentationLayer.Properties.Resources.looking_for_answer;
-            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSearch.Location = new System.Drawing.Point(1225, 66);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(216, 85);
-            this.btnSearch.TabIndex = 23;
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // pbLicense
-            // 
-            this.pbLicense.Image = global::PresentationLayer.Properties.Resources.icense__1_3;
-            this.pbLicense.Location = new System.Drawing.Point(435, 75);
-            this.pbLicense.Name = "pbLicense";
-            this.pbLicense.Size = new System.Drawing.Size(68, 55);
-            this.pbLicense.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbLicense.TabIndex = 22;
-            this.pbLicense.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = global::PresentationLayer.Properties.Resources.pilot_license;
-            this.pictureBox9.Location = new System.Drawing.Point(74, 114);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(63, 39);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox9.TabIndex = 27;
-            this.pictureBox9.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = global::PresentationLayer.Properties.Resources.icense__1_3;
-            this.pictureBox8.Location = new System.Drawing.Point(74, 56);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(63, 39);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 26;
-            this.pictureBox8.TabStop = false;
-            // 
-            // btnRenewLicense
-            // 
-            this.btnRenewLicense.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnRenewLicense.BackgroundImage = global::PresentationLayer.Properties.Resources.renewal;
-            this.btnRenewLicense.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnRenewLicense.Location = new System.Drawing.Point(1905, 1586);
-            this.btnRenewLicense.Name = "btnRenewLicense";
-            this.btnRenewLicense.Size = new System.Drawing.Size(216, 85);
-            this.btnRenewLicense.TabIndex = 80;
-            this.btnRenewLicense.UseVisualStyleBackColor = false;
-            this.btnRenewLicense.Click += new System.EventHandler(this.btnRenewLicense_Click);
-            // 
-            // pbNote
-            // 
-            this.pbNote.Image = global::PresentationLayer.Properties.Resources.edit_info;
-            this.pbNote.Location = new System.Drawing.Point(611, 959);
-            this.pbNote.Name = "pbNote";
-            this.pbNote.Size = new System.Drawing.Size(80, 82);
-            this.pbNote.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbNote.TabIndex = 78;
-            this.pbNote.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::PresentationLayer.Properties.Resources.employee;
-            this.pictureBox6.Location = new System.Drawing.Point(609, 740);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(72, 68);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 67;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::PresentationLayer.Properties.Resources.currency;
-            this.pictureBox3.Location = new System.Drawing.Point(1650, 559);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(72, 74);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 65;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Image = global::PresentationLayer.Properties.Resources.currency;
-            this.pictureBox10.Location = new System.Drawing.Point(619, 559);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(72, 74);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox10.TabIndex = 62;
-            this.pictureBox10.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::PresentationLayer.Properties.Resources.currency;
-            this.pictureBox7.Location = new System.Drawing.Point(1650, 394);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(72, 74);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 59;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pbOldLicense
-            // 
-            this.pbOldLicense.Image = global::PresentationLayer.Properties.Resources.icense__1_;
-            this.pbOldLicense.Location = new System.Drawing.Point(1650, 232);
-            this.pbOldLicense.Name = "pbOldLicense";
-            this.pbOldLicense.Size = new System.Drawing.Size(72, 71);
-            this.pbOldLicense.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbOldLicense.TabIndex = 56;
-            this.pbOldLicense.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::PresentationLayer.Properties.Resources.expired;
-            this.pictureBox5.Location = new System.Drawing.Point(619, 394);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(72, 81);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 50;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::PresentationLayer.Properties.Resources.calendar;
-            this.pictureBox4.Location = new System.Drawing.Point(619, 226);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(72, 69);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 49;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pbRenewalLicense
-            // 
-            this.pbRenewalLicense.Image = global::PresentationLayer.Properties.Resources.icense__1_;
-            this.pbRenewalLicense.Location = new System.Drawing.Point(1650, 82);
-            this.pbRenewalLicense.Name = "pbRenewalLicense";
-            this.pbRenewalLicense.Size = new System.Drawing.Size(72, 71);
-            this.pbRenewalLicense.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbRenewalLicense.TabIndex = 35;
-            this.pbRenewalLicense.TabStop = false;
-            // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::PresentationLayer.Properties.Resources.renewal1;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(609, 72);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(82, 81);
@@ -690,21 +703,9 @@
             this.pictureBox2.TabIndex = 32;
             this.pictureBox2.TabStop = false;
             // 
-            // ucLocalLicenseDetails
+            // errorProvider1
             // 
-            this.ucLocalLicenseDetails.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ucLocalLicenseDetails.Location = new System.Drawing.Point(-29, 228);
-            this.ucLocalLicenseDetails.Name = "ucLocalLicenseDetails";
-            this.ucLocalLicenseDetails.Size = new System.Drawing.Size(2192, 1519);
-            this.ucLocalLicenseDetails.TabIndex = 32;
-            // 
-            // ucInternationalLicenseDetails
-            // 
-            this.ucInternationalLicenseDetails.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ucInternationalLicenseDetails.Location = new System.Drawing.Point(9, 221);
-            this.ucInternationalLicenseDetails.Name = "ucInternationalLicenseDetails";
-            this.ucInternationalLicenseDetails.Size = new System.Drawing.Size(2154, 1616);
-            this.ucInternationalLicenseDetails.TabIndex = 33;
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmRenewLicense
             // 
@@ -723,14 +724,13 @@
             this.tbSelectLicense.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLicense)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.tbRenewalApp.ResumeLayout(false);
-            this.tbRenewalApp.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLicense)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.tbRenewalApp.ResumeLayout(false);
+            this.tbRenewalApp.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbNote)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -741,6 +741,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRenewalLicense)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

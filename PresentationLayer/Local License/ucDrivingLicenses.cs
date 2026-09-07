@@ -18,7 +18,7 @@ namespace PresentationLayer.Licenses {
         private void dgvLocalLicenses_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e) {
             if (dgvLocalLicenses.Columns[e.ColumnIndex].Name == "licenseStatus") {
                 if (e.Value != DBNull.Value) {
-                    if (e.Value.ToString() == "Suspended" || e.Value.ToString() == "Expired") {
+                    if (e.Value.ToString() == "Suspended") {
                         e.CellStyle.ForeColor = Color.Red;
                         e.CellStyle.BackColor = Color.Pink;
                         e.CellStyle.SelectionForeColor = Color.Red;
@@ -26,6 +26,11 @@ namespace PresentationLayer.Licenses {
                         e.CellStyle.ForeColor = Color.Green;
                         e.CellStyle.BackColor = Color.LightGreen;
                         e.CellStyle.SelectionForeColor = Color.Green;
+                    }
+                    else if (e.Value.ToString() == "Expired") {
+                        e.CellStyle.ForeColor = Color.DimGray;
+                        e.CellStyle.BackColor = Color.LightGray;
+                        e.CellStyle.SelectionForeColor = Color.DimGray;
                     }
                 }
             }
@@ -38,7 +43,7 @@ namespace PresentationLayer.Licenses {
         private void dgvInternationalLic_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e) {
             if (dgvInternationalLic.Columns[e.ColumnIndex].Name == "licenseStatusForInt") {
                 if (e.Value != DBNull.Value) {
-                    if (e.Value.ToString() == "Suspended" || e.Value.ToString() == "Expired") {
+                    if (e.Value.ToString() == "Suspended") {
                         e.CellStyle.ForeColor = Color.Red;
                         e.CellStyle.BackColor = Color.Pink;
                         e.CellStyle.SelectionForeColor = Color.Red;
@@ -47,6 +52,11 @@ namespace PresentationLayer.Licenses {
                         e.CellStyle.ForeColor = Color.Green;
                         e.CellStyle.BackColor = Color.LightGreen;
                         e.CellStyle.SelectionForeColor = Color.Green;
+                    }
+                    else if (e.Value.ToString() == "Expired") {
+                        e.CellStyle.ForeColor = Color.DimGray;
+                        e.CellStyle.BackColor = Color.LightGray;
+                        e.CellStyle.SelectionForeColor = Color.DimGray;
                     }
                 }
             }
