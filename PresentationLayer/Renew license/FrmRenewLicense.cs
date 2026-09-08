@@ -185,7 +185,7 @@ namespace PresentationLayer.Renew_license {
                         tcRenewalApp.SelectedTab = tbRenewalApp;
                     }
                     else {
-                        _reasonOfRejection(selectedLocalLicense.licenseStatus());
+                        _reasonOfRejection(selectedLocalLicense.getLicenseStatus());
                     }
                 }
             }
@@ -282,6 +282,16 @@ namespace PresentationLayer.Renew_license {
                     lblRenewalAppID.Text = result.RenewApplicationID.ToString();
                     _ColoringLblsAndButtonsEnablityByStatus(false);
                 }
+            }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e) {
+            _RenewalEnablity(false);
+        }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar)) {
+                e.Handled = true;
             }
         }
     }

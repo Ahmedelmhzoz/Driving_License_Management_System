@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -100,6 +101,8 @@
             this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmsLicenseDetails = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tmsiShowLicense = new System.Windows.Forms.ToolStripMenuItem();
             this.gbHistory.SuspendLayout();
             this.tbLicensesHistory.SuspendLayout();
             this.localLicensesTab.SuspendLayout();
@@ -111,6 +114,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            this.cmsLicenseDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbHistory
@@ -172,6 +176,7 @@
             this.IssueDate,
             this.ExpirationDate,
             this.licenseStatus});
+            this.dgvLocalLicenses.ContextMenuStrip = this.cmsLicenseDetails;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -777,6 +782,23 @@
             this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
             this.dataGridViewTextBoxColumn30.Width = 250;
             // 
+            // cmsLicenseDetails
+            // 
+            this.cmsLicenseDetails.Font = new System.Drawing.Font("Georgia", 14F, System.Drawing.FontStyle.Bold);
+            this.cmsLicenseDetails.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.cmsLicenseDetails.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tmsiShowLicense});
+            this.cmsLicenseDetails.Name = "cmsApp";
+            this.cmsLicenseDetails.Size = new System.Drawing.Size(619, 64);
+            // 
+            // tmsiShowLicense
+            // 
+            this.tmsiShowLicense.Image = global::PresentationLayer.Properties.Resources.icense__1_;
+            this.tmsiShowLicense.Name = "tmsiShowLicense";
+            this.tmsiShowLicense.Size = new System.Drawing.Size(618, 60);
+            this.tmsiShowLicense.Text = "Show license details";
+            this.tmsiShowLicense.Click += new System.EventHandler(this.tmsiShowLicense_Click);
+            // 
             // ucDrivingLicenses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -797,6 +819,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            this.cmsLicenseDetails.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -862,5 +885,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
         private System.Windows.Forms.DataGridViewTextBoxColumn licenseStatusForInt;
+        private System.Windows.Forms.ContextMenuStrip cmsLicenseDetails;
+        private System.Windows.Forms.ToolStripMenuItem tmsiShowLicense;
     }
 }

@@ -1,4 +1,7 @@
 ﻿using BusinessLayer;
+using BusinessLayer.License_Applications;
+using Global;
+using PresentationLayer.Local_License;
 using Shared;
 using System;
 using System.Collections.Generic;
@@ -26,5 +29,6 @@ namespace PresentationLayer.Licenses {
         private void btnClose_Click(object sender, EventArgs e) {
             this.Close();
         }
+
     }
 }

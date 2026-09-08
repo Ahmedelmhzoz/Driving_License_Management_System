@@ -25,6 +25,9 @@ namespace PresentationLayer.Local_License {
             lblIsDetained.Text = "Unknown";
             lblNotes.Text = "No Notes";
             lblAdmin.Text = "Unknown";
+
+            lblIsDetained.ForeColor = Color.DeepSkyBlue;
+            lblIsActive.ForeColor = Color.DeepSkyBlue;
             ucPersonDetails.returnToDefault();
         }
         public ucLocalLicenseDetails() {
@@ -44,7 +47,28 @@ namespace PresentationLayer.Local_License {
                     return "Unknown";
             }
         }
-
+        void _changeLblByStatus(LocalLicense license) {
+            enLicenseStatus status = license.getLicenseStatus();
+            if (status == enLicenseStatus.Suspended) {
+                lblIsActive.Text = "Suspended for damage or lost";
+                lblIsActive.ForeColor = Color.Red;
+            } else if (status == enLicenseStatus.Expired){
+                lblIsActive.Text = "Expired";
+                lblIsActive.ForeColor = Color.DimGray;
+            } else {
+                lblIsActive.Text = "Active";
+                lblIsActive.ForeColor = Color.SpringGreen;
+            }
+        }
+        void _changeLbLByDenied(LocalLicense license) {
+            if (license.isLicenseDenied()) {
+                lblIsDetained.Text = "Denied";
+                lblIsDetained.ForeColor = Color.Red;
+            } else {
+                lblIsDetained.Text = "Approved";
+                lblIsDetained.ForeColor = Color.SpringGreen;
+            }
+        }
         void _ShowData(LocalLicense license) {
             lblLicenseID.Text = license.LicenseID.ToString();
             lblDriverID.Text = license.DriverID.ToString();
@@ -52,9 +76,9 @@ namespace PresentationLayer.Local_License {
             lblReleaseDate.Text = license.IssueDate.ToShortDateString();
             lblReleaseReason.Text = _GetIssueReasonText(license.IssueReason);
             lblExpiteDate.Text = license.ExpirationDate.ToShortDateString();
-            lblIsActive.Text = license.NotSuspended ? "Yes" : "No";
+            _changeLblByStatus(license);
             lblNotes.Text = string.IsNullOrWhiteSpace(license.Notes) ? "No Notes" : license.Notes;
-            lblIsDetained.Text = DetainedLicense.IsLicenseDetained(license.LicenseID) ? "Yes" : "No";
+            _changeLbLByDenied(license);
 
             lblAdmin.Text = license.issuerUserInfo != null ? license.issuerUserInfo.Username : "Unknown";
 
@@ -73,6 +97,12 @@ namespace PresentationLayer.Local_License {
             }
             _ShowData(license);
         }
-
+        public void SuspendLicense() {
+            lblIsActive.Text = "Suspended for damage or lost";
+            lblIsActive.ForeColor = Color.Red;
+        }
+        public void DenieLicense() {
+            //
+        }
     }
 }

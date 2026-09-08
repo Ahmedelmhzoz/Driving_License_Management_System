@@ -220,12 +220,10 @@ namespace DataLinkLayer.License_Application_data {
                 SELECT SCOPE_IDENTITY();";
 
             using (SqlCommand command = new SqlCommand(query, connection, transaction)) {
-                command.Parameters.AddWithValue("@ApplicantPersonID", application.AppID);
+                command.Parameters.AddWithValue("@ApplicantPersonID", application.personID);
                 command.Parameters.AddWithValue("@ApplicationDate", application.AppDate);
                 command.Parameters.AddWithValue("@ApplicationTypeID", application.ApplicaitionTypeID);
-                command.Parameters.AddWithValue(
-                    "@ApplicationStatus",
-                    (int)enApplicationStatus.enCompleted);
+                command.Parameters.AddWithValue("@ApplicationStatus", (int)enApplicationStatus.enCompleted);
 
                 command.Parameters.AddWithValue("@LastStatusDate", application.lastStatusDate);
                 command.Parameters.AddWithValue("@PaidFees", application.paidFees);

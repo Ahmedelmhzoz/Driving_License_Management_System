@@ -3,6 +3,7 @@ using PresentationLayer.Licenses_and_drivers;
 using PresentationLayer.Local_DL_Appliaction;
 using PresentationLayer.Manage_types;
 using PresentationLayer.Renew_license;
+using PresentationLayer.Replacement_app;
 using PresentationLayer.Users;
 using System;
 using System.Collections.Generic;
@@ -84,6 +85,11 @@ namespace PresentationLayer {
 
         private void renewDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e) {
             FrmRenewLicense frm  = new FrmRenewLicense();
+            frm.ShowDialog();
+        }
+
+        private void replaceLicenseForDamageOrLosToolStripMenuItem_Click(object sender, EventArgs e) {
+            FrmReplacementApp frm = new FrmReplacementApp();
             frm.ShowDialog();
         }
     }

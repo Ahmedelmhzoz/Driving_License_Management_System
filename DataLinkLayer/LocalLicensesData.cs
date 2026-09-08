@@ -9,7 +9,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 
 namespace DataLinkLayer {
-    public class LicenseDTO {
+    public class LocalLicenseDTO {
         public int LicenseID { get; set; }
         public int ApplicationID { get; set; }
         public int DriverID { get; set; }
@@ -25,8 +25,8 @@ namespace DataLinkLayer {
     public static class LocalLicensesData {
         static string connectionString = ConfigurationManager.ConnectionStrings["DVLD_DB"].ConnectionString;
 
-        static LicenseDTO _MapReaderToLicenseDTO(SqlDataReader reader) {
-            return new LicenseDTO {
+        static LocalLicenseDTO _MapReaderToLicenseDTO(SqlDataReader reader) {
+            return new LocalLicenseDTO {
                 LicenseID = (int)reader["LicenseID"],
                 ApplicationID = (int)reader["ApplicationID"],
                 DriverID = (int)reader["DriverID"],
@@ -40,7 +40,7 @@ namespace DataLinkLayer {
                 CreatedByUserID = (int)reader["CreatedByUserID"]
             };
         }
-        public static int AddNewLicense(LicenseDTO dto) {
+        public static int AddNewLicense(LocalLicenseDTO dto) {
             int newLicenseID = -1;
             using (SqlConnection connection = new SqlConnection(connectionString)) {
                 string query = @"INSERT INTO Licenses 
@@ -83,8 +83,8 @@ namespace DataLinkLayer {
 
             return newLicenseID;
         }
-        public static LicenseDTO GetLicenseInfoByApplicationID(int applicationID) {
-            LicenseDTO dto = null;
+        public static LocalLicenseDTO GetLicenseInfoByApplicationID(int applicationID) {
+            LocalLicenseDTO dto = null;
             using (SqlConnection connection = new SqlConnection(connectionString)) {
                 string query = @"SELECT LicenseID, ApplicationID, DriverID, LicenseClass, 
                                         IssueDate, ExpirationDate, Notes, PaidFees, 
@@ -110,8 +110,8 @@ namespace DataLinkLayer {
             }
             return dto;
         }
-        public static LicenseDTO GetLicenseInfoByID(int licenseID) {
-            LicenseDTO dto = null;
+        public static LocalLicenseDTO GetLicenseInfoByID(int licenseID) {
+            LocalLicenseDTO dto = null;
             using (SqlConnection connection = new SqlConnection(connectionString)) {
                 string query = @"SELECT LicenseID, ApplicationID, DriverID, LicenseClass, 
                                         IssueDate, ExpirationDate, Notes, PaidFees, 
@@ -188,6 +188,62 @@ namespace DataLinkLayer {
                 }
             }
             return -1;
+        }
+        public static int addLocalLicenseInTransaction(LocalLicenseDTO localLicenseDTO, SqlConnection connection, SqlTransaction transaction) {
+            const string query = @"INSERT INTO Licenses
+                                (
+                                    ApplicationID,
+                                    DriverID,
+                                    LicenseClass,
+                                    IssueDate,
+                                    ExpirationDate,
+                                    Notes,
+                                    PaidFees,
+                                    IsActive,
+                                    IssueReason,
+                                    CreatedByUserID
+                                )
+                                VALUES
+                                (
+                                    @ApplicationID,
+                                    @DriverID,
+                                    @LicenseClassID,
+                                    @IssueDate,
+                                    @ExpirationDate,
+                                    @Notes,
+                                    @PaidFees,
+                                    @IsActive,
+                                    @IssueReason,
+                                    @CreatedByUserID
+                                );
+                                SELECT SCOPE_IDENTITY();";
+
+            using (SqlCommand command = new SqlCommand(query, connection, transaction)) {
+                command.Parameters.AddWithValue("@ApplicationID", localLicenseDTO.ApplicationID);
+                command.Parameters.AddWithValue("@DriverID", localLicenseDTO.DriverID);
+                command.Parameters.AddWithValue("@LicenseClassID", localLicenseDTO.LicenseClassID);
+                command.Parameters.AddWithValue("@IssueDate", localLicenseDTO.IssueDate);
+                command.Parameters.AddWithValue("@ExpirationDate", localLicenseDTO.ExpirationDate);
+                command.Parameters.AddWithValue("@Notes", localLicenseDTO.Notes == string.Empty ? DBNull.Value : (object)localLicenseDTO.Notes);
+                command.Parameters.AddWithValue("@PaidFees", localLicenseDTO.PaidFees);
+                command.Parameters.AddWithValue("@IsActive", localLicenseDTO.NotSuspended);
+                command.Parameters.AddWithValue("@IssueReason", (byte)localLicenseDTO.IssueReason);
+                command.Parameters.AddWithValue("@CreatedByUserID", localLicenseDTO.CreatedByUserID);
+
+                object result = command.ExecuteScalar();
+
+                if (result == null || result == DBNull.Value)
+                    throw new Exception("Failed to create local license.");
+
+                return Convert.ToInt32(result);
+            }
+        }
+        public static void suspendLocalLicense(int licenseID, SqlConnection connection, SqlTransaction transaction) {
+            using (SqlCommand command = new SqlCommand("UPDATE Licenses SET IsActive = 0 WHERE LicenseID = @licenseID", connection, transaction)) {
+                command.Parameters.AddWithValue("@licenseID", licenseID);
+
+                if (command.ExecuteNonQuery() <= 0) throw new Exception("Failed to deactivate the license.");
+            }
         }
     } 
 }

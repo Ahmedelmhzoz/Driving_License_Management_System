@@ -1,8 +1,10 @@
-﻿using DataLinkLayer; 
-using System;
-using Shared;
-using System.Data;
+﻿using BusinessLayer.Licenses;
+using DataLinkLayer; 
 using DataLinkLayer.License_Application_data;
+using Shared;
+using System;
+using System.ComponentModel;
+using System.Data;
 
 namespace BusinessLayer {
     public class LocalLicense {
@@ -57,7 +59,7 @@ namespace BusinessLayer {
             this.IssueReason = enIssueReason.enFirstTime;
             this.CreatedByUserID = -1;
         }
-        public LocalLicense(LicenseDTO dto) {
+        public LocalLicense(LocalLicenseDTO dto) {
             if (dto != null) {
                 this.LicenseID = dto.LicenseID;
                 this.ApplicationID = dto.ApplicationID;
@@ -72,8 +74,8 @@ namespace BusinessLayer {
                 this.CreatedByUserID = dto.CreatedByUserID;
             }
         }
-        public LicenseDTO ToDTO() {
-            return new LicenseDTO {
+        public LocalLicenseDTO ToDTO() {
+            return new LocalLicenseDTO {
                 LicenseID = this.LicenseID,
                 ApplicationID = this.ApplicationID,
                 DriverID = this.DriverID,
@@ -88,12 +90,12 @@ namespace BusinessLayer {
             };
         }
         public static LocalLicense GetLicenseByApplicationID(int applicationID) {
-            LicenseDTO dto = LocalLicensesData.GetLicenseInfoByApplicationID(applicationID);
+            LocalLicenseDTO dto = LocalLicensesData.GetLicenseInfoByApplicationID(applicationID);
             if (dto == null) return null;
             return new LocalLicense(dto);
         }
         public static LocalLicense GetLicenseByID(int licenseID) {
-            LicenseDTO dto = LocalLicensesData.GetLicenseInfoByID(licenseID);
+            LocalLicenseDTO dto = LocalLicensesData.GetLicenseInfoByID(licenseID);
             if (dto == null) return null;
             return new LocalLicense(dto);
         }
@@ -107,16 +109,16 @@ namespace BusinessLayer {
         public static DataTable getLocalLicensesHistoryForPerosn(int perosnID) {
             return LocalLicensesData.getLocalLicensesHistoryForPerson(perosnID);
         }
-        public enLicenseStatus licenseStatus() {
+        public enLicenseStatus getLicenseStatus() {
             if (!this.NotSuspended) return enLicenseStatus.Suspended;
             else if (this.ExpirationDate.Date < DateTime.Today) return enLicenseStatus.Expired;
             else return enLicenseStatus.Active;
         }
         public bool canRenew() {
-            return licenseStatus() == enLicenseStatus.Expired && LocalLicensesData.getRenewalLicenseID(this.LicenseID) == -1;
+            return getLicenseStatus() == enLicenseStatus.Expired && LocalLicensesData.getRenewalLicenseID(this.LicenseID) == -1;
         }
-        LicenseDTO _createRenewalLocalLicense(int userID, string Notes) {
-            LicenseDTO localLicenseDTO = new LicenseDTO();
+        LocalLicenseDTO _createRenewalLocalLicenseDTO(int userID, string Notes) {
+            LocalLicenseDTO localLicenseDTO = new LocalLicenseDTO();
             localLicenseDTO.LicenseID = this.LicenseID; // will updated from LicenseRenewalData
             localLicenseDTO.DriverID = this.DriverID;
             localLicenseDTO.LicenseClassID = this.LicenseClassID;
@@ -131,7 +133,22 @@ namespace BusinessLayer {
             localLicenseDTO.CreatedByUserID = userID;
             return localLicenseDTO;
         }
+        LocalLicenseDTO _createReplacerLocalLicenseDTO(int userID, string Notes, enIssueReason reason) {
+            LocalLicenseDTO localLicenseDTO = new LocalLicenseDTO();
+            localLicenseDTO.LicenseID = this.LicenseID; // will need the old app ID to update IsActive = 0
+            localLicenseDTO.DriverID = this.DriverID;
+            localLicenseDTO.LicenseClassID = this.LicenseClassID;
+            localLicenseDTO.IssueDate = DateTime.Now;
 
+            if (licenseInfo == null) return null;
+            localLicenseDTO.ExpirationDate = localLicenseDTO.IssueDate.AddYears(licenseInfo.DefaultValidityLength);
+            localLicenseDTO.Notes = Notes;
+            localLicenseDTO.PaidFees = 0m;
+            localLicenseDTO.NotSuspended = true;
+            localLicenseDTO.IssueReason = reason;
+            localLicenseDTO.CreatedByUserID = userID;
+            return localLicenseDTO;
+        }
         public LicenseRenewalResult Renew(int userID, string Notes) {
             LicenseRenewalResult result = new LicenseRenewalResult();
             if (!canRenew()) { result.Result = enLicenseRenewalResult.Failed; return result; }
@@ -145,7 +162,7 @@ namespace BusinessLayer {
             ApplicationDTO renewalApplication = Applications.createAppOfSomeKind(userID, personOwnsLicense.personID, enApplicationType.RenewDrivingLicense);
             if (renewalApplication == null) { result.Result = enLicenseRenewalResult.Failed; return result; }
 
-            LicenseDTO Renewallicense = _createRenewalLocalLicense(userID, Notes);
+            LocalLicenseDTO Renewallicense = _createRenewalLocalLicenseDTO(userID, Notes);
             if (Renewallicense == null) { result.Result = enLicenseRenewalResult.Failed; return result; }
 
 
@@ -153,6 +170,53 @@ namespace BusinessLayer {
         }
         public int getRenewalLicenseID() {
             return LocalLicensesData.getRenewalLicenseID(this.LicenseID);
+        }
+        public bool isLicenseDenied() {
+            return DetainedLicense.IsLicenseDetained(this.LicenseID);
+        }
+
+        public enReplacementEligibility replacementEligibility() {
+            enLicenseStatus status = getLicenseStatus();
+            if (isLicenseDenied()) {
+                return enReplacementEligibility.Denied;
+            } 
+            else if (status == enLicenseStatus.Expired) {
+                return enReplacementEligibility.Expired;
+            } 
+            else if (status == enLicenseStatus.Suspended) {
+                return enReplacementEligibility.Suspended;
+            } 
+            else {
+                return enReplacementEligibility.Eligible;
+            }
+        }
+        public LocalLicense _IssueReplacement(int userID, string Notes, enApplicationType applicationType) {
+            enIssueReason issueReason = enIssueReason.enReplacementForDamaged;
+
+            if (applicationType == enApplicationType.ReplaceDamagedDrivingLicense) 
+                issueReason = enIssueReason.enReplacementForDamaged;
+            else
+                issueReason = enIssueReason.enReplacementForLost;
+
+            if (this.applicationInfo == null) { throw new Exception("Failed to fetch applicationInfo form DB"); }
+
+            Person personOwnsLicense = this.applicationInfo.personInfo;
+            if(personOwnsLicense == null) { throw new Exception("Failed to fetch applicationInfo form DB"); }
+
+            ApplicationDTO renewalApplication = Applications.createAppOfSomeKind(userID, personOwnsLicense.personID, enApplicationType.RenewDrivingLicense);
+            if (renewalApplication == null) { throw new Exception("Failed to create replacemet new app"); }
+
+            LocalLicenseDTO replacerLicense = _createReplacerLocalLicenseDTO(userID, Notes, issueReason);
+            if (replacerLicense == null) { throw new Exception("Failed to create replacemet license"); }
+
+            return GetLicenseByID(ReplacementIssuingData.issueReplacer(renewalApplication, replacerLicense));
+        }
+
+        public LocalLicense issueReplacerForDamage(int userID, string Notes) {
+            return _IssueReplacement(userID, Notes, enApplicationType.ReplaceDamagedDrivingLicense);
+        }
+        public LocalLicense issueReplacerForLost(int userID, string Notes) {
+            return _IssueReplacement(userID, Notes, enApplicationType.ReplaceLostDrivingLicense);
         }
     }
 }
