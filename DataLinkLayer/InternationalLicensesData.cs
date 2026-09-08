@@ -1,13 +1,8 @@
 ﻿using Shared;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
+using System.Data.SqlClient;                          
 
 namespace DataLinkLayer {
     public class InternationalLicenseDTO {
@@ -231,7 +226,8 @@ namespace DataLinkLayer {
                                 license.IssuedUsingLocalLicenseID = (int)reader["IssuedUsingLocalLicenseID"];
                                 license.IssueDate = (DateTime)reader["IssueDate"];
                                 license.ExpirationDate = (DateTime)reader["ExpirationDate"];
-                                license.NotSuspended = (bool)reader["IsActive"]; 
+                                license.NotSuspended = (bool)reader["IsActive"];
+                                license.CreatedByUserID = (int)reader["CreatedByUserID"];
                             }
                         }
                     }

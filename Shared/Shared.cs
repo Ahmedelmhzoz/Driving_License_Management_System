@@ -37,7 +37,14 @@ namespace Shared
         LicenseNotEligibleActive,
         LicenseNotEligibleSuspended
     }
-  
+
+    public enum enReplacementEligibility {
+        Eligible,
+        Suspended,
+        Expired,
+        Denied ,
+        NotFound
+    }
     public enum enLicenseType {
         Local = 0,
         International = 1

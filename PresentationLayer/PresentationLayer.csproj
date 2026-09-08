@@ -218,6 +218,12 @@
     <Compile Include="Renew license\FrmRenewLicense.Designer.cs">
       <DependentUpon>FrmRenewLicense.cs</DependentUpon>
     </Compile>
+    <Compile Include="Replacement app\FrmReplacementApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Replacement app\FrmReplacementApp.Designer.cs">
+      <DependentUpon>FrmReplacementApp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users\FrmAddOrUpdateUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -346,6 +352,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Renew license\FrmRenewLicense.resx">
       <DependentUpon>FrmRenewLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Replacement app\FrmReplacementApp.resx">
+      <DependentUpon>FrmReplacementApp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\FrmAddOrUpdateUser.resx">
       <DependentUpon>FrmAddOrUpdateUser.cs</DependentUpon>
@@ -812,6 +821,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\credit-card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\replacement.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cut-card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insolvency.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insolvency1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\replacement %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\replacement %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\replacement %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checked %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\driving-license %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\history12.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

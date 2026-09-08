@@ -28,8 +28,8 @@
             this.lblProcess = new System.Windows.Forms.Label();
             this.tcRenewalApp = new System.Windows.Forms.TabControl();
             this.tbSelectLicense = new System.Windows.Forms.TabPage();
-            this.lblGoToRenewTab = new System.Windows.Forms.Label();
             this.btnGoToRenewTab = new System.Windows.Forms.Button();
+            this.lblGoToRenewTab = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -125,8 +125,8 @@
             // tbSelectLicense
             // 
             this.tbSelectLicense.BackColor = System.Drawing.Color.Black;
-            this.tbSelectLicense.Controls.Add(this.lblGoToRenewTab);
             this.tbSelectLicense.Controls.Add(this.btnGoToRenewTab);
+            this.tbSelectLicense.Controls.Add(this.lblGoToRenewTab);
             this.tbSelectLicense.Controls.Add(this.groupBox1);
             this.tbSelectLicense.Controls.Add(this.groupBox2);
             this.tbSelectLicense.Controls.Add(this.ucLocalLicenseDetails);
@@ -140,28 +140,28 @@
             this.tbSelectLicense.TabIndex = 0;
             this.tbSelectLicense.Text = "Select license";
             // 
-            // lblGoToRenewTab
-            // 
-            this.lblGoToRenewTab.AutoSize = true;
-            this.lblGoToRenewTab.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Bold);
-            this.lblGoToRenewTab.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblGoToRenewTab.Location = new System.Drawing.Point(1957, 1562);
-            this.lblGoToRenewTab.Name = "lblGoToRenewTab";
-            this.lblGoToRenewTab.Size = new System.Drawing.Size(120, 35);
-            this.lblGoToRenewTab.TabIndex = 27;
-            this.lblGoToRenewTab.Text = "Renew";
-            // 
             // btnGoToRenewTab
             // 
             this.btnGoToRenewTab.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btnGoToRenewTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnGoToRenewTab.Image = global::PresentationLayer.Properties.Resources.refresh;
-            this.btnGoToRenewTab.Location = new System.Drawing.Point(1921, 1605);
+            this.btnGoToRenewTab.Location = new System.Drawing.Point(1921, 1597);
             this.btnGoToRenewTab.Name = "btnGoToRenewTab";
             this.btnGoToRenewTab.Size = new System.Drawing.Size(197, 85);
             this.btnGoToRenewTab.TabIndex = 26;
             this.btnGoToRenewTab.UseVisualStyleBackColor = false;
             this.btnGoToRenewTab.Click += new System.EventHandler(this.btnGoToRenewTab_Click);
+            // 
+            // lblGoToRenewTab
+            // 
+            this.lblGoToRenewTab.AutoSize = true;
+            this.lblGoToRenewTab.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Bold);
+            this.lblGoToRenewTab.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblGoToRenewTab.Location = new System.Drawing.Point(1957, 1559);
+            this.lblGoToRenewTab.Name = "lblGoToRenewTab";
+            this.lblGoToRenewTab.Size = new System.Drawing.Size(120, 35);
+            this.lblGoToRenewTab.TabIndex = 27;
+            this.lblGoToRenewTab.Text = "Renew";
             // 
             // groupBox1
             // 
@@ -197,6 +197,8 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(366, 38);
             this.txtSearch.TabIndex = 25;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
             // 
             // label2
             // 
@@ -308,10 +310,11 @@
             // ucLocalLicenseDetails
             // 
             this.ucLocalLicenseDetails.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ucLocalLicenseDetails.Location = new System.Drawing.Point(-29, 228);
+            this.ucLocalLicenseDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucLocalLicenseDetails.Location = new System.Drawing.Point(-2, 221);
             this.ucLocalLicenseDetails.Name = "ucLocalLicenseDetails";
-            this.ucLocalLicenseDetails.Size = new System.Drawing.Size(2192, 1519);
-            this.ucLocalLicenseDetails.TabIndex = 32;
+            this.ucLocalLicenseDetails.Size = new System.Drawing.Size(2149, 1710);
+            this.ucLocalLicenseDetails.TabIndex = 34;
             // 
             // ucInternationalLicenseDetails
             // 
@@ -755,7 +758,6 @@
         private System.Windows.Forms.TabPage tbSelectLicense;
         private System.Windows.Forms.Label lblGoToRenewTab;
         private System.Windows.Forms.Button btnGoToRenewTab;
-        private Local_License.ucLocalLicenseDetails ucLocalLicenseDetails;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label4;
@@ -802,6 +804,6 @@
         private System.Windows.Forms.Label lblRenew;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private International_License.ucInternationalLicenseDetails ucInternationalLicenseDetails;
-        private International_License.ucInternationalLicenseDetails ucInternationalLicenseDetails1;
+        private Local_License.ucLocalLicenseDetails ucLocalLicenseDetails;
     }
 }

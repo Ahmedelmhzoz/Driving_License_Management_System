@@ -23,29 +23,21 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.ucLocalLicenseDetails1 = new PresentationLayer.Local_License.ucLocalLicenseDetails();
             this.lblTestType = new System.Windows.Forms.Label();
             this.pbTestType = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
+            this.ucLocalLicenseDetails1 = new PresentationLayer.Local_License.ucLocalLicenseDetails();
             ((System.ComponentModel.ISupportInitialize)(this.pbTestType)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ucLocalLicenseDetails1
-            // 
-            this.ucLocalLicenseDetails1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ucLocalLicenseDetails1.Location = new System.Drawing.Point(-4, 236);
-            this.ucLocalLicenseDetails1.Name = "ucLocalLicenseDetails1";
-            this.ucLocalLicenseDetails1.Size = new System.Drawing.Size(1953, 1506);
-            this.ucLocalLicenseDetails1.TabIndex = 0;
             // 
             // lblTestType
             // 
             this.lblTestType.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTestType.Font = new System.Drawing.Font("Georgia", 15F, System.Drawing.FontStyle.Bold);
             this.lblTestType.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTestType.Location = new System.Drawing.Point(501, 154);
+            this.lblTestType.Location = new System.Drawing.Point(579, 154);
             this.lblTestType.Name = "lblTestType";
-            this.lblTestType.Size = new System.Drawing.Size(914, 58);
+            this.lblTestType.Size = new System.Drawing.Size(971, 58);
             this.lblTestType.TabIndex = 37;
             this.lblTestType.Text = "Local driving license details";
             this.lblTestType.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -54,9 +46,9 @@
             // 
             this.pbTestType.BackgroundImage = global::PresentationLayer.Properties.Resources.driving_license__3_;
             this.pbTestType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbTestType.Location = new System.Drawing.Point(870, -21);
+            this.pbTestType.Location = new System.Drawing.Point(941, -19);
             this.pbTestType.Name = "pbTestType";
-            this.pbTestType.Size = new System.Drawing.Size(217, 196);
+            this.pbTestType.Size = new System.Drawing.Size(231, 196);
             this.pbTestType.TabIndex = 36;
             this.pbTestType.TabStop = false;
             // 
@@ -67,24 +59,34 @@
             this.btnClose.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnClose.Image = global::PresentationLayer.Properties.Resources.close;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(1713, 1726);
+            this.btnClose.Location = new System.Drawing.Point(1909, 1720);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(213, 49);
+            this.btnClose.Size = new System.Drawing.Size(226, 49);
             this.btnClose.TabIndex = 35;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // ucLocalLicenseDetails1
+            // 
+            this.ucLocalLicenseDetails1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ucLocalLicenseDetails1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucLocalLicenseDetails1.Location = new System.Drawing.Point(-4, 236);
+            this.ucLocalLicenseDetails1.Name = "ucLocalLicenseDetails1";
+            this.ucLocalLicenseDetails1.Size = new System.Drawing.Size(2165, 1506);
+            this.ucLocalLicenseDetails1.TabIndex = 0;
+            // 
             // FrmLocalLicenseDetails
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlText;
-            this.ClientSize = new System.Drawing.Size(1938, 1787);
+            this.ClientSize = new System.Drawing.Size(2152, 1787);
             this.Controls.Add(this.lblTestType);
             this.Controls.Add(this.pbTestType);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ucLocalLicenseDetails1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmLocalLicenseDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLocalLicenseDetails";

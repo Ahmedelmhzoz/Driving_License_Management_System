@@ -23,12 +23,16 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.pbTestType = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.ucDrivingLicenses = new PresentationLayer.Licenses.ucDrivingLicenses();
             this.ucPersonDetails = new PresentationLayer.ucPersonDetails();
+            this.cmsApp = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tmsiShowLicense = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pbTestType)).BeginInit();
+            this.cmsApp.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -84,6 +88,22 @@
             this.ucPersonDetails.Size = new System.Drawing.Size(1922, 855);
             this.ucPersonDetails.TabIndex = 39;
             // 
+            // cmsApp
+            // 
+            this.cmsApp.Font = new System.Drawing.Font("Georgia", 14F, System.Drawing.FontStyle.Bold);
+            this.cmsApp.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.cmsApp.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tmsiShowLicense});
+            this.cmsApp.Name = "cmsApp";
+            this.cmsApp.Size = new System.Drawing.Size(619, 119);
+            // 
+            // tmsiShowLicense
+            // 
+            this.tmsiShowLicense.Image = global::PresentationLayer.Properties.Resources.icense__1_;
+            this.tmsiShowLicense.Name = "tmsiShowLicense";
+            this.tmsiShowLicense.Size = new System.Drawing.Size(618, 60);
+            this.tmsiShowLicense.Text = "Show license details";
+            // 
             // FrmLicensesHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -100,6 +120,7 @@
             this.Text = "FrmLicensesHistory";
             this.Load += new System.EventHandler(this.FrmLicensesHistory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbTestType)).EndInit();
+            this.cmsApp.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,5 +133,7 @@
         private ucPersonDetails ucPersonDetails;
         private ucDrivingLicenses ucDrivingLicenses;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.ContextMenuStrip cmsApp;
+        private System.Windows.Forms.ToolStripMenuItem tmsiShowLicense;
     }
 }

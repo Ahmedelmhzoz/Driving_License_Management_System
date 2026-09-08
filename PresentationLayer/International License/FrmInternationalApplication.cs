@@ -21,21 +21,19 @@ namespace PresentationLayer.International_License {
                 case enInternationalLicenseEligibility.NotFound:
                     Helpers.ShowErrorMessage("Local License ID is not found in the system!");
                     return false;
-
                 case enInternationalLicenseEligibility.NotOrdinaryLicenseCLass:
                     Helpers.ShowErrorMessage("License must be Class 3 (Ordinary Driving License) to issue an International License.");
                     return false;
-
                 case enInternationalLicenseEligibility.NotActive:
                     Helpers.ShowErrorMessage("Selected Local License is NOT Active. Cannot issue International License.");
                     return false;
-
                 case enInternationalLicenseEligibility.HasActiveInternational:
                     Helpers.ShowErrorMessage($"Person already has an Active International License with ID = {activeInternationalLicenseID}");
                     return false;
 
                 case enInternationalLicenseEligibility.Eligible:
                     return true;
+
             }
             return false;
         }
@@ -127,6 +125,10 @@ namespace PresentationLayer.International_License {
             }
             return true;
         }
+        void _ApplyBtEnablity(bool thereIsLicense) {
+            btnApplyForApp.Enabled = thereIsLicense;
+            lblApply.ForeColor = thereIsLicense ? Color.White : Color.DimGray;
+        }
 
         private void btnApplyForApp_Click(object sender, EventArgs e) {
             if (!_isTxtBoxFilled()) return;
@@ -137,7 +139,7 @@ namespace PresentationLayer.International_License {
             if (_LicenseIDIsValid(response, activeInternationalID)) {
                 ValidLicenseWasFound = true;
                 tcInternationApp.SelectedTab = tbInternationalIssuing;
-            }
+            } 
         }
 
         private void btnSearch_Click(object sender, EventArgs e) {
@@ -146,17 +148,25 @@ namespace PresentationLayer.International_License {
 
             LocalLicense validLicense = LocalLicense.GetLicenseByID(licenseID);
             if (validLicense != null) {
-                btnApplyForApp.Enabled = true;
-                lblApply.ForeColor = Color.White;
                 ucLocalLicenseDetails.loadData(validLicense);
+                _ApplyBtEnablity(true);
             }
             else {
                 Helpers.ShowErrorMessage($"There is no licese with ID: {licenseID}");
                 txtSearch.Text = string.Empty;
                 ucLocalLicenseDetails.ResetLicenseInfo();
-                lblApply.ForeColor = Color.DimGray;
-                btnApplyForApp.Enabled = false;
+                _ApplyBtEnablity(false);
                 ValidLicenseWasFound = false;
+            }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e) {
+            _ApplyBtEnablity(false); 
+        }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar)) {
+                e.Handled = true;
             }
         }
     }

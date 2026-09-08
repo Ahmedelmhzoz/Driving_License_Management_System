@@ -1,9 +1,7 @@
 ﻿using DataLinkLayer.License_Application_data;
 using Shared;
 using System;
-using System.ComponentModel;
 using System.Configuration;
-using System.Data.Common;
 using System.Data.SqlClient;
 
 namespace DataLinkLayer {
@@ -31,7 +29,7 @@ namespace DataLinkLayer {
             }
         }
 
-        static int _createRenewalLocalLicense(LicenseDTO licenseDTO, SqlConnection connection, SqlTransaction transaction) {
+        static int _createRenewalLocalLicense(LocalLicenseDTO licenseDTO, SqlConnection connection, SqlTransaction transaction) {
             string query = @"INSERT INTO Licenses 
                                   (ApplicationID, DriverID, LicenseClass, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, IssueReason, CreatedByUserID)
                                   VALUES 
@@ -68,7 +66,7 @@ namespace DataLinkLayer {
                 command.ExecuteNonQuery();
             }
         }
-        public static LicenseRenewalResult RenewLicense(ApplicationDTO appDTO, LicenseDTO licenseDTO) { // For Local License
+        public static LicenseRenewalResult RenewLicense(ApplicationDTO appDTO, LocalLicenseDTO licenseDTO) { // For Local License
             LicenseRenewalResult result = new LicenseRenewalResult();
 
             using (SqlConnection connection = new SqlConnection(connectionString)) {

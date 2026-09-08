@@ -112,13 +112,15 @@ namespace BusinessLayer {
             validLicense = localLicense;
             return enInternationalLicenseEligibility.Eligible;
         }
-        static InternationalLicense _CreateInternationalLicense(LocalLicense localLicense, int userID) {
-            InternationalLicense internationalLicense = new InternationalLicense();
-            internationalLicense.ApplicationID = -1; 
-            internationalLicense.DriverID = localLicense.DriverID;
-            internationalLicense.IssuedUsingLocalLicenseID = localLicense.LicenseID;
-            internationalLicense.CreatedByUserID = userID;
-            return internationalLicense;
+        static InternationalLicenseDTO _CreateNewInternationalLicense(LocalLicense localLicense, int userID) {
+            InternationalLicenseDTO interLicenseDTO = new InternationalLicenseDTO();
+            interLicenseDTO.DriverID = localLicense.DriverID;
+            interLicenseDTO.IssuedUsingLocalLicenseID = localLicense.LicenseID;
+            interLicenseDTO.CreatedByUserID = userID;
+            interLicenseDTO.IssueDate = DateTime.Now;
+            interLicenseDTO.ExpirationDate = interLicenseDTO.IssueDate.AddYears(1);
+            interLicenseDTO.NotSuspended = true;
+            return interLicenseDTO;
         }
 
         public static InternationalLicense issueInternationaLicense(int localLicenseID, int userID) {
@@ -133,13 +135,15 @@ namespace BusinessLayer {
             if (person == null) { return null; }
 
 
-            ApplicationDTO newInternationalApp = Applications.createAppOfSomeKind(userID, person.personID, enApplicationType.NewInternationalLicense);
-            if (newInternationalApp == null) return null;
+            ApplicationDTO newInternationalAppDTO = Applications.createAppOfSomeKind(userID, person.personID, enApplicationType.NewInternationalLicense);
+            if (newInternationalAppDTO == null) return null;
 
-            InternationalLicense intLicense = _CreateInternationalLicense(localLicense, userID);
-            if (intLicense == null) return null;
+            InternationalLicenseDTO intLicenseDTO = _CreateNewInternationalLicense(localLicense, userID);
+            if (intLicenseDTO == null) { return null; }
 
-            return intLicense;
+            int internationalLicenseID = InternationalLicenseIssuingData.addInternationalLicense(newInternationalAppDTO, intLicenseDTO);
+
+            return InternationalLicense.GetInternationalLicenseByID(internationalLicenseID);
         }
 
         public static DataTable getAllInternationalLicenses() {

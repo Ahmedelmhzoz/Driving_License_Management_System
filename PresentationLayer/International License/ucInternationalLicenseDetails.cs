@@ -1,6 +1,7 @@
 ﻿using BusinessLayer;
 using BusinessLayer.Licenses;
 using Global;
+using Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,10 +22,28 @@ namespace PresentationLayer.International_License {
             lblIsActive.Text = "Unknown";
             lblLocalLic.Text = "Unknown";
             lblAdmin.Text = "Unknown";
+
+            lblIsActive.ForeColor = Color.DeepSkyBlue;
+
             ucPersonDetails.returnToDefault();
         }
         public ucInternationalLicenseDetails() {
             InitializeComponent();
+        }
+        void _changeLblByStatus(InternationalLicense license) {
+            enLicenseStatus status = license.licenseStatus();
+            if (status == enLicenseStatus.Suspended) {
+                lblIsActive.Text = "Suspended for damage or lost";
+                lblIsActive.ForeColor = Color.Red;
+            }
+            else if (status == enLicenseStatus.Expired) {
+                lblIsActive.Text = "Expired";
+                lblIsActive.ForeColor = Color.DimGray;
+            }
+            else {
+                lblIsActive.Text = "Active";
+                lblIsActive.ForeColor = Color.SpringGreen;
+            }
         }
         void _ShowData(InternationalLicense intLicense) {
             lblInternationalLic.Text = intLicense.InternationalLicenseID.ToString();
@@ -32,7 +51,12 @@ namespace PresentationLayer.International_License {
             lblDriverID.Text = intLicense.DriverID.ToString();
             lblReleaseDate.Text = intLicense.IssueDate.ToShortDateString();
             lblExpiteDate.Text = intLicense.ExpirationDate.ToShortDateString();
-            lblIsActive.Text = intLicense.NotSuspended ? "Yes" : "No";
+            _changeLblByStatus(intLicense);
+
+            User licenseCreator = User.getUserByID(intLicense.CreatedByUserID);
+            if (licenseCreator != null) { 
+                lblAdmin.Text = licenseCreator.Username;
+            }
 
             lblAdmin.Text = intLicense.CreatorUserInfo != null ? intLicense.CreatorUserInfo.Username : "Unknown";
 
