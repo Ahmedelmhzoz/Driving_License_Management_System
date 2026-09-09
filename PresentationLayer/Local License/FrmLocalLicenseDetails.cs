@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using BusinessLayer;
-using BusinessLayer.Licenses;
 
 namespace PresentationLayer.Local_License {
     public partial class FrmLocalLicenseDetails : Form {

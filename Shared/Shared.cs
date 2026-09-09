@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace Shared
 {
     public enum enDriverFilterColumn {
@@ -38,11 +40,38 @@ namespace Shared
         LicenseNotEligibleSuspended
     }
 
-    public enum enReplacementEligibility {
+    public class InputtedDetainDetails { 
+        public int LicenseID { get; set; }
+        public DateTime detainDate {  get; set; }
+        public decimal fineFees { get; set; }
+        public string reason { get; set; }
+        public int createdByUserID { get; set; }
+        public InputtedDetainDetails(int licID, DateTime date, decimal fine, string reason, int createdByUserID) { 
+            LicenseID = licID;
+            detainDate = date;
+            fineFees = fine;
+            this.reason = reason;
+            this.createdByUserID = createdByUserID;
+        }
+    }
+
+    public enum enDetainResult {
+        Success,
+        AlreadyDetained,
+        FineOutOfRange
+    }
+
+
+    public class DetainResult {
+        public int detainRecordID {  get; set; } 
+        public enDetainResult result { get; set; }
+    }
+
+    public enum enLicenseEligibility {
         Eligible,
         Suspended,
         Expired,
-        Denied ,
+        Detained ,
         NotFound
     }
     public enum enLicenseType {
@@ -56,7 +85,6 @@ namespace Shared
         Suspended = 2, 
         Expired = 3
     }
-
     public enum enLicenseFilterBy {
         None = 0,
         InternationalLicenseID = 1,

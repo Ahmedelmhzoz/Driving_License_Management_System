@@ -27,14 +27,11 @@
             this.tcInternationApp = new System.Windows.Forms.TabControl();
             this.tbSelectLocalLic = new System.Windows.Forms.TabPage();
             this.lblApply = new System.Windows.Forms.Label();
-            this.btnApplyForApp = new System.Windows.Forms.Button();
             this.ucLocalLicenseDetails = new PresentationLayer.Local_License.ucLocalLicenseDetails();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.lblLicenseType = new System.Windows.Forms.Label();
-            this.pbLicense = new System.Windows.Forms.PictureBox();
             this.tbInternationalIssuing = new System.Windows.Forms.TabPage();
             this.lblShowLic = new System.Windows.Forms.Label();
             this.lblShowHistory = new System.Windows.Forms.Label();
@@ -53,6 +50,12 @@
             this.lblInterLicID = new System.Windows.Forms.Label();
             this.Personi = new System.Windows.Forms.Label();
             this.lblApplicationID = new System.Windows.Forms.Label();
+            this.lblProcess = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.btnApplyForApp = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.pbLicense = new System.Windows.Forms.PictureBox();
             this.btnShowLicense = new System.Windows.Forms.Button();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.btnShowHistory = new System.Windows.Forms.Button();
@@ -63,13 +66,13 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblProcess = new System.Windows.Forms.Label();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tcInternationApp.SuspendLayout();
             this.tbSelectLocalLic.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLicense)).BeginInit();
             this.tbInternationalIssuing.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLicense)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -77,7 +80,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tcInternationApp
@@ -119,19 +121,6 @@
             this.lblApply.Size = new System.Drawing.Size(326, 31);
             this.lblApply.TabIndex = 28;
             this.lblApply.Text = "Apply with this license";
-            // 
-            // btnApplyForApp
-            // 
-            this.btnApplyForApp.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnApplyForApp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnApplyForApp.Enabled = false;
-            this.btnApplyForApp.Image = global::PresentationLayer.Properties.Resources.resume__1_;
-            this.btnApplyForApp.Location = new System.Drawing.Point(1849, 1556);
-            this.btnApplyForApp.Name = "btnApplyForApp";
-            this.btnApplyForApp.Size = new System.Drawing.Size(216, 85);
-            this.btnApplyForApp.TabIndex = 27;
-            this.btnApplyForApp.UseVisualStyleBackColor = false;
-            this.btnApplyForApp.Click += new System.EventHandler(this.btnApplyForApp_Click);
             // 
             // ucLocalLicenseDetails
             // 
@@ -178,18 +167,6 @@
             this.label2.TabIndex = 24;
             this.label2.Text = "Search";
             // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnSearch.BackgroundImage = global::PresentationLayer.Properties.Resources.looking_for_answer;
-            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSearch.Location = new System.Drawing.Point(1225, 66);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(216, 85);
-            this.btnSearch.TabIndex = 23;
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
             // lblLicenseType
             // 
             this.lblLicenseType.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Bold);
@@ -200,16 +177,6 @@
             this.lblLicenseType.TabIndex = 21;
             this.lblLicenseType.Text = "Local driving license:";
             this.lblLicenseType.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // pbLicense
-            // 
-            this.pbLicense.Image = global::PresentationLayer.Properties.Resources.icense__1_3;
-            this.pbLicense.Location = new System.Drawing.Point(435, 75);
-            this.pbLicense.Name = "pbLicense";
-            this.pbLicense.Size = new System.Drawing.Size(68, 55);
-            this.pbLicense.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbLicense.TabIndex = 22;
-            this.pbLicense.TabStop = false;
             // 
             // tbInternationalIssuing
             // 
@@ -435,6 +402,66 @@
             this.lblApplicationID.TabIndex = 25;
             this.lblApplicationID.Text = "Unknown";
             // 
+            // lblProcess
+            // 
+            this.lblProcess.AutoSize = true;
+            this.lblProcess.Font = new System.Drawing.Font("Georgia", 20F, System.Drawing.FontStyle.Bold);
+            this.lblProcess.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblProcess.Location = new System.Drawing.Point(575, 33);
+            this.lblProcess.Name = "lblProcess";
+            this.lblProcess.Size = new System.Drawing.Size(1162, 77);
+            this.lblProcess.TabIndex = 23;
+            this.lblProcess.Text = "International license application";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::PresentationLayer.Properties.Resources.driving_license__4_1;
+            this.pictureBox8.Location = new System.Drawing.Point(465, 16);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(120, 99);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 29;
+            this.pictureBox8.TabStop = false;
+            // 
+            // btnApplyForApp
+            // 
+            this.btnApplyForApp.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnApplyForApp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnApplyForApp.Enabled = false;
+            this.btnApplyForApp.Image = global::PresentationLayer.Properties.Resources.resume__1_;
+            this.btnApplyForApp.Location = new System.Drawing.Point(1849, 1556);
+            this.btnApplyForApp.Name = "btnApplyForApp";
+            this.btnApplyForApp.Size = new System.Drawing.Size(216, 85);
+            this.btnApplyForApp.TabIndex = 27;
+            this.btnApplyForApp.UseVisualStyleBackColor = false;
+            this.btnApplyForApp.Click += new System.EventHandler(this.btnApplyForApp_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnSearch.BackgroundImage = global::PresentationLayer.Properties.Resources.looking_for_answer;
+            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSearch.Location = new System.Drawing.Point(1225, 66);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(216, 85);
+            this.btnSearch.TabIndex = 23;
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // pbLicense
+            // 
+            this.pbLicense.Image = global::PresentationLayer.Properties.Resources.icense__1_3;
+            this.pbLicense.Location = new System.Drawing.Point(435, 75);
+            this.pbLicense.Name = "pbLicense";
+            this.pbLicense.Size = new System.Drawing.Size(68, 55);
+            this.pbLicense.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLicense.TabIndex = 22;
+            this.pbLicense.TabStop = false;
+            // 
             // btnShowLicense
             // 
             this.btnShowLicense.BackColor = System.Drawing.Color.DeepSkyBlue;
@@ -543,27 +570,13 @@
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
             // 
-            // lblProcess
-            // 
-            this.lblProcess.AutoSize = true;
-            this.lblProcess.Font = new System.Drawing.Font("Georgia", 20F, System.Drawing.FontStyle.Bold);
-            this.lblProcess.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblProcess.Location = new System.Drawing.Point(539, 27);
-            this.lblProcess.Name = "lblProcess";
-            this.lblProcess.Size = new System.Drawing.Size(1162, 77);
-            this.lblProcess.TabIndex = 23;
-            this.lblProcess.Text = "International license application";
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // FrmInternationalApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(2225, 1941);
+            this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.lblProcess);
             this.Controls.Add(this.tcInternationApp);
             this.Name = "FrmInternationalApplication";
@@ -574,9 +587,11 @@
             this.tbSelectLocalLic.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLicense)).EndInit();
             this.tbInternationalIssuing.ResumeLayout(false);
             this.tbInternationalIssuing.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLicense)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -584,7 +599,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -633,5 +647,6 @@
         private System.Windows.Forms.Label lblLicenseType;
         private System.Windows.Forms.PictureBox pbLicense;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.PictureBox pictureBox8;
     }
 }

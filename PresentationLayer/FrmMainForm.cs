@@ -1,4 +1,5 @@
-﻿using PresentationLayer.International_License;
+﻿using PresentationLayer.Detain_license;
+using PresentationLayer.International_License;
 using PresentationLayer.Licenses_and_drivers;
 using PresentationLayer.Local_DL_Appliaction;
 using PresentationLayer.Manage_types;
@@ -90,6 +91,11 @@ namespace PresentationLayer {
 
         private void replaceLicenseForDamageOrLosToolStripMenuItem_Click(object sender, EventArgs e) {
             FrmReplacementApp frm = new FrmReplacementApp();
+            frm.ShowDialog();
+        }
+
+        private void detainALicenseToolStripMenuItem_Click(object sender, EventArgs e) {
+            FrmDetainLicense frm = new FrmDetainLicense();
             frm.ShowDialog();
         }
     }

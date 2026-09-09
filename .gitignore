@@ -29,3 +29,6 @@ $RECYCLE.BIN/
 ## ReSharper / JetBrains rider
 _ReSharper*/
 *.resharper
+
+**/bin/
+**/obj/

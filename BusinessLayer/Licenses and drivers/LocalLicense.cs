@@ -1,9 +1,7 @@
-﻿using BusinessLayer.Licenses;
-using DataLinkLayer; 
+﻿using DataLinkLayer; 
 using DataLinkLayer.License_Application_data;
 using Shared;
 using System;
-using System.ComponentModel;
 using System.Data;
 
 namespace BusinessLayer {
@@ -172,22 +170,22 @@ namespace BusinessLayer {
             return LocalLicensesData.getRenewalLicenseID(this.LicenseID);
         }
         public bool isLicenseDenied() {
-            return DetainedLicense.IsLicenseDetained(this.LicenseID);
+            return DetainLicense.isLicenseDetained(this.LicenseID);
         }
 
-        public enReplacementEligibility replacementEligibility() {
+        public enLicenseEligibility licenseEligibility() {
             enLicenseStatus status = getLicenseStatus();
             if (isLicenseDenied()) {
-                return enReplacementEligibility.Denied;
+                return enLicenseEligibility.Detained;
             } 
             else if (status == enLicenseStatus.Expired) {
-                return enReplacementEligibility.Expired;
+                return enLicenseEligibility.Expired;
             } 
             else if (status == enLicenseStatus.Suspended) {
-                return enReplacementEligibility.Suspended;
+                return enLicenseEligibility.Suspended;
             } 
             else {
-                return enReplacementEligibility.Eligible;
+                return enLicenseEligibility.Eligible;
             }
         }
         public LocalLicense _IssueReplacement(int userID, string Notes, enApplicationType applicationType) {
@@ -203,13 +201,13 @@ namespace BusinessLayer {
             Person personOwnsLicense = this.applicationInfo.personInfo;
             if(personOwnsLicense == null) { throw new Exception("Failed to fetch applicationInfo form DB"); }
 
-            ApplicationDTO renewalApplication = Applications.createAppOfSomeKind(userID, personOwnsLicense.personID, enApplicationType.RenewDrivingLicense);
-            if (renewalApplication == null) { throw new Exception("Failed to create replacemet new app"); }
+            ApplicationDTO replacementApplication = Applications.createAppOfSomeKind(userID, personOwnsLicense.personID, applicationType);
+            if (replacementApplication == null) { throw new Exception("Failed to create replacemet new app"); }
 
             LocalLicenseDTO replacerLicense = _createReplacerLocalLicenseDTO(userID, Notes, issueReason);
             if (replacerLicense == null) { throw new Exception("Failed to create replacemet license"); }
 
-            return GetLicenseByID(ReplacementIssuingData.issueReplacer(renewalApplication, replacerLicense));
+            return GetLicenseByID(ReplacementIssuingData.issueReplacer(replacementApplication, replacerLicense));
         }
 
         public LocalLicense issueReplacerForDamage(int userID, string Notes) {
@@ -217,6 +215,10 @@ namespace BusinessLayer {
         }
         public LocalLicense issueReplacerForLost(int userID, string Notes) {
             return _IssueReplacement(userID, Notes, enApplicationType.ReplaceLostDrivingLicense);
+        }
+        public DetainResult Detain(InputtedDetainDetails inputedData) {
+            inputedData.LicenseID = this.LicenseID;
+            return DetainLicense.detainLicense(inputedData);
         }
     }
 }
