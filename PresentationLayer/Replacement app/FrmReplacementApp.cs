@@ -50,30 +50,30 @@ namespace PresentationLayer.Replacement_app {
             }
         }
 
-        void _RejectionReason(enReplacementEligibility rejection) {
+        void _RejectionReason(enLicenseEligibility rejection) {
             switch (rejection) {
-                case enReplacementEligibility.Suspended:
+                case enLicenseEligibility.Suspended:
                     Helpers.ShowErrorMessage("This license is suspended and cannot be replaced.");
                     break;
-                case enReplacementEligibility.Expired:
+                case enLicenseEligibility.Expired:
                     Helpers.ShowErrorMessage("This license is expired and cannot be replaced.");
                     break;
-                case enReplacementEligibility.Denied:
-                    Helpers.ShowErrorMessage("Replacement for this license is denied.");
+                case enLicenseEligibility.Detained:
+                    Helpers.ShowErrorMessage("This license is detained.");
                     break;
-                case enReplacementEligibility.NotFound:
+                case enLicenseEligibility.NotFound:
                     Helpers.ShowErrorMessage("license not found.");
                     break;
             }
         }
-        enReplacementEligibility _DoseLicenseEligible() {
-            if (selectedLocalLicense == null) return enReplacementEligibility.NotFound;
+        enLicenseEligibility _DoseLicenseEligible() {
+            if (selectedLocalLicense == null) return enLicenseEligibility.NotFound;
 
-            return selectedLocalLicense.replacementEligibility();
+            return selectedLocalLicense.licenseEligibility();
         }
         private void btnGoToRepalceTab_Click(object sender, EventArgs e) {
-            enReplacementEligibility eligibility = _DoseLicenseEligible();
-            if (eligibility == enReplacementEligibility.Eligible) {
+            enLicenseEligibility eligibility = _DoseLicenseEligible();
+            if (eligibility == enLicenseEligibility.Eligible) {
                 tcReplaceApp.SelectedTab = tbReplacementApp;
             } 
             else {
@@ -111,11 +111,11 @@ namespace PresentationLayer.Replacement_app {
             txtNote.Text = string.Empty;
         }
         private void tcReplaceApp_SelectedIndexChanged(object sender, EventArgs e) {
-            if (tcReplaceApp.SelectedTab == tbReplacementApp && _DoseLicenseEligible() != enReplacementEligibility.Eligible) {
+            if (tcReplaceApp.SelectedTab == tbReplacementApp && _DoseLicenseEligible() != enLicenseEligibility.Eligible) {
                 tcReplaceApp.SelectedTab = tbSelectLicense;
                 Helpers.ShowErrorMessage("Please enter an (Active) License ID");
             }
-            else if (tcReplaceApp.SelectedTab == tbReplacementApp && _DoseLicenseEligible() == enReplacementEligibility.Eligible) {
+            else if (tcReplaceApp.SelectedTab == tbReplacementApp && _DoseLicenseEligible() == enLicenseEligibility.Eligible) {
                 _ResetReplacementTab();
             }
         }

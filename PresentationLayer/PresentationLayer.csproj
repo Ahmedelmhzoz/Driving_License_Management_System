@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Detain license\FrmDetainLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detain license\FrmDetainLicense.Designer.cs">
+      <DependentUpon>FrmDetainLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="International License\FrmInternationalApplication.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -269,6 +275,9 @@
     <Compile Include="People\ucGetPersonWithFilter.Designer.cs">
       <DependentUpon>ucGetPersonWithFilter.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Detain license\FrmDetainLicense.resx">
+      <DependentUpon>FrmDetainLicense.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="International License\FrmInternationalApplication.resx">
       <DependentUpon>FrmInternationalApplication.cs</DependentUpon>
     </EmbeddedResource>
@@ -857,6 +866,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\history12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preventive %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\data.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salary1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refuse1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\driving-license %284%291.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

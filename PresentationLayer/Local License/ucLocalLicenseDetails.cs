@@ -1,5 +1,4 @@
 ﻿using BusinessLayer;
-using BusinessLayer.Licenses;
 using Global;
 using Shared;
 using System;
@@ -62,7 +61,7 @@ namespace PresentationLayer.Local_License {
         }
         void _changeLbLByDenied(LocalLicense license) {
             if (license.isLicenseDenied()) {
-                lblIsDetained.Text = "Denied";
+                lblIsDetained.Text = "Detained";
                 lblIsDetained.ForeColor = Color.Red;
             } else {
                 lblIsDetained.Text = "Approved";
@@ -102,7 +101,8 @@ namespace PresentationLayer.Local_License {
             lblIsActive.ForeColor = Color.Red;
         }
         public void DenieLicense() {
-            //
+            lblIsDetained.Text = "Detained";
+            lblIsDetained.ForeColor = Color.Red;
         }
     }
 }

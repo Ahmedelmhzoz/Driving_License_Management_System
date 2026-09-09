@@ -45,10 +45,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InternationalLicense.cs" />
+    <Compile Include="Detain license\DetainLicense.cs" />
+    <Compile Include="International license\InternationalLicense.cs" />
     <Compile Include="Licenses and drivers\Driver.cs" />
     <Compile Include="Appointments and tests\TestAppointments.cs" />
-    <Compile Include="Licenses and drivers\DetainedLicense.cs" />
     <Compile Include="Licenses and drivers\LocalLicense.cs" />
     <Compile Include="Local license application\Applications.cs" />
     <Compile Include="Country.cs" />
