@@ -157,7 +157,7 @@ namespace BusinessLayer {
             string actualStatusText = "";
             switch (filterStatus) {
                 case enLicenseStatus.Active:
-                    actualStatusText = "Active";
+                    actualStatusText = "Active"; 
                     break;
 
                 case enLicenseStatus.Suspended:
@@ -197,11 +197,11 @@ namespace BusinessLayer {
             else if (this.ExpirationDate.Date < DateTime.Today) return enLicenseStatus.Expired;
             else return enLicenseStatus.Active;
         }
-        public bool canRenew() {
-            return licenseStatus() == enLicenseStatus.Expired && InternationalLicenseData.getRenewalLicenseID(this.InternationalLicenseID) == -1;
+        public bool HasBeenRenewed() {
+            return LocalLicensesData.getRenewalLicenseID(this.InternationalLicenseID) != -1;
         }
         public LicenseRenewalResult Renew(int userID) {
-            if (!canRenew()) {
+            if (licenseStatus() != enLicenseStatus.Expired || HasBeenRenewed()) {
                 return new LicenseRenewalResult {
                     Result = enLicenseRenewalResult.Failed
                 };

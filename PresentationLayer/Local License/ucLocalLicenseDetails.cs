@@ -104,5 +104,9 @@ namespace PresentationLayer.Local_License {
             lblIsDetained.Text = "Detained";
             lblIsDetained.ForeColor = Color.Red;
         }
+        public void approveLicense() {
+            lblIsDetained.Text = "Approved";
+            lblIsDetained.ForeColor = Color.SpringGreen;
+        }
     }
 }

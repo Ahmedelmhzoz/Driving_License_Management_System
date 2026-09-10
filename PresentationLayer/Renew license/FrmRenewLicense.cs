@@ -103,7 +103,7 @@ namespace PresentationLayer.Renew_license {
         bool _DoseLicenseAbleToRenew() {
             if (rbLocal.Checked) {
                 if (selectedLocalLicense != null) {
-                    if (selectedLocalLicense.canRenew()) {
+                    if (selectedLocalLicense.getLicenseStatus() == enLicenseStatus.Expired && !selectedLocalLicense.HasBeenRenewed()) {
                         return true;
                     }
                     else {
@@ -113,7 +113,7 @@ namespace PresentationLayer.Renew_license {
             }
             else {
                 if (selectedInternationalLicense != null) {
-                    if (selectedInternationalLicense.canRenew()) {
+                    if (selectedInternationalLicense.licenseStatus() == enLicenseStatus.Expired && !selectedInternationalLicense.HasBeenRenewed()) {
                         return true;
                     }
                     else {

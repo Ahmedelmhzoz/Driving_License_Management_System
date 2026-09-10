@@ -40,18 +40,49 @@ namespace Shared
         LicenseNotEligibleSuspended
     }
 
-    public class InputtedDetainDetails { 
+    public class DetainDetails { 
         public int LicenseID { get; set; }
         public DateTime detainDate {  get; set; }
         public decimal fineFees { get; set; }
         public string reason { get; set; }
         public int createdByUserID { get; set; }
-        public InputtedDetainDetails(int licID, DateTime date, decimal fine, string reason, int createdByUserID) { 
+        public int detainID { get; set; }
+        public DetainDetails(int licID, DateTime date, decimal fine, string reason, int createdByUserID) {
             LicenseID = licID;
             detainDate = date;
             fineFees = fine;
             this.reason = reason;
             this.createdByUserID = createdByUserID;
+            detainID = -1;
+        }
+        public DetainDetails(int licID, DateTime date, decimal fine, string reason, int createdByUserID, int detainID) { 
+            LicenseID = licID;
+            detainDate = date;
+            fineFees = fine;
+            this.reason = reason;
+            this.createdByUserID = createdByUserID;
+            this.detainID = detainID;
+        }
+    }
+    public class ReleaseDetails {
+        public int detainID { get; set; }
+        public int LicenseID { get; set; }
+        public DateTime releaseDate { get; set; }
+        public int createdByUserID { get; set; }
+        public int applicationID { get; set; }
+        public ReleaseDetails(int detainID, DateTime releaseDate, int createdByUserID) {
+            this.detainID = detainID;
+            this.releaseDate = releaseDate;
+            this.createdByUserID = createdByUserID;
+            applicationID = -1;
+            LicenseID = -1;
+        }
+        public ReleaseDetails(int detainID, DateTime releaseDate, int createdByUserID, int LicenseID, int applicationID) {
+            this.detainID = detainID;
+            this.releaseDate = releaseDate;
+            this.createdByUserID = createdByUserID;
+            this.applicationID = applicationID;
+            this.LicenseID = LicenseID;
         }
     }
 
@@ -60,15 +91,18 @@ namespace Shared
         AlreadyDetained,
         FineOutOfRange
     }
-
-
     public class DetainResult {
         public int detainRecordID {  get; set; } 
         public enDetainResult result { get; set; }
     }
 
+    public class ReleaseResult {
+        public int detainRecordID { get; set; }
+        public enDetainResult result { get; set; }
+    }
+
     public enum enLicenseEligibility {
-        Eligible,
+        Active,
         Suspended,
         Expired,
         Detained ,
