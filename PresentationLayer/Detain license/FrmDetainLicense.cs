@@ -40,28 +40,6 @@ namespace PresentationLayer.Detain_license {
             }
             return true;
         }
-         void _RejectionReason(enLicenseEligibility rejection) {
-            switch (rejection) {
-                case enLicenseEligibility.Suspended:
-                    Helpers.ShowErrorMessage("This license is suspended and cannot be detained.");
-                    break;
-                case enLicenseEligibility.Expired:
-                    Helpers.ShowErrorMessage("This license is expired and cannot be detained.");
-                    break;
-                case enLicenseEligibility.Detained:
-                    Helpers.ShowErrorMessage("This license is already detained.");
-                    break;
-                case enLicenseEligibility.NotFound:
-                    Helpers.ShowErrorMessage("license not found.");
-                    break;
-            }
-        }
-        enLicenseEligibility _DoseLicenseEligible() {
-            if (selectedLocalLicense == null) return enLicenseEligibility.NotFound;
-
-            return selectedLocalLicense.licenseEligibility();
-        }
-
         private void btnSearch_Click(object sender, EventArgs e) {
             if (!_isTxtBoxFilled()) return;
             int licenseID = Convert.ToInt32(txtSearch.Text);
@@ -78,14 +56,30 @@ namespace PresentationLayer.Detain_license {
                 _DetainBtnEnibility(false);
             }
         }
+        bool _CanDetainLicense() {
+            if (selectedLocalLicense == null) return false;
 
-        private void btnGoToDetainTab_Click(object sender, EventArgs e) {
-            enLicenseEligibility eligibility = _DoseLicenseEligible();
-            if (eligibility == enLicenseEligibility.Eligible) {
-                tcDetainLicense.SelectedTab = tbDetain;
+            enLicenseStatus status = selectedLocalLicense.getLicenseStatus();
+            if (selectedLocalLicense.isLicenseDenied()) {
+                Helpers.ShowErrorMessage("This license is already detained.");
+                return false;
+            }
+            else if (status == enLicenseStatus.Expired) {
+                Helpers.ShowErrorMessage("This license is expired and cannot be detained.");
+                return false;
+            }
+            else if (status == enLicenseStatus.Suspended) {
+                Helpers.ShowErrorMessage("This license is suspended and cannot be detained.");
+                return false;
             }
             else {
-                _RejectionReason(eligibility);
+                return true;
+            }
+        }
+
+        private void btnGoToDetainTab_Click(object sender, EventArgs e) {
+            if (_CanDetainLicense()) {
+                tcDetainLicense.SelectedTab = tbRelease;
             }
         }
 
@@ -108,12 +102,9 @@ namespace PresentationLayer.Detain_license {
             nFine.Value = 1;
         }
         private void tcDetainLicense_SelectedIndexChanged(object sender, EventArgs e) {
-            if (tcDetainLicense.SelectedTab == tbDetain && _DoseLicenseEligible() != enLicenseEligibility.Eligible) {
+            _ResetDetainTab();
+            if (tcDetainLicense.SelectedTab == tbRelease && !_CanDetainLicense()) {
                 tcDetainLicense.SelectedTab = tbSelectLicense;
-                Helpers.ShowErrorMessage("Please enter an (Active) License ID");
-            }
-            else if (tcDetainLicense.SelectedTab == tbDetain && _DoseLicenseEligible() == enLicenseEligibility.Eligible) {
-                _ResetDetainTab();
             }
         }
         void _PrintException(Exception ex) {
@@ -137,7 +128,7 @@ namespace PresentationLayer.Detain_license {
             int LicenseID = selectedLocalLicense.LicenseID;
             int userID = ImportantSessionData.user.userID;
             string reasonOfDetaintion = txtDetainReason.Text;
-            InputtedDetainDetails inputtedDetainDetails = new InputtedDetainDetails(LicenseID, DateTime.Now, nFine.Value, reasonOfDetaintion, userID);
+            DetainDetails inputtedDetainDetails = new DetainDetails(LicenseID, DateTime.Now, nFine.Value, reasonOfDetaintion, userID);
             DetainResult detainResult = new DetainResult();
             try {
                 detainResult = selectedLocalLicense.Detain(inputtedDetainDetails);

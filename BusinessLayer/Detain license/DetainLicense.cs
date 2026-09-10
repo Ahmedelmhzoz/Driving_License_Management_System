@@ -1,36 +1,14 @@
 ﻿using DataLinkLayer;
+using DataLinkLayer.License_Application_data;
 using Shared;
 using System;
 
 namespace BusinessLayer {
     public class DetainLicense {
-        public int DetainID { get; set; }
-        public int LicenseID { get; set; }
-        public DateTime DetainDate { get; set; }
-        public decimal FineFees { get; set; }
-        public string Reason { get; set; }
-        public int CreatedByUserID { get; set; }
-        public bool IsReleased { get; set; }
-        public DateTime? ReleaseDate { get; set; }
-        public int? ReleasedByUserID { get; set; }
-        public int? ReleaseApplicationID { get; set; }
-        public DetainLicense() {
-            DetainID = -1;
-            LicenseID = -1;
-            DetainDate = DateTime.Now;
-            FineFees = 0;
-            Reason = string.Empty;
-            CreatedByUserID = -1;
-
-            IsReleased = false;
-            ReleaseDate = null;
-            ReleasedByUserID = null;
-            ReleaseApplicationID = null;
-        }
         public static bool isLicenseDetained(int licenseID) {
             return DetainedLicensesData.IsLicenseDetained(licenseID);
         }
-        public static DetainResult detainLicense(InputtedDetainDetails detainInputedData) {
+        public static DetainResult detainLicense(DetainDetails detainInputedData) {
             if (isLicenseDetained(detainInputedData.LicenseID))
                 return new DetainResult {
                     detainRecordID = -1,
@@ -51,5 +29,23 @@ namespace BusinessLayer {
                 result = enDetainResult.Success
             };
         }
+        public static DetainDetails getDetainDetails(int licenseID) {
+            DetainDTO detainDTO = DetainedLicensesData.getDetainDetails(licenseID);
+            if (detainDTO == null) return null;
+            detainDTO.LicenseID = licenseID;
+            DetainDetails detainLicense = new DetainDetails(detainDTO.LicenseID,
+                detainDTO.DetainDate, detainDTO.FineFees, detainDTO.Reason, detainDTO.CreatedByUserID, detainDTO.DetainID);
+            return detainLicense;
+        }
+        public static void releaseDetainedLicense(ref ReleaseDetails releaseDetails, int personID) {
+
+            ApplicationDTO releaseApplication = Applications.createAppOfSomeKind(releaseDetails.createdByUserID, personID, enApplicationType.ReleaseDetainedDrivingLicense);
+            if (releaseApplication == null) { throw new Exception("Failed to create replacemet new app"); }
+
+            ReleaseDTO releaseDTO = new ReleaseDTO(releaseDetails);
+            DetainedLicensesData.releaseLicense(releaseApplication, ref releaseDTO);
+            releaseDetails.applicationID = releaseDTO.applicationID;
+        }
+       
     }
 }

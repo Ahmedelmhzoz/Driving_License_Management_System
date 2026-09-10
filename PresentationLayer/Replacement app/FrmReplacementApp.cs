@@ -49,36 +49,30 @@ namespace PresentationLayer.Replacement_app {
                 _ReplaceBtnEnablity(false);
             }
         }
+        bool _CanReplaceLicense() {
+            if (selectedLocalLicense == null) return false;
 
-        void _RejectionReason(enLicenseEligibility rejection) {
-            switch (rejection) {
-                case enLicenseEligibility.Suspended:
-                    Helpers.ShowErrorMessage("This license is suspended and cannot be replaced.");
-                    break;
-                case enLicenseEligibility.Expired:
-                    Helpers.ShowErrorMessage("This license is expired and cannot be replaced.");
-                    break;
-                case enLicenseEligibility.Detained:
-                    Helpers.ShowErrorMessage("This license is detained.");
-                    break;
-                case enLicenseEligibility.NotFound:
-                    Helpers.ShowErrorMessage("license not found.");
-                    break;
+            enLicenseStatus status = selectedLocalLicense.getLicenseStatus();
+            if (selectedLocalLicense.isLicenseDenied()) {
+                Helpers.ShowErrorMessage("This license is detained, pay the Fine first");
+                return false;
             }
-        }
-        enLicenseEligibility _DoseLicenseEligible() {
-            if (selectedLocalLicense == null) return enLicenseEligibility.NotFound;
-
-            return selectedLocalLicense.licenseEligibility();
+            else if (status == enLicenseStatus.Expired) {
+                Helpers.ShowErrorMessage("This license is expired and cannot be replacement.");
+                return false;
+            }
+            else if (status == enLicenseStatus.Suspended) {
+                Helpers.ShowErrorMessage("This license is suspended and cannot be replacement.");
+                return false;
+            }
+            else {
+                return true;
+            }
         }
         private void btnGoToRepalceTab_Click(object sender, EventArgs e) {
-            enLicenseEligibility eligibility = _DoseLicenseEligible();
-            if (eligibility == enLicenseEligibility.Eligible) {
+            if (_CanReplaceLicense()) {
                 tcReplaceApp.SelectedTab = tbReplacementApp;
             } 
-            else {
-                _RejectionReason(eligibility);
-            }
         }
         void _ChangeLblsColorAndBtnsEnability(bool change) {
             lblReplacementAppID.BackColor = change ? Color.SpringGreen : Color.Black;
@@ -106,16 +100,18 @@ namespace PresentationLayer.Replacement_app {
             int ValidityLength = selectedLocalLicense.licenseInfo.DefaultValidityLength;
             lblExpireDate.Text = today.AddYears(ValidityLength).ToShortDateString();
 
-            lblAppFees.Text = '$' + AppType.getAppFees(enApplicationType.RenewDrivingLicense).ToString("0.##");
+            enApplicationType appType = rbDamage.Checked ? enApplicationType.ReplaceDamagedDrivingLicense : enApplicationType.ReplaceLostDrivingLicense;
+
+            lblAppFees.Text = '$' + AppType.getAppFees(appType).ToString("0.##");
             lblUsername.Text = ImportantSessionData.user.Username;
             txtNote.Text = string.Empty;
         }
-        private void tcReplaceApp_SelectedIndexChanged(object sender, EventArgs e) {
-            if (tcReplaceApp.SelectedTab == tbReplacementApp && _DoseLicenseEligible() != enLicenseEligibility.Eligible) {
+        private void tcReplaceApp_SelectedIndexChanged(object sender, EventArgs e) { 
+            if (tcReplaceApp.SelectedTab == tbReplacementApp && !_CanReplaceLicense()) {
                 tcReplaceApp.SelectedTab = tbSelectLicense;
                 Helpers.ShowErrorMessage("Please enter an (Active) License ID");
             }
-            else if (tcReplaceApp.SelectedTab == tbReplacementApp && _DoseLicenseEligible() == enLicenseEligibility.Eligible) {
+            else if (tcReplaceApp.SelectedTab == tbReplacementApp && _CanReplaceLicense()) {
                 _ResetReplacementTab();
             }
         }
