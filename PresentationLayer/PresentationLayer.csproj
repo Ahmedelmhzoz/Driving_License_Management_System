@@ -55,6 +55,12 @@
     <Compile Include="Detain license\FrmDetainLicense.Designer.cs">
       <DependentUpon>FrmDetainLicense.cs</DependentUpon>
     </Compile>
+    <Compile Include="Detain license\FrmDetainManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detain license\FrmDetainManagement.Designer.cs">
+      <DependentUpon>FrmDetainManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Detain license\FrmReleaseLicense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -283,6 +289,9 @@
     </Compile>
     <EmbeddedResource Include="Detain license\FrmDetainLicense.resx">
       <DependentUpon>FrmDetainLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detain license\FrmDetainManagement.resx">
+      <DependentUpon>FrmDetainManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Detain license\FrmReleaseLicense.resx">
       <DependentUpon>FrmReleaseLicense.cs</DependentUpon>
@@ -896,6 +905,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\validation1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reject.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

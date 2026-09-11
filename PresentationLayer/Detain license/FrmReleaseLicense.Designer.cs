@@ -64,10 +64,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblLicenseType = new System.Windows.Forms.Label();
             this.pbLicense = new System.Windows.Forms.PictureBox();
-            this.ucLocalLicenseDetails = new PresentationLayer.Local_License.ucLocalLicenseDetails();
             this.lblProcess = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.ucLocalLicenseDetails = new PresentationLayer.Local_License.ucLocalLicenseDetails();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -544,15 +544,6 @@
             this.pbLicense.TabIndex = 22;
             this.pbLicense.TabStop = false;
             // 
-            // ucLocalLicenseDetails
-            // 
-            this.ucLocalLicenseDetails.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ucLocalLicenseDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucLocalLicenseDetails.Location = new System.Drawing.Point(3, 229);
-            this.ucLocalLicenseDetails.Name = "ucLocalLicenseDetails";
-            this.ucLocalLicenseDetails.Size = new System.Drawing.Size(2162, 1519);
-            this.ucLocalLicenseDetails.TabIndex = 33;
-            // 
             // lblProcess
             // 
             this.lblProcess.Font = new System.Drawing.Font("Georgia", 20F, System.Drawing.FontStyle.Bold);
@@ -571,12 +562,21 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::PresentationLayer.Properties.Resources.validation;
-            this.pictureBox5.Location = new System.Drawing.Point(554, 21);
+            this.pictureBox5.Location = new System.Drawing.Point(560, 21);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(130, 99);
+            this.pictureBox5.Size = new System.Drawing.Size(124, 99);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 36;
             this.pictureBox5.TabStop = false;
+            // 
+            // ucLocalLicenseDetails
+            // 
+            this.ucLocalLicenseDetails.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ucLocalLicenseDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucLocalLicenseDetails.Location = new System.Drawing.Point(3, 229);
+            this.ucLocalLicenseDetails.Name = "ucLocalLicenseDetails";
+            this.ucLocalLicenseDetails.Size = new System.Drawing.Size(2162, 1519);
+            this.ucLocalLicenseDetails.TabIndex = 33;
             // 
             // FrmReleaseLicense
             // 

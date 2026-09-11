@@ -2,6 +2,7 @@
 using Shared;
 using System;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -174,6 +175,76 @@ namespace DataLinkLayer {
                     }
                 }
             }
+        }
+        public static DataTable getAllDetainedLicenses() {
+            DataTable dt = new DataTable();
+
+            string query = @"SELECT 
+                        DetainID,
+                        LicenseID,
+                        DriverName,
+                        DetainDate,
+                        FineFees,
+                        DetaintionStatus
+                     FROM Detained_Licensese_View 
+                     ORDER BY DetainID DESC;";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection)) {
+                connection.Open();
+
+                using (SqlDataReader reader = command.ExecuteReader()) {
+                    dt.Load(reader);
+                }
+            }
+
+            return dt;
+        }
+        public static string _MapEnumToColumn(enDetainFilterBy filterColumn) {
+            switch (filterColumn) {
+
+                case enDetainFilterBy.DetainID:
+                    return "DetainID";
+
+                case enDetainFilterBy.LicenseID:
+                    return "LicenseID";
+
+                case enDetainFilterBy.Fullname:
+                    return "DriverName";
+
+                case enDetainFilterBy.DetaintionStatus:
+                    return "DetaintionStatus";
+
+                default:
+                    return "DetainID";
+            }
+        }
+        public static DataTable getByFilter(enDetainFilterBy filterColumn, string filterValue) {
+            DataTable dt = new DataTable();
+            string actualColumnName = _MapEnumToColumn(filterColumn);
+            string query = $@"SELECT  
+                            DetainID, 
+                            LicenseID, 
+                            DriverName, 
+                            DetainDate, 
+                            FineFees, 
+                            DetaintionStatus 
+                            FROM Detained_Licensese_View
+                            WHERE {actualColumnName} LIKE @filterValue + '%'  
+                            ORDER BY DetainID DESC;";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection)) {
+                command.Parameters.AddWithValue("@filterValue", filterValue.Trim());
+                try {
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader()) 
+                        dt.Load(reader);
+                }
+                catch {
+                    throw;
+                }
+            }
+             return dt;
         }
     }
 }

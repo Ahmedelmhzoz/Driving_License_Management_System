@@ -222,6 +222,5 @@ namespace BusinessLayer {
             releaseDetails.LicenseID =  this.LicenseID;
             DetainLicense.releaseDetainedLicense(ref releaseDetails, this.applicationInfo.personInfo.personID);
         }
-        
     }
 }

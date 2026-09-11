@@ -1,7 +1,10 @@
 ﻿using DataLinkLayer;
 using DataLinkLayer.License_Application_data;
+using Microsoft.SqlServer.Server;
 using Shared;
 using System;
+using System.Data;
+using System.Net;
 
 namespace BusinessLayer {
     public class DetainLicense {
@@ -46,6 +49,21 @@ namespace BusinessLayer {
             DetainedLicensesData.releaseLicense(releaseApplication, ref releaseDTO);
             releaseDetails.applicationID = releaseDTO.applicationID;
         }
-       
+        public static DataTable getAllDetainedLicenses() {
+            return DetainedLicensesData.getAllDetainedLicenses();
+        }
+        static string _MapEnumToActualText(enDetaintionStatus status) {
+            if (status == enDetaintionStatus.Detained) {
+                return "Detained";
+            } else {
+                return "Released";
+            }
+        }
+        public static DataTable getDetentionsByDetaintionStatus(enDetaintionStatus status) {
+            return DetainedLicensesData.getByFilter(enDetainFilterBy.DetaintionStatus, _MapEnumToActualText(status));
+        }
+        public static DataTable getDetentionsByFilter(enDetainFilterBy status, string filterValue) {
+            return DetainedLicensesData.getByFilter(status, filterValue);
+        }
     }
 }

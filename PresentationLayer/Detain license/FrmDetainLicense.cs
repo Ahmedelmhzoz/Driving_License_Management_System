@@ -79,7 +79,7 @@ namespace PresentationLayer.Detain_license {
 
         private void btnGoToDetainTab_Click(object sender, EventArgs e) {
             if (_CanDetainLicense()) {
-                tcDetainLicense.SelectedTab = tbRelease;
+                tcDetainLicense.SelectedTab = tbDetain;
             }
         }
 
@@ -103,7 +103,7 @@ namespace PresentationLayer.Detain_license {
         }
         private void tcDetainLicense_SelectedIndexChanged(object sender, EventArgs e) {
             _ResetDetainTab();
-            if (tcDetainLicense.SelectedTab == tbRelease && !_CanDetainLicense()) {
+            if (tcDetainLicense.SelectedTab == tbDetain && !_CanDetainLicense()) {
                 tcDetainLicense.SelectedTab = tbSelectLicense;
             }
         }
