@@ -103,5 +103,10 @@ namespace PresentationLayer {
             FrmReleaseLicense frm = new FrmReleaseLicense();
             frm.ShowDialog();
         }
+
+        private void manageDetainLicenseToolStripMenuItem_Click(object sender, EventArgs e) {
+            FrmDetainManagement frm = new FrmDetainManagement();
+            frm.ShowDialog();
+        }
     }
 }

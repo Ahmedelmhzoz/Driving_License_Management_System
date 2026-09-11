@@ -37,7 +37,7 @@
             this.lblLicenseType = new System.Windows.Forms.Label();
             this.pbLicense = new System.Windows.Forms.PictureBox();
             this.ucLocalLicenseDetails = new PresentationLayer.Local_License.ucLocalLicenseDetails();
-            this.tbRelease = new System.Windows.Forms.TabPage();
+            this.tbDetain = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -69,7 +69,7 @@
             this.tbSelectLicense.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLicense)).BeginInit();
-            this.tbRelease.SuspendLayout();
+            this.tbDetain.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nFine)).BeginInit();
@@ -109,7 +109,7 @@
             // tcDetainLicense
             // 
             this.tcDetainLicense.Controls.Add(this.tbSelectLicense);
-            this.tcDetainLicense.Controls.Add(this.tbRelease);
+            this.tcDetainLicense.Controls.Add(this.tbDetain);
             this.tcDetainLicense.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcDetainLicense.Location = new System.Drawing.Point(11, 135);
             this.tcDetainLicense.Name = "tcDetainLicense";
@@ -224,19 +224,19 @@
             this.ucLocalLicenseDetails.Size = new System.Drawing.Size(2162, 1519);
             this.ucLocalLicenseDetails.TabIndex = 33;
             // 
-            // tbRelease
+            // tbDetain
             // 
-            this.tbRelease.BackColor = System.Drawing.Color.Black;
-            this.tbRelease.Controls.Add(this.groupBox2);
-            this.tbRelease.Controls.Add(this.groupBox3);
-            this.tbRelease.Controls.Add(this.lblDetain);
-            this.tbRelease.Controls.Add(this.btnDetain);
-            this.tbRelease.Location = new System.Drawing.Point(10, 48);
-            this.tbRelease.Name = "tbRelease";
-            this.tbRelease.Padding = new System.Windows.Forms.Padding(3);
-            this.tbRelease.Size = new System.Drawing.Size(2182, 1724);
-            this.tbRelease.TabIndex = 1;
-            this.tbRelease.Text = "Release the driving license";
+            this.tbDetain.BackColor = System.Drawing.Color.Black;
+            this.tbDetain.Controls.Add(this.groupBox2);
+            this.tbDetain.Controls.Add(this.groupBox3);
+            this.tbDetain.Controls.Add(this.lblDetain);
+            this.tbDetain.Controls.Add(this.btnDetain);
+            this.tbDetain.Location = new System.Drawing.Point(10, 48);
+            this.tbDetain.Name = "tbDetain";
+            this.tbDetain.Padding = new System.Windows.Forms.Padding(3);
+            this.tbDetain.Size = new System.Drawing.Size(2182, 1724);
+            this.tbDetain.TabIndex = 1;
+            this.tbDetain.Text = "Release the driving license";
             // 
             // groupBox2
             // 
@@ -516,7 +516,7 @@
             // 
             this.lblProcess.Font = new System.Drawing.Font("Georgia", 20F, System.Drawing.FontStyle.Bold);
             this.lblProcess.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblProcess.Location = new System.Drawing.Point(508, 35);
+            this.lblProcess.Location = new System.Drawing.Point(510, 35);
             this.lblProcess.Name = "lblProcess";
             this.lblProcess.Size = new System.Drawing.Size(1255, 77);
             this.lblProcess.TabIndex = 29;
@@ -530,7 +530,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::PresentationLayer.Properties.Resources.refuse;
-            this.pictureBox5.Location = new System.Drawing.Point(766, 19);
+            this.pictureBox5.Location = new System.Drawing.Point(768, 19);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(130, 99);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -555,8 +555,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLicense)).EndInit();
-            this.tbRelease.ResumeLayout(false);
-            this.tbRelease.PerformLayout();
+            this.tbDetain.ResumeLayout(false);
+            this.tbDetain.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -582,7 +582,7 @@
         private System.Windows.Forms.TabControl tcDetainLicense;
         private System.Windows.Forms.TabPage tbSelectLicense;
         private Local_License.ucLocalLicenseDetails ucLocalLicenseDetails;
-        private System.Windows.Forms.TabPage tbRelease;
+        private System.Windows.Forms.TabPage tbDetain;
         private System.Windows.Forms.Button btnDetain;
         private System.Windows.Forms.Label lblProcess;
         private System.Windows.Forms.ErrorProvider errorProvider1;

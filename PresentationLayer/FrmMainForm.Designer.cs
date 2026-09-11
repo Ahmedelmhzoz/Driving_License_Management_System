@@ -36,6 +36,7 @@
             this.internationalLicenseManagement = new System.Windows.Forms.ToolStripMenuItem();
             this.detainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detainALicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.releaseALicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageApplicationTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageTestTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.peopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,7 +46,7 @@
             this.profileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.releaseALicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageDetainLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +63,7 @@
             this.accountSettingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(2008, 62);
+            this.menuStrip1.Size = new System.Drawing.Size(2008, 68);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -75,7 +76,7 @@
             this.manageApplicationTypesToolStripMenuItem,
             this.manageTestTypesToolStripMenuItem});
             this.applicationsToolStripMenuItem.Name = "applicationsToolStripMenuItem";
-            this.applicationsToolStripMenuItem.Size = new System.Drawing.Size(353, 58);
+            this.applicationsToolStripMenuItem.Size = new System.Drawing.Size(353, 64);
             this.applicationsToolStripMenuItem.Text = "Applications";
             // 
             // drivingLicenseServicesToolStripMenuItem
@@ -160,6 +161,7 @@
             // detainToolStripMenuItem
             // 
             this.detainToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.manageDetainLicenseToolStripMenuItem,
             this.detainALicenseToolStripMenuItem,
             this.releaseALicenseToolStripMenuItem});
             this.detainToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.refuse;
@@ -171,9 +173,17 @@
             // 
             this.detainALicenseToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.refuse;
             this.detainALicenseToolStripMenuItem.Name = "detainALicenseToolStripMenuItem";
-            this.detainALicenseToolStripMenuItem.Size = new System.Drawing.Size(600, 62);
+            this.detainALicenseToolStripMenuItem.Size = new System.Drawing.Size(730, 62);
             this.detainALicenseToolStripMenuItem.Text = "Detain a license";
             this.detainALicenseToolStripMenuItem.Click += new System.EventHandler(this.detainALicenseToolStripMenuItem_Click);
+            // 
+            // releaseALicenseToolStripMenuItem
+            // 
+            this.releaseALicenseToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.validation;
+            this.releaseALicenseToolStripMenuItem.Name = "releaseALicenseToolStripMenuItem";
+            this.releaseALicenseToolStripMenuItem.Size = new System.Drawing.Size(730, 62);
+            this.releaseALicenseToolStripMenuItem.Text = "Release a license";
+            this.releaseALicenseToolStripMenuItem.Click += new System.EventHandler(this.releaseALicenseToolStripMenuItem_Click);
             // 
             // manageApplicationTypesToolStripMenuItem
             // 
@@ -247,13 +257,13 @@
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
-            // releaseALicenseToolStripMenuItem
+            // manageDetainLicenseToolStripMenuItem
             // 
-            this.releaseALicenseToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.validation;
-            this.releaseALicenseToolStripMenuItem.Name = "releaseALicenseToolStripMenuItem";
-            this.releaseALicenseToolStripMenuItem.Size = new System.Drawing.Size(600, 62);
-            this.releaseALicenseToolStripMenuItem.Text = "Release a license";
-            this.releaseALicenseToolStripMenuItem.Click += new System.EventHandler(this.releaseALicenseToolStripMenuItem_Click);
+            this.manageDetainLicenseToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.reject;
+            this.manageDetainLicenseToolStripMenuItem.Name = "manageDetainLicenseToolStripMenuItem";
+            this.manageDetainLicenseToolStripMenuItem.Size = new System.Drawing.Size(730, 62);
+            this.manageDetainLicenseToolStripMenuItem.Text = "Manage detain license";
+            this.manageDetainLicenseToolStripMenuItem.Click += new System.EventHandler(this.manageDetainLicenseToolStripMenuItem_Click);
             // 
             // FrmMainForm
             // 
@@ -297,6 +307,7 @@
         private System.Windows.Forms.ToolStripMenuItem detainToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem detainALicenseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem releaseALicenseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageDetainLicenseToolStripMenuItem;
     }
 }
 

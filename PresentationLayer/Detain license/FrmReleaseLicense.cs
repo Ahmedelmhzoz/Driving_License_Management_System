@@ -59,10 +59,15 @@ namespace PresentationLayer.Detain_license {
             if (selectedLocalLicense == null)
                 return false;
             bool isDetained = selectedLocalLicense.isLicenseDenied();
-            if (selectedLocalLicense.getLicenseStatus() == Shared.enLicenseStatus.Expired) {
+            enLicenseStatus status = selectedLocalLicense.getLicenseStatus();
+            if (status == enLicenseStatus.Expired) {
                 Helpers.ShowErrorMessage("This license has expired.");
                 return false;
-            } 
+            }
+            else if (status == enLicenseStatus.Suspended) {
+                Helpers.ShowErrorMessage("This license had been suspended.");
+                return false;
+            }
             else if (!isDetained) {
                 Helpers.ShowErrorMessage("This license is not detained, so it cannot be released.");
                 return false;
@@ -125,7 +130,6 @@ namespace PresentationLayer.Detain_license {
                 e.Handled = true;
             }
         }
-
         private void btnRelease_Click(object sender, EventArgs e) {
             if (selectedLocalLicense == null) return;
             
