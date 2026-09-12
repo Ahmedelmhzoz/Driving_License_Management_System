@@ -49,7 +49,7 @@ namespace BusinessLayer {
         public DetainDetails currentDetainInfo {
             get {
                 if (_detainInfo == null && this.LicenseID != -1) {
-                    _detainInfo = DetainLicense.getDetainDetails(this.LicenseID);
+                    _detainInfo = DetainLicense.getDetainDetailsByLicenesID(this.LicenseID);
                 }
                 return _detainInfo;
             }

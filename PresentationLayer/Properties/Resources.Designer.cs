@@ -193,6 +193,16 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap approval {
+            get {
+                object obj = ResourceManager.GetObject("approval", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap AppType {
             get {
                 object obj = ResourceManager.GetObject("AppType", resourceCulture);
@@ -366,6 +376,16 @@ namespace PresentationLayer.Properties {
         public static System.Drawing.Bitmap data {
             get {
                 object obj = ResourceManager.GetObject("data", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap data_loss_prevention {
+            get {
+                object obj = ResourceManager.GetObject("data-loss-prevention", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -706,6 +726,16 @@ namespace PresentationLayer.Properties {
         public static System.Drawing.Bitmap feature {
             get {
                 object obj = ResourceManager.GetObject("feature", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap fraud_prevention {
+            get {
+                object obj = ResourceManager.GetObject("fraud-prevention", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -47,6 +47,7 @@ namespace Shared
         public string reason { get; set; }
         public int createdByUserID { get; set; }
         public int detainID { get; set; }
+        public DetainDetails() { }
         public DetainDetails(int licID, DateTime date, decimal fine, string reason, int createdByUserID) {
             LicenseID = licID;
             detainDate = date;
