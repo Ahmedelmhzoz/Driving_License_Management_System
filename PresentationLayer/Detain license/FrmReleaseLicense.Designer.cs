@@ -58,16 +58,17 @@
             this.tcDetainLicense = new System.Windows.Forms.TabControl();
             this.tbSelectLicense = new System.Windows.Forms.TabPage();
             this.btnGoToReleaseTab = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbSearch = new System.Windows.Forms.GroupBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblLicenseType = new System.Windows.Forms.Label();
             this.pbLicense = new System.Windows.Forms.PictureBox();
+            this.ucLocalLicenseDetails = new PresentationLayer.Local_License.ucLocalLicenseDetails();
+            this.lblDetainLicDetails = new System.Windows.Forms.Label();
             this.lblProcess = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.ucLocalLicenseDetails = new PresentationLayer.Local_License.ucLocalLicenseDetails();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -81,7 +82,7 @@
             this.tbRelease.SuspendLayout();
             this.tcDetainLicense.SuspendLayout();
             this.tbSelectLicense.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gbSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLicense)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -452,8 +453,9 @@
             this.tbSelectLicense.BackColor = System.Drawing.Color.Black;
             this.tbSelectLicense.Controls.Add(this.lblGoToReleaseTab);
             this.tbSelectLicense.Controls.Add(this.btnGoToReleaseTab);
-            this.tbSelectLicense.Controls.Add(this.groupBox1);
+            this.tbSelectLicense.Controls.Add(this.gbSearch);
             this.tbSelectLicense.Controls.Add(this.ucLocalLicenseDetails);
+            this.tbSelectLicense.Controls.Add(this.lblDetainLicDetails);
             this.tbSelectLicense.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSelectLicense.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tbSelectLicense.Location = new System.Drawing.Point(10, 48);
@@ -475,21 +477,21 @@
             this.btnGoToReleaseTab.UseVisualStyleBackColor = false;
             this.btnGoToReleaseTab.Click += new System.EventHandler(this.btnGoToReleaseTab_Click);
             // 
-            // groupBox1
+            // gbSearch
             // 
-            this.groupBox1.Controls.Add(this.btnSearch);
-            this.groupBox1.Controls.Add(this.txtSearch);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.lblLicenseType);
-            this.groupBox1.Controls.Add(this.pbLicense);
-            this.groupBox1.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.groupBox1.Location = new System.Drawing.Point(29, 29);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1483, 186);
-            this.groupBox1.TabIndex = 31;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Search for local license";
+            this.gbSearch.Controls.Add(this.btnSearch);
+            this.gbSearch.Controls.Add(this.txtSearch);
+            this.gbSearch.Controls.Add(this.label2);
+            this.gbSearch.Controls.Add(this.lblLicenseType);
+            this.gbSearch.Controls.Add(this.pbLicense);
+            this.gbSearch.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbSearch.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.gbSearch.Location = new System.Drawing.Point(29, 37);
+            this.gbSearch.Name = "gbSearch";
+            this.gbSearch.Size = new System.Drawing.Size(1483, 186);
+            this.gbSearch.TabIndex = 31;
+            this.gbSearch.TabStop = false;
+            this.gbSearch.Text = "Search for local license";
             // 
             // btnSearch
             // 
@@ -544,6 +546,28 @@
             this.pbLicense.TabIndex = 22;
             this.pbLicense.TabStop = false;
             // 
+            // ucLocalLicenseDetails
+            // 
+            this.ucLocalLicenseDetails.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ucLocalLicenseDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucLocalLicenseDetails.Location = new System.Drawing.Point(3, 229);
+            this.ucLocalLicenseDetails.Name = "ucLocalLicenseDetails";
+            this.ucLocalLicenseDetails.Size = new System.Drawing.Size(2162, 1519);
+            this.ucLocalLicenseDetails.TabIndex = 33;
+            // 
+            // lblDetainLicDetails
+            // 
+            this.lblDetainLicDetails.AutoSize = true;
+            this.lblDetainLicDetails.Font = new System.Drawing.Font("Georgia", 20F, System.Drawing.FontStyle.Bold);
+            this.lblDetainLicDetails.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblDetainLicDetails.Location = new System.Drawing.Point(680, 97);
+            this.lblDetainLicDetails.Name = "lblDetainLicDetails";
+            this.lblDetainLicDetails.Size = new System.Drawing.Size(874, 77);
+            this.lblDetainLicDetails.TabIndex = 37;
+            this.lblDetainLicDetails.Text = "Detained license details:";
+            this.lblDetainLicDetails.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDetainLicDetails.Visible = false;
+            // 
             // lblProcess
             // 
             this.lblProcess.Font = new System.Drawing.Font("Georgia", 20F, System.Drawing.FontStyle.Bold);
@@ -568,15 +592,6 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 36;
             this.pictureBox5.TabStop = false;
-            // 
-            // ucLocalLicenseDetails
-            // 
-            this.ucLocalLicenseDetails.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ucLocalLicenseDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucLocalLicenseDetails.Location = new System.Drawing.Point(3, 229);
-            this.ucLocalLicenseDetails.Name = "ucLocalLicenseDetails";
-            this.ucLocalLicenseDetails.Size = new System.Drawing.Size(2162, 1519);
-            this.ucLocalLicenseDetails.TabIndex = 33;
             // 
             // FrmReleaseLicense
             // 
@@ -607,8 +622,8 @@
             this.tcDetainLicense.ResumeLayout(false);
             this.tbSelectLicense.ResumeLayout(false);
             this.tbSelectLicense.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbSearch.ResumeLayout(false);
+            this.gbSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLicense)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -651,15 +666,16 @@
         private System.Windows.Forms.TabControl tcDetainLicense;
         private System.Windows.Forms.TabPage tbSelectLicense;
         private System.Windows.Forms.Button btnGoToReleaseTab;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private Local_License.ucLocalLicenseDetails ucLocalLicenseDetails;
+        private System.Windows.Forms.Label lblProcess;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.GroupBox gbSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblLicenseType;
         private System.Windows.Forms.PictureBox pbLicense;
-        private Local_License.ucLocalLicenseDetails ucLocalLicenseDetails;
-        private System.Windows.Forms.Label lblProcess;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label lblDetainLicDetails;
     }
 }

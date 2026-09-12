@@ -32,8 +32,8 @@ namespace BusinessLayer {
                 result = enDetainResult.Success
             };
         }
-        public static DetainDetails getDetainDetails(int licenseID) {
-            DetainDTO detainDTO = DetainedLicensesData.getDetainDetails(licenseID);
+        public static DetainDetails getDetainDetailsByLicenesID(int licenseID) {
+            DetainDTO detainDTO = DetainedLicensesData.getDetainDetailsByLicenseID(licenseID);
             if (detainDTO == null) return null;
             detainDTO.LicenseID = licenseID;
             DetainDetails detainLicense = new DetainDetails(detainDTO.LicenseID,
@@ -64,6 +64,14 @@ namespace BusinessLayer {
         }
         public static DataTable getDetentionsByFilter(enDetainFilterBy status, string filterValue) {
             return DetainedLicensesData.getByFilter(status, filterValue);
+        }
+        public static DetainDetails getDetainDetailsByDetainID(int detainID) {
+            DetainDTO detainDTO = DetainedLicensesData.getDetainDetailsByDetainID(detainID);
+            return new DetainDetails(detainDTO.LicenseID, detainDTO.DetainDate, detainDTO.FineFees, detainDTO.Reason, detainDTO.CreatedByUserID, detainID);
+        }
+        public static ReleaseDetails getReleaseDetails(int detainID) {
+            ReleaseDTO releaseDTO = DetainedLicensesData.getReleaseDetails(detainID);
+            return new ReleaseDetails(releaseDTO.detainID, releaseDTO.releaseDate, releaseDTO.createdByUserID, releaseDTO.LicenseID, releaseDTO.applicationID);
         }
     }
 }

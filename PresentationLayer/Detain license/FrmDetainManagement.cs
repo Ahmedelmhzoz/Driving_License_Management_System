@@ -32,6 +32,7 @@ namespace PresentationLayer.Detain_license {
                     }
                 }
             }
+            dgvDetain.Columns["IsReleased"].Visible = false;
         }
         void _LoadMainComboBox() {
             Dictionary<enDetainFilterBy, string> filters = new Dictionary<enDetainFilterBy, string>{
@@ -119,6 +120,45 @@ namespace PresentationLayer.Detain_license {
         }
         private void btnClose_Click(object sender, EventArgs e) {
             this.Close();
+        }
+
+        bool _IsSelectedRowReleased() {
+            return Convert.ToBoolean(dgvDetain.CurrentRow.Cells["IsReleased"].Value);
+        }
+        private void cmsDetainment_Opening(object sender, CancelEventArgs e) {
+            bool IsReleased = _IsSelectedRowReleased();
+            tmsiRelease.Enabled = !IsReleased;
+            tmsiReleaseDetails.Enabled = IsReleased;
+        }
+
+        private void tmsiRelease_Click(object sender, EventArgs e) {
+            int licenseID = (int)dgvDetain.CurrentRow.Cells["LicenseID"].Value;
+            LocalLicense license = LocalLicense.GetLicenseByID(licenseID);
+            if (license == null) return;
+            FrmReleaseLicense frm = new FrmReleaseLicense(license);
+            frm.ShowDialog();
+            _ReloadData();
+        }
+
+        private void tmsiDetainDetails_Click(object sender, EventArgs e) {
+            int detainID = (int)dgvDetain.CurrentRow.Cells["DetainID"].Value;
+            DetainDetails detainResult = DetainLicense.getDetainDetailsByDetainID(detainID);
+            if ( detainResult == null ) return;
+            FrmDetainDetails frm = new FrmDetainDetails(detainResult);
+            frm.ShowDialog();
+        }
+
+        private void tmsiReleaseDetails_Click(object sender, EventArgs e) {
+            int detainID = (int)dgvDetain.CurrentRow.Cells["DetainID"].Value;
+            ReleaseDetails releaseDetails = DetainLicense.getReleaseDetails(detainID);
+            if (releaseDetails == null) return;
+            FrmReleaseDetails frm = new FrmReleaseDetails(releaseDetails);
+            frm.ShowDialog();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e) {
+            FrmDetainLicense frm = new FrmDetainLicense();
+            frm.ShowDialog();
         }
     }
 }

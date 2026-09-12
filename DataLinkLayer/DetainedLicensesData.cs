@@ -16,7 +16,8 @@ namespace DataLinkLayer {
         public int CreatedByUserID { get; set; }
 
         public DetainDTO() { }
-        public DetainDTO(DetainDetails detainInputedData) {
+        public DetainDTO(DetainDetails detainInputedData) { 
+            DetainID = -1;
             LicenseID = detainInputedData.LicenseID;
             DetainDate = detainInputedData.detainDate;
             FineFees = detainInputedData.fineFees;
@@ -107,7 +108,7 @@ namespace DataLinkLayer {
                 return id;
             }
         }
-        public static DetainDTO getDetainDetails(int licenseID) {
+        public static DetainDTO getDetainDetailsByLicenseID(int licenseID) {
             DetainDTO detainDTO = new DetainDTO();
             string query = @"SELECT 
                             d.DetainID, 
@@ -138,6 +139,73 @@ namespace DataLinkLayer {
 
                 return detainDTO;
             }
+        }
+        public static DetainDTO getDetainDetailsByDetainID(int detainID) {
+            DetainDTO detainDTO = null;
+
+            string query = @"SELECT
+                        DetainID,
+                        LicenseID,
+                        DetainDate,
+                        FineFees,
+                        Reason,
+                        CreatedByUserID
+                     FROM DetainedLicenses
+                     WHERE DetainID = @DetainID;";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection)) {
+                command.Parameters.AddWithValue("@DetainID", detainID);
+
+                connection.Open();
+
+                using (SqlDataReader reader = command.ExecuteReader()) {
+                    if (reader.Read()) {
+                        detainDTO = new DetainDTO {
+                            DetainID = (int)reader["DetainID"],
+                            LicenseID = (int)reader["LicenseID"],
+                            DetainDate = (DateTime)reader["DetainDate"],
+                            FineFees = (decimal)reader["FineFees"],
+                            Reason = (string)reader["Reason"],
+                            CreatedByUserID = (int)reader["CreatedByUserID"]
+                        };
+                    }
+                }
+            }
+
+            return detainDTO;
+        }
+        public static ReleaseDTO getReleaseDetails(int detainID) {
+            ReleaseDTO releaseDTO = null;
+
+            string query = @"SELECT
+                        DetainID,
+                        LicenseID,
+                        ReleaseDate,
+                        ReleasedByUserID,
+                        ReleaseApplicationID
+                     FROM DetainedLicenses
+                     WHERE DetainID = @DetainID;";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection)) {
+                command.Parameters.AddWithValue("@DetainID", detainID);
+
+                connection.Open();
+
+                using (SqlDataReader reader = command.ExecuteReader()) {
+                    if (reader.Read()) {
+                        releaseDTO = new ReleaseDTO {
+                            detainID = (int)reader["DetainID"],
+                            LicenseID = (int)reader["LicenseID"],
+                            releaseDate = (DateTime)reader["ReleaseDate"],
+                            createdByUserID = (int)reader["ReleasedByUserID"],
+                            applicationID = (int)reader["ReleaseApplicationID"]
+                        };
+                    }
+                }
+            }
+            return releaseDTO;
         }
         static void _ReleaseDetainRecord(ReleaseDTO releaseDTO, SqlConnection connection, SqlTransaction transaction) {
             const string query = @"Update DetainedLicenses   
@@ -184,8 +252,8 @@ namespace DataLinkLayer {
                         LicenseID,
                         DriverName,
                         DetainDate,
-                        FineFees,
-                        DetaintionStatus
+                        DetaintionStatus,
+                        IsReleased
                      FROM Detained_Licensese_View 
                      ORDER BY DetainID DESC;";
 
@@ -227,8 +295,8 @@ namespace DataLinkLayer {
                             LicenseID, 
                             DriverName, 
                             DetainDate, 
-                            FineFees, 
-                            DetaintionStatus 
+                            DetaintionStatus,
+                            IsReleased
                             FROM Detained_Licensese_View
                             WHERE {actualColumnName} LIKE @filterValue + '%'  
                             ORDER BY DetainID DESC;";
@@ -246,5 +314,6 @@ namespace DataLinkLayer {
             }
              return dt;
         }
+      
     }
 }

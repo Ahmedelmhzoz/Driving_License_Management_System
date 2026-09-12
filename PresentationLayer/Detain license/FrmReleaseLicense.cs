@@ -16,6 +16,15 @@ namespace PresentationLayer.Detain_license {
         public FrmReleaseLicense() {
             InitializeComponent();
         }
+        public FrmReleaseLicense(LocalLicense detainedLicense) {
+            InitializeComponent();
+            gbSearch.Visible = false;
+            lblDetainLicDetails.Visible = true;
+            selectedLocalLicense = detainedLicense;
+            ucLocalLicenseDetails.loadData(detainedLicense);
+            _ReleaseBtnEnibility(true);
+
+        }
         LocalLicense selectedLocalLicense = null;
         void _ReleaseBtnEnibility(bool thereIsLicense) {
             btnGoToReleaseTab.Enabled = thereIsLicense;
