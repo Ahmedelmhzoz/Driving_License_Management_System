@@ -235,5 +235,15 @@ namespace DataLinkLayer.License_Application_data {
                 return Convert.ToInt32(result);
             }
         }
+        public static int getApplicationsNumForType(enApplicationType appType) {
+            using (SqlConnection conn = new SqlConnection(connectionString)) {
+                string query = "SELECT COUNT(A.ApplicationID) AS PeopleNumber FROM Applications A\r\nWHERE A.ApplicationTypeID = @ApplicationType;";
+                using (SqlCommand cmd = new SqlCommand(query, conn)) {
+                    cmd.Parameters.AddWithValue("@ApplicationType", (int)appType);
+                    conn.Open();
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+        }
     }
 }

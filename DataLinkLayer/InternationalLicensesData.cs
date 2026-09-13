@@ -316,5 +316,25 @@ namespace DataLinkLayer {
                 return Convert.ToInt32(result);
             }
         }
+        static string geLicenseStatus(enInternationalLicenseStatus status) {
+            switch (status) {
+                case enInternationalLicenseStatus.Active: return "Active";
+                case enInternationalLicenseStatus.Expired: return "Expired";
+                default: return string.Empty;
+            }
+        }
+        public static int getLicensesNumByStatus(enInternationalLicenseStatus status) {
+            using (SqlConnection conn = new SqlConnection(connectionString)) {
+
+                string query = @"select COUNT(llv.InternationalLicenseID) from Internationl_Driving_Licenses llv 
+                                WHERE llv.LicenseStatus LIKE '%' + @Status";
+                string statusActualValue = geLicenseStatus(status);
+                using (SqlCommand cmd = new SqlCommand(query, conn)) {
+                    cmd.Parameters.AddWithValue("@Status", statusActualValue);
+                    conn.Open();
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+        }
     }
 }

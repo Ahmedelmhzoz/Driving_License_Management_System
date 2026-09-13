@@ -95,7 +95,7 @@
             this.cmsApp.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tmsiShowLicense});
             this.cmsApp.Name = "cmsApp";
-            this.cmsApp.Size = new System.Drawing.Size(619, 119);
+            this.cmsApp.Size = new System.Drawing.Size(619, 64);
             // 
             // tmsiShowLicense
             // 

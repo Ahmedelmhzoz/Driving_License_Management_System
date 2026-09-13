@@ -414,7 +414,7 @@
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnAdd.BackgroundImage = global::PresentationLayer.Properties.Resources.addApplication;
+            this.btnAdd.BackgroundImage = global::PresentationLayer.Properties.Resources.driving_school__2_;
             this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnAdd.Location = new System.Drawing.Point(2410, 446);
             this.btnAdd.Name = "btnAdd";

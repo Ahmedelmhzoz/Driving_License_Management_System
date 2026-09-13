@@ -39,6 +39,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -66,6 +67,12 @@
     </Compile>
     <Compile Include="Detain license\FrmDetainManagement.Designer.cs">
       <DependentUpon>FrmDetainManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detain license\FrmDetainmentHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detain license\FrmDetainmentHistory.Designer.cs">
+      <DependentUpon>FrmDetainmentHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="Detain license\FrmReleaseDetails.cs">
       <SubType>Form</SubType>
@@ -224,11 +231,11 @@
     <Compile Include="People\FrmAddOrUpdatePerson.Designer.cs">
       <DependentUpon>FrmAddOrUpdatePerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMainForm.cs">
+    <Compile Include="FrmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMainForm.Designer.cs">
-      <DependentUpon>FrmMainForm.cs</DependentUpon>
+    <Compile Include="FrmDashboard.Designer.cs">
+      <DependentUpon>FrmDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="People\FrmPeople.cs">
       <SubType>Form</SubType>
@@ -254,28 +261,28 @@
     <Compile Include="Replacement app\FrmReplacementApp.Designer.cs">
       <DependentUpon>FrmReplacementApp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Users\FrmAddOrUpdateUser.cs">
+    <Compile Include="Admins\FrmAddOrUpdateUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Users\FrmAddOrUpdateUser.Designer.cs">
+    <Compile Include="Admins\FrmAddOrUpdateUser.Designer.cs">
       <DependentUpon>FrmAddOrUpdateUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Users\FrmChangePassword.cs">
+    <Compile Include="Admins\FrmChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Users\FrmChangePassword.Designer.cs">
+    <Compile Include="Admins\FrmChangePassword.Designer.cs">
       <DependentUpon>FrmChangePassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="Users\FrmUserDetails.cs">
+    <Compile Include="Admins\FrmUserDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Users\FrmUserDetails.Designer.cs">
+    <Compile Include="Admins\FrmUserDetails.Designer.cs">
       <DependentUpon>FrmUserDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Users\FrmUsers.cs">
+    <Compile Include="Admins\FrmUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Users\FrmUsers.Designer.cs">
+    <Compile Include="Admins\FrmUsers.Designer.cs">
       <DependentUpon>FrmUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Global\Helpers.cs" />
@@ -287,10 +294,10 @@
     <Compile Include="People\ucPersonDetails.Designer.cs">
       <DependentUpon>ucPersonDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Users\ucUserInformation.cs">
+    <Compile Include="Admins\ucUserInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Users\ucUserInformation.Designer.cs">
+    <Compile Include="Admins\ucUserInformation.Designer.cs">
       <DependentUpon>ucUserInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="People\ucGetPersonWithFilter.cs">
@@ -307,6 +314,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Detain license\FrmDetainManagement.resx">
       <DependentUpon>FrmDetainManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detain license\FrmDetainmentHistory.resx">
+      <DependentUpon>FrmDetainmentHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Detain license\FrmReleaseDetails.resx">
       <DependentUpon>FrmReleaseDetails.cs</DependentUpon>
@@ -386,8 +396,8 @@
     <EmbeddedResource Include="People\FrmAddOrUpdatePerson.resx">
       <DependentUpon>FrmAddOrUpdatePerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMainForm.resx">
-      <DependentUpon>FrmMainForm.cs</DependentUpon>
+    <EmbeddedResource Include="FrmDashboard.resx">
+      <DependentUpon>FrmDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\FrmPeople.resx">
       <DependentUpon>FrmPeople.cs</DependentUpon>
@@ -401,16 +411,16 @@
     <EmbeddedResource Include="Replacement app\FrmReplacementApp.resx">
       <DependentUpon>FrmReplacementApp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Users\FrmAddOrUpdateUser.resx">
+    <EmbeddedResource Include="Admins\FrmAddOrUpdateUser.resx">
       <DependentUpon>FrmAddOrUpdateUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Users\FrmChangePassword.resx">
+    <EmbeddedResource Include="Admins\FrmChangePassword.resx">
       <DependentUpon>FrmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Users\FrmUserDetails.resx">
+    <EmbeddedResource Include="Admins\FrmUserDetails.resx">
       <DependentUpon>FrmUserDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Users\FrmUsers.resx">
+    <EmbeddedResource Include="Admins\FrmUsers.resx">
       <DependentUpon>FrmUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -426,7 +436,7 @@
     <EmbeddedResource Include="People\ucPersonDetails.resx">
       <DependentUpon>ucPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Users\ucUserInformation.resx">
+    <EmbeddedResource Include="Admins\ucUserInformation.resx">
       <DependentUpon>ucUserInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\ucGetPersonWithFilter.resx">
@@ -935,6 +945,99 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fraud-prevention.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\motorbike.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scooter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\taxi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vehicle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delivery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2026-09-12 140725.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2026-09-12 1407251.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profiles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\management2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\team-management1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\system-administration.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\system-administration1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\system-administration2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profiles1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\driving-school %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\driving-school %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refuse %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\driving-license %287%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cut-card1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cut-card %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddPerson2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\approval1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scooter1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

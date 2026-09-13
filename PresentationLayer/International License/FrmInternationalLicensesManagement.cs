@@ -44,7 +44,7 @@ namespace PresentationLayer.International_License {
             cbFilterBy.DataSource = Enum.GetValues(typeof(enLicenseFilterBy));
         }
         void _fillStatusComboBox() {
-            cbLicenseStatus.DataSource = Enum.GetValues(typeof(enLicenseStatus));
+            cbLicenseStatus.DataSource = Enum.GetValues(typeof(enLocalLicenseStatus));
         }
         private void FrmInternationalLicensesManagement_Load(object sender, EventArgs e) {
             _fillFiltersComboBox();
@@ -56,8 +56,8 @@ namespace PresentationLayer.International_License {
             enLicenseFilterBy selectedFilterEnum = (enLicenseFilterBy)cbFilterBy.SelectedValue;
             return selectedFilterEnum;
         }
-        private enLicenseStatus _GetSelectedStatus() {
-            return (enLicenseStatus)cbLicenseStatus.SelectedValue;
+        private enLocalLicenseStatus _GetSelectedStatus() {
+            return (enLocalLicenseStatus)cbLicenseStatus.SelectedValue;
         }
         void _ReloadData() {
 

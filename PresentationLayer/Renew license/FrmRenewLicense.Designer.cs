@@ -42,8 +42,6 @@
             this.rbInternational = new System.Windows.Forms.RadioButton();
             this.rbLocal = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.ucLocalLicenseDetails = new PresentationLayer.Local_License.ucLocalLicenseDetails();
-            this.ucInternationalLicenseDetails = new PresentationLayer.International_License.ucInternationalLicenseDetails();
             this.tbRenewalApp = new System.Windows.Forms.TabPage();
             this.lblRenew = new System.Windows.Forms.Label();
             this.btnRenewLicense = new System.Windows.Forms.Button();
@@ -78,6 +76,9 @@
             this.lblRenewalAppID = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ucLocalLicenseDetails = new PresentationLayer.Local_License.ucLocalLicenseDetails();
+            this.ucInternationalLicenseDetails = new PresentationLayer.International_License.ucInternationalLicenseDetails();
             this.tcRenewalApp.SuspendLayout();
             this.tbSelectLicense.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -97,6 +98,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbRenewalLicense)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblProcess
@@ -104,7 +106,7 @@
             this.lblProcess.AutoSize = true;
             this.lblProcess.Font = new System.Drawing.Font("Georgia", 20F, System.Drawing.FontStyle.Bold);
             this.lblProcess.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblProcess.Location = new System.Drawing.Point(594, 26);
+            this.lblProcess.Location = new System.Drawing.Point(682, 28);
             this.lblProcess.Name = "lblProcess";
             this.lblProcess.Size = new System.Drawing.Size(993, 77);
             this.lblProcess.TabIndex = 25;
@@ -306,23 +308,6 @@
             this.label4.Size = new System.Drawing.Size(121, 35);
             this.label4.TabIndex = 24;
             this.label4.Text = "Search";
-            // 
-            // ucLocalLicenseDetails
-            // 
-            this.ucLocalLicenseDetails.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ucLocalLicenseDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucLocalLicenseDetails.Location = new System.Drawing.Point(-2, 221);
-            this.ucLocalLicenseDetails.Name = "ucLocalLicenseDetails";
-            this.ucLocalLicenseDetails.Size = new System.Drawing.Size(2149, 1710);
-            this.ucLocalLicenseDetails.TabIndex = 34;
-            // 
-            // ucInternationalLicenseDetails
-            // 
-            this.ucInternationalLicenseDetails.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ucInternationalLicenseDetails.Location = new System.Drawing.Point(9, 221);
-            this.ucInternationalLicenseDetails.Name = "ucInternationalLicenseDetails";
-            this.ucInternationalLicenseDetails.Size = new System.Drawing.Size(2154, 1616);
-            this.ucInternationalLicenseDetails.TabIndex = 33;
             // 
             // tbRenewalApp
             // 
@@ -710,12 +695,40 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::PresentationLayer.Properties.Resources.refresh;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(565, 14);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(121, 102);
+            this.pictureBox1.TabIndex = 26;
+            this.pictureBox1.TabStop = false;
+            // 
+            // ucLocalLicenseDetails
+            // 
+            this.ucLocalLicenseDetails.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ucLocalLicenseDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucLocalLicenseDetails.Location = new System.Drawing.Point(-17, 221);
+            this.ucLocalLicenseDetails.Name = "ucLocalLicenseDetails";
+            this.ucLocalLicenseDetails.Size = new System.Drawing.Size(2303, 1710);
+            this.ucLocalLicenseDetails.TabIndex = 34;
+            // 
+            // ucInternationalLicenseDetails
+            // 
+            this.ucInternationalLicenseDetails.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ucInternationalLicenseDetails.Location = new System.Drawing.Point(9, 221);
+            this.ucInternationalLicenseDetails.Name = "ucInternationalLicenseDetails";
+            this.ucInternationalLicenseDetails.Size = new System.Drawing.Size(2170, 1616);
+            this.ucInternationalLicenseDetails.TabIndex = 33;
+            // 
             // FrmRenewLicense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(2225, 1941);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblProcess);
             this.Controls.Add(this.tcRenewalApp);
             this.Name = "FrmRenewLicense";
@@ -745,6 +758,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbRenewalLicense)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -805,5 +819,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private International_License.ucInternationalLicenseDetails ucInternationalLicenseDetails;
         private Local_License.ucLocalLicenseDetails ucLocalLicenseDetails;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

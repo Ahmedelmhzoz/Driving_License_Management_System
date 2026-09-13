@@ -24,10 +24,10 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -45,8 +45,6 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.tmsiDetainDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.tmsiReleaseDetails = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.tmsiHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.lblRecordsNo = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblLicense = new System.Windows.Forms.Label();
@@ -111,21 +109,21 @@
             // dgvDetain
             // 
             this.dgvDetain.AllowUserToAddRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Georgia", 10.1F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            this.dgvDetain.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Georgia", 10.1F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            this.dgvDetain.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetain.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDetain.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Georgia", 10.1F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetain.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Georgia", 10.1F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetain.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDetain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetain.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DetainID,
@@ -134,25 +132,25 @@
             this.DetainDate,
             this.DetaintionStatus});
             this.dgvDetain.ContextMenuStrip = this.cmsDetainment;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Georgia", 10.1F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetain.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Georgia", 10.1F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetain.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDetain.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgvDetain.Location = new System.Drawing.Point(27, 598);
             this.dgvDetain.Name = "dgvDetain";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetain.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetain.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDetain.RowHeadersWidth = 102;
             this.dgvDetain.RowTemplate.Height = 40;
             this.dgvDetain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -204,43 +202,42 @@
             this.tmsiRelease,
             this.toolStripMenuItem1,
             this.tmsiDetainDetails,
-            this.tmsiReleaseDetails,
-            this.toolStripMenuItem2,
-            this.tmsiHistory});
+            this.tmsiReleaseDetails});
             this.cmsDetainment.Name = "cmsApp";
-            this.cmsDetainment.Size = new System.Drawing.Size(641, 342);
+            this.cmsDetainment.Size = new System.Drawing.Size(521, 272);
             this.cmsDetainment.Opening += new System.ComponentModel.CancelEventHandler(this.cmsDetainment_Opening);
             // 
             // licenseDetailsToolStripMenuItem
             // 
             this.licenseDetailsToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.icense__1_2;
             this.licenseDetailsToolStripMenuItem.Name = "licenseDetailsToolStripMenuItem";
-            this.licenseDetailsToolStripMenuItem.Size = new System.Drawing.Size(640, 64);
+            this.licenseDetailsToolStripMenuItem.Size = new System.Drawing.Size(520, 64);
             this.licenseDetailsToolStripMenuItem.Text = "License details";
+            this.licenseDetailsToolStripMenuItem.Click += new System.EventHandler(this.licenseDetailsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(637, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(517, 6);
             // 
             // tmsiRelease
             // 
             this.tmsiRelease.Image = global::PresentationLayer.Properties.Resources.validation;
             this.tmsiRelease.Name = "tmsiRelease";
-            this.tmsiRelease.Size = new System.Drawing.Size(640, 64);
+            this.tmsiRelease.Size = new System.Drawing.Size(520, 64);
             this.tmsiRelease.Text = "Release";
             this.tmsiRelease.Click += new System.EventHandler(this.tmsiRelease_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(637, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(517, 6);
             // 
             // tmsiDetainDetails
             // 
             this.tmsiDetainDetails.Image = global::PresentationLayer.Properties.Resources.fraud_prevention;
             this.tmsiDetainDetails.Name = "tmsiDetainDetails";
-            this.tmsiDetainDetails.Size = new System.Drawing.Size(640, 64);
+            this.tmsiDetainDetails.Size = new System.Drawing.Size(520, 64);
             this.tmsiDetainDetails.Text = "Detain details";
             this.tmsiDetainDetails.Click += new System.EventHandler(this.tmsiDetainDetails_Click);
             // 
@@ -248,21 +245,9 @@
             // 
             this.tmsiReleaseDetails.Image = global::PresentationLayer.Properties.Resources.approval;
             this.tmsiReleaseDetails.Name = "tmsiReleaseDetails";
-            this.tmsiReleaseDetails.Size = new System.Drawing.Size(640, 64);
+            this.tmsiReleaseDetails.Size = new System.Drawing.Size(520, 64);
             this.tmsiReleaseDetails.Text = "Release details";
             this.tmsiReleaseDetails.Click += new System.EventHandler(this.tmsiReleaseDetails_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(637, 6);
-            // 
-            // tmsiHistory
-            // 
-            this.tmsiHistory.Image = global::PresentationLayer.Properties.Resources.data_loss_prevention;
-            this.tmsiHistory.Name = "tmsiHistory";
-            this.tmsiHistory.Size = new System.Drawing.Size(640, 64);
-            this.tmsiHistory.Text = "Detainment history";
             // 
             // lblRecordsNo
             // 
@@ -397,10 +382,8 @@
         private System.Windows.Forms.ContextMenuStrip cmsDetainment;
         private System.Windows.Forms.ToolStripMenuItem tmsiRelease;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem tmsiHistory;
         private System.Windows.Forms.ToolStripMenuItem tmsiReleaseDetails;
         private System.Windows.Forms.ToolStripMenuItem tmsiDetainDetails;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem licenseDetailsToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn DetainID;

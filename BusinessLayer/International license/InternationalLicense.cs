@@ -153,18 +153,18 @@ namespace BusinessLayer {
         public static DataTable getLicensesByFilter(enLicenseFilterBy filterColumn, string filterValue) {
             return InternationalLicenseData.GetLicensesByFilter(filterColumn, filterValue);
         }
-        public static DataTable getLicensesByStatus(enLicenseStatus filterStatus) {
+        public static DataTable getLicensesByStatus(enLocalLicenseStatus filterStatus) {
             string actualStatusText = "";
             switch (filterStatus) {
-                case enLicenseStatus.Active:
+                case enLocalLicenseStatus.Active:
                     actualStatusText = "Active"; 
                     break;
 
-                case enLicenseStatus.Suspended:
+                case enLocalLicenseStatus.Suspended:
                     actualStatusText = "Suspended";
                     break;
 
-                case enLicenseStatus.Expired:
+                case enLocalLicenseStatus.Expired:
                     actualStatusText = "Expired";
                     break;
 
@@ -192,16 +192,16 @@ namespace BusinessLayer {
             interLicenseDTO.CreatedByUserID = userID;
             return interLicenseDTO;
         }
-        public enLicenseStatus licenseStatus() {
-            if (!this.NotSuspended) return enLicenseStatus.Suspended;
-            else if (this.ExpirationDate.Date < DateTime.Today) return enLicenseStatus.Expired;
-            else return enLicenseStatus.Active;
+        public enLocalLicenseStatus licenseStatus() {
+            if (!this.NotSuspended) return enLocalLicenseStatus.Suspended;
+            else if (this.ExpirationDate.Date < DateTime.Today) return enLocalLicenseStatus.Expired;
+            else return enLocalLicenseStatus.Active;
         }
         public bool HasBeenRenewed() {
             return LocalLicensesData.getRenewalLicenseID(this.InternationalLicenseID) != -1;
         }
         public LicenseRenewalResult Renew(int userID) {
-            if (licenseStatus() != enLicenseStatus.Expired || HasBeenRenewed()) {
+            if (licenseStatus() != enLocalLicenseStatus.Expired || HasBeenRenewed()) {
                 return new LicenseRenewalResult {
                     Result = enLicenseRenewalResult.Failed
                 };

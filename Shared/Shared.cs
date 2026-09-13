@@ -114,10 +114,16 @@ namespace Shared
         International = 1
     }
 
-    public enum enLicenseStatus {
+    public enum enLocalLicenseStatus {
         All = 0,
         Active = 1,
         Suspended = 2, 
+        Expired = 3
+    }
+
+    public enum enInternationalLicenseStatus {
+        All = 0,
+        Active = 1,
         Expired = 3
     }
     public enum enLicenseFilterBy {
@@ -154,6 +160,15 @@ namespace Shared
         ReleaseDetainedDrivingLicense = 5,
         NewInternationalLicense = 6,
         RetakeTest = 8 // its ID in database = 8
+    }
+    public enum enLicenseClass {
+        SmallMotorcycle = 1,
+        HeavyMotorcycle = 2,
+        Ordinary = 3,
+        Commercial = 4,
+        Agricultural = 5,
+        SmallMediumBus = 6,
+        TruckHeavyVehicle = 7
     }
     public static class Utilities {
 

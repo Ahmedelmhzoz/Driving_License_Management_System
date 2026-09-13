@@ -103,7 +103,7 @@ namespace PresentationLayer.Renew_license {
         bool _DoseLicenseAbleToRenew() {
             if (rbLocal.Checked) {
                 if (selectedLocalLicense != null) {
-                    if (selectedLocalLicense.getLicenseStatus() == enLicenseStatus.Expired && !selectedLocalLicense.HasBeenRenewed()) {
+                    if (selectedLocalLicense.getLicenseStatus() == enLocalLicenseStatus.Expired && !selectedLocalLicense.HasBeenRenewed()) {
                         return true;
                     }
                     else {
@@ -113,7 +113,7 @@ namespace PresentationLayer.Renew_license {
             }
             else {
                 if (selectedInternationalLicense != null) {
-                    if (selectedInternationalLicense.licenseStatus() == enLicenseStatus.Expired && !selectedInternationalLicense.HasBeenRenewed()) {
+                    if (selectedInternationalLicense.licenseStatus() == enLocalLicenseStatus.Expired && !selectedInternationalLicense.HasBeenRenewed()) {
                         return true;
                     }
                     else {
@@ -165,15 +165,15 @@ namespace PresentationLayer.Renew_license {
             }
             return -1; // DB Problem 
         }
-        private void _reasonOfRejection(enLicenseStatus status) {
+        private void _reasonOfRejection(enLocalLicenseStatus status) {
             switch (status) {
-                case enLicenseStatus.Active:
+                case enLocalLicenseStatus.Active:
                     Helpers.ShowErrorMessage("The license is active, Only expired licenses can be renewed.");
                     break;
-                case enLicenseStatus.Suspended:
+                case enLocalLicenseStatus.Suspended:
                     Helpers.ShowErrorMessage("A suspended license cannot be renewed.");
                     break;
-                case enLicenseStatus.Expired: // as long as it had been expired and rejected, it had renewed already 
+                case enLocalLicenseStatus.Expired: // as long as it had been expired and rejected, it had renewed already 
                     Helpers.ShowErrorMessage($"The license Has been renewed already and the new Renewal license ID = {_getRenewalLicenseID()}");
                     break;
             }

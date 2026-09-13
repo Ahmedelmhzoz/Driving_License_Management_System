@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
 using Global;
+using PresentationLayer.Local_License;
 using Shared;
 using System;
 using System.Collections;
@@ -158,6 +159,15 @@ namespace PresentationLayer.Detain_license {
 
         private void btnAdd_Click(object sender, EventArgs e) {
             FrmDetainLicense frm = new FrmDetainLicense();
+            frm.ShowDialog();
+            _ReloadData();
+        }
+
+        private void licenseDetailsToolStripMenuItem_Click(object sender, EventArgs e) {
+            int licenseID = (int)dgvDetain.CurrentRow.Cells["LicenseID"].Value;
+            LocalLicense license = LocalLicense.GetLicenseByID(licenseID);
+            if (license == null) return;
+            FrmLocalLicenseDetails frm = new FrmLocalLicenseDetails(license);
             frm.ShowDialog();
         }
     }

@@ -314,6 +314,15 @@ namespace DataLinkLayer {
             }
              return dt;
         }
-      
+        public static int getDetainedLicensesNum() {
+            using (SqlConnection conn = new SqlConnection(connectionString)) {
+                string query = "SELECT COUNT(D.DetainID) FROM DetainedLicenses D WHERE D.IsReleased = 0";
+                using (SqlCommand cmd = new SqlCommand(query, conn)) {
+                    conn.Open();
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+        }
+
     }
 }

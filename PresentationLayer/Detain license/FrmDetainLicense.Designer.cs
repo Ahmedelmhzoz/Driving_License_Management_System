@@ -219,9 +219,9 @@
             // 
             this.ucLocalLicenseDetails.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ucLocalLicenseDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucLocalLicenseDetails.Location = new System.Drawing.Point(3, 229);
+            this.ucLocalLicenseDetails.Location = new System.Drawing.Point(-18, 229);
             this.ucLocalLicenseDetails.Name = "ucLocalLicenseDetails";
-            this.ucLocalLicenseDetails.Size = new System.Drawing.Size(2162, 1519);
+            this.ucLocalLicenseDetails.Size = new System.Drawing.Size(2248, 1519);
             this.ucLocalLicenseDetails.TabIndex = 33;
             // 
             // tbDetain

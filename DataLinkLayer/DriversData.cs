@@ -185,5 +185,14 @@ namespace DataLinkLayer {
             }
             return driver; 
         }
+        public static int getDriversNumber() {
+            using (SqlConnection conn = new SqlConnection(connectionSettings)) {
+                string query = "SELECT COUNT(D.DriverID) FROM Drivers D";
+                using (SqlCommand cmd = new SqlCommand(query, conn)) {
+                    conn.Open();
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+        }
     }
 }

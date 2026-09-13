@@ -25,38 +25,38 @@
         private void InitializeComponent() {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblAdmin = new System.Windows.Forms.Label();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lblNotes = new System.Windows.Forms.Label();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.lblIsDetained = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.lblIsActive = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.lblReleaseReason = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lblExpiteDate = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.lblReleaseDate = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblDriverID = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblLicenseID = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblLicenseClass = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.object_277f6735_6c3a_4c25_bc3e_40690b72b5f2 = new System.Windows.Forms.Label();
             this.ucPersonDetails = new PresentationLayer.ucPersonDetails();
             this.ucPersonDetails1 = new PresentationLayer.ucPersonDetails();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbVehicle = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -67,7 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbVehicle)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -101,12 +101,12 @@
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.lblLicenseClass);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.pictureBox2);
+            this.groupBox1.Controls.Add(this.pbVehicle);
             this.groupBox1.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.groupBox1.Location = new System.Drawing.Point(39, 19);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(2089, 594);
+            this.groupBox1.Size = new System.Drawing.Size(2134, 594);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Local license information";
@@ -116,21 +116,11 @@
             this.lblAdmin.AutoSize = true;
             this.lblAdmin.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.lblAdmin.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblAdmin.Location = new System.Drawing.Point(1486, 497);
+            this.lblAdmin.Location = new System.Drawing.Point(1493, 497);
             this.lblAdmin.Name = "lblAdmin";
             this.lblAdmin.Size = new System.Drawing.Size(186, 39);
             this.lblAdmin.TabIndex = 65;
             this.lblAdmin.Text = "Unknown";
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Image = global::PresentationLayer.Properties.Resources.employee2;
-            this.pictureBox10.Location = new System.Drawing.Point(1412, 488);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(68, 60);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox10.TabIndex = 64;
-            this.pictureBox10.TabStop = false;
             // 
             // label5
             // 
@@ -154,16 +144,6 @@
             this.lblNotes.TabIndex = 62;
             this.lblNotes.Text = "No Notes";
             // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = global::PresentationLayer.Properties.Resources.edit_info;
-            this.pictureBox9.Location = new System.Drawing.Point(382, 488);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(68, 60);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox9.TabIndex = 61;
-            this.pictureBox9.TabStop = false;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -175,22 +155,12 @@
             this.label11.TabIndex = 60;
             this.label11.Text = "Notes:";
             // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = global::PresentationLayer.Properties.Resources.refuse;
-            this.pictureBox8.Location = new System.Drawing.Point(1412, 361);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(68, 60);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 59;
-            this.pictureBox8.TabStop = false;
-            // 
             // lblIsDetained
             // 
             this.lblIsDetained.AutoSize = true;
             this.lblIsDetained.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.lblIsDetained.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblIsDetained.Location = new System.Drawing.Point(1486, 382);
+            this.lblIsDetained.Location = new System.Drawing.Point(1493, 382);
             this.lblIsDetained.Name = "lblIsDetained";
             this.lblIsDetained.Size = new System.Drawing.Size(186, 39);
             this.lblIsDetained.TabIndex = 58;
@@ -206,16 +176,6 @@
             this.label10.Size = new System.Drawing.Size(289, 39);
             this.label10.TabIndex = 57;
             this.label10.Text = "License permit:";
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::PresentationLayer.Properties.Resources.checked__1_;
-            this.pictureBox7.Location = new System.Drawing.Point(382, 369);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(68, 60);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 56;
-            this.pictureBox7.TabStop = false;
             // 
             // lblIsActive
             // 
@@ -239,16 +199,6 @@
             this.label6.TabIndex = 54;
             this.label6.Text = "License status:";
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::PresentationLayer.Properties.Resources.project;
-            this.pictureBox5.Location = new System.Drawing.Point(382, 252);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(68, 60);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 53;
-            this.pictureBox5.TabStop = false;
-            // 
             // lblReleaseReason
             // 
             this.lblReleaseReason.AutoSize = true;
@@ -271,22 +221,12 @@
             this.label8.TabIndex = 51;
             this.label8.Text = "Release reason:";
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::PresentationLayer.Properties.Resources.expired;
-            this.pictureBox4.Location = new System.Drawing.Point(1412, 252);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(68, 60);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 50;
-            this.pictureBox4.TabStop = false;
-            // 
             // lblExpiteDate
             // 
             this.lblExpiteDate.AutoSize = true;
             this.lblExpiteDate.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.lblExpiteDate.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblExpiteDate.Location = new System.Drawing.Point(1486, 273);
+            this.lblExpiteDate.Location = new System.Drawing.Point(1493, 273);
             this.lblExpiteDate.Name = "lblExpiteDate";
             this.lblExpiteDate.Size = new System.Drawing.Size(186, 39);
             this.lblExpiteDate.TabIndex = 49;
@@ -303,22 +243,12 @@
             this.label1.TabIndex = 48;
             this.label1.Text = "Expiration date:";
             // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::PresentationLayer.Properties.Resources.calendar;
-            this.pictureBox6.Location = new System.Drawing.Point(1412, 147);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(68, 60);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 47;
-            this.pictureBox6.TabStop = false;
-            // 
             // lblReleaseDate
             // 
             this.lblReleaseDate.AutoSize = true;
             this.lblReleaseDate.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.lblReleaseDate.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblReleaseDate.Location = new System.Drawing.Point(1486, 168);
+            this.lblReleaseDate.Location = new System.Drawing.Point(1493, 168);
             this.lblReleaseDate.Name = "lblReleaseDate";
             this.lblReleaseDate.Size = new System.Drawing.Size(186, 39);
             this.lblReleaseDate.TabIndex = 46;
@@ -357,16 +287,6 @@
             this.label4.TabIndex = 21;
             this.label4.Text = "Driver ID:";
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::PresentationLayer.Properties.Resources.driver1;
-            this.pictureBox3.Location = new System.Drawing.Point(382, 152);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(68, 55);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 22;
-            this.pictureBox3.TabStop = false;
-            // 
             // lblLicenseID
             // 
             this.lblLicenseID.AutoSize = true;
@@ -389,22 +309,12 @@
             this.label3.TabIndex = 18;
             this.label3.Text = "License ID:";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::PresentationLayer.Properties.Resources.icense__1_3;
-            this.pictureBox1.Location = new System.Drawing.Point(382, 50);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(68, 55);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 19;
-            this.pictureBox1.TabStop = false;
-            // 
             // lblLicenseClass
             // 
             this.lblLicenseClass.AutoSize = true;
             this.lblLicenseClass.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.lblLicenseClass.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblLicenseClass.Location = new System.Drawing.Point(1486, 66);
+            this.lblLicenseClass.Location = new System.Drawing.Point(1493, 68);
             this.lblLicenseClass.Name = "lblLicenseClass";
             this.lblLicenseClass.Size = new System.Drawing.Size(186, 39);
             this.lblLicenseClass.TabIndex = 17;
@@ -415,21 +325,11 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(1030, 66);
+            this.label2.Location = new System.Drawing.Point(1093, 62);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(383, 39);
+            this.label2.Size = new System.Drawing.Size(314, 39);
             this.label2.TabIndex = 15;
-            this.label2.Text = "Driving license class:";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::PresentationLayer.Properties.Resources.steering_wheel;
-            this.pictureBox2.Location = new System.Drawing.Point(1412, 50);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(68, 55);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 16;
-            this.pictureBox2.TabStop = false;
+            this.label2.Text = "Licensed vehicle:";
             // 
             // object_277f6735_6c3a_4c25_bc3e_40690b72b5f2
             // 
@@ -445,9 +345,9 @@
             // 
             this.ucPersonDetails.BackColor = System.Drawing.SystemColors.WindowText;
             this.ucPersonDetails.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucPersonDetails.Location = new System.Drawing.Point(3, 629);
+            this.ucPersonDetails.Location = new System.Drawing.Point(29, 629);
             this.ucPersonDetails.Name = "ucPersonDetails";
-            this.ucPersonDetails.Size = new System.Drawing.Size(2159, 862);
+            this.ucPersonDetails.Size = new System.Drawing.Size(2143, 862);
             this.ucPersonDetails.TabIndex = 0;
             // 
             // ucPersonDetails1
@@ -458,6 +358,106 @@
             this.ucPersonDetails1.Size = new System.Drawing.Size(1923, 848);
             this.ucPersonDetails1.TabIndex = 0;
             // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = global::PresentationLayer.Properties.Resources.employee2;
+            this.pictureBox10.Location = new System.Drawing.Point(1412, 488);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(68, 60);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 64;
+            this.pictureBox10.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = global::PresentationLayer.Properties.Resources.edit_info;
+            this.pictureBox9.Location = new System.Drawing.Point(382, 488);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(68, 60);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox9.TabIndex = 61;
+            this.pictureBox9.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::PresentationLayer.Properties.Resources.refuse;
+            this.pictureBox8.Location = new System.Drawing.Point(1412, 361);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(68, 60);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 59;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::PresentationLayer.Properties.Resources.checked__1_;
+            this.pictureBox7.Location = new System.Drawing.Point(382, 369);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(68, 60);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 56;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::PresentationLayer.Properties.Resources.project;
+            this.pictureBox5.Location = new System.Drawing.Point(382, 252);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(68, 60);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 53;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::PresentationLayer.Properties.Resources.expired;
+            this.pictureBox4.Location = new System.Drawing.Point(1412, 252);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(68, 60);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 50;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::PresentationLayer.Properties.Resources.calendar;
+            this.pictureBox6.Location = new System.Drawing.Point(1412, 147);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(68, 60);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 47;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::PresentationLayer.Properties.Resources.driver1;
+            this.pictureBox3.Location = new System.Drawing.Point(382, 152);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(68, 55);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 22;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::PresentationLayer.Properties.Resources.icense__1_3;
+            this.pictureBox1.Location = new System.Drawing.Point(382, 50);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(68, 55);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 19;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pbVehicle
+            // 
+            this.pbVehicle.Image = global::PresentationLayer.Properties.Resources.question;
+            this.pbVehicle.Location = new System.Drawing.Point(1415, 42);
+            this.pbVehicle.Name = "pbVehicle";
+            this.pbVehicle.Size = new System.Drawing.Size(65, 81);
+            this.pbVehicle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbVehicle.TabIndex = 16;
+            this.pbVehicle.TabStop = false;
+            // 
             // ucLocalLicenseDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -467,7 +467,7 @@
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "ucLocalLicenseDetails";
-            this.Size = new System.Drawing.Size(2162, 1519);
+            this.Size = new System.Drawing.Size(2219, 1519);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
@@ -479,7 +479,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbVehicle)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -490,7 +490,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblLicenseClass;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pbVehicle;
         private System.Windows.Forms.Label lblLicenseID;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;

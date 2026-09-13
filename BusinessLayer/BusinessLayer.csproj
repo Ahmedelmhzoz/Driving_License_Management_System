@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dashboard\Dashboard.cs" />
     <Compile Include="Detain license\DetainLicense.cs" />
     <Compile Include="International license\InternationalLicense.cs" />
     <Compile Include="Licenses and drivers\Driver.cs" />

@@ -95,7 +95,7 @@ namespace PresentationLayer {
                     }
 
                     ImportantSessionData.user = user;
-                    FrmMainForm Frm = new FrmMainForm();
+                    FrmDashboard Frm = new FrmDashboard();
                     this.Hide();
                     Frm.ShowDialog();
                     this.Close();

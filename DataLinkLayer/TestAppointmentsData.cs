@@ -180,5 +180,14 @@ namespace DataLinkLayer {
 
             return dto;
         }
+        public static int getPendingAppointmentsNum() {
+            using (SqlConnection conn = new SqlConnection(connectionString)) {
+                string query = "SELECT COUNT(TA.TestAppointmentID) FROM TestAppointments TA WHERE TA.IsLocked = 0";
+                using (SqlCommand cmd = new SqlCommand(query, conn)) {
+                    conn.Open();
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+        }
     }
 }
