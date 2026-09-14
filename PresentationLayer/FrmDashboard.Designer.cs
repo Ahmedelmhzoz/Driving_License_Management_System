@@ -87,6 +87,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.label18 = new System.Windows.Forms.Label();
             this.cbIntLicStatus = new System.Windows.Forms.ComboBox();
             this.lblTotalIntLicPerStatus = new System.Windows.Forms.Label();
@@ -103,16 +104,6 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tbApplicationsStat = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cApplications = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.pictureBox17 = new System.Windows.Forms.PictureBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.label26 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button5 = new System.Windows.Forms.Button();
@@ -123,7 +114,17 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.label26 = new System.Windows.Forms.Label();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.lblAppsInPeriod = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cApplications = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cbAppPeriod = new System.Windows.Forms.ComboBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
+            this.tbApplicationsStat = new System.Windows.Forms.TabPage();
             this.menuStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -143,21 +144,22 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.tabControl1.SuspendLayout();
-            this.tbApplicationsStat.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cApplications)).BeginInit();
-            this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cApplications)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
+            this.tbApplicationsStat.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -805,6 +807,17 @@
             this.panel5.Size = new System.Drawing.Size(442, 397);
             this.panel5.TabIndex = 36;
             // 
+            // pictureBox10
+            // 
+            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox10.Image = global::PresentationLayer.Properties.Resources.filter;
+            this.pictureBox10.Location = new System.Drawing.Point(17, 328);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(49, 39);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 41;
+            this.pictureBox10.TabStop = false;
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -947,7 +960,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Georgia", 12.1F, System.Drawing.FontStyle.Bold);
             this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label14.Location = new System.Drawing.Point(45, 327);
+            this.label14.Location = new System.Drawing.Point(45, 329);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(536, 47);
             this.label14.TabIndex = 33;
@@ -958,7 +971,7 @@
             // 
             this.lblUsername.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold);
             this.lblUsername.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblUsername.Location = new System.Drawing.Point(566, 317);
+            this.lblUsername.Location = new System.Drawing.Point(566, 319);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(465, 72);
             this.lblUsername.TabIndex = 33;
@@ -987,127 +1000,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1749, 1038);
             this.tabControl1.TabIndex = 106;
-            // 
-            // tbApplicationsStat
-            // 
-            this.tbApplicationsStat.BackColor = System.Drawing.Color.Black;
-            this.tbApplicationsStat.Controls.Add(this.groupBox2);
-            this.tbApplicationsStat.Controls.Add(this.panel10);
-            this.tbApplicationsStat.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbApplicationsStat.Location = new System.Drawing.Point(10, 48);
-            this.tbApplicationsStat.Name = "tbApplicationsStat";
-            this.tbApplicationsStat.Padding = new System.Windows.Forms.Padding(3);
-            this.tbApplicationsStat.Size = new System.Drawing.Size(1729, 980);
-            this.tbApplicationsStat.TabIndex = 0;
-            this.tbApplicationsStat.Text = "Applications";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.cApplications);
-            this.groupBox2.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.groupBox2.Location = new System.Drawing.Point(44, 34);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(980, 882);
-            this.groupBox2.TabIndex = 93;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Applications statistics";
-            // 
-            // cApplications
-            // 
-            chartArea4.Name = "ChartArea1";
-            this.cApplications.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.cApplications.Legends.Add(legend4);
-            this.cApplications.Location = new System.Drawing.Point(24, 48);
-            this.cApplications.Name = "cApplications";
-            series4.ChartArea = "ChartArea1";
-            series4.Color = System.Drawing.Color.DodgerBlue;
-            series4.Legend = "Legend1";
-            series4.Name = "Application Types";
-            this.cApplications.Series.Add(series4);
-            this.cApplications.Size = new System.Drawing.Size(930, 814);
-            this.cApplications.TabIndex = 0;
-            this.cApplications.Text = "cApplications";
-            // 
-            // panel10
-            // 
-            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel10.Controls.Add(this.pictureBox17);
-            this.panel10.Controls.Add(this.label24);
-            this.panel10.Controls.Add(this.comboBox5);
-            this.panel10.Controls.Add(this.label25);
-            this.panel10.Controls.Add(this.pictureBox12);
-            this.panel10.Controls.Add(this.label26);
-            this.panel10.Location = new System.Drawing.Point(1108, 327);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(557, 329);
-            this.panel10.TabIndex = 40;
-            // 
-            // pictureBox17
-            // 
-            this.pictureBox17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox17.Image = global::PresentationLayer.Properties.Resources.filter;
-            this.pictureBox17.Location = new System.Drawing.Point(155, 250);
-            this.pictureBox17.Name = "pictureBox17";
-            this.pictureBox17.Size = new System.Drawing.Size(53, 48);
-            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox17.TabIndex = 41;
-            this.pictureBox17.TabStop = false;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label24.Location = new System.Drawing.Point(22, 255);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(126, 32);
-            this.label24.TabIndex = 34;
-            this.label24.Text = "During:";
-            this.label24.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(226, 252);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(308, 39);
-            this.comboBox5.TabIndex = 33;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
-            this.label25.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.label25.Location = new System.Drawing.Point(174, 178);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(186, 39);
-            this.label25.TabIndex = 32;
-            this.label25.Text = "Unknown";
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox12.Image = global::PresentationLayer.Properties.Resources.approval1;
-            this.pictureBox12.Location = new System.Drawing.Point(211, 86);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(123, 74);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox12.TabIndex = 29;
-            this.pictureBox12.TabStop = false;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Georgia", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label26.Location = new System.Drawing.Point(56, 20);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(425, 39);
-            this.label26.TabIndex = 28;
-            this.label26.Text = "Applications submitted";
-            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabPage2
             // 
@@ -1241,16 +1133,142 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox10
+            // panel10
             // 
-            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox10.Image = global::PresentationLayer.Properties.Resources.filter;
-            this.pictureBox10.Location = new System.Drawing.Point(17, 328);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(49, 39);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox10.TabIndex = 41;
-            this.pictureBox10.TabStop = false;
+            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel10.Controls.Add(this.lblAppsInPeriod);
+            this.panel10.Controls.Add(this.pictureBox12);
+            this.panel10.Controls.Add(this.label26);
+            this.panel10.Location = new System.Drawing.Point(1096, 61);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(557, 251);
+            this.panel10.TabIndex = 40;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Georgia", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label26.Location = new System.Drawing.Point(24, 20);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(510, 39);
+            this.label26.TabIndex = 28;
+            this.label26.Text = "total applications submitted";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox12.Image = global::PresentationLayer.Properties.Resources.approval1;
+            this.pictureBox12.Location = new System.Drawing.Point(211, 86);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(123, 74);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox12.TabIndex = 29;
+            this.pictureBox12.TabStop = false;
+            // 
+            // lblAppsInPeriod
+            // 
+            this.lblAppsInPeriod.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
+            this.lblAppsInPeriod.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.lblAppsInPeriod.Location = new System.Drawing.Point(91, 178);
+            this.lblAppsInPeriod.Name = "lblAppsInPeriod";
+            this.lblAppsInPeriod.Size = new System.Drawing.Size(364, 39);
+            this.lblAppsInPeriod.TabIndex = 32;
+            this.lblAppsInPeriod.Text = "Unknown";
+            this.lblAppsInPeriod.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.cApplications);
+            this.groupBox2.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.groupBox2.Location = new System.Drawing.Point(44, 34);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(980, 882);
+            this.groupBox2.TabIndex = 93;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Applications statistics";
+            // 
+            // cApplications
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.cApplications.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.cApplications.Legends.Add(legend4);
+            this.cApplications.Location = new System.Drawing.Point(24, 48);
+            this.cApplications.Name = "cApplications";
+            series4.ChartArea = "ChartArea1";
+            series4.Color = System.Drawing.Color.DodgerBlue;
+            series4.Legend = "Legend1";
+            series4.Name = "Application Types";
+            this.cApplications.Series.Add(series4);
+            this.cApplications.Size = new System.Drawing.Size(930, 814);
+            this.cApplications.TabIndex = 0;
+            this.cApplications.Text = "cApplications";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.pictureBox17);
+            this.groupBox4.Controls.Add(this.cbAppPeriod);
+            this.groupBox4.Controls.Add(this.label24);
+            this.groupBox4.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.groupBox4.Location = new System.Drawing.Point(1087, 728);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(571, 168);
+            this.groupBox4.TabIndex = 101;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Filter";
+            // 
+            // cbAppPeriod
+            // 
+            this.cbAppPeriod.FormattingEnabled = true;
+            this.cbAppPeriod.Location = new System.Drawing.Point(229, 73);
+            this.cbAppPeriod.Name = "cbAppPeriod";
+            this.cbAppPeriod.Size = new System.Drawing.Size(316, 39);
+            this.cbAppPeriod.TabIndex = 102;
+            this.cbAppPeriod.SelectedIndexChanged += new System.EventHandler(this.cbAppPeriod_SelectedIndexChanged_1);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label24.Location = new System.Drawing.Point(34, 73);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(126, 32);
+            this.label24.TabIndex = 103;
+            this.label24.Text = "During:";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label24.Click += new System.EventHandler(this.label24_Click);
+            // 
+            // pictureBox17
+            // 
+            this.pictureBox17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox17.Image = global::PresentationLayer.Properties.Resources.filter;
+            this.pictureBox17.Location = new System.Drawing.Point(167, 68);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(45, 48);
+            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox17.TabIndex = 104;
+            this.pictureBox17.TabStop = false;
+            this.pictureBox17.Click += new System.EventHandler(this.pictureBox17_Click);
+            // 
+            // tbApplicationsStat
+            // 
+            this.tbApplicationsStat.BackColor = System.Drawing.Color.Black;
+            this.tbApplicationsStat.Controls.Add(this.groupBox4);
+            this.tbApplicationsStat.Controls.Add(this.groupBox2);
+            this.tbApplicationsStat.Controls.Add(this.panel10);
+            this.tbApplicationsStat.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbApplicationsStat.Location = new System.Drawing.Point(10, 48);
+            this.tbApplicationsStat.Name = "tbApplicationsStat";
+            this.tbApplicationsStat.Padding = new System.Windows.Forms.Padding(3);
+            this.tbApplicationsStat.Size = new System.Drawing.Size(1729, 980);
+            this.tbApplicationsStat.TabIndex = 0;
+            this.tbApplicationsStat.Text = "Applications";
+            this.tbApplicationsStat.Click += new System.EventHandler(this.tbApplicationsStat_Click);
             // 
             // FrmDashboard
             // 
@@ -1301,23 +1319,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            this.tbApplicationsStat.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cApplications)).EndInit();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cApplications)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
+            this.tbApplicationsStat.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1401,7 +1421,6 @@
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tbApplicationsStat;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button3;
@@ -1410,19 +1429,21 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.PictureBox pictureBox16;
+        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.TabPage tbApplicationsStat;
         private System.Windows.Forms.PictureBox pictureBox17;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.ComboBox cbAppPeriod;
+        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataVisualization.Charting.Chart cApplications;
-        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label lblAppsInPeriod;
+        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.Label label26;
     }
 }
 

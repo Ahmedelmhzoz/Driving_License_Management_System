@@ -8,6 +8,7 @@ using PresentationLayer.Manage_types;
 using PresentationLayer.Properties;
 using PresentationLayer.Renew_license;
 using PresentationLayer.Replacement_app;
+using System.Windows.Forms.DataVisualization.Charting;
 using PresentationLayer.Users;
 using Shared;
 using System;
@@ -21,9 +22,10 @@ namespace PresentationLayer {
         void _UnexpectedError() {
             Helpers.ShowErrorMessage("Unexpected error has happened");
         }
-        void _FillLoadCbLics() {
+        void _FillEnumComboBoxes() {
             cbLocalLicStatus.DataSource = Enum.GetValues(typeof(enLocalLicenseStatus));
             cbIntLicStatus.DataSource = Enum.GetValues(typeof(enInternationalLicenseStatus));
+            cbAppPeriod.DataSource = Enum.GetValues(typeof(enPeriod));
         }
         void _ViewApplicationTypeImage(enApplicationType applicationType) {
             switch (applicationType) {
@@ -151,6 +153,28 @@ namespace PresentationLayer {
                 _UnexpectedError();
             }
         }
+        void _RefreshAppInPeriod() {
+            try {
+                lblAppsInPeriod.Text =
+                    Dashboard.getApplicationsInPeriod((enPeriod)cbAppPeriod.SelectedItem).ToString();
+            }
+            catch {
+                _UnexpectedError();
+            }
+        }
+        void _RefrechAppStatistics() {
+            try {
+                Series series = cApplications.Series["Application Types"];
+                series.Points.Clear();
+                List<KeyValuePair<enApplicationType, int>> records = Dashboard.getAppsPerTypeInPeriod((enPeriod)cbAppPeriod.SelectedItem);
+                foreach (KeyValuePair<enApplicationType, int> record in records) {
+                    series.Points.AddXY(Utilities.GetApplicationTypeName(record.Key), record.Value);
+                }
+            }
+            catch {
+                _UnexpectedError();
+            }
+        }
 
         void _Refresh() {
             try {
@@ -163,16 +187,17 @@ namespace PresentationLayer {
                 _RefreshLocalLicesesCard();
                 _RefreshInternationalLicesesCard();
                 _RefreshLicensesPerViclCard();
+                _RefreshAppInPeriod();
+                _RefrechAppStatistics();
             }
             catch {
                 _UnexpectedError();
             }
         }
 
-       
         private void FrmMainForm_Load(object sender, EventArgs e) {
              lblUsername.Text = ImportantSessionData.user.Username;
-            _FillLoadCbLics();
+            _FillEnumComboBoxes();
              _FillCbApplicationsPerType();
             _fillVehicleTypesComboBox();
             _Refresh();
@@ -188,6 +213,10 @@ namespace PresentationLayer {
         }
         private void cbVehicleType_SelectedIndexChanged(object sender, EventArgs e) {
             _RefreshLicensesPerViclCard();
+        }
+        private void cbAppPeriod_SelectedIndexChanged_1(object sender, EventArgs e) {
+            _RefreshAppInPeriod();
+            _RefrechAppStatistics();
         }
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e) {
             FrmPeople frm = new FrmPeople();
@@ -288,6 +317,20 @@ namespace PresentationLayer {
             FrmDetainManagement frm = new FrmDetainManagement();
             frm.ShowDialog();
             _Refresh();
+        }
+
+ 
+
+        private void tbApplicationsStat_Click(object sender, EventArgs e) {
+
+        }
+
+        private void label24_Click(object sender, EventArgs e) {
+
+        }
+
+        private void pictureBox17_Click(object sender, EventArgs e) {
+
         }
     }
 }

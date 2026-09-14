@@ -19,7 +19,7 @@ namespace BusinessLayer.Dashboard {
             return clsDriverData.getDriversNumber();
         }
         public static int getApplicationsForType(enApplicationType applicationType) {
-            return ApplicationsData.getApplicationsNumForType(applicationType);
+            return ApplicationsData.getApplicationsNumByType(applicationType);
         }
         public static int getLocalLicensesByStatus(enLocalLicenseStatus status) {
             return LocalLicensesData.getLicensesNumByStatus(status);
@@ -36,5 +36,12 @@ namespace BusinessLayer.Dashboard {
         public static int getDetainedLicenses() {
             return DetainedLicensesData.getDetainedLicensesNum();
         }
+        public static int getApplicationsInPeriod(enPeriod period) {
+            return ApplicationsData.getApplicationsNumInPeriod(period);
+        }
+        public static List<KeyValuePair<enApplicationType, int>> getAppsPerTypeInPeriod(enPeriod period)  {
+            return ApplicationsData.getAppsPerTypeInPeriod(period);
+        }
+
     } 
 }

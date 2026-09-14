@@ -1,12 +1,9 @@
-﻿using System;
+﻿using  Shared;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using  Shared;
-
+using Shared;
 namespace DataLinkLayer.License_Application_data {
    
 
@@ -235,7 +232,7 @@ namespace DataLinkLayer.License_Application_data {
                 return Convert.ToInt32(result);
             }
         }
-        public static int getApplicationsNumForType(enApplicationType appType) {
+        public static int getApplicationsNumByType(enApplicationType appType) {
             using (SqlConnection conn = new SqlConnection(connectionString)) {
                 string query = "SELECT COUNT(A.ApplicationID) AS PeopleNumber FROM Applications A\r\nWHERE A.ApplicationTypeID = @ApplicationType;";
                 using (SqlCommand cmd = new SqlCommand(query, conn)) {
@@ -243,6 +240,50 @@ namespace DataLinkLayer.License_Application_data {
                     conn.Open();
                     return Convert.ToInt32(cmd.ExecuteScalar());
                 }
+            }
+        }
+       
+        public static int getApplicationsNumInPeriod(enPeriod period) {
+            using (SqlConnection conn = new SqlConnection(connectionString)) {
+                string query = "SELECT COUNT(A.ApplicationID) FROM Applications A WHERE A.ApplicationDate >= @StartDate;";
+
+                DateTime? startDate = Utilities.returnStartPoint(period);
+                if (!startDate.HasValue) {
+                    query = "SELECT COUNT(A.ApplicationID) FROM Applications A";
+                }
+
+                using (SqlCommand cmd = new SqlCommand(query, conn)) {
+                    if (startDate.HasValue) cmd.Parameters.AddWithValue("@StartDate", startDate.Value);
+
+                    conn.Open();
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+        }
+        public static List<KeyValuePair<enApplicationType, int>> getAppsPerTypeInPeriod(enPeriod period) {
+            List <KeyValuePair<enApplicationType, int>> result = new List<KeyValuePair<enApplicationType, int>>();
+            using (SqlConnection conn = new SqlConnection(connectionString)) {
+                string query = @"select AT.ApplicationTypeID, COUNT(A.ApplicationID) AS AppsNumber FROM ApplicationTypes AT 
+                                left join Applications A ON AT.ApplicationTypeID = A.ApplicationTypeID AND  
+                                (@StartDate IS NULL OR A.ApplicationDate >= @StartDate) 
+                                GROUP BY AT.ApplicationTypeID;";
+                DateTime? startDate = Utilities.returnStartPoint(period);
+      
+
+                using (SqlCommand cmd = new SqlCommand(query, conn)) {
+                    cmd.Parameters.AddWithValue("@StartDate", startDate);
+
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader()) {
+                        while (reader.Read()) {
+                            KeyValuePair<enApplicationType, int> record = new KeyValuePair<enApplicationType, int>(
+                                (enApplicationType)reader["ApplicationTypeID"],
+                                (int)reader["AppsNumber"]);
+                            result.Add(record);
+                        }
+                    }
+                }
+                return result;
             }
         }
     }

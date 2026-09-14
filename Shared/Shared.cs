@@ -170,6 +170,13 @@ namespace Shared
         SmallMediumBus = 6,
         TruckHeavyVehicle = 7
     }
+    public enum enPeriod { 
+        Day,
+        Week,
+        Month,
+        Year,
+        Lifetime
+    }
     public static class Utilities {
 
         public static int convertTestTypeToID(enTestType testType) {
@@ -186,6 +193,42 @@ namespace Shared
                 case enTestType.enWritten: return "Written Test";
                 case enTestType.enStreet: return "Street Test";
                 default: return "Vision Test";
+            }
+        }
+        public static DateTime? returnStartPoint(enPeriod period) {
+            switch (period) {
+                case enPeriod.Day: return DateTime.Today;
+                case enPeriod.Week: return DateTime.Today.AddDays(-6);
+                case enPeriod.Month: return new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+                case enPeriod.Year: return new DateTime(DateTime.Today.Year, 1, 1);
+                default: return null;
+            }
+        }
+        public static string GetApplicationTypeName(enApplicationType applicationType) {
+            switch (applicationType) {
+                case enApplicationType.NewLocalDrivingLicense:
+                    return "New Local License";
+
+                case enApplicationType.RenewDrivingLicense:
+                    return "Renew License";
+
+                case enApplicationType.ReplaceLostDrivingLicense:
+                    return "Replace Lost License";
+
+                case enApplicationType.ReplaceDamagedDrivingLicense:
+                    return "Replace Damaged License";
+
+                case enApplicationType.ReleaseDetainedDrivingLicense:
+                    return "Release Detained License";
+
+                case enApplicationType.NewInternationalLicense:
+                    return "New International License";
+
+                case enApplicationType.RetakeTest:
+                    return "Retake Test";
+
+                default:
+                    return "Unknown";
             }
         }
 
