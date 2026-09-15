@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Shared
@@ -179,14 +180,14 @@ namespace Shared
         Lifetime
     }
     public class AppointmentsStatistics {
-        public List<KeyValuePair<enTestType, int>> takenTestsPerType; 
-        public List<KeyValuePair<enTestType, int>> todayAppointmentsPerType; 
-        public List<KeyValuePair<enTestType, (double passRate, double failRate)>> PassFailTestRatesPerType; // BLL
+        public Dictionary<enTestType, int> takenTestsPerType; 
+        public Dictionary<enTestType, int> todayAppointmentsPerType; 
+        public Dictionary<enTestType, (double passRate, double failRate)> PassFailTestRatesPerType; // BLL
         public int totalPassedTests { get; set; }
         public AppointmentsStatistics() {
-            takenTestsPerType = new List<KeyValuePair<enTestType, int>>();
-            todayAppointmentsPerType = new List<KeyValuePair<enTestType, int>>();
-            PassFailTestRatesPerType = new List<KeyValuePair<enTestType, (double passRate, double failRate)>>();
+            takenTestsPerType = new Dictionary<enTestType, int>();
+            todayAppointmentsPerType = new Dictionary<enTestType, int>();
+            PassFailTestRatesPerType = new Dictionary<enTestType, (double passRate, double failRate)>();
         }
     }
     public static class Utilities {

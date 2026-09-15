@@ -264,17 +264,17 @@ namespace PresentationLayer {
         void _RefreshAppintmentsStat() {
             try {
                 AppointmentsStatistics appointmentsStatistics = Dashboard.getAppointmenrsStatistics();
-                lblTakenVision.Text = appointmentsStatistics.takenTestsPerType.First(X => X.Key == enTestType.Vision).Value.ToString();
-                lblTakenTheoretical.Text = appointmentsStatistics.takenTestsPerType.First(X => X.Key == enTestType.Theoretical).Value.ToString();
-                lblTakenStreet.Text = appointmentsStatistics.takenTestsPerType.First(X => X.Key == enTestType.Street).Value.ToString();
+                lblTakenVision.Text = appointmentsStatistics.takenTestsPerType[enTestType.Vision].ToString();
+                lblTakenTheoretical.Text = appointmentsStatistics.takenTestsPerType[enTestType.Theoretical].ToString();
+                lblTakenStreet.Text = appointmentsStatistics.takenTestsPerType[enTestType.Street].ToString();
 
                 foreach (KeyValuePair<enTestType, (double passRate, double failRate)> record in appointmentsStatistics.PassFailTestRatesPerType) {
                     _SetPercentageInTestCharts(record.Key, record.Value.passRate, record.Value.failRate);
                 }
 
-                lblTodayVision.Text = appointmentsStatistics.todayAppointmentsPerType.First(X => X.Key == enTestType.Vision).Value.ToString();
-                lblTodayTheoretical.Text = appointmentsStatistics.todayAppointmentsPerType.First(X => X.Key == enTestType.Theoretical).Value.ToString();
-                lblTodayStreet.Text = appointmentsStatistics.todayAppointmentsPerType.First(X => X.Key == enTestType.Street).Value.ToString();
+                lblTodayVision.Text = appointmentsStatistics.todayAppointmentsPerType[enTestType.Vision].ToString();
+                lblTodayTheoretical.Text = appointmentsStatistics.todayAppointmentsPerType[enTestType.Theoretical].ToString();
+                lblTodayStreet.Text = appointmentsStatistics.todayAppointmentsPerType[enTestType.Street].ToString();
             }
             catch {
                 _UnexpectedError();
