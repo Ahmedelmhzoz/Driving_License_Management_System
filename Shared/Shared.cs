@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 
 namespace Shared
 {
@@ -145,7 +146,7 @@ namespace Shared
     }
     public enum enApplicationStatus { enNew = 1, enCanceled = 2, enCompleted = 3 }
     public enum enAppMode { addApp = 0, updateApp = 1 }
-    public enum enTestType { enVision = 1, enWritten = 2, enStreet = 3}
+    public enum enTestType { Vision = 1, Theoretical = 2, Street = 3}
     public enum enIssueReason {
         enFirstTime = 1,
         enRenew = 2,
@@ -177,21 +178,32 @@ namespace Shared
         Year,
         Lifetime
     }
+    public class AppointmentsStatistics {
+        public List<KeyValuePair<enTestType, int>> takenTestsPerType; 
+        public List<KeyValuePair<enTestType, int>> todayAppointmentsPerType; 
+        public List<KeyValuePair<enTestType, (double passRate, double failRate)>> PassFailTestRatesPerType; // BLL
+        public int totalPassedTests { get; set; }
+        public AppointmentsStatistics() {
+            takenTestsPerType = new List<KeyValuePair<enTestType, int>>();
+            todayAppointmentsPerType = new List<KeyValuePair<enTestType, int>>();
+            PassFailTestRatesPerType = new List<KeyValuePair<enTestType, (double passRate, double failRate)>>();
+        }
+    }
     public static class Utilities {
 
         public static int convertTestTypeToID(enTestType testType) {
             switch (testType) {
-                case enTestType.enVision: return 1;
-                case enTestType.enWritten: return 2;
-                case enTestType.enStreet: return 3;
+                case enTestType.Vision: return 1;
+                case enTestType.Theoretical: return 2;
+                case enTestType.Street: return 3;
                 default: return 1;
             }
         }
         public static string convertTestTypeToString(enTestType testType) {
             switch (testType) {
-                case enTestType.enVision: return "Vision Test";
-                case enTestType.enWritten: return "Written Test";
-                case enTestType.enStreet: return "Street Test";
+                case enTestType.Vision: return "Vision Test";
+                case enTestType.Theoretical: return "Written Test";
+                case enTestType.Street: return "Street Test";
                 default: return "Vision Test";
             }
         }

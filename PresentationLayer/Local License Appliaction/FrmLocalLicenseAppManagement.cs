@@ -173,15 +173,15 @@ namespace PresentationLayer.Local_DL_Appliaction {
             }
         }
         private void visionTestToolStripMenuItem_Click(object sender, EventArgs e) {
-            _ShowScheduledTestsForm(enTestType.enVision);
+            _ShowScheduledTestsForm(enTestType.Vision);
         }
 
         private void writtenTestToolStripMenuItem_Click(object sender, EventArgs e) {
-            _ShowScheduledTestsForm(enTestType.enWritten);
+            _ShowScheduledTestsForm(enTestType.Theoretical);
         }
 
         private void streetTestToolStripMenuItem_Click(object sender, EventArgs e) {
-            _ShowScheduledTestsForm(enTestType.enStreet);
+            _ShowScheduledTestsForm(enTestType.Street);
         }
 
         private void tmsiIssueLicense_Click(object sender, EventArgs e) {

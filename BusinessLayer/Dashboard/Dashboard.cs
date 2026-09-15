@@ -51,5 +51,8 @@ namespace BusinessLayer.Dashboard {
         public static List<KeyValuePair<enLicenseClass, int>> getLicensesPerVehicleDistribution() {
             return LocalLicensesData.getLicensesPerVehicles();
         }
+        public static AppointmentsStatistics getAppointmenrsStatistics() {
+            return TestAppointmentsData.getAppintmentsStatistics();
+        }
     } 
 }

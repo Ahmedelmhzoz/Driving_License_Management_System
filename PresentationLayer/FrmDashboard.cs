@@ -177,7 +177,7 @@ namespace PresentationLayer {
                 _UnexpectedError();
             }
         }
-        void _RefreshLicensesStatistics() {
+        void _RefreshLicensesStat() {
             try {
                 // Local licnese chart
                 Series series = cLocalLicensseStatus.Series["Local license status"];
@@ -185,7 +185,6 @@ namespace PresentationLayer {
 
                 List<KeyValuePair<string, int>> records = Dashboard.getLocalLicenseStatusDistribution();
                 double total = records.Sum(x => x.Value);
-
 
                 foreach (KeyValuePair<string, int> record in records) {
                     series.Points.AddY(record.Value);
@@ -200,7 +199,6 @@ namespace PresentationLayer {
 
                     double percentage = (record.Value / total);
                     point.LegendText = $"{record.Key} {percentage:P1}";
-
                 }
 
                 // International license chart
@@ -245,6 +243,44 @@ namespace PresentationLayer {
             }
         }
 
+        void _SetPercentageInTestCharts(enTestType testType, double passRate, double failRate) {
+            Series series = null;
+            switch(testType) {
+                case enTestType.Vision: series = cVision.Series["Vision pass rate"]; break;
+                case enTestType.Theoretical: series = cTheoretical.Series["Theoretical pass rate"]; break;
+                case enTestType.Street: series = cStreet.Series["Street pass rate"]; break;
+            }
+            series.Points.AddY(passRate);
+            int idx = series.Points.Count - 1;
+            DataPoint point = series.Points[idx];
+            point.LegendText = $"Pass {passRate:P1}";
+            point.Color = Color.SpringGreen;
+
+            series.Points.AddY(failRate);
+            point = series.Points[idx + 1];
+            point.LegendText = $"Fail {failRate:P1}";
+            point.Color = Color.Red;
+        }
+        void _RefreshAppintmentsStat() {
+            try {
+                AppointmentsStatistics appointmentsStatistics = Dashboard.getAppointmenrsStatistics();
+                lblTakenVision.Text = appointmentsStatistics.takenTestsPerType.First(X => X.Key == enTestType.Vision).Value.ToString();
+                lblTakenTheoretical.Text = appointmentsStatistics.takenTestsPerType.First(X => X.Key == enTestType.Theoretical).Value.ToString();
+                lblTakenStreet.Text = appointmentsStatistics.takenTestsPerType.First(X => X.Key == enTestType.Street).Value.ToString();
+
+                foreach (KeyValuePair<enTestType, (double passRate, double failRate)> record in appointmentsStatistics.PassFailTestRatesPerType) {
+                    _SetPercentageInTestCharts(record.Key, record.Value.passRate, record.Value.failRate);
+                }
+
+                lblTodayVision.Text = appointmentsStatistics.todayAppointmentsPerType.First(X => X.Key == enTestType.Vision).Value.ToString();
+                lblTodayTheoretical.Text = appointmentsStatistics.todayAppointmentsPerType.First(X => X.Key == enTestType.Theoretical).Value.ToString();
+                lblTodayStreet.Text = appointmentsStatistics.todayAppointmentsPerType.First(X => X.Key == enTestType.Street).Value.ToString();
+            }
+            catch {
+                _UnexpectedError();
+            }
+        }
+
         void _Refresh() {
             try {
                 lblPeople.Text = Dashboard.getPeopleNumber().ToString();
@@ -258,7 +294,8 @@ namespace PresentationLayer {
                 _RefreshLicensesPerViclCard();
                 _RefreshAppInPeriod();
                 _RefreshAppStatistics();
-                _RefreshLicensesStatistics();
+                _RefreshLicensesStat();
+                _RefreshAppintmentsStat();
             }
             catch {
                 _UnexpectedError();
@@ -404,9 +441,21 @@ namespace PresentationLayer {
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e) {
-            if (tcStatistics.SelectedTab == Licenses) {
-                _RefreshLicensesStatistics();
+            if (tcStatistics.SelectedTab == tbLicenses) {
+                _RefreshLicensesStat();
             }
+        }
+
+        private void groupBox5_Enter(object sender, EventArgs e) {
+
+        }
+
+        private void groupBox7_Enter(object sender, EventArgs e) {
+
+        }
+
+        private void panel15_Paint(object sender, PaintEventArgs e) {
+
         }
     }
 }

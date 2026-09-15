@@ -9,16 +9,16 @@ using System.Drawing;
 namespace PresentationLayer.Local_DL_Appliaction {
     public partial class FrmAppointments : Form {
         LocalLicenseApp licenseApp = null;
-        enTestType testType = enTestType.enVision;
+        enTestType testType = enTestType.Vision;
         public FrmAppointments(LocalLicenseApp licenseApp, enTestType testType) {
             InitializeComponent();
             this.licenseApp = licenseApp;
             this.testType = testType;
         }
         void _setTestImageAndLable() {
-            if (testType == enTestType.enVision) 
+            if (testType == enTestType.Vision) 
                 pbTestType.Image = Resources.vision;
-            else if (testType == enTestType.enWritten) 
+            else if (testType == enTestType.Theoretical) 
                 pbTestType.Image = Resources.writtenTest;
             else 
                 pbTestType.Image = Resources.streets;

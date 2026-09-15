@@ -1,5 +1,6 @@
 ﻿using Shared;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -187,6 +188,59 @@ namespace DataLinkLayer {
                     conn.Open();
                     return Convert.ToInt32(cmd.ExecuteScalar());
                 }
+            }
+        }
+
+        public static AppointmentsStatistics getAppintmentsStatistics() {
+            AppointmentsStatistics appointmentsStatistics = new AppointmentsStatistics();
+
+            using (SqlConnection conn = new SqlConnection(connectionString)) {
+                string query = @"SELECT TA.TestTypeID, COUNT(TA.TestAppointmentID) AS TestsNumber FROM TestAppointments TA WHERE TA.IsLocked = 1
+                                GROUP BY TA.TestTypeID";
+                SqlCommand cmd;
+                using (cmd = new SqlCommand(query, conn)) {
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader()) { 
+                        while (reader.Read()) {
+                            KeyValuePair<enTestType, int> record = new KeyValuePair<enTestType, int>(
+                                (enTestType)reader["TestTypeID"],
+                                (int)reader["TestsNumber"]);
+                            appointmentsStatistics.takenTestsPerType.Add(record);
+                        }
+                    }
+                }
+
+                query = @"SELECT TA.TestTypeID, COALESCE(CAST(SUM(CASE WHEN T.TestResult = 1 THEN 1 ELSE 0 END) AS Float) / NULLIF(COUNT(*), 0), 0) AS PassRate
+                        FROM TestAppointments TA INNER JOIN Tests T ON TA.TestAppointmentID = T.TestAppointmentID 
+                        WHERE TA.IsLocked = 1 
+                        GROUP By TA.TestTypeID";
+
+                using (cmd = new SqlCommand(query, conn)) {
+                    using (SqlDataReader reader = cmd.ExecuteReader()) {
+                        while (reader.Read()) {
+                            KeyValuePair<enTestType, (double, double)> passRatePerTestType = new KeyValuePair<enTestType, (double, double)>(
+                                (enTestType)reader["TestTypeID"],
+                                ((double)reader["PassRate"], 1 - (double)reader["PassRate"]));
+                            appointmentsStatistics.PassFailTestRatesPerType.Add(passRatePerTestType);
+                        }
+                    }
+                }
+
+                query = @"SELECT TT.TestTypeID, COUNT(TA.TestAppointmentID) AS TodayTests FROM TestTypes TT LEFT JOIN TestAppointments TA  
+                        ON TT.TestTypeID = TA.TestTypeID AND TA.IsLocked = 0 AND TA.AppointmentDate >= CAST(GETDATE() AS DATE) 
+                        GROUP BY TT.TestTypeID"; 
+                using (cmd = new SqlCommand(query, conn)) {
+                    using (SqlDataReader reader = cmd.ExecuteReader()) {
+                        while (reader.Read()) {
+                            KeyValuePair<enTestType, int> record = new KeyValuePair<enTestType, int>(
+                                (enTestType)reader["TestTypeID"],
+                                (int)reader["TodayTests"]);
+                            appointmentsStatistics.todayAppointmentsPerType.Add(record);
+                        }
+                    }
+                }
+
+                return appointmentsStatistics;
             }
         }
     }
