@@ -42,6 +42,14 @@ namespace BusinessLayer.Dashboard {
         public static List<KeyValuePair<enApplicationType, int>> getAppsPerTypeInPeriod(enPeriod period)  {
             return ApplicationsData.getAppsPerTypeInPeriod(period);
         }
-
+        public static List<KeyValuePair<string, int>> getLocalLicenseStatusDistribution() {
+            return LocalLicensesData.getLicensesPerStatus();
+        }
+        public static List<KeyValuePair<string, int>> getIntLicenseStatusDistribution() {
+            return InternationalLicenseData.getLicensesPerStatus();
+        }
+        public static List<KeyValuePair<enLicenseClass, int>> getLicensesPerVehicleDistribution() {
+            return LocalLicensesData.getLicensesPerVehicles();
+        }
     } 
 }

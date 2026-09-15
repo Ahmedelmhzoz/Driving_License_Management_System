@@ -271,7 +271,7 @@ namespace DataLinkLayer.License_Application_data {
       
 
                 using (SqlCommand cmd = new SqlCommand(query, conn)) {
-                    cmd.Parameters.AddWithValue("@StartDate", startDate);
+                    cmd.Parameters.AddWithValue("@StartDate", startDate == null ? DBNull.Value : (object)startDate.Value);
 
                     conn.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader()) {

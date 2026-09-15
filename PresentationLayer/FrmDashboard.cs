@@ -14,6 +14,8 @@ using Shared;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Drawing;
+using System.Linq;
 namespace PresentationLayer {
     public partial class FrmDashboard : Form {
         public FrmDashboard() {
@@ -162,13 +164,80 @@ namespace PresentationLayer {
                 _UnexpectedError();
             }
         }
-        void _RefrechAppStatistics() {
+        void _RefreshAppStatistics() {
             try {
                 Series series = cApplications.Series["Application Types"];
                 series.Points.Clear();
                 List<KeyValuePair<enApplicationType, int>> records = Dashboard.getAppsPerTypeInPeriod((enPeriod)cbAppPeriod.SelectedItem);
                 foreach (KeyValuePair<enApplicationType, int> record in records) {
-                    series.Points.AddXY(Utilities.GetApplicationTypeName(record.Key), record.Value);
+                    series.Points.AddXY(Utilities.getApplicationTypeName(record.Key), record.Value);
+                }
+            }
+            catch {
+                _UnexpectedError();
+            }
+        }
+        void _RefreshLicensesStatistics() {
+            try {
+                // Local licnese chart
+                Series series = cLocalLicensseStatus.Series["Local license status"];
+                series.Points.Clear();
+
+                List<KeyValuePair<string, int>> records = Dashboard.getLocalLicenseStatusDistribution();
+                double total = records.Sum(x => x.Value);
+
+
+                foreach (KeyValuePair<string, int> record in records) {
+                    series.Points.AddY(record.Value);
+                    DataPoint point = series.Points[series.Points.Count - 1];
+
+                    if (record.Key == "Active") 
+                        point.Color = Color.SpringGreen;
+                    else if (record.Key == "Suspended")
+                        point.Color = Color.Red;
+                    else
+                        point.Color = Color.Gray;
+
+                    double percentage = (record.Value / total);
+                    point.LegendText = $"{record.Key} {percentage:P1}";
+
+                }
+
+                // International license chart
+                series = cInternationalLicense.Series["International license status"];
+                series.Points.Clear();
+
+                records = Dashboard.getIntLicenseStatusDistribution();
+                total = records.Sum(x => x.Value);
+
+                foreach(KeyValuePair<string, int> record in records) {
+                    series.Points.AddY(record.Value);
+                    DataPoint point = series.Points[series.Points.Count - 1];
+
+                    point.Label = "";
+                    if (record.Key == "Active") 
+                        point.Color = Color.SpringGreen;
+                    else 
+                        point.Color = Color.DimGray;
+
+                    double percentage = (record.Value / total);
+                    point.LegendText = $"{record.Key} {percentage:P1}";
+                }
+
+                // licensed vehicles chart
+                series = cLicenseClasses.Series["License classes"];
+                series.Points.Clear();
+
+                List<KeyValuePair<enLicenseClass, int>> licenseClassesRecords = Dashboard.getLicensesPerVehicleDistribution();
+                total = licenseClassesRecords.Sum(x => x.Value);
+
+                foreach (KeyValuePair<enLicenseClass, int> record in licenseClassesRecords) {
+                    series.Points.AddY(record.Value);
+                    DataPoint point = series.Points[series.Points.Count - 1];
+
+                    double percentage = (record.Value / total);
+                    point.LegendText = $"{Utilities.getLicenseClassName(record.Key)} {percentage:P1}";
+
                 }
             }
             catch {
@@ -188,7 +257,8 @@ namespace PresentationLayer {
                 _RefreshInternationalLicesesCard();
                 _RefreshLicensesPerViclCard();
                 _RefreshAppInPeriod();
-                _RefrechAppStatistics();
+                _RefreshAppStatistics();
+                _RefreshLicensesStatistics();
             }
             catch {
                 _UnexpectedError();
@@ -216,7 +286,7 @@ namespace PresentationLayer {
         }
         private void cbAppPeriod_SelectedIndexChanged_1(object sender, EventArgs e) {
             _RefreshAppInPeriod();
-            _RefrechAppStatistics();
+            _RefreshAppStatistics();
         }
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e) {
             FrmPeople frm = new FrmPeople();
@@ -331,6 +401,12 @@ namespace PresentationLayer {
 
         private void pictureBox17_Click(object sender, EventArgs e) {
 
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e) {
+            if (tcStatistics.SelectedTab == Licenses) {
+                _RefreshLicensesStatistics();
+            }
         }
     }
 }

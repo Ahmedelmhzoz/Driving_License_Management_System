@@ -1,5 +1,6 @@
 ﻿using Shared;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
@@ -270,6 +271,51 @@ namespace DataLinkLayer {
                     conn.Open();
                     return Convert.ToInt32(cmd.ExecuteScalar());
                 }
+            }
+        }
+        public static List<KeyValuePair<string, int>> getLicensesPerStatus() {
+            List<KeyValuePair<string, int>> result = new List<KeyValuePair<string, int>>();
+            using (SqlConnection conn = new SqlConnection(connectionString)) {
+                string query = @"SELECT llv.LicenseStatus,  
+                                COUNT(llv.LicenseID) AS LicensesPerStatus 
+                                FROM Local_Licenses_View llv 
+                                GROUP BY llv.LicenseStatus;";
+
+
+                using (SqlCommand cmd = new SqlCommand(query, conn)) {
+
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader()) {
+                        while (reader.Read()) {
+                            KeyValuePair<string, int> record = new KeyValuePair<string, int>(
+                                reader["LicenseStatus"].ToString(),
+                                (int)reader["LicensesPerStatus"]);
+                            result.Add(record);
+                        }
+                    }
+                }
+                return result;
+            }
+        }
+        public static List<KeyValuePair<enLicenseClass, int>> getLicensesPerVehicles() {
+            List<KeyValuePair<enLicenseClass, int>> result = new List<KeyValuePair<enLicenseClass, int>>();
+            using (SqlConnection conn = new SqlConnection(connectionString)) {
+                string query = @"Select L.LicenseClass, COUNT(L.LicenseID) AS LicensesNumber 
+                                FROM Licenses L GROUP BY l.LicenseClass";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn)) {
+
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader()) {
+                        while (reader.Read()) {
+                            KeyValuePair<enLicenseClass, int> record = new KeyValuePair<enLicenseClass, int>(
+                                (enLicenseClass)reader["LicenseClass"],
+                                (int)reader["LicensesNumber"]);
+                            result.Add(record);
+                        }
+                    }
+                }
+                return result;
             }
         }
     } 

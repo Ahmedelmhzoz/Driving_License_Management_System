@@ -1,5 +1,6 @@
 ﻿using Shared;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;                          
@@ -334,6 +335,28 @@ namespace DataLinkLayer {
                     conn.Open();
                     return Convert.ToInt32(cmd.ExecuteScalar());
                 }
+            }
+        }
+        public static List<KeyValuePair<string, int>> getLicensesPerStatus() {
+            List<KeyValuePair<string, int>> result = new List<KeyValuePair<string, int>>();
+            using (SqlConnection conn = new SqlConnection(connectionString)) {
+                string query = @"SELECT idl.LicenseStatus, COUNT(idl.InternationalLicenseID) AS LicensesPerStatus
+                                FROM Internationl_Driving_Licenses idl 
+                                GROUP BY idl.LicenseStatus"; 
+
+                using (SqlCommand cmd = new SqlCommand(query, conn)) {
+
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader()) {
+                        while (reader.Read()) {
+                            KeyValuePair<string, int> record = new KeyValuePair<string, int>(
+                                reader["LicenseStatus"].ToString(),
+                                (int)reader["LicensesPerStatus"]);
+                            result.Add(record);
+                        }
+                    }
+                }
+                return result;
             }
         }
     }

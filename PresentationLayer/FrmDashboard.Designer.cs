@@ -23,9 +23,18 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.applicationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drivingLicenseServicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,8 +112,23 @@
             this.label14 = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tcStatistics = new System.Windows.Forms.TabControl();
+            this.tbApplicationsStat = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
+            this.cbAppPeriod = new System.Windows.Forms.ComboBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cApplications = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.lblAppsInPeriod = new System.Windows.Forms.Label();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.Licenses = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cLocalLicensseStatus = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -114,17 +138,8 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.label26 = new System.Windows.Forms.Label();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.lblAppsInPeriod = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cApplications = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.cbAppPeriod = new System.Windows.Forms.ComboBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.pictureBox17 = new System.Windows.Forms.PictureBox();
-            this.tbApplicationsStat = new System.Windows.Forms.TabPage();
+            this.cLicenseClasses = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.cInternationalLicense = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.menuStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -149,17 +164,21 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.tabControl1.SuspendLayout();
+            this.tcStatistics.SuspendLayout();
+            this.tbApplicationsStat.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cApplications)).BeginInit();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            this.Licenses.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cLocalLicensseStatus)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cApplications)).BeginInit();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
-            this.tbApplicationsStat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cLicenseClasses)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cInternationalLicense)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -176,7 +195,7 @@
             this.accountSettingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(2834, 68);
+            this.menuStrip1.Size = new System.Drawing.Size(2834, 62);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -960,7 +979,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Georgia", 12.1F, System.Drawing.FontStyle.Bold);
             this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label14.Location = new System.Drawing.Point(45, 329);
+            this.label14.Location = new System.Drawing.Point(45, 322);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(536, 47);
             this.label14.TabIndex = 33;
@@ -971,7 +990,7 @@
             // 
             this.lblUsername.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold);
             this.lblUsername.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblUsername.Location = new System.Drawing.Point(566, 319);
+            this.lblUsername.Location = new System.Drawing.Point(566, 312);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(465, 72);
             this.lblUsername.TabIndex = 33;
@@ -990,26 +1009,226 @@
             this.label23.Text = "Dashboard";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tabControl1
+            // tcStatistics
             // 
-            this.tabControl1.Controls.Add(this.tbApplicationsStat);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(44, 413);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1749, 1038);
-            this.tabControl1.TabIndex = 106;
+            this.tcStatistics.Controls.Add(this.tbApplicationsStat);
+            this.tcStatistics.Controls.Add(this.Licenses);
+            this.tcStatistics.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcStatistics.Location = new System.Drawing.Point(44, 392);
+            this.tcStatistics.Name = "tcStatistics";
+            this.tcStatistics.SelectedIndex = 0;
+            this.tcStatistics.Size = new System.Drawing.Size(1749, 1073);
+            this.tcStatistics.TabIndex = 106;
+            this.tcStatistics.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
-            // tabPage2
+            // tbApplicationsStat
             // 
-            this.tabPage2.Location = new System.Drawing.Point(10, 48);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1729, 980);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tbApplicationsStat.BackColor = System.Drawing.Color.Black;
+            this.tbApplicationsStat.Controls.Add(this.groupBox4);
+            this.tbApplicationsStat.Controls.Add(this.groupBox2);
+            this.tbApplicationsStat.Controls.Add(this.panel10);
+            this.tbApplicationsStat.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbApplicationsStat.Location = new System.Drawing.Point(10, 48);
+            this.tbApplicationsStat.Name = "tbApplicationsStat";
+            this.tbApplicationsStat.Padding = new System.Windows.Forms.Padding(3);
+            this.tbApplicationsStat.Size = new System.Drawing.Size(1729, 1015);
+            this.tbApplicationsStat.TabIndex = 0;
+            this.tbApplicationsStat.Text = "Applications";
+            this.tbApplicationsStat.Click += new System.EventHandler(this.tbApplicationsStat_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.pictureBox17);
+            this.groupBox4.Controls.Add(this.cbAppPeriod);
+            this.groupBox4.Controls.Add(this.label24);
+            this.groupBox4.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.groupBox4.Location = new System.Drawing.Point(1088, 503);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(571, 168);
+            this.groupBox4.TabIndex = 101;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Filter";
+            // 
+            // pictureBox17
+            // 
+            this.pictureBox17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox17.Image = global::PresentationLayer.Properties.Resources.filter;
+            this.pictureBox17.Location = new System.Drawing.Point(167, 68);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(45, 48);
+            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox17.TabIndex = 104;
+            this.pictureBox17.TabStop = false;
+            this.pictureBox17.Click += new System.EventHandler(this.pictureBox17_Click);
+            // 
+            // cbAppPeriod
+            // 
+            this.cbAppPeriod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbAppPeriod.FormattingEnabled = true;
+            this.cbAppPeriod.Location = new System.Drawing.Point(229, 73);
+            this.cbAppPeriod.Name = "cbAppPeriod";
+            this.cbAppPeriod.Size = new System.Drawing.Size(316, 39);
+            this.cbAppPeriod.TabIndex = 102;
+            this.cbAppPeriod.SelectedIndexChanged += new System.EventHandler(this.cbAppPeriod_SelectedIndexChanged_1);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label24.Location = new System.Drawing.Point(34, 73);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(126, 32);
+            this.label24.TabIndex = 103;
+            this.label24.Text = "During:";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label24.Click += new System.EventHandler(this.label24_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.cApplications);
+            this.groupBox2.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.groupBox2.Location = new System.Drawing.Point(44, 34);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(980, 882);
+            this.groupBox2.TabIndex = 93;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Applications statistics";
+            // 
+            // cApplications
+            // 
+            chartArea5.Name = "ChartArea1";
+            this.cApplications.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.cApplications.Legends.Add(legend5);
+            this.cApplications.Location = new System.Drawing.Point(24, 48);
+            this.cApplications.Name = "cApplications";
+            series5.ChartArea = "ChartArea1";
+            series5.Color = System.Drawing.Color.DodgerBlue;
+            series5.Legend = "Legend1";
+            series5.Name = "Application Types";
+            this.cApplications.Series.Add(series5);
+            this.cApplications.Size = new System.Drawing.Size(930, 814);
+            this.cApplications.TabIndex = 0;
+            this.cApplications.Text = "cApplications";
+            // 
+            // panel10
+            // 
+            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel10.Controls.Add(this.lblAppsInPeriod);
+            this.panel10.Controls.Add(this.pictureBox12);
+            this.panel10.Controls.Add(this.label26);
+            this.panel10.Location = new System.Drawing.Point(1096, 212);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(557, 251);
+            this.panel10.TabIndex = 40;
+            // 
+            // lblAppsInPeriod
+            // 
+            this.lblAppsInPeriod.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
+            this.lblAppsInPeriod.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.lblAppsInPeriod.Location = new System.Drawing.Point(91, 178);
+            this.lblAppsInPeriod.Name = "lblAppsInPeriod";
+            this.lblAppsInPeriod.Size = new System.Drawing.Size(364, 39);
+            this.lblAppsInPeriod.TabIndex = 32;
+            this.lblAppsInPeriod.Text = "Unknown";
+            this.lblAppsInPeriod.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox12.Image = global::PresentationLayer.Properties.Resources.approval1;
+            this.pictureBox12.Location = new System.Drawing.Point(211, 86);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(123, 74);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox12.TabIndex = 29;
+            this.pictureBox12.TabStop = false;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Georgia", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label26.Location = new System.Drawing.Point(17, 20);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(519, 39);
+            this.label26.TabIndex = 28;
+            this.label26.Text = "Total applications submitted";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Licenses
+            // 
+            this.Licenses.BackColor = System.Drawing.Color.Black;
+            this.Licenses.Controls.Add(this.cInternationalLicense);
+            this.Licenses.Controls.Add(this.cLicenseClasses);
+            this.Licenses.Controls.Add(this.label6);
+            this.Licenses.Controls.Add(this.label4);
+            this.Licenses.Controls.Add(this.label2);
+            this.Licenses.Controls.Add(this.cLocalLicensseStatus);
+            this.Licenses.ForeColor = System.Drawing.Color.White;
+            this.Licenses.Location = new System.Drawing.Point(10, 48);
+            this.Licenses.Name = "Licenses";
+            this.Licenses.Padding = new System.Windows.Forms.Padding(3);
+            this.Licenses.Size = new System.Drawing.Size(1729, 1015);
+            this.Licenses.TabIndex = 1;
+            this.Licenses.Text = "Licenses";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.Location = new System.Drawing.Point(627, 431);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(442, 35);
+            this.label6.TabIndex = 32;
+            this.label6.Text = "License classes distribution";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.Location = new System.Drawing.Point(1065, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(634, 35);
+            this.label4.TabIndex = 30;
+            this.label4.Text = "International lincese status distribution";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Georgia", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(94, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(509, 35);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Local license status distribution";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cLocalLicensseStatus
+            // 
+            chartArea6.Name = "ChartArea1";
+            this.cLocalLicensseStatus.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.cLocalLicensseStatus.Legends.Add(legend6);
+            this.cLocalLicensseStatus.Location = new System.Drawing.Point(52, 70);
+            this.cLocalLicensseStatus.Name = "cLocalLicensseStatus";
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series6.Color = System.Drawing.Color.DodgerBlue;
+            series6.Legend = "Legend1";
+            series6.Name = "Local license status";
+            this.cLocalLicensseStatus.Series.Add(series6);
+            this.cLocalLicensseStatus.Size = new System.Drawing.Size(614, 342);
+            this.cLocalLicensseStatus.TabIndex = 1;
+            this.cLocalLicensseStatus.Text = "chart1";
             // 
             // groupBox1
             // 
@@ -1133,142 +1352,42 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // panel10
+            // cLicenseClasses
             // 
-            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel10.Controls.Add(this.lblAppsInPeriod);
-            this.panel10.Controls.Add(this.pictureBox12);
-            this.panel10.Controls.Add(this.label26);
-            this.panel10.Location = new System.Drawing.Point(1096, 61);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(557, 251);
-            this.panel10.TabIndex = 40;
+            chartArea7.Name = "ChartArea1";
+            this.cLicenseClasses.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.cLicenseClasses.Legends.Add(legend7);
+            this.cLicenseClasses.Location = new System.Drawing.Point(50, 482);
+            this.cLicenseClasses.Name = "cLicenseClasses";
+            this.cLicenseClasses.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series7.Color = System.Drawing.Color.DodgerBlue;
+            series7.Legend = "Legend1";
+            series7.Name = "License classes";
+            this.cLicenseClasses.Series.Add(series7);
+            this.cLicenseClasses.Size = new System.Drawing.Size(1628, 504);
+            this.cLicenseClasses.TabIndex = 33;
+            this.cLicenseClasses.Text = "chart1";
             // 
-            // label26
+            // cInternationalLicense
             // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Georgia", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label26.Location = new System.Drawing.Point(24, 20);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(510, 39);
-            this.label26.TabIndex = 28;
-            this.label26.Text = "total applications submitted";
-            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox12.Image = global::PresentationLayer.Properties.Resources.approval1;
-            this.pictureBox12.Location = new System.Drawing.Point(211, 86);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(123, 74);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox12.TabIndex = 29;
-            this.pictureBox12.TabStop = false;
-            // 
-            // lblAppsInPeriod
-            // 
-            this.lblAppsInPeriod.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
-            this.lblAppsInPeriod.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblAppsInPeriod.Location = new System.Drawing.Point(91, 178);
-            this.lblAppsInPeriod.Name = "lblAppsInPeriod";
-            this.lblAppsInPeriod.Size = new System.Drawing.Size(364, 39);
-            this.lblAppsInPeriod.TabIndex = 32;
-            this.lblAppsInPeriod.Text = "Unknown";
-            this.lblAppsInPeriod.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.cApplications);
-            this.groupBox2.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.groupBox2.Location = new System.Drawing.Point(44, 34);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(980, 882);
-            this.groupBox2.TabIndex = 93;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Applications statistics";
-            // 
-            // cApplications
-            // 
-            chartArea4.Name = "ChartArea1";
-            this.cApplications.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.cApplications.Legends.Add(legend4);
-            this.cApplications.Location = new System.Drawing.Point(24, 48);
-            this.cApplications.Name = "cApplications";
-            series4.ChartArea = "ChartArea1";
-            series4.Color = System.Drawing.Color.DodgerBlue;
-            series4.Legend = "Legend1";
-            series4.Name = "Application Types";
-            this.cApplications.Series.Add(series4);
-            this.cApplications.Size = new System.Drawing.Size(930, 814);
-            this.cApplications.TabIndex = 0;
-            this.cApplications.Text = "cApplications";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.pictureBox17);
-            this.groupBox4.Controls.Add(this.cbAppPeriod);
-            this.groupBox4.Controls.Add(this.label24);
-            this.groupBox4.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.groupBox4.Location = new System.Drawing.Point(1087, 728);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(571, 168);
-            this.groupBox4.TabIndex = 101;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Filter";
-            // 
-            // cbAppPeriod
-            // 
-            this.cbAppPeriod.FormattingEnabled = true;
-            this.cbAppPeriod.Location = new System.Drawing.Point(229, 73);
-            this.cbAppPeriod.Name = "cbAppPeriod";
-            this.cbAppPeriod.Size = new System.Drawing.Size(316, 39);
-            this.cbAppPeriod.TabIndex = 102;
-            this.cbAppPeriod.SelectedIndexChanged += new System.EventHandler(this.cbAppPeriod_SelectedIndexChanged_1);
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label24.Location = new System.Drawing.Point(34, 73);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(126, 32);
-            this.label24.TabIndex = 103;
-            this.label24.Text = "During:";
-            this.label24.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.label24.Click += new System.EventHandler(this.label24_Click);
-            // 
-            // pictureBox17
-            // 
-            this.pictureBox17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox17.Image = global::PresentationLayer.Properties.Resources.filter;
-            this.pictureBox17.Location = new System.Drawing.Point(167, 68);
-            this.pictureBox17.Name = "pictureBox17";
-            this.pictureBox17.Size = new System.Drawing.Size(45, 48);
-            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox17.TabIndex = 104;
-            this.pictureBox17.TabStop = false;
-            this.pictureBox17.Click += new System.EventHandler(this.pictureBox17_Click);
-            // 
-            // tbApplicationsStat
-            // 
-            this.tbApplicationsStat.BackColor = System.Drawing.Color.Black;
-            this.tbApplicationsStat.Controls.Add(this.groupBox4);
-            this.tbApplicationsStat.Controls.Add(this.groupBox2);
-            this.tbApplicationsStat.Controls.Add(this.panel10);
-            this.tbApplicationsStat.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbApplicationsStat.Location = new System.Drawing.Point(10, 48);
-            this.tbApplicationsStat.Name = "tbApplicationsStat";
-            this.tbApplicationsStat.Padding = new System.Windows.Forms.Padding(3);
-            this.tbApplicationsStat.Size = new System.Drawing.Size(1729, 980);
-            this.tbApplicationsStat.TabIndex = 0;
-            this.tbApplicationsStat.Text = "Applications";
-            this.tbApplicationsStat.Click += new System.EventHandler(this.tbApplicationsStat_Click);
+            chartArea8.Name = "ChartArea1";
+            this.cInternationalLicense.ChartAreas.Add(chartArea8);
+            legend8.Name = "Legend1";
+            this.cInternationalLicense.Legends.Add(legend8);
+            this.cInternationalLicense.Location = new System.Drawing.Point(1086, 71);
+            this.cInternationalLicense.Name = "cInternationalLicense";
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series8.Color = System.Drawing.Color.Firebrick;
+            series8.Legend = "Legend1";
+            series8.Name = "International license status";
+            this.cInternationalLicense.Series.Add(series8);
+            this.cInternationalLicense.Size = new System.Drawing.Size(598, 341);
+            this.cInternationalLicense.TabIndex = 34;
+            this.cInternationalLicense.Text = "chart1";
             // 
             // FrmDashboard
             // 
@@ -1277,7 +1396,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(2834, 1926);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tcStatistics);
             this.Controls.Add(this.pictureBox11);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.lblUsername);
@@ -1325,19 +1444,24 @@
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cApplications)).EndInit();
+            this.tcStatistics.ResumeLayout(false);
+            this.tbApplicationsStat.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
-            this.tbApplicationsStat.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cApplications)).EndInit();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            this.Licenses.ResumeLayout(false);
+            this.Licenses.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cLocalLicensseStatus)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cLicenseClasses)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cInternationalLicense)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1420,8 +1544,8 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabControl tcStatistics;
+        private System.Windows.Forms.TabPage Licenses;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
@@ -1444,6 +1568,12 @@
         private System.Windows.Forms.Label lblAppsInPeriod;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.DataVisualization.Charting.Chart cLocalLicensseStatus;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataVisualization.Charting.Chart cInternationalLicense;
+        private System.Windows.Forms.DataVisualization.Charting.Chart cLicenseClasses;
     }
 }
 

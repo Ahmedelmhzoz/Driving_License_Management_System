@@ -204,7 +204,7 @@ namespace Shared
                 default: return null;
             }
         }
-        public static string GetApplicationTypeName(enApplicationType applicationType) {
+        public static string getApplicationTypeName(enApplicationType applicationType) {
             switch (applicationType) {
                 case enApplicationType.NewLocalDrivingLicense:
                     return "New Local License";
@@ -231,6 +231,32 @@ namespace Shared
                     return "Unknown";
             }
         }
+        public static string getLicenseClassName(enLicenseClass licenseClass) {
+            switch (licenseClass) {
+                case enLicenseClass.SmallMotorcycle:
+                    return "Small Motorcycle";
 
+                case enLicenseClass.HeavyMotorcycle:
+                    return "Heavy Motorcycle";
+
+                case enLicenseClass.Ordinary:
+                    return "Ordinary";
+
+                case enLicenseClass.Commercial:
+                    return "Commercial";
+
+                case enLicenseClass.Agricultural:
+                    return "Agricultural";
+
+                case enLicenseClass.SmallMediumBus:
+                    return "Small & Medium Bus";
+
+                case enLicenseClass.TruckHeavyVehicle:
+                    return "Truck & Heavy Vehicle";
+
+                default:
+                    return "Unknown";
+            }
+        }
     }
 }
