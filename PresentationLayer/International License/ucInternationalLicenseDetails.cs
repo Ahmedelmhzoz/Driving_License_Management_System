@@ -30,12 +30,12 @@ namespace PresentationLayer.International_License {
             InitializeComponent();
         }
         void _changeLblByStatus(InternationalLicense license) {
-            enLicenseStatus status = license.licenseStatus();
-            if (status == enLicenseStatus.Suspended) {
+            enLocalLicenseStatus status = license.licenseStatus();
+            if (status == enLocalLicenseStatus.Suspended) {
                 lblIsActive.Text = "Suspended for damage or lost";
                 lblIsActive.ForeColor = Color.Red;
             }
-            else if (status == enLicenseStatus.Expired) {
+            else if (status == enLocalLicenseStatus.Expired) {
                 lblIsActive.Text = "Expired";
                 lblIsActive.ForeColor = Color.DimGray;
             }

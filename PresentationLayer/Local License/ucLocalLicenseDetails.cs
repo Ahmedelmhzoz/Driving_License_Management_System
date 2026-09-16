@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
 using Global;
+using PresentationLayer.Properties;
 using Shared;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,6 +29,7 @@ namespace PresentationLayer.Local_License {
 
             lblIsDetained.ForeColor = Color.DeepSkyBlue;
             lblIsActive.ForeColor = Color.DeepSkyBlue;
+            pbVehicle.Image = Resources.question;
             ucPersonDetails.returnToDefault();
         }
         public ucLocalLicenseDetails() {
@@ -47,11 +50,11 @@ namespace PresentationLayer.Local_License {
             }
         }
         void _changeLblByStatus(LocalLicense license) {
-            enLicenseStatus status = license.getLicenseStatus();
-            if (status == enLicenseStatus.Suspended) {
+            enLocalLicenseStatus status = license.getLicenseStatus();
+            if (status == enLocalLicenseStatus.Suspended) {
                 lblIsActive.Text = "Suspended for damage or lost";
                 lblIsActive.ForeColor = Color.Red;
-            } else if (status == enLicenseStatus.Expired){
+            } else if (status == enLocalLicenseStatus.Expired){
                 lblIsActive.Text = "Expired";
                 lblIsActive.ForeColor = Color.DimGray;
             } else {
@@ -68,10 +71,39 @@ namespace PresentationLayer.Local_License {
                 lblIsDetained.ForeColor = Color.SpringGreen;
             }
         }
+        void _viewVehicleImage(enLicenseClass licenseClass) {
+            switch (licenseClass) {
+                case enLicenseClass.Ordinary:
+                    pbVehicle.Image = Resources.car;
+                    break;
+                case enLicenseClass.SmallMotorcycle:
+                    pbVehicle.Image = Resources.scooter;
+                    break;
+                case enLicenseClass.HeavyMotorcycle:
+                    pbVehicle.Image = Resources.motorbike;
+                    break;
+                case enLicenseClass.Commercial:
+                    pbVehicle.Image = Resources.taxi;
+                    break;
+                case enLicenseClass.Agricultural:
+                    pbVehicle.Image = Resources.vehicle;
+                    break;
+                case enLicenseClass.SmallMediumBus:
+                    pbVehicle.Image = Resources.bus;
+                    break;
+                case enLicenseClass.TruckHeavyVehicle:
+                    pbVehicle.Image = Resources.delivery;
+                    break;
+            }
+        }
         void _ShowData(LocalLicense license) {
             lblLicenseID.Text = license.LicenseID.ToString();
             lblDriverID.Text = license.DriverID.ToString();
-            lblLicenseClass.Text = (license.licenseInfo != null) ? license.licenseInfo.className : "Unknown";
+            if (license.licenseInfo == null) return;
+            lblLicenseClass.Text = license.licenseInfo.className;
+            enLicenseClass licenseClass = (enLicenseClass)license.licenseInfo.LicenseClassID;
+            _viewVehicleImage(licenseClass);
+
             lblReleaseDate.Text = license.IssueDate.ToShortDateString();
             lblReleaseReason.Text = _GetIssueReasonText(license.IssueReason);
             lblExpiteDate.Text = license.ExpirationDate.ToShortDateString();

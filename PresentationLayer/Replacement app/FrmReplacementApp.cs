@@ -52,16 +52,16 @@ namespace PresentationLayer.Replacement_app {
         bool _CanReplaceLicense() {
             if (selectedLocalLicense == null) return false;
 
-            enLicenseStatus status = selectedLocalLicense.getLicenseStatus();
+            enLocalLicenseStatus status = selectedLocalLicense.getLicenseStatus();
             if (selectedLocalLicense.isLicenseDenied()) {
                 Helpers.ShowErrorMessage("This license is detained, pay the Fine first");
                 return false;
             }
-            else if (status == enLicenseStatus.Expired) {
+            else if (status == enLocalLicenseStatus.Expired) {
                 Helpers.ShowErrorMessage("This license is expired and cannot be replacement.");
                 return false;
             }
-            else if (status == enLicenseStatus.Suspended) {
+            else if (status == enLocalLicenseStatus.Suspended) {
                 Helpers.ShowErrorMessage("This license is suspended and cannot be replacement.");
                 return false;
             }

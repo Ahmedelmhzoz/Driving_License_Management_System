@@ -35,7 +35,7 @@
             this.lblTestType.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTestType.Font = new System.Drawing.Font("Georgia", 15F, System.Drawing.FontStyle.Bold);
             this.lblTestType.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTestType.Location = new System.Drawing.Point(579, 154);
+            this.lblTestType.Location = new System.Drawing.Point(598, 154);
             this.lblTestType.Name = "lblTestType";
             this.lblTestType.Size = new System.Drawing.Size(971, 58);
             this.lblTestType.TabIndex = 37;
@@ -46,7 +46,7 @@
             // 
             this.pbTestType.BackgroundImage = global::PresentationLayer.Properties.Resources.driving_license__3_;
             this.pbTestType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbTestType.Location = new System.Drawing.Point(941, -19);
+            this.pbTestType.Location = new System.Drawing.Point(979, -19);
             this.pbTestType.Name = "pbTestType";
             this.pbTestType.Size = new System.Drawing.Size(231, 196);
             this.pbTestType.TabIndex = 36;
@@ -71,9 +71,9 @@
             // 
             this.ucLocalLicenseDetails1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ucLocalLicenseDetails1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucLocalLicenseDetails1.Location = new System.Drawing.Point(-4, 236);
+            this.ucLocalLicenseDetails1.Location = new System.Drawing.Point(-12, 236);
             this.ucLocalLicenseDetails1.Name = "ucLocalLicenseDetails1";
-            this.ucLocalLicenseDetails1.Size = new System.Drawing.Size(2165, 1506);
+            this.ucLocalLicenseDetails1.Size = new System.Drawing.Size(2274, 1506);
             this.ucLocalLicenseDetails1.TabIndex = 0;
             // 
             // FrmLocalLicenseDetails
@@ -81,7 +81,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlText;
-            this.ClientSize = new System.Drawing.Size(2152, 1787);
+            this.ClientSize = new System.Drawing.Size(2191, 1787);
             this.Controls.Add(this.lblTestType);
             this.Controls.Add(this.pbTestType);
             this.Controls.Add(this.btnClose);

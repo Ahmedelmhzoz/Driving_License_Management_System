@@ -36,18 +36,18 @@
             this.lblTestType = new System.Windows.Forms.Label();
             this.gbRetakeTest = new System.Windows.Forms.GroupBox();
             this.txtNotes = new System.Windows.Forms.TextBox();
+            this.pbDescription = new System.Windows.Forms.PictureBox();
             this.rbFail = new System.Windows.Forms.RadioButton();
             this.rbPass = new System.Windows.Forms.RadioButton();
             this.lblRetakeFees = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.lblAddApointment = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnAddAppointment = new System.Windows.Forms.Button();
-            this.pbDescription = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -56,10 +56,10 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblUsername = new System.Windows.Forms.Label();
             this.gbRetakeTest.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDescription)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -106,11 +106,11 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(362, 970);
+            this.label6.Location = new System.Drawing.Point(136, 966);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(107, 39);
+            this.label6.Size = new System.Drawing.Size(333, 39);
             this.label6.TabIndex = 87;
-            this.label6.Text = "Fees:";
+            this.label6.Text = "Fees already paid:";
             // 
             // lblApplicantName
             // 
@@ -218,6 +218,16 @@
             this.txtNotes.Size = new System.Drawing.Size(459, 154);
             this.txtNotes.TabIndex = 75;
             // 
+            // pbDescription
+            // 
+            this.pbDescription.Image = global::PresentationLayer.Properties.Resources.edit_info;
+            this.pbDescription.Location = new System.Drawing.Point(211, 219);
+            this.pbDescription.Name = "pbDescription";
+            this.pbDescription.Size = new System.Drawing.Size(80, 59);
+            this.pbDescription.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbDescription.TabIndex = 74;
+            this.pbDescription.TabStop = false;
+            // 
             // rbFail
             // 
             this.rbFail.AutoSize = true;
@@ -251,6 +261,16 @@
             this.lblRetakeFees.TabIndex = 71;
             this.lblRetakeFees.Text = "$5";
             // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::PresentationLayer.Properties.Resources.testing;
+            this.pictureBox7.Location = new System.Drawing.Point(211, 66);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(80, 69);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 71;
+            this.pictureBox7.TabStop = false;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -261,6 +281,16 @@
             this.label12.Size = new System.Drawing.Size(130, 39);
             this.label12.TabIndex = 69;
             this.label12.Text = "Notes:";
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::PresentationLayer.Properties.Resources.currency1;
+            this.pictureBox8.Location = new System.Drawing.Point(1011, 66);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(68, 59);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 70;
+            this.pictureBox8.TabStop = false;
             // 
             // label9
             // 
@@ -316,36 +346,6 @@
             this.btnAddAppointment.TabIndex = 96;
             this.btnAddAppointment.UseVisualStyleBackColor = false;
             this.btnAddAppointment.Click += new System.EventHandler(this.btnAddAppointment_Click);
-            // 
-            // pbDescription
-            // 
-            this.pbDescription.Image = global::PresentationLayer.Properties.Resources.edit_info;
-            this.pbDescription.Location = new System.Drawing.Point(211, 219);
-            this.pbDescription.Name = "pbDescription";
-            this.pbDescription.Size = new System.Drawing.Size(80, 59);
-            this.pbDescription.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbDescription.TabIndex = 74;
-            this.pbDescription.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::PresentationLayer.Properties.Resources.testing;
-            this.pictureBox7.Location = new System.Drawing.Point(211, 66);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(80, 69);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 71;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = global::PresentationLayer.Properties.Resources.currency1;
-            this.pictureBox8.Location = new System.Drawing.Point(1011, 66);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(68, 59);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 70;
-            this.pictureBox8.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -453,10 +453,10 @@
             this.Load += new System.EventHandler(this.FrmTakeTest_Load);
             this.gbRetakeTest.ResumeLayout(false);
             this.gbRetakeTest.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDescription)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();

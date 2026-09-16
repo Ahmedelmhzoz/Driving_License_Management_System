@@ -1,5 +1,6 @@
 ﻿using Shared;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -179,6 +180,47 @@ namespace DataLinkLayer {
             }
 
             return dto;
+        }
+        public static int getPendingAppointmentsNum() {
+            using (SqlConnection conn = new SqlConnection(connectionString)) {
+                string query = "SELECT COUNT(TA.TestAppointmentID) FROM TestAppointments TA WHERE TA.IsLocked = 0";
+                using (SqlCommand cmd = new SqlCommand(query, conn)) {
+                    conn.Open();
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+        }
+
+        public static AppointmentsStatistics getAppintmentsStatistics() {
+            AppointmentsStatistics appointmentsStatistics = new AppointmentsStatistics();
+
+            using (SqlConnection conn = new SqlConnection(connectionString)) {
+                string query = @"SELECT TA.TestTypeID, COUNT(TA.TestAppointmentID) AS TestsNumber FROM TestAppointments TA WHERE TA.IsLocked = 1
+                                GROUP BY TA.TestTypeID;
+
+                                SELECT TA.TestTypeID, COALESCE(CAST(SUM(CASE WHEN T.TestResult = 1 THEN 1 ELSE 0 END) AS Float) / NULLIF(COUNT(*), 0), 0) AS PassRate
+                                FROM TestAppointments TA INNER JOIN Tests T ON TA.TestAppointmentID = T.TestAppointmentID 
+                                WHERE TA.IsLocked = 1 
+                                GROUP By TA.TestTypeID;
+
+                                SELECT TT.TestTypeID , COUNT(TA.TestAppointmentID) AS TodayTests FROM TestTypes TT LEFT JOIN TestAppointments TA  
+                                ON TT.TestTypeID = TA.TestTypeID AND TA.IsLocked = 0 AND CAST(TA.AppointmentDate AS DATE) = CAST(GETDATE() AS DATE)  
+                                GROUP BY TT.TestTypeID";
+                using (SqlCommand cmd = new SqlCommand(query, conn)) {
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader()) { 
+                        while (reader.Read()) 
+                            appointmentsStatistics.takenTestsPerType.Add((enTestType)reader["TestTypeID"], (int)reader["TestsNumber"]);
+                        reader.NextResult();
+                        while (reader.Read()) 
+                            appointmentsStatistics.PassFailTestRatesPerType.Add((enTestType)reader["TestTypeID"], ((double)reader["PassRate"], 1 - (double)reader["PassRate"]));
+                        reader.NextResult();
+                        while (reader.Read()) 
+                            appointmentsStatistics.todayAppointmentsPerType.Add((enTestType)reader["TestTypeID"], (int)reader["TodayTests"]);
+                    }
+                }
+                return appointmentsStatistics;
+            }
         }
     }
 }

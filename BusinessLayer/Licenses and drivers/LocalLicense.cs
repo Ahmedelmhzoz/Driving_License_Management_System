@@ -117,10 +117,10 @@ namespace BusinessLayer {
         public static DataTable getLocalLicensesHistoryForPerosn(int perosnID) {
             return LocalLicensesData.getLocalLicensesHistoryForPerson(perosnID);
         }
-        public enLicenseStatus getLicenseStatus() {
-            if (!this.NotSuspended) return enLicenseStatus.Suspended;
-            else if (this.ExpirationDate.Date < DateTime.Today) return enLicenseStatus.Expired;
-            else return enLicenseStatus.Active;
+        public enLocalLicenseStatus getLicenseStatus() {
+            if (!this.NotSuspended) return enLocalLicenseStatus.Suspended;
+            else if (this.ExpirationDate.Date < DateTime.Today) return enLocalLicenseStatus.Expired;
+            else return enLocalLicenseStatus.Active;
         }
         public bool HasBeenRenewed() {
             return LocalLicensesData.getRenewalLicenseID(this.LicenseID) != -1;
@@ -159,7 +159,7 @@ namespace BusinessLayer {
         }
         public LicenseRenewalResult Renew(int userID, string Notes) {
             LicenseRenewalResult result = new LicenseRenewalResult();
-            if (getLicenseStatus() != enLicenseStatus.Expired || HasBeenRenewed()) { result.Result = enLicenseRenewalResult.Failed; return result; }
+            if (getLicenseStatus() != enLocalLicenseStatus.Expired || HasBeenRenewed()) { result.Result = enLicenseRenewalResult.Failed; return result; }
 
             if (this.applicationInfo == null) { result.Result = enLicenseRenewalResult.BasicAppNotFound; return result; }
 

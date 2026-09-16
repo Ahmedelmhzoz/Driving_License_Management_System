@@ -112,7 +112,7 @@ namespace DataLinkLayer {
                 return false;
             }
         }
-        
+
         public static DataTable searchResultByCategory(string currentText, enSearchCategoryUsers mode, string activeOrNot) {
             DataTable dt = new DataTable();
             SqlConnection conn = new SqlConnection(connectionSettings);
@@ -245,6 +245,15 @@ namespace DataLinkLayer {
                 System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
             }
             return false;
+        }
+        public static int getUsersNumber() {
+            using (SqlConnection conn = new SqlConnection(connectionSettings)) {
+                string query = "SELECT COUNT(U.UserID) FROM Users U";
+                using (SqlCommand cmd = new SqlCommand(query, conn)) {
+                    conn.Open();
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
         }
     }
 }

@@ -444,7 +444,7 @@
             this.tcDetainLicense.Location = new System.Drawing.Point(11, 137);
             this.tcDetainLicense.Name = "tcDetainLicense";
             this.tcDetainLicense.SelectedIndex = 0;
-            this.tcDetainLicense.Size = new System.Drawing.Size(2202, 1782);
+            this.tcDetainLicense.Size = new System.Drawing.Size(2216, 1782);
             this.tcDetainLicense.TabIndex = 34;
             this.tcDetainLicense.SelectedIndexChanged += new System.EventHandler(this.tcDetainLicense_SelectedIndexChanged);
             // 
@@ -461,7 +461,7 @@
             this.tbSelectLicense.Location = new System.Drawing.Point(10, 48);
             this.tbSelectLicense.Name = "tbSelectLicense";
             this.tbSelectLicense.Padding = new System.Windows.Forms.Padding(3);
-            this.tbSelectLicense.Size = new System.Drawing.Size(2182, 1724);
+            this.tbSelectLicense.Size = new System.Drawing.Size(2196, 1724);
             this.tbSelectLicense.TabIndex = 0;
             this.tbSelectLicense.Text = "Select license";
             // 
@@ -550,9 +550,9 @@
             // 
             this.ucLocalLicenseDetails.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ucLocalLicenseDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucLocalLicenseDetails.Location = new System.Drawing.Point(3, 229);
+            this.ucLocalLicenseDetails.Location = new System.Drawing.Point(-13, 229);
             this.ucLocalLicenseDetails.Name = "ucLocalLicenseDetails";
-            this.ucLocalLicenseDetails.Size = new System.Drawing.Size(2162, 1519);
+            this.ucLocalLicenseDetails.Size = new System.Drawing.Size(2205, 1519);
             this.ucLocalLicenseDetails.TabIndex = 33;
             // 
             // lblDetainLicDetails
@@ -598,7 +598,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlText;
-            this.ClientSize = new System.Drawing.Size(2225, 1941);
+            this.ClientSize = new System.Drawing.Size(2235, 1941);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.tcDetainLicense);
             this.Controls.Add(this.lblProcess);

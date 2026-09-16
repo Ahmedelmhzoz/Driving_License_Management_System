@@ -1,10 +1,12 @@
 ﻿using Shared;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Net;
+using System.Security.AccessControl;
 using static System.Net.Mime.MediaTypeNames;
 
 
@@ -139,19 +141,13 @@ namespace DataLinkLayer {
         }
         public static DataTable getLocalLicensesHistoryForPerson(int personID) {
             DataTable dt = new DataTable();
-            string query = @"SELECT l.LicenseID, 
-                            l.ApplicationID, 
-                            LTRIM(SUBSTRING(lc.ClassName, CHARINDEX('-', lc.ClassName) + 1, LEN(lc.ClassName))) as ClassName, 
-                            CAST(l.IssueDate AS DATE) as IssueDate, 
-                            CAST (l.ExpirationDate AS DATE) as ExpirationDate, 
-                            CASE 
-                                WHEN l.ExpirationDate < CAST(GETDATE() AS DATE) THEN 'Expired'
-                                WHEN l.IsActive = 0 THEN 'Suspended'
-                                WHEN l.IsActive = 1 THEN 'Active'
-                            END AS LicenseStatus
-                            FROM Licenses l inner join LicenseClasses lc on l.LicenseClass = lc.LicenseClassID 
-                            inner join Applications a on a.ApplicationID = l.ApplicationID 
-                            WHERE a.ApplicantPersonID = @PersonID";
+            string query = @"SELECT LicenseID, 
+                            ApplicationID,  
+                            ClassName, 
+                            IssueDate, 
+                            ExpirationDate, 
+                            LicenseStatus FROM Local_Licenses_View  
+                            WHERE ApplicantPersonID = @PersonID"; 
             using (SqlConnection connection = new SqlConnection(connectionString)) {
                 using (SqlCommand command = new SqlCommand(query, connection)) {
                     command.Parameters.AddWithValue("@PersonID", personID);
@@ -243,6 +239,83 @@ namespace DataLinkLayer {
                 command.Parameters.AddWithValue("@licenseID", licenseID);
 
                 if (command.ExecuteNonQuery() <= 0) throw new Exception("Failed to deactivate the license.");
+            }
+        }
+        static string geLicenseStatus(enLocalLicenseStatus status) {
+            switch (status) {
+                case enLocalLicenseStatus.Active: return "Active";
+                case enLocalLicenseStatus.Suspended: return "Suspended";
+                case enLocalLicenseStatus.Expired: return "Expired";
+                default: return string.Empty;
+            }
+        }
+        public static int getLicensesNumByStatus(enLocalLicenseStatus status) {
+            using (SqlConnection conn = new SqlConnection(connectionString)) {
+
+                string query = @"select COUNT(*) from Local_Licenses_View llv 
+                                WHERE  llv.LicenseStatus LIKE '%' + @Status";
+                string statusActualValue = geLicenseStatus(status);
+                using (SqlCommand cmd = new SqlCommand(query, conn)) {
+                    cmd.Parameters.AddWithValue("@Status", statusActualValue);
+                    conn.Open();
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+        }
+        public static int getLicensesNumByLicenseClass(enLicenseClass licenseClass) {
+            using (SqlConnection conn = new SqlConnection(connectionString)) {
+                string query = @"SELECT COUNT(L.LicenseID) FROM Licenses L
+                                WHERE l.LicenseClass = @LicenseClass;";
+                using (SqlCommand cmd = new SqlCommand(query, conn)) {
+                    cmd.Parameters.AddWithValue("@LicenseClass", (int)licenseClass);
+                    conn.Open();
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+        }
+        public static List<KeyValuePair<string, int>> getLicensesPerStatus() {
+            List<KeyValuePair<string, int>> result = new List<KeyValuePair<string, int>>();
+            using (SqlConnection conn = new SqlConnection(connectionString)) {
+                string query = @"SELECT llv.LicenseStatus,  
+                                COUNT(llv.LicenseID) AS LicensesPerStatus 
+                                FROM Local_Licenses_View llv 
+                                GROUP BY llv.LicenseStatus;";
+
+
+                using (SqlCommand cmd = new SqlCommand(query, conn)) {
+
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader()) {
+                        while (reader.Read()) {
+                            KeyValuePair<string, int> record = new KeyValuePair<string, int>(
+                                reader["LicenseStatus"].ToString(),
+                                (int)reader["LicensesPerStatus"]);
+                            result.Add(record);
+                        }
+                    }
+                }
+                return result;
+            }
+        }
+        public static List<KeyValuePair<enLicenseClass, int>> getLicensesPerVehicles() {
+            List<KeyValuePair<enLicenseClass, int>> result = new List<KeyValuePair<enLicenseClass, int>>();
+            using (SqlConnection conn = new SqlConnection(connectionString)) {
+                string query = @"Select L.LicenseClass, COUNT(L.LicenseID) AS LicensesNumber 
+                                FROM Licenses L GROUP BY l.LicenseClass";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn)) {
+
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader()) {
+                        while (reader.Read()) {
+                            KeyValuePair<enLicenseClass, int> record = new KeyValuePair<enLicenseClass, int>(
+                                (enLicenseClass)reader["LicenseClass"],
+                                (int)reader["LicensesNumber"]);
+                            result.Add(record);
+                        }
+                    }
+                }
+                return result;
             }
         }
     } 

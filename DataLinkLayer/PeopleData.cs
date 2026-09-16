@@ -235,6 +235,15 @@ namespace DataLinkLayer {
 
             return (rowsAffected > 0);
         }
+        public static int getPeopleNumber() {
+            using (SqlConnection conn = new SqlConnection(connectionSettings)) {
+                string query = "SELECT COUNT(P.PersonID) AS PeopleNumber FROM People P";
+                using (SqlCommand cmd = new SqlCommand(query, conn)) {
+                    conn.Open();
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+        }
     }
 
 }

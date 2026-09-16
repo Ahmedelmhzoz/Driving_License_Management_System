@@ -68,12 +68,12 @@ namespace PresentationLayer.Detain_license {
             if (selectedLocalLicense == null)
                 return false;
             bool isDetained = selectedLocalLicense.isLicenseDenied();
-            enLicenseStatus status = selectedLocalLicense.getLicenseStatus();
-            if (status == enLicenseStatus.Expired) {
+            enLocalLicenseStatus status = selectedLocalLicense.getLicenseStatus();
+            if (status == enLocalLicenseStatus.Expired) {
                 Helpers.ShowErrorMessage("This license has expired.");
                 return false;
             }
-            else if (status == enLicenseStatus.Suspended) {
+            else if (status == enLocalLicenseStatus.Suspended) {
                 Helpers.ShowErrorMessage("This license had been suspended.");
                 return false;
             }
