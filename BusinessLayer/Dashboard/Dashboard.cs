@@ -4,8 +4,6 @@ using Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLayer.Dashboard {
     public static class Dashboard {
@@ -53,6 +51,25 @@ namespace BusinessLayer.Dashboard {
         }
         public static AppointmentsStatistics getAppointmenrsStatistics() {
             return TestAppointmentsData.getAppintmentsStatistics();
+        }
+        public static RevenueStatistics GetRevenueStatistics() {
+            RevenueStatistics revenueStatistics = RevenueData.GetRevenueStatistics();
+            decimal totalApplicationsFees = revenueStatistics.totalRevPerApp.Sum(TypeFees => TypeFees.Value);
+            revenueStatistics.totalRevPerProcess.Add(enFinancialProceesType.Applications, (totalApplicationsFees, 0d));
+
+            decimal totalTestsFees = revenueStatistics.totalRevPerTest.Sum(TestFees => TestFees.Value);
+
+            revenueStatistics.totalRevPerProcess.Add(enFinancialProceesType.Tests, (totalTestsFees, 0d));
+
+            decimal totalGeneralRevenue = revenueStatistics.totalRevPerProcess.Sum(processFees => processFees.Value.amount);
+
+            foreach (enFinancialProceesType proceesType in Enum.GetValues(typeof(enFinancialProceesType))) {
+                var processInfo = revenueStatistics.totalRevPerProcess[proceesType];
+                processInfo.percentage = (double)totalGeneralRevenue == 0 ? 0 : (double)revenueStatistics.totalRevPerProcess[proceesType].amount /  (double)totalGeneralRevenue;
+                revenueStatistics.totalRevPerProcess[proceesType] = processInfo;
+            }
+
+            return revenueStatistics;
         }
     } 
 }

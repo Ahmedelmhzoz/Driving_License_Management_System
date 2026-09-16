@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Dashboard;
+﻿using BusinessLayer;
+using BusinessLayer.Dashboard;
 using Global;
 using PresentationLayer.Detain_license;
 using PresentationLayer.International_License;
@@ -8,14 +9,14 @@ using PresentationLayer.Manage_types;
 using PresentationLayer.Properties;
 using PresentationLayer.Renew_license;
 using PresentationLayer.Replacement_app;
-using System.Windows.Forms.DataVisualization.Charting;
 using PresentationLayer.Users;
 using Shared;
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Drawing;
 using System.Linq;
+using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 namespace PresentationLayer {
     public partial class FrmDashboard : Form {
         public FrmDashboard() {
@@ -243,13 +244,14 @@ namespace PresentationLayer {
             }
         }
 
-        void _SetPercentageInTestCharts(enTestType testType, double passRate, double failRate) {
+        void _SetPercentagesInPassRateDonut(enTestType testType, double passRate, double failRate) {
             Series series = null;
-            switch(testType) {
+            switch (testType) {
                 case enTestType.Vision: series = cVision.Series["Vision pass rate"]; break;
                 case enTestType.Theoretical: series = cTheoretical.Series["Theoretical pass rate"]; break;
                 case enTestType.Street: series = cStreet.Series["Street pass rate"]; break;
             }
+            series.Points.Clear();
             series.Points.AddY(passRate);
             int idx = series.Points.Count - 1;
             DataPoint point = series.Points[idx];
@@ -261,7 +263,7 @@ namespace PresentationLayer {
             point.LegendText = $"Fail {failRate:P1}";
             point.Color = Color.Red;
         }
-        void _RefreshAppintmentsStat() {
+        void _RefreshAppointmentsStat() {
             try {
                 AppointmentsStatistics appointmentsStatistics = Dashboard.getAppointmenrsStatistics();
                 lblTakenVision.Text = appointmentsStatistics.takenTestsPerType[enTestType.Vision].ToString();
@@ -269,7 +271,7 @@ namespace PresentationLayer {
                 lblTakenStreet.Text = appointmentsStatistics.takenTestsPerType[enTestType.Street].ToString();
 
                 foreach (KeyValuePair<enTestType, (double passRate, double failRate)> record in appointmentsStatistics.PassFailTestRatesPerType) {
-                    _SetPercentageInTestCharts(record.Key, record.Value.passRate, record.Value.failRate);
+                    _SetPercentagesInPassRateDonut(record.Key, record.Value.passRate, record.Value.failRate);
                 }
 
                 lblTodayVision.Text = appointmentsStatistics.todayAppointmentsPerType[enTestType.Vision].ToString();
@@ -280,14 +282,53 @@ namespace PresentationLayer {
                 _UnexpectedError();
             }
         }
+        void _SetPercentagesInRevenueDonut(Dictionary<enFinancialProceesType, (decimal amount, double percentage)> totalRevPerProcess) {
+            Series series = cRevenueDistribution.Series["Revenue"];
+            series.Points.Clear();
+
+            foreach (enFinancialProceesType proceesType in Enum.GetValues(typeof(enFinancialProceesType))) {
+                double perc = totalRevPerProcess[proceesType].percentage;
+                series.Points.AddY(perc);
+
+                int idx = series.Points.Count - 1;
+                series.Points[idx].LegendText = $"{(proceesType.ToString())} {perc:P1}";
+            }
+        }
+        void _RefreshRevenueStat() {
+            RevenueStatistics revenueStatistics = Dashboard.GetRevenueStatistics();
+            lblAppsFees.Text = revenueStatistics.totalRevPerProcess[enFinancialProceesType.Applications].amount.ToString("C0");
+            lblTestsFees.Text = revenueStatistics.totalRevPerProcess[enFinancialProceesType.Tests].amount.ToString("C0");
+            lblLicensesFees.Text = revenueStatistics.totalRevPerProcess[enFinancialProceesType.Licenses].amount.ToString("C0");
+            lblFine.Text = revenueStatistics.totalRevPerProcess[enFinancialProceesType.Fine].amount.ToString("C0");
+            _SetPercentagesInRevenueDonut(revenueStatistics.totalRevPerProcess);
+
+            Series series = cAppsRevenue.Series["Revenue"];
+            ChartArea area = cAppsRevenue.ChartAreas["ChartAreaApp"];
+            area.AxisY.LabelStyle.Format = "C0";
+            series.Points.Clear();
+            foreach (KeyValuePair<enApplicationType, decimal> record in revenueStatistics.totalRevPerApp) {
+                series.Points.AddXY(Utilities.getApplicationTypeName(record.Key), record.Value);
+            }
+
+            series = cTestsRevenue.Series["Revenue"];
+            series.Points.Clear();
+            area = cTestsRevenue.ChartAreas["ChartAreaTest"];
+            area.AxisY.LabelStyle.Format = "C0";
+            foreach (KeyValuePair<enTestType, decimal> record in revenueStatistics.totalRevPerTest) {
+                series.Points.AddXY(record.Key.ToString(), record.Value);
+            }
+        }
+        void _RefreshPeopleCard() {
+            lblPeople.Text = Dashboard.getPeopleNumber().ToString();
+        }
 
         void _Refresh() {
             try {
-                lblPeople.Text = Dashboard.getPeopleNumber().ToString();
                 lblUsers.Text = Dashboard.getUsersNumber().ToString();
                 lblDrivers.Text = Dashboard.getDriversNumber().ToString();
                 lblPendingTests.Text = Dashboard.getPendingTests().ToString();
                 lblDetainedLics.Text = Dashboard.getDetainedLicenses().ToString();
+                _RefreshPeopleCard();
                 _RefreshApplicationsCard();
                 _RefreshLocalLicesesCard();
                 _RefreshInternationalLicesesCard();
@@ -295,7 +336,8 @@ namespace PresentationLayer {
                 _RefreshAppInPeriod();
                 _RefreshAppStatistics();
                 _RefreshLicensesStat();
-                _RefreshAppintmentsStat();
+                _RefreshAppointmentsStat();
+                _RefreshRevenueStat();
             }
             catch {
                 _UnexpectedError();
@@ -425,37 +467,47 @@ namespace PresentationLayer {
             frm.ShowDialog();
             _Refresh();
         }
-
- 
-
-        private void tbApplicationsStat_Click(object sender, EventArgs e) {
-
-        }
-
-        private void label24_Click(object sender, EventArgs e) {
-
-        }
-
-        private void pictureBox17_Click(object sender, EventArgs e) {
-
-        }
-
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e) {
             if (tcStatistics.SelectedTab == tbLicenses) {
                 _RefreshLicensesStat();
             }
         }
 
-        private void groupBox5_Enter(object sender, EventArgs e) {
-
+        private void btnQuickLLApp_Click(object sender, EventArgs e) {
+            FrmLocalLicenseAppManagement frm = new FrmLocalLicenseAppManagement();
+            frm.ShowDialog();
+            _Refresh();
         }
 
-        private void groupBox7_Enter(object sender, EventArgs e) {
-
+        private void btnQuickAddPerson_Click(object sender, EventArgs e) {
+            Person newPerson = new Person();
+            FrmAddOrUpdatePerson frm = new FrmAddOrUpdatePerson(newPerson);
+            frm.ShowDialog();
+            _RefreshPeopleCard();
         }
 
-        private void panel15_Paint(object sender, PaintEventArgs e) {
+        private void btnQuickReplace_Click(object sender, EventArgs e) {
+            FrmReplacementApp frm = new FrmReplacementApp();
+            frm.ShowDialog();
+            _Refresh();
+        }
 
+        private void BtnQuickRenew_Click(object sender, EventArgs e) {
+            FrmRenewLicense frm = new FrmRenewLicense();
+            frm.ShowDialog();
+            _Refresh();
+        }
+
+        private void btnQuickDetain_Click(object sender, EventArgs e) {
+            FrmDetainManagement frm = new FrmDetainManagement();
+            frm.ShowDialog();
+            _Refresh();
+        }
+
+        private void btnQuickILApp_Click(object sender, EventArgs e) {
+            FrmInternationalLicensesManagement frm = new FrmInternationalLicensesManagement();
+            frm.ShowDialog();
+            _Refresh();
         }
     }
 }

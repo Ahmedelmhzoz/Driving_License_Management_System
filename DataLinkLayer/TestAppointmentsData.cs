@@ -213,7 +213,7 @@ namespace DataLinkLayer {
                             appointmentsStatistics.takenTestsPerType.Add((enTestType)reader["TestTypeID"], (int)reader["TestsNumber"]);
                         reader.NextResult();
                         while (reader.Read()) 
-                            appointmentsStatistics.PassFailTestRatesPerType.Add((enTestType)reader["TestTypeID"], ((double)reader["PassRate"], 0));
+                            appointmentsStatistics.PassFailTestRatesPerType.Add((enTestType)reader["TestTypeID"], ((double)reader["PassRate"], 1 - (double)reader["PassRate"]));
                         reader.NextResult();
                         while (reader.Read()) 
                             appointmentsStatistics.todayAppointmentsPerType.Add((enTestType)reader["TestTypeID"], (int)reader["TodayTests"]);

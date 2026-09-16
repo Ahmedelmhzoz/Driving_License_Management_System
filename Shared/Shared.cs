@@ -179,15 +179,31 @@ namespace Shared
         Year,
         Lifetime
     }
+    public enum enFinancialProceesType { 
+        Applications,
+        Tests,
+        Licenses,
+        Fine
+    }
     public class AppointmentsStatistics {
         public Dictionary<enTestType, int> takenTestsPerType; 
         public Dictionary<enTestType, int> todayAppointmentsPerType; 
-        public Dictionary<enTestType, (double passRate, double failRate)> PassFailTestRatesPerType; // BLL
+        public Dictionary<enTestType, (double passRate, double failRate)> PassFailTestRatesPerType; 
         public int totalPassedTests { get; set; }
         public AppointmentsStatistics() {
             takenTestsPerType = new Dictionary<enTestType, int>();
             todayAppointmentsPerType = new Dictionary<enTestType, int>();
             PassFailTestRatesPerType = new Dictionary<enTestType, (double passRate, double failRate)>();
+        }
+    }
+    public class RevenueStatistics {
+        public Dictionary<enFinancialProceesType, (decimal amount, double percentage)> totalRevPerProcess;
+        public Dictionary<enApplicationType, decimal> totalRevPerApp;
+        public Dictionary<enTestType, decimal> totalRevPerTest;
+        public RevenueStatistics() {
+            totalRevPerProcess = new Dictionary<enFinancialProceesType, (decimal amount, double percentage)>();
+            totalRevPerApp = new Dictionary<enApplicationType, decimal>();
+            totalRevPerTest = new Dictionary<enTestType, decimal>();
         }
     }
     public static class Utilities {

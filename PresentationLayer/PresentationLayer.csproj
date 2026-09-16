@@ -1045,5 +1045,11 @@
   <ItemGroup>
     <None Include="Resources\booking.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\driving-license %288%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\driving-license %2810%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

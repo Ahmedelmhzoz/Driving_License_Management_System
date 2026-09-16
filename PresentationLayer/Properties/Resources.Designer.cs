@@ -603,6 +603,16 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap driving_license__10_ {
+            get {
+                object obj = ResourceManager.GetObject("driving-license (10)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap driving_license__2_ {
             get {
                 object obj = ResourceManager.GetObject("driving-license (2)", resourceCulture);
@@ -686,6 +696,16 @@ namespace PresentationLayer.Properties {
         public static System.Drawing.Bitmap driving_license__7_ {
             get {
                 object obj = ResourceManager.GetObject("driving-license (7)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap driving_license__8_ {
+            get {
+                object obj = ResourceManager.GetObject("driving-license (8)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
