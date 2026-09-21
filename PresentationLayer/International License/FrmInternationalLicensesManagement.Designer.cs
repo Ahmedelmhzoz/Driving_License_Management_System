@@ -298,7 +298,7 @@
             this.lblLicense.AutoSize = true;
             this.lblLicense.Font = new System.Drawing.Font("Georgia", 8F, System.Drawing.FontStyle.Bold);
             this.lblLicense.ForeColor = System.Drawing.Color.White;
-            this.lblLicense.Location = new System.Drawing.Point(1979, 375);
+            this.lblLicense.Location = new System.Drawing.Point(1983, 375);
             this.lblLicense.Name = "lblLicense";
             this.lblLicense.Size = new System.Drawing.Size(308, 31);
             this.lblLicense.TabIndex = 69;
@@ -307,9 +307,9 @@
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnAdd.BackgroundImage = global::PresentationLayer.Properties.Resources.resume;
+            this.btnAdd.BackgroundImage = global::PresentationLayer.Properties.Resources.curriculum;
             this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAdd.Location = new System.Drawing.Point(2061, 419);
+            this.btnAdd.Location = new System.Drawing.Point(2065, 419);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(152, 83);
             this.btnAdd.TabIndex = 68;

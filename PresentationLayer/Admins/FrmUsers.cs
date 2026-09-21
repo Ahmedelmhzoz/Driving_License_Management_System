@@ -11,11 +11,29 @@ namespace PresentationLayer {
             InitializeComponent();
         }
         enUserStatus currentStatue = enUserStatus.enGeneral;
+
+        private void _ApplyGridFormatting() {
+            foreach (DataGridViewRow row in dgvUsers.Rows) {
+                if (row.Cells["Activation"].Value != null) {
+                    string status = row.Cells["Activation"].Value.ToString();
+
+                    if (status == "Active") {
+                        row.Cells["Activation"].Style.ForeColor = Color.Green;
+                        row.Cells["Activation"].Style.BackColor = Color.LightGreen;
+                    }
+                    else if (status == "Not active") {
+                        row.Cells["Activation"].Style.ForeColor = Color.Red;
+                        row.Cells["Activation"].Style.BackColor = Color.Pink;
+                    }
+                }
+            }
+        }
         private void FrmUsers_Load(object sender, EventArgs e) {
             cbFilterBy.SelectedIndex = 0;
             dgvUsers.RowTemplate.Height = 65;
             dgvUsers.DataSource = User.getUsers();
             lblRecordsNo.Text = dgvUsers.Rows.Count.ToString();
+            _ApplyGridFormatting();
             rbGeneral.Checked = true;
         }
 
@@ -27,6 +45,7 @@ namespace PresentationLayer {
             else 
                 txtSearch.Visible = true;
             _FilterUsersWithState();
+            _ApplyGridFormatting();
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e) {
@@ -34,6 +53,7 @@ namespace PresentationLayer {
                 dgvUsers.DataSource = User.getUsers();
             else
                 dgvUsers.DataSource = User.getCurrentSearchResult(txtSearch.Text, cbFilterBy.Text, currentStatue);
+            lblRecordsNo.Text = dgvUsers.Rows.Count.ToString();
         }
 
         void _FilterUsersWithState() {
@@ -43,6 +63,7 @@ namespace PresentationLayer {
             else {
                 dgvUsers.DataSource = User.getCurrentSearchResult(txtSearch.Text, cbFilterBy.Text, currentStatue);
             }
+            lblRecordsNo.Text = dgvUsers.Rows.Count.ToString();
         }
         private void rbGeneral_CheckedChanged(object sender, EventArgs e) {
             if (rbGeneral.Checked) {

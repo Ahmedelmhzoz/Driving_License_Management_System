@@ -43,12 +43,11 @@ namespace PresentationLayer.Local_DL_Appliaction {
         private void btnAddAppointment_Click(object sender, EventArgs e) {
             scheduledTest.TestResult = rbPass.Checked;
             scheduledTest.Notes = txtNotes.Text.Trim();
-           
 
             if (Helpers.ShowConfirmation("Are you sure you want to save this result? After that you cannot change the pass/fail result") == DialogResult.Yes) {
-                OnPassExam?.Invoke(rbPass.Checked);
                 if (scheduledTest.Save()) {
                     Helpers.SuccessfulMessage("Test result saved successfully!");
+                     OnPassExam?.Invoke(rbPass.Checked);
                 } else {
                     Helpers.ShowErrorMessage("Error happend while saving");
                 }

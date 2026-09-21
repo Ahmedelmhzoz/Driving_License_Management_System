@@ -13,7 +13,7 @@ namespace BusinessLayer {
         }
         public static DetainResult detainLicense(DetainDetails detainInputedData) {
             if (isLicenseDetained(detainInputedData.LicenseID))
-                return new DetainResult {
+                return new DetainResult { 
                     detainRecordID = -1,
                     result = enDetainResult.AlreadyDetained
                 };
@@ -29,7 +29,7 @@ namespace BusinessLayer {
 
             return new DetainResult {
                 detainRecordID = detainID,
-                result = enDetainResult.Success
+                result = enDetainResult.Success 
             };
         }
         public static DetainDetails getDetainDetailsByLicenesID(int licenseID) {

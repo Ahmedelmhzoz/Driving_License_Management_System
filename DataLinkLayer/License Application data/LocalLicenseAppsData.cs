@@ -19,7 +19,7 @@ namespace DataLinkLayer.License_Application_data {
     public static class LocalLicenseAppsData {
         static string connectionString = ConfigurationManager.ConnectionStrings["DVLD_DB"].ConnectionString;
         public static int didPersonMakeSameApplication(int personID, int LicenseClassID) {
-            string query = @"select a.ApplicationID from People p inner join Applications a on a.ApplicantPersonID = p.PersonID
+            string query = @"select ld.LocalDrivingLicenseApplicationID from People p inner join Applications a on a.ApplicantPersonID = p.PersonID
                             inner join LocalDrivingLicenseApplications ld on ld.ApplicationID = a.ApplicationID
                             inner join LicenseClasses lc on lc.LicenseClassID = ld.LicenseClassID
                             where p.PersonID = @PersonID and lc.LicenseClassID = @LicenseClassID and a.ApplicationStatus <> '2';";

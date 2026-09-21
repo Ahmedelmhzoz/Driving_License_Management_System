@@ -1,21 +1,43 @@
 ﻿using BusinessLayer;
 using BusinessLayer.License_Applications;
 using Global;
+using PresentationLayer.Licenses;
+using PresentationLayer.Local_License;
+using PresentationLayer.Local_License_Appliaction;
+using Shared;
 using System;
 using System.Collections.Generic;
-using Shared;
+using System.Drawing;
 using System.Windows.Forms;
-using PresentationLayer.Local_License_Appliaction;
-using PresentationLayer.Local_License;
-using PresentationLayer.Licenses;
 namespace PresentationLayer.Local_DL_Appliaction {
     public partial class FrmLocalLicenseAppManagement : Form {
         public FrmLocalLicenseAppManagement() {
             InitializeComponent();
         }
+        private void _ApplyGridFormatting() {
+            foreach (DataGridViewRow row in dgvLocalApplications.Rows) {
+                if (row.Cells["ApplicationStatus"].Value != null) {
+                    string status = row.Cells["ApplicationStatus"].Value.ToString();
+
+                    if (status == "New") {
+                        row.Cells["ApplicationStatus"].Style.ForeColor = Color.Blue;
+                        row.Cells["ApplicationStatus"].Style.BackColor = Color.DeepSkyBlue;
+                    }
+                    else if (status == "Canceled") {
+                        row.Cells["ApplicationStatus"].Style.ForeColor = Color.Red;
+                        row.Cells["ApplicationStatus"].Style.BackColor = Color.Pink;
+                    }
+                    else {
+                        row.Cells["ApplicationStatus"].Style.ForeColor = Color.Green;
+                        row.Cells["ApplicationStatus"].Style.BackColor = Color.LightGreen;
+                    }
+                }
+            }
+        }
         void _loadAllApplication() {
             dgvLocalApplications.DataSource = LocalLicenseApp.getAllApplications();
             lblRecordsNo.Text = dgvLocalApplications.Rows.Count.ToString();
+            _ApplyGridFormatting();
         }
         void _ReloadData() {
             if (cbFilterBy.Text == "None" || string.IsNullOrWhiteSpace(txtSearch.Text)) {
@@ -24,6 +46,8 @@ namespace PresentationLayer.Local_DL_Appliaction {
             else {
                 dgvLocalApplications.DataSource = LocalLicenseApp.GetApplicationsSearchResult(txtSearch.Text, cbFilterBy.Text);
             }
+            _ApplyGridFormatting();
+            lblRecordsNo.Text = dgvLocalApplications.Rows.Count.ToString();
         }
         private void FrmLocalLicenseAppManagement_Load(object sender, EventArgs e) {
             cbFilterBy.SelectedIndex = 0;
@@ -114,7 +138,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
                 tmsiScheduleTest.Enabled = true;
             }
             else { // canceled
-                tmsiDeleteApp.Enabled = true;
+                tmsiDeleteApp.Enabled = false;
                 editApp.Enabled = false;
                 tsmiCancelApp.Enabled = false;
                 tmsiScheduleTest.Enabled = false;

@@ -52,13 +52,10 @@ namespace BusinessLayer.License_Applications {
         private bool _IsPersonAgeValid() {
             Person person = Person.findPerson(this.personID);
             LicenseClass licenseClass = LicenseClass.getLicenseClassByID(this.LicenseClassID);
+            if (person == null || licenseClass == null)
+                return false;
 
-            int personAge = DateTime.Now.Year - person.dateOfBirth.Year;
-            if (person.dateOfBirth.Date > DateTime.Now.AddYears(-personAge)) {
-                --personAge;
-            }
-
-            return personAge >= licenseClass.minimumAllowedAge;
+            return person.dateOfBirth.AddYears(licenseClass.minimumAllowedAge) <= DateTime.Now.Date;
         }
         enHowDidSavingGo _AddLicenseApp() {
             if (!_IsPersonAgeValid())
@@ -78,6 +75,9 @@ namespace BusinessLayer.License_Applications {
             }
         }
         enHowDidSavingGo _UpdateLicenseApp() {
+            if (!_IsPersonAgeValid())
+                return enHowDidSavingGo.enNotAllowedAge;
+
             if (LocalLicenseAppsData.updateLicenseApplication(_toDTO())) {
                 return enHowDidSavingGo.enSaved;
             }else {

@@ -7,56 +7,6 @@ using System.Data.SqlClient;
 namespace DataLinkLayer {
     public static class LicenseRenewalData {
         static string connectionString = ConfigurationManager.ConnectionStrings["DVLD_DB"].ConnectionString;
-
-        static int _createApp (ApplicationDTO appDTO, SqlConnection connection, SqlTransaction transaction) {
-            string query = @"INSERT INTO Applications   
-                    (ApplicantPersonID, ApplicationDate, ApplicationTypeID, ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID)
-                    VALUES 
-                    (@ApplicantPersonID, @ApplicationDate, @ApplicationTypeID, @ApplicationStatus, @LastStatusDate, @PaidFees, @CreatedByUserID);
-                    SELECT SCOPE_IDENTITY();";
-
-            using (SqlCommand command = new SqlCommand(query, connection, transaction)) {
-                command.Parameters.AddWithValue("@ApplicantPersonID", appDTO.personID);
-                command.Parameters.AddWithValue("@ApplicationDate", appDTO.AppDate);
-                command.Parameters.AddWithValue("@ApplicationTypeID", appDTO.ApplicaitionTypeID);
-                command.Parameters.AddWithValue("@ApplicationStatus", (byte)enApplicationStatus.enCompleted);
-                command.Parameters.AddWithValue("@LastStatusDate", appDTO.lastStatusDate);
-                command.Parameters.AddWithValue("@PaidFees", appDTO.paidFees);
-                command.Parameters.AddWithValue("@CreatedByUserID", appDTO.createdByUserID);
-                object result = command.ExecuteScalar();
-                if (result == null) throw new Exception("Failed to create renewal application.");
-                return Convert.ToInt32(result);
-            }
-        }
-
-        static int _createRenewalLocalLicense(LocalLicenseDTO licenseDTO, SqlConnection connection, SqlTransaction transaction) {
-            string query = @"INSERT INTO Licenses 
-                                  (ApplicationID, DriverID, LicenseClass, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, IssueReason, CreatedByUserID)
-                                  VALUES 
-                                  (@ApplicationID, @DriverID, @LicenseClassID, @IssueDate, @ExpirationDate, @Notes, @PaidFees, @IsActive, @IssueReason, @CreatedByUserID) 
-                                  SELECT SCOPE_IDENTITY();";
-
-            using (SqlCommand command = new SqlCommand(query, connection, transaction)) {
-                command.Parameters.AddWithValue("@ApplicationID", licenseDTO.ApplicationID);
-                command.Parameters.AddWithValue("@DriverID", licenseDTO.DriverID);
-                command.Parameters.AddWithValue("@LicenseClassID", licenseDTO.LicenseClassID);
-                command.Parameters.AddWithValue("@IssueDate", licenseDTO.IssueDate);
-                command.Parameters.AddWithValue("@ExpirationDate", licenseDTO.ExpirationDate);
-                if (string.IsNullOrWhiteSpace(licenseDTO.Notes))
-                    command.Parameters.AddWithValue("@Notes", DBNull.Value);
-                else
-                    command.Parameters.AddWithValue("@Notes", licenseDTO.Notes.Trim());
-                command.Parameters.AddWithValue("@PaidFees", licenseDTO.PaidFees);
-                command.Parameters.AddWithValue("@IsActive", licenseDTO.NotSuspended);
-                command.Parameters.AddWithValue("@IssueReason", (byte)licenseDTO.IssueReason);
-                command.Parameters.AddWithValue("@CreatedByUserID", licenseDTO.CreatedByUserID);
-                object result = command.ExecuteScalar();
-                if (result == null) throw new Exception("Failed to create local renewal license.");
-
-
-                return Convert.ToInt32(result);
-            }
-        }
         static void _bindLocalIDsInRenewalTable(int oldLocalLicenseID, int newLocalLicenseID, SqlConnection connection, SqlTransaction transaction) {
             string query = @"Insert Into LocalLicenseRenewals (OldLicenseID, NewLicenseID)  
                                 VALUES (@OldLicenseID, @NewLicenseID);";
@@ -73,13 +23,12 @@ namespace DataLinkLayer {
                 connection.Open();
                 SqlTransaction transaction = connection.BeginTransaction();
                 try {
-                    int renewAppID = _createApp(appDTO, connection, transaction);
+                    int renewAppID = ApplicationsData.addApplicationInTransaction(appDTO, connection, transaction);
 
                     int expiredLicenseID = licenseDTO.LicenseID;
                     licenseDTO.ApplicationID = renewAppID;
-                    
-                    int newLicenseID = _createRenewalLocalLicense(licenseDTO, connection, transaction);
-                   
+
+                    int newLicenseID = LocalLicensesData.addLocalLicenseInTransaction(licenseDTO, connection, transaction);
 
                     _bindLocalIDsInRenewalTable(expiredLicenseID, newLicenseID, connection, transaction);
 
@@ -137,7 +86,7 @@ namespace DataLinkLayer {
                 connection.Open();
                 SqlTransaction transaction = connection.BeginTransaction();
                 try {
-                    int renewAppID = _createApp(appDTO, connection, transaction);
+                    int renewAppID = ApplicationsData.addApplicationInTransaction(appDTO, connection, transaction);
 
                     int expiredLicenseID = licenseDTO.InternationalLicenseID;
                     licenseDTO.ApplicationID = renewAppID;

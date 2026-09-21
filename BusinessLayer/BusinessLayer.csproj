@@ -45,22 +45,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dashboard\Dashboard.cs" />
-    <Compile Include="Detain license\DetainLicense.cs" />
-    <Compile Include="International license\InternationalLicense.cs" />
-    <Compile Include="Licenses and drivers\Driver.cs" />
+    <Compile Include="Analytics\Dashboard.cs" />
+    <Compile Include="License\DetainLicense.cs" />
+    <Compile Include="License\InternationalLicense.cs" />
+    <Compile Include="Actors\Driver.cs" />
     <Compile Include="Appointments and tests\TestAppointments.cs" />
-    <Compile Include="Licenses and drivers\LocalLicense.cs" />
+    <Compile Include="License\LocalLicense.cs" />
     <Compile Include="Local license application\Applications.cs" />
     <Compile Include="Country.cs" />
     <Compile Include="Local license application\LocalLicenseApp.cs" />
-    <Compile Include="Person.cs" />
+    <Compile Include="Actors\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Local license application\AppType.cs" />
-    <Compile Include="Licenses and drivers\LicenseClass.cs" />
+    <Compile Include="License\LicenseClass.cs" />
     <Compile Include="Appointments and tests\Tests.cs" />
     <Compile Include="Appointments and tests\TestType.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="Actors\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLinkLayer\DataLinkLayer.csproj">

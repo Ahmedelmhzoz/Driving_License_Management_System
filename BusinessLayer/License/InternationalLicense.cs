@@ -198,7 +198,7 @@ namespace BusinessLayer {
             else return enLocalLicenseStatus.Active;
         }
         public bool HasBeenRenewed() {
-            return LocalLicensesData.getRenewalLicenseID(this.InternationalLicenseID) != -1;
+            return InternationalLicenseData.getRenewalLicenseID(this.InternationalLicenseID) != -1;
         }
         public LicenseRenewalResult Renew(int userID) {
             if (licenseStatus() != enLocalLicenseStatus.Expired || HasBeenRenewed()) {
