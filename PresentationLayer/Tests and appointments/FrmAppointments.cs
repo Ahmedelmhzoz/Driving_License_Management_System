@@ -6,6 +6,7 @@ using System;
 using System.Windows.Forms;
 using Global;
 using System.Drawing;
+using PresentationLayer.Tests_and_appointments;
 namespace PresentationLayer.Local_DL_Appliaction {
     public partial class FrmAppointments : Form {
         LocalLicenseApp licenseApp = null;
@@ -74,13 +75,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
             }
         }
         
-        bool _HasTheExamDatePassed(TestAppointments appointment) {
-            if (appointment.AppointmentDate.Date < DateTime.Today) {
-                Helpers.ShowErrorMessage("The exam time has passed, schedule a new test");
-                return true;
-            }
-            return false;
-        }
+       
 
         bool _TestDayDidntCome(TestAppointments appointment) {
             if (appointment.AppointmentDate.Date > DateTime.Today) {
@@ -101,12 +96,6 @@ namespace PresentationLayer.Local_DL_Appliaction {
                 return;
             }
 
-            if (_HasTheExamDatePassed(selectedAppointment)) {
-                selectedAppointment.IsLocked = true;
-                selectedAppointment.Save();
-                dgvAppointments.CurrentRow.Cells["IsLocked"].Value = true;
-                return;
-            }
 
             if (_TestDayDidntCome(selectedAppointment)) {
                 return;
@@ -146,5 +135,24 @@ namespace PresentationLayer.Local_DL_Appliaction {
                 }
             }
         }
+
+        private void tmsiTestResult_Click(object sender, EventArgs e) {
+            int AppointmentID = (int)dgvAppointments.CurrentRow.Cells["TestAppointmentID"].Value;
+            try {
+                TestResult testResult = Tests.getTestResultByAppointmentID(AppointmentID);
+                FrmTestDetails frm = new FrmTestDetails(testResult);
+                frm.ShowDialog();
+            }
+            catch {
+                Helpers.ShowErrorMessage("Unexpected error happened");
+            }
+        }
+
+        private void cmsAppointment_Opening(object sender, System.ComponentModel.CancelEventArgs e) {
+            bool isLocked = (bool)dgvAppointments.CurrentRow.Cells["IsLocked"].Value;
+            if (isLocked) tmsiTestResult.Enabled = true;
+            else tmsiTestResult.Enabled = false;
+        }
+
     }
 }

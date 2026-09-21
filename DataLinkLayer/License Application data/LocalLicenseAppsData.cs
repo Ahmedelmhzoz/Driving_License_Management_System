@@ -251,5 +251,27 @@ namespace DataLinkLayer.License_Application_data {
             }
             return false;
         }
+        public static bool personAppliedForApp(int personID) {
+            string query = @"SELECT distinct 1 FROM LocalDrivingLicenseApplications l 
+                            Inner join Applications a On a.ApplicationID = l.ApplicationID inner join People p 
+                            on a.ApplicantPersonID = p.PersonID 
+                            WHERE p.PersonID = @personID";
+            using (SqlConnection connection = new SqlConnection(connectionString)) {
+                using (SqlCommand command = new SqlCommand(query, connection)) {
+                    command.Parameters.AddWithValue("personID", personID);
+                    try {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+                        if (result == null)
+                            return false;
+                        return true;
+                    }
+                    catch (Exception ex) {
+                        System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
+                        return false;
+                    }
+                }
+            }
+        }
     }
 }

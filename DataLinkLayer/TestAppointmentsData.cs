@@ -195,8 +195,9 @@ namespace DataLinkLayer {
             AppointmentsStatistics appointmentsStatistics = new AppointmentsStatistics();
 
             using (SqlConnection conn = new SqlConnection(connectionString)) {
-                string query = @"SELECT TA.TestTypeID, COUNT(TA.TestAppointmentID) AS TestsNumber FROM TestAppointments TA WHERE TA.IsLocked = 1
-                                GROUP BY TA.TestTypeID;
+                string query = @"SELECT TT.TestTypeID, COUNT(TA.TestAppointmentID) AS TestsNumber FROM  TestTypes TT LEFT JOIN TestAppointments TA 
+                                ON Ta.TestTypeID = TT.TestTypeID WHERE TA.IsLocked = 1
+                                GROUP BY TT.TestTypeID;
 
                                 SELECT TA.TestTypeID, COALESCE(CAST(SUM(CASE WHEN T.TestResult = 1 THEN 1 ELSE 0 END) AS Float) / NULLIF(COUNT(*), 0), 0) AS PassRate
                                 FROM TestAppointments TA INNER JOIN Tests T ON TA.TestAppointmentID = T.TestAppointmentID 

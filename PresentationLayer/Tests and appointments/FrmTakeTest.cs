@@ -1,44 +1,53 @@
 ﻿using BusinessLayer;
 using Global;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer.Local_DL_Appliaction {
     public partial class FrmTakeTest : Form {
         TestAppointments appointment = null;
+        Tests scheduledTest = null; 
         public event Action<bool> OnPassExam;
         public FrmTakeTest(TestAppointments appointment) {
             InitializeComponent();
             this.appointment = appointment;
         }
+        bool _HasTheExamDatePassed() {
+            if (appointment.AppointmentDate.Date < DateTime.Today) {
+                return true;
+            }
+            return false;
+        }
 
         private void FrmTakeTest_Load(object sender, EventArgs e) {
+            rbPass.Checked = true; 
             lblAppointmentID.Text = appointment.TestAppointmentID.ToString();
             lblTestTitle.Text = appointment.TestTypeInfo.TestTypeTitle;
             lblLicenseClass.Text = appointment.LocalLicenseAppInfo.LicenseClassInfo.className;
             lblApplicantName.Text = appointment.LocalLicenseAppInfo.personInfo.FullName;
             lblUsername.Text = ImportantSessionData.user.Username;
             lblTestFees.Text = appointment.PaidFees.ToString("0.##");
-            rbPass.Checked = true;
-        }
 
+            scheduledTest = new Tests();
+            scheduledTest.TestAppointmentID = appointment.TestAppointmentID;
+            scheduledTest.CreatedByUserID = ImportantSessionData.user.userID;
+            if (_HasTheExamDatePassed()) {
+                Helpers.ShowErrorMessage("The exam time has passed, schedule a new test");
+                scheduledTest.TestResult = false;
+                scheduledTest.Notes = "Applicant was absent";
+                scheduledTest.Save();
+                this.Close();
+                return;
+            }
+        }
         private void btnAddAppointment_Click(object sender, EventArgs e) {
-            Tests test = new Tests();
-            test.TestAppointmentID = appointment.TestAppointmentID;
-            test.TestResult = rbPass.Checked;
-            test.Notes = txtNotes.Text.Trim();
-            test.CreatedByUserID = ImportantSessionData.user.userID;
-            OnPassExam?.Invoke(rbPass.Checked);
-            
+            scheduledTest.TestResult = rbPass.Checked;
+            scheduledTest.Notes = txtNotes.Text.Trim();
+           
+
             if (Helpers.ShowConfirmation("Are you sure you want to save this result? After that you cannot change the pass/fail result") == DialogResult.Yes) {
-                if (test.Save()) {
+                OnPassExam?.Invoke(rbPass.Checked);
+                if (scheduledTest.Save()) {
                     Helpers.SuccessfulMessage("Test result saved successfully!");
                 } else {
                     Helpers.ShowErrorMessage("Error happend while saving");

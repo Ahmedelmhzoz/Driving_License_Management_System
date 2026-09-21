@@ -23,11 +23,6 @@ namespace PresentationLayer.Manage_types {
             bool isValid = true;
             errorProvider1.Clear();
 
-            if (string.IsNullOrWhiteSpace(txtTitle.Text)) {
-                errorProvider1.SetError(txtTitle, "Title is required!");
-                isValid = false;
-            }
-
             if (string.IsNullOrWhiteSpace(txtDescription.Text)) {
                 errorProvider1.SetError(txtDescription, "Description is required!");
                 isValid = false;
@@ -47,7 +42,6 @@ namespace PresentationLayer.Manage_types {
 
             decimal oldFee = testType.TestTypeFees;
 
-            testType.TestTypeTitle = txtTitle.Text;
             testType.TestTypeDescription = txtDescription.Text;
             testType.TestTypeFees = nFees.Value;
 

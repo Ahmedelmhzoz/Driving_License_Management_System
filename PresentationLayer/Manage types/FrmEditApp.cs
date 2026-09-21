@@ -19,10 +19,6 @@ namespace PresentationLayer.Manage_types {
         bool _AreEveryThingValid() {
             bool isValid = true;
             errorProvider1.Clear();
-            if (string.IsNullOrWhiteSpace(txtTitle.Text)) {
-                errorProvider1.SetError(txtTitle, "Title is required!");
-                isValid = false;
-            }
             if (nFees.Value < 1) {
                 errorProvider1.SetError(nFees, "Fees is required!");
                 isValid = false;
@@ -34,7 +30,6 @@ namespace PresentationLayer.Manage_types {
             if (!_AreEveryThingValid())
                 return;
             decimal oldFee = appType.AppTypeFees;
-            appType.AppTypeTitle = txtTitle.Text;
             appType.AppTypeFees = nFees.Value;
             if (appType.Save()) {
                 Helpers.SuccessfulMessage("Application type updated successfully!");

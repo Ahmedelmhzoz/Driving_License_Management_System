@@ -128,16 +128,16 @@
     <Compile Include="Local License\ucDrivingLicenses.Designer.cs">
       <DependentUpon>ucDrivingLicenses.cs</DependentUpon>
     </Compile>
-    <Compile Include="Local License Appliaction\FrmAddAppointment.cs">
+    <Compile Include="Tests and appointments\FrmAddAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Local License Appliaction\FrmAddAppointment.Designer.cs">
+    <Compile Include="Tests and appointments\FrmAddAppointment.Designer.cs">
       <DependentUpon>FrmAddAppointment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Local License Appliaction\FrmAppointments.cs">
+    <Compile Include="Tests and appointments\FrmAppointments.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Local License Appliaction\FrmAppointments.Designer.cs">
+    <Compile Include="Tests and appointments\FrmAppointments.Designer.cs">
       <DependentUpon>FrmAppointments.cs</DependentUpon>
     </Compile>
     <Compile Include="Local License Appliaction\FrmIssueLocalLicense.cs">
@@ -164,10 +164,10 @@
     <Compile Include="Local License Appliaction\FrmSelectPersonForApp.Designer.cs">
       <DependentUpon>FrmSelectPersonForApp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Local License Appliaction\FrmTakeTest.cs">
+    <Compile Include="Tests and appointments\FrmTakeTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Local License Appliaction\FrmTakeTest.Designer.cs">
+    <Compile Include="Tests and appointments\FrmTakeTest.Designer.cs">
       <DependentUpon>FrmTakeTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Local License Appliaction\ucApplicationDetails.cs">
@@ -306,6 +306,12 @@
     <Compile Include="People\ucGetPersonWithFilter.Designer.cs">
       <DependentUpon>ucGetPersonWithFilter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tests and appointments\FrmTestDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tests and appointments\FrmTestDetails.Designer.cs">
+      <DependentUpon>FrmTestDetails.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Detain license\FrmDetainDetails.resx">
       <DependentUpon>FrmDetainDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -345,10 +351,10 @@
     <EmbeddedResource Include="Local License\ucDrivingLicenses.resx">
       <DependentUpon>ucDrivingLicenses.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Local License Appliaction\FrmAddAppointment.resx">
+    <EmbeddedResource Include="Tests and appointments\FrmAddAppointment.resx">
       <DependentUpon>FrmAddAppointment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Local License Appliaction\FrmAppointments.resx">
+    <EmbeddedResource Include="Tests and appointments\FrmAppointments.resx">
       <DependentUpon>FrmAppointments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Local License Appliaction\FrmIssueLocalLicense.resx">
@@ -363,7 +369,7 @@
     <EmbeddedResource Include="Local License Appliaction\FrmSelectPersonForApp.resx">
       <DependentUpon>FrmSelectPersonForApp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Local License Appliaction\FrmTakeTest.resx">
+    <EmbeddedResource Include="Tests and appointments\FrmTakeTest.resx">
       <DependentUpon>FrmTakeTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Local License Appliaction\ucApplicationDetails.resx">
@@ -441,6 +447,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="People\ucGetPersonWithFilter.resx">
       <DependentUpon>ucGetPersonWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tests and appointments\FrmTestDetails.resx">
+      <DependentUpon>FrmTestDetails.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -1050,6 +1059,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\driving-license %2810%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\curriculum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\curriculum %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\time.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

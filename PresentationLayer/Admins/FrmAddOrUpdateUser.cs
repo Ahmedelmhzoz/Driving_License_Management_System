@@ -8,12 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using  BusinessLayer;
+using BusinessLayer.License_Applications;
 using Global;
 
 namespace PresentationLayer.Users {
     public partial class FrmAddOrUpdateUser : Form {
         User currentUser = null;
-        bool personIsFounded = false;
         public FrmAddOrUpdateUser() {
             InitializeComponent();
             ucGetPersonWithFilter.OnPersonSelection += _ButtonActivation;
@@ -35,7 +35,6 @@ namespace PresentationLayer.Users {
                 lblProcess.Text = "Update user";
                 tpPerson.Text = "Person details";
                 tpCreateUser.Text = "Update user";
-                personIsFounded = true;
                 ucPersonDetails.Visible = true;
                 Person person = Person.findPerson(currentUser.personID);
                 ucPersonDetails.loadData(person);
@@ -46,22 +45,36 @@ namespace PresentationLayer.Users {
 
         void _ButtonActivation(bool IsSelected) {
             btnNext.Enabled = IsSelected;
-            personIsFounded = IsSelected;
         }
         private void button2_Click(object sender, EventArgs e) {
             this.Close();
         }
+        public bool CanMoveToNextTab() {
+            if (currentUser.currentMode == enUserMode.updateUser) return true;
 
-        private void btnNext_Click(object sender, EventArgs e) {
-            tcAddUser.SelectedIndex = 1;
-        }   
-
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e) {
-            if (tcAddUser.SelectedIndex == 1 && !personIsFounded) { // if he went to next tab before finding a person
-                tcAddUser.SelectedIndex = 0;
-                Helpers.ShowErrorMessage("You cant move to the next tap before you select a person");
+            if (ucGetPersonWithFilter.thereAreResults()) {
+                int personID = ucGetPersonWithFilter.getPersonID();
+                if (LocalLicenseApp.personAppliedForApp(personID)) {
+                    return false;
+                }
+                return true;
             }
-            else if (tcAddUser.SelectedIndex == 1 && personIsFounded && currentUser.currentMode == enUserMode.addUser) { // if he went to the user tab after finding a person
+            else {
+                return false;
+            }
+        } 
+        private void btnNext_Click(object sender, EventArgs e) {
+            if (CanMoveToNextTab())
+                tcAddUser.SelectedIndex = 1;
+            else
+                Helpers.ShowErrorMessage("Please select a non-applicant to become a user");
+        }
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e) {
+            if (tcAddUser.SelectedIndex == 1 && !CanMoveToNextTab()) { // if he went to next tab before finding valid person
+                tcAddUser.SelectedIndex = 0;
+                Helpers.ShowErrorMessage("Please select a non-applicant to become a user");
+            }
+            else if (tcAddUser.SelectedIndex == 1 && CanMoveToNextTab() && currentUser.currentMode == enUserMode.addUser) { // if he went to the user tab after finding a person
                 _LoginDataControlsEnablity(true);
                 lblID.BackColor = Color.Black;
                 lblPersonID.Text = ucGetPersonWithFilter.getPersonID().ToString();
@@ -72,7 +85,7 @@ namespace PresentationLayer.Users {
                 lblID.Text = "Unknown";
             }
             else if (tcAddUser.SelectedIndex == 0 && currentUser.currentMode == enUserMode.addUser) { // if he went to the find person in add mode
-                if (ucGetPersonWithFilter.thereIsResults()) 
+                if (ucGetPersonWithFilter.thereAreResults()) 
                     ucGetPersonWithFilter.ReloadPersons();
             }
             else if (tcAddUser.SelectedIndex == 1 && currentUser.currentMode == enUserMode.updateUser) { // if he went to the user tab in update mode

@@ -38,6 +38,7 @@
             this.cmsAppointment = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tmsiEditAppointment = new System.Windows.Forms.ToolStripMenuItem();
             this.tmsiTakeTest = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmsiTestResult = new System.Windows.Forms.ToolStripMenuItem();
             this.lblLicense = new System.Windows.Forms.Label();
             this.lblRecordsNo = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -147,15 +148,17 @@
             this.cmsAppointment.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.cmsAppointment.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tmsiEditAppointment,
-            this.tmsiTakeTest});
+            this.tmsiTakeTest,
+            this.tmsiTestResult});
             this.cmsAppointment.Name = "cmsApp";
-            this.cmsAppointment.Size = new System.Drawing.Size(558, 124);
+            this.cmsAppointment.Size = new System.Drawing.Size(561, 184);
+            this.cmsAppointment.Opening += new System.ComponentModel.CancelEventHandler(this.cmsAppointment_Opening);
             // 
             // tmsiEditAppointment
             // 
             this.tmsiEditAppointment.Image = global::PresentationLayer.Properties.Resources.notes;
             this.tmsiEditAppointment.Name = "tmsiEditAppointment";
-            this.tmsiEditAppointment.Size = new System.Drawing.Size(557, 60);
+            this.tmsiEditAppointment.Size = new System.Drawing.Size(560, 60);
             this.tmsiEditAppointment.Text = "Edit appointment";
             this.tmsiEditAppointment.Click += new System.EventHandler(this.tmsiEditAppointment_Click);
             // 
@@ -163,9 +166,17 @@
             // 
             this.tmsiTakeTest.Image = global::PresentationLayer.Properties.Resources.test1;
             this.tmsiTakeTest.Name = "tmsiTakeTest";
-            this.tmsiTakeTest.Size = new System.Drawing.Size(557, 60);
+            this.tmsiTakeTest.Size = new System.Drawing.Size(560, 60);
             this.tmsiTakeTest.Text = "Take test";
             this.tmsiTakeTest.Click += new System.EventHandler(this.tmsiTakeTest_Click);
+            // 
+            // tmsiTestResult
+            // 
+            this.tmsiTestResult.Image = global::PresentationLayer.Properties.Resources.test__1_;
+            this.tmsiTestResult.Name = "tmsiTestResult";
+            this.tmsiTestResult.Size = new System.Drawing.Size(560, 60);
+            this.tmsiTestResult.Text = "Test result details";
+            this.tmsiTestResult.Click += new System.EventHandler(this.tmsiTestResult_Click);
             // 
             // lblLicense
             // 
@@ -290,5 +301,6 @@
         private System.Windows.Forms.ContextMenuStrip cmsAppointment;
         private System.Windows.Forms.ToolStripMenuItem tmsiEditAppointment;
         private System.Windows.Forms.ToolStripMenuItem tmsiTakeTest;
+        private System.Windows.Forms.ToolStripMenuItem tmsiTestResult;
     }
 }

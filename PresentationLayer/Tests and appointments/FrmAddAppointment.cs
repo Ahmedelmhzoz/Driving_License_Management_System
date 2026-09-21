@@ -29,7 +29,6 @@ namespace PresentationLayer.Local_DL_Appliaction {
             this.licenseApp = licenseApp;
             testMode = numberOfTrials > 0 ? enTestMode.enRetake : enTestMode.enFirstTimeTaken;
             this.appointment = appointment;
-            lblTestTrials.Text = numberOfTrials.ToString();
         }
         void _SetTestLbl(int testID) {
             switch (testID) {
@@ -96,12 +95,10 @@ namespace PresentationLayer.Local_DL_Appliaction {
             Applications newRetakeApplication = null;
             if (testMode == enTestMode.enRetake && appointment.currentMode == enAppointmentMode.enAddAppointment) {
                 newRetakeApplication = new Applications();
-                if (_RetakeAppSavedSuccessfully(newRetakeApplication)) {
+                if (_RetakeAppSavedSuccessfully(newRetakeApplication)) 
                     appointment.RetakeTestApplicationID = newRetakeApplication.AppID;
-                } 
-                else {
+                else 
                     Helpers.ShowErrorMessage("Error happend while saving retake app");
-                }
             }
 
             if (appointment.currentMode == enAppointmentMode.enAddAppointment) {

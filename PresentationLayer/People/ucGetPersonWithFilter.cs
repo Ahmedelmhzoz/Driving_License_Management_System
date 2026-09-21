@@ -96,7 +96,7 @@ namespace PresentationLayer.Users {
             _ShowSearchResults();
         }
 
-        public bool thereIsResults() {
+        public bool thereAreResults() {
             return currentSearchResult != null;
         }
         public int getPersonID() {

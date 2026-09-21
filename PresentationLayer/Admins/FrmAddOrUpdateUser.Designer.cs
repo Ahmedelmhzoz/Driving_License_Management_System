@@ -27,8 +27,6 @@
             this.tcAddUser = new System.Windows.Forms.TabControl();
             this.tpPerson = new System.Windows.Forms.TabPage();
             this.btnNext = new System.Windows.Forms.Button();
-            this.ucGetPersonWithFilter = new PresentationLayer.Users.ucGetPersonWithFilter();
-            this.ucPersonDetails = new PresentationLayer.ucPersonDetails();
             this.tpCreateUser = new System.Windows.Forms.TabPage();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -52,6 +50,9 @@
             this.lblProcess = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.button2 = new System.Windows.Forms.Button();
+            this.ucPersonDetails = new PresentationLayer.ucPersonDetails();
+            this.ucGetPersonWithFilter = new PresentationLayer.Users.ucGetPersonWithFilter();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.tcAddUser.SuspendLayout();
             this.tpPerson.SuspendLayout();
             this.tpCreateUser.SuspendLayout();
@@ -62,6 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // tcAddUser
@@ -102,22 +104,6 @@
             this.btnNext.Text = "Next ";
             this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // ucGetPersonWithFilter
-            // 
-            this.ucGetPersonWithFilter.BackColor = System.Drawing.Color.Black;
-            this.ucGetPersonWithFilter.Location = new System.Drawing.Point(81, 6);
-            this.ucGetPersonWithFilter.Name = "ucGetPersonWithFilter";
-            this.ucGetPersonWithFilter.Size = new System.Drawing.Size(1961, 1237);
-            this.ucGetPersonWithFilter.TabIndex = 0;
-            // 
-            // ucPersonDetails
-            // 
-            this.ucPersonDetails.BackColor = System.Drawing.SystemColors.WindowText;
-            this.ucPersonDetails.Location = new System.Drawing.Point(69, 155);
-            this.ucPersonDetails.Name = "ucPersonDetails";
-            this.ucPersonDetails.Size = new System.Drawing.Size(1922, 855);
-            this.ucPersonDetails.TabIndex = 21;
             // 
             // tpCreateUser
             // 
@@ -354,7 +340,7 @@
             this.lblProcess.AutoSize = true;
             this.lblProcess.Font = new System.Drawing.Font("Georgia", 20F, System.Drawing.FontStyle.Bold);
             this.lblProcess.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblProcess.Location = new System.Drawing.Point(910, 62);
+            this.lblProcess.Location = new System.Drawing.Point(897, 61);
             this.lblProcess.Name = "lblProcess";
             this.lblProcess.Size = new System.Drawing.Size(500, 77);
             this.lblProcess.TabIndex = 22;
@@ -378,12 +364,39 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // ucPersonDetails
+            // 
+            this.ucPersonDetails.BackColor = System.Drawing.SystemColors.WindowText;
+            this.ucPersonDetails.Location = new System.Drawing.Point(69, 155);
+            this.ucPersonDetails.Name = "ucPersonDetails";
+            this.ucPersonDetails.Size = new System.Drawing.Size(1922, 855);
+            this.ucPersonDetails.TabIndex = 21;
+            // 
+            // ucGetPersonWithFilter
+            // 
+            this.ucGetPersonWithFilter.BackColor = System.Drawing.Color.Black;
+            this.ucGetPersonWithFilter.Location = new System.Drawing.Point(81, 6);
+            this.ucGetPersonWithFilter.Name = "ucGetPersonWithFilter";
+            this.ucGetPersonWithFilter.Size = new System.Drawing.Size(1961, 1237);
+            this.ucGetPersonWithFilter.TabIndex = 0;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::PresentationLayer.Properties.Resources.system_administration;
+            this.pictureBox7.Location = new System.Drawing.Point(783, 44);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(116, 98);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 51;
+            this.pictureBox7.TabStop = false;
+            // 
             // FrmAddOrUpdateUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(2230, 1614);
+            this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.lblProcess);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.tcAddUser);
@@ -402,6 +415,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -437,5 +451,6 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox5;
         private ucPersonDetails ucPersonDetails;
+        private System.Windows.Forms.PictureBox pictureBox7;
     }
 }

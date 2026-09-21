@@ -114,7 +114,7 @@ namespace BusinessLayer.License_Applications {
         }
 
         public static DataTable GetApplicationsSearchResult(string currentTxt, string category) {
-            // instead of passing directly the name of column in data base that we want to search, we passing enum this is more secured  
+            // instead of passing directly the name of column in database that we want to search, we passing enum this is more secured  
             enLocalAppSearchCategory searchCategory = _ConvertCategoryToEnum(category);
             return LocalLicenseAppsData.GetApplicationsSearchResult(currentTxt, searchCategory);
         }
@@ -127,6 +127,9 @@ namespace BusinessLayer.License_Applications {
         }
         public  bool cancelApplication() {
             return updateStatus(this.AppID, enApplicationStatus.enCanceled);
+        }
+        public static bool personAppliedForApp(int personID) {
+            return LocalLicenseAppsData.personAppliedForApp(personID);
         }
     }
 }
