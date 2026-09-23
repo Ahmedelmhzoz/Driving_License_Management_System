@@ -9,9 +9,9 @@ using System.Drawing;
 using PresentationLayer.Tests_and_appointments;
 namespace PresentationLayer.Local_DL_Appliaction {
     public partial class FrmAppointments : Form {
-        LocalLicenseApp licenseApp = null;
+        LocalLicenseIssuingApp licenseApp = null;
         enTestType testType = enTestType.Vision;
-        public FrmAppointments(LocalLicenseApp licenseApp, enTestType testType) {
+        public FrmAppointments(LocalLicenseIssuingApp licenseApp, enTestType testType) {
             InitializeComponent();
             this.licenseApp = licenseApp;
             this.testType = testType;

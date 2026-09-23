@@ -92,7 +92,7 @@ namespace BusinessLayer {
             newInternationalAppDTO.lastStatusDate = DateTime.Now;
             newInternationalAppDTO.ApplicaitionTypeID = (int)applicationType;
             newInternationalAppDTO.appStatus = enApplicationStatus.enNew;
-            newInternationalAppDTO.paidFees = AppType.getAppFees(applicationType);
+            newInternationalAppDTO.paidFees = ApplicationType.getAppFees(applicationType);
             newInternationalAppDTO.createdByUserID = userID;
             return newInternationalAppDTO;
         }

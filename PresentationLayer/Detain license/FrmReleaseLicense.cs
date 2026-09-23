@@ -112,7 +112,7 @@ namespace PresentationLayer.Detain_license {
             lblApplicationID.Text = "Unknown";
             lblLicenseID.Text = selectedLocalLicense.LicenseID.ToString();
             lblApplicationDate.Text = today.ToShortDateString();
-            appFees = AppType.getAppFees(enApplicationType.ReleaseDetainedDrivingLicense);
+            appFees = ApplicationType.getAppFees(enApplicationType.ReleaseDetainedDrivingLicense);
 
             lblApplicationFees.Text = "$" + appFees.ToString("0.##");
 

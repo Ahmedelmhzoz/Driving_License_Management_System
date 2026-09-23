@@ -202,7 +202,7 @@ namespace PresentationLayer.Renew_license {
         }
         void _ResetRenewalTab() {
             DateTime today = DateTime.Today;
-            decimal applicationFees = AppType.getAppFees(enApplicationType.RenewDrivingLicense);
+            decimal applicationFees = ApplicationType.getAppFees(enApplicationType.RenewDrivingLicense);
 
             decimal licenseFees = 0m;
             int oldLicenseID;

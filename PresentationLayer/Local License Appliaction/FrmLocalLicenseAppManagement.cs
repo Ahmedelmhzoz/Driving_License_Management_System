@@ -35,7 +35,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
             }
         }
         void _loadAllApplication() {
-            dgvLocalApplications.DataSource = LocalLicenseApp.getAllApplications();
+            dgvLocalApplications.DataSource = LocalLicenseIssuingApp.getAllApplications();
             lblRecordsNo.Text = dgvLocalApplications.Rows.Count.ToString();
             _ApplyGridFormatting();
         }
@@ -44,7 +44,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
                 _loadAllApplication();
             }
             else {
-                dgvLocalApplications.DataSource = LocalLicenseApp.GetApplicationsSearchResult(txtSearch.Text, cbFilterBy.Text);
+                dgvLocalApplications.DataSource = LocalLicenseIssuingApp.GetApplicationsSearchResult(txtSearch.Text, cbFilterBy.Text);
             }
             _ApplyGridFormatting();
             lblRecordsNo.Text = dgvLocalApplications.Rows.Count.ToString();
@@ -86,7 +86,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
         }
         private void showApplicationDetailsToolStripMenuItem_Click(object sender, EventArgs e) {
             int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
-            LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
+            LocalLicenseIssuingApp loaclLicenseApp = LocalLicenseIssuingApp.getLocalLicenseAppByID(ID);
             if (loaclLicenseApp != null) {
                 FrmLocalLicenseAppInfo frm = new FrmLocalLicenseAppInfo(loaclLicenseApp);
                 frm.ShowDialog();
@@ -95,7 +95,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
 
         private void editApp_Click(object sender, EventArgs e) {
             int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
-            LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
+            LocalLicenseIssuingApp loaclLicenseApp = LocalLicenseIssuingApp.getLocalLicenseAppByID(ID);
             if (loaclLicenseApp != null) {
                 FrmSelectPersonForApp frm = new FrmSelectPersonForApp(loaclLicenseApp);
                 frm.ShowDialog();
@@ -105,7 +105,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e) {
             int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
-            if (LocalLicenseApp.deleteLocalLicenseApp(ID)) {
+            if (LocalLicenseIssuingApp.deleteLocalLicenseApp(ID)) {
                 Helpers.SuccessfulMessage("Local driving license application was deleted successfully!");
                 _ReloadData();
             }
@@ -115,7 +115,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e) {
             int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
-            LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
+            LocalLicenseIssuingApp loaclLicenseApp = LocalLicenseIssuingApp.getLocalLicenseAppByID(ID);
             if (loaclLicenseApp.cancelApplication()) {
                 Helpers.SuccessfulMessage("Local driving license application was canceled successfully!");
                 _ReloadData();
@@ -180,7 +180,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
             _EnablityByStatus();
             int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
 
-            LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
+            LocalLicenseIssuingApp loaclLicenseApp = LocalLicenseIssuingApp.getLocalLicenseAppByID(ID);
             if (loaclLicenseApp == null) { Helpers.ShowErrorMessage("Cant get loaclLicenseApp"); return; }
 
             
@@ -189,7 +189,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
 
         void _ShowScheduledTestsForm(enTestType testType) {
             int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
-            LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
+            LocalLicenseIssuingApp loaclLicenseApp = LocalLicenseIssuingApp.getLocalLicenseAppByID(ID);
             if (loaclLicenseApp != null) {
                 FrmAppointments frm = new FrmAppointments(loaclLicenseApp, testType);
                 frm.ShowDialog();
@@ -210,7 +210,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
 
         private void tmsiIssueLicense_Click(object sender, EventArgs e) {
             int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
-            LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
+            LocalLicenseIssuingApp loaclLicenseApp = LocalLicenseIssuingApp.getLocalLicenseAppByID(ID);
             if (loaclLicenseApp != null) {
                 FrmIssueLocalLicense frm = new FrmIssueLocalLicense(loaclLicenseApp);
                 frm.ShowDialog();
@@ -220,7 +220,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
         private void tmsiShowLicense_Click(object sender, EventArgs e) {
             int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
 
-            LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
+            LocalLicenseIssuingApp loaclLicenseApp = LocalLicenseIssuingApp.getLocalLicenseAppByID(ID);
             if (loaclLicenseApp == null){ Helpers.ShowErrorMessage("Cant get loaclLicenseApp"); return; }
 
             LocalLicense license = LocalLicense.GetLicenseByApplicationID(loaclLicenseApp.AppID);
@@ -233,7 +233,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
         private void tmsiHistory_Click(object sender, EventArgs e) {
             int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
 
-             LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
+             LocalLicenseIssuingApp loaclLicenseApp = LocalLicenseIssuingApp.getLocalLicenseAppByID(ID);
             if (loaclLicenseApp == null) { Helpers.ShowErrorMessage("Cant get loaclLicenseApp"); return; }
 
             if (loaclLicenseApp.personInfo == null) { Helpers.ShowErrorMessage("Cant get Person"); return; }

@@ -225,7 +225,7 @@ namespace Shared
                 default: return "Vision Test";
             }
         }
-        public static DateTime? returnStartPoint(enPeriod period) {
+        public static DateTime? returnStart Point(enPeriod period) {
             switch (period) {
                 case enPeriod.Day: return DateTime.Today;
                 case enPeriod.Week: return DateTime.Today.AddDays(-6);

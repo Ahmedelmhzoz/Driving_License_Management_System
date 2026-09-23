@@ -5,8 +5,8 @@ using System.Windows.Forms;
 using Global;
 namespace PresentationLayer.Manage_types {
     public partial class FrmEditApp : Form {
-        AppType appType = null;
-        public FrmEditApp(AppType appType) {
+        ApplicationType appType = null;
+        public FrmEditApp(ApplicationType appType) {
             InitializeComponent();
             this.appType = appType;
         }

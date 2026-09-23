@@ -54,7 +54,7 @@ namespace PresentationLayer.Users {
 
             if (ucGetPersonWithFilter.thereAreResults()) {
                 int personID = ucGetPersonWithFilter.getPersonID();
-                if (LocalLicenseApp.personAppliedForApp(personID)) {
+                if (LocalLicenseIssuingApp.personAppliedForApp(personID)) {
                     return false;
                 }
                 return true;

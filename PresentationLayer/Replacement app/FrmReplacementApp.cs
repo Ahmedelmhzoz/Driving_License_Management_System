@@ -102,7 +102,7 @@ namespace PresentationLayer.Replacement_app {
 
             enApplicationType appType = rbDamage.Checked ? enApplicationType.ReplaceDamagedDrivingLicense : enApplicationType.ReplaceLostDrivingLicense;
 
-            lblAppFees.Text = '$' + AppType.getAppFees(appType).ToString("0.##");
+            lblAppFees.Text = '$' + ApplicationType.getAppFees(appType).ToString("0.##");
             lblUsername.Text = ImportantSessionData.user.Username;
             txtNote.Text = string.Empty;
         }

@@ -20,7 +20,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
                 lblDate.Text = BasicApp.AppDate.ToShortDateString();
                 lblLastStatusDate.Text = BasicApp.lastStatusDate.ToShortDateString();
 
-                AppType appType = AppType.getApplicationType(BasicApp.ApplicaitionTypeID);
+                ApplicationType appType = ApplicationType.getApplicationType(BasicApp.ApplicaitionTypeID);
                 lblAppType.Text = (appType != null) ? appType.AppTypeTitle : "Unknown";
 
                 User user = User.getUserByID(BasicApp.createdByUserID);

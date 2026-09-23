@@ -17,13 +17,13 @@ namespace PresentationLayer.Local_DL_Appliaction {
     enum enTestMode { enFirstTimeTaken = 0, enRetake = 1 }
 
     public partial class FrmAddAppointment : Form {
-        LocalLicenseApp licenseApp = null;
+        LocalLicenseIssuingApp licenseApp = null;
         TestAppointments appointment = null;
         TestType tType = null;
-        AppType appType = null;
+        ApplicationType appType = null;
         enTestMode testMode = enTestMode.enFirstTimeTaken;
        
-        public FrmAddAppointment(TestAppointments appointment ,LocalLicenseApp licenseApp, enTestType enType, int numberOfTrials) {
+        public FrmAddAppointment(TestAppointments appointment ,LocalLicenseIssuingApp licenseApp, enTestType enType, int numberOfTrials) {
             InitializeComponent();
             tType = TestType.getTestTypeDetails(enType);
             this.licenseApp = licenseApp;
@@ -46,7 +46,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
             
             if (testMode == enTestMode.enRetake && appointment.currentMode == enAppointmentMode.enAddAppointment) {
                 gbRetakeTest.Visible = true;
-                appType = AppType.getApplicationType(enApplicationType.RetakeTest);
+                appType = ApplicationType.getApplicationType(enApplicationType.RetakeTest);
                 lblRetakeFees.Text = "$" + appType.AppTypeFees.ToString("0.##");
                 lblTotalFees.Text = '$' + (tType.TestTypeFees + appType.AppTypeFees).ToString("0.##");
             } else { // taking the exam for the first time

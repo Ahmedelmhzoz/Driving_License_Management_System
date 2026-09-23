@@ -6,7 +6,7 @@ namespace BusinessLayer.License_Applications {
     public enum enHowDidSavingGo { enSaved = 1, enErrorWhileSavingLicenseApp = 2, enErrorWhileSavingOriginalApp = 3,
         enNotAllowedAge = 4
     }
-    public class LocalLicenseApp : Applications{
+    public class LocalLicenseIssuingApp : Applications{
         public int LicenseAppID { get; set; }
         public int LicenseClassID { get; set; }
         public LicenseClass LicenseClassInfo {
@@ -15,11 +15,11 @@ namespace BusinessLayer.License_Applications {
             }
         }
        
-        public LocalLicenseApp(){
+        public LocalLicenseIssuingApp(){
             LicenseAppID = -1;
             LicenseClassID = -1;
         }
-        LocalLicenseApp(LicenseApplicationDTO licenseDTO) {
+        LocalLicenseIssuingApp(LicenseApplicationDTO licenseDTO) {
             this.AppID = licenseDTO.AppID;
             this.personID = licenseDTO.personID;
             this.AppDate = licenseDTO.AppDate;
@@ -92,10 +92,10 @@ namespace BusinessLayer.License_Applications {
                     return _UpdateLicenseApp();
             }
         }
-        public static LocalLicenseApp getLocalLicenseAppByID(int id) {
+        public static LocalLicenseIssuingApp getLocalLicenseAppByID(int id) {
             LicenseApplicationDTO LicenseDto = LocalLicenseAppsData.GetLocalLicenseAppByID(id);
             if (LicenseDto == null) return null;
-            return new LocalLicenseApp(LicenseDto);
+            return new LocalLicenseIssuingApp(LicenseDto);
         }
 
         private static enLocalAppSearchCategory _ConvertCategoryToEnum(string category) {

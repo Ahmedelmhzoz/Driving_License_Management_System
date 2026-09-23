@@ -67,7 +67,7 @@ namespace PresentationLayer.International_License {
             lblReleseDate.Text = today.ToShortDateString();
             lblExpireDate.Text = today.AddYears(1).ToShortDateString();
             lblUsername.Text = ImportantSessionData.user.Username;
-            lblFees.Text = '$' + AppType.getAppFees(enApplicationType.NewInternationalLicense).ToString("0.##");
+            lblFees.Text = '$' + ApplicationType.getAppFees(enApplicationType.NewInternationalLicense).ToString("0.##");
              
             _ColoringLblsAndButtonsEnablityByStatus(true);
         }

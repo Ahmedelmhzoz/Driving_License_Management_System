@@ -9,15 +9,15 @@ using Shared;
 
 namespace PresentationLayer.Local_DL_Appliaction {
     public partial class FrmSelectPersonForApp : Form {
-        LocalLicenseApp licenseApplication = null;
+        LocalLicenseIssuingApp licenseApplication = null;
         bool personIsFounded = false;
 
         public FrmSelectPersonForApp() {
             InitializeComponent();
             ucGetPersonWithFilter.OnPersonSelection += _ButtonActivation;
-            licenseApplication = new LocalLicenseApp();
+            licenseApplication = new LocalLicenseIssuingApp();
         }
-        public FrmSelectPersonForApp(LocalLicenseApp appToEdit) {
+        public FrmSelectPersonForApp(LocalLicenseIssuingApp appToEdit) {
             InitializeComponent();
             licenseApplication = appToEdit;
         }
@@ -118,12 +118,12 @@ namespace PresentationLayer.Local_DL_Appliaction {
             lblAppID.BackColor = Color.SpringGreen;
             lblSubmit.ForeColor = Color.DimGray;
             btnSubmitApp.Enabled = false;
-            licenseApplication = new LocalLicenseApp();
+            licenseApplication = new LocalLicenseIssuingApp();
         }
         bool _IsAppNewOfItsClass(int LicenseClassID) {
             int personID = licenseApplication.currentMode == enAppMode.addApp ? ucGetPersonWithFilter.getPersonID() : licenseApplication.personID;
             int activeAppID;
-            if ((activeAppID = LocalLicenseApp.DidPersonMakeSameApplication(personID, LicenseClassID)) != -1) {
+            if ((activeAppID = LocalLicenseIssuingApp.DidPersonMakeSameApplication(personID, LicenseClassID)) != -1) {
                 // there is active application to this person 
                 Helpers.ShowErrorMessage($"Person already has an active application for this class with ApplicationID = {activeAppID}!");
                 return false;
@@ -140,7 +140,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
                 licenseApplication.lastStatusDate = DateTime.Now;
                 licenseApplication.ApplicaitionTypeID = 1; // new local driving license application
                 licenseApplication.lastStatusDate = DateTime.Now;
-                AppType ldApp = AppType.getApplicationType(1);
+                ApplicationType ldApp = ApplicationType.getApplicationType(1);
                 licenseApplication.paidFees = ldApp.AppTypeFees;
                 licenseApplication.createdByUserID = ImportantSessionData.user.userID;
             }

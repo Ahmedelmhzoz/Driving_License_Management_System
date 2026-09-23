@@ -17,15 +17,15 @@ namespace PresentationLayer.Manage_types {
 
         private void FrmApplicationTypes_Load(object sender, EventArgs e) {
             dgvAppTypes.RowTemplate.Height = 80;
-            dgvAppTypes.DataSource = AppType.getApplicationTypes();
+            dgvAppTypes.DataSource = ApplicationType.getApplicationTypes();
         }
 
         private void showDetials_Click(object sender, EventArgs e) {
             int ID = (int)dgvAppTypes.CurrentRow.Cells[0].Value;
-            AppType appType = AppType.getApplicationType(ID);
+            ApplicationType appType = ApplicationType.getApplicationType(ID);
             FrmEditApp frm = new FrmEditApp(appType);
             frm.ShowDialog();
-            dgvAppTypes.DataSource = AppType.getApplicationTypes();
+            dgvAppTypes.DataSource = ApplicationType.getApplicationTypes();
         }
 
         private void btnClose_Click(object sender, EventArgs e) {
