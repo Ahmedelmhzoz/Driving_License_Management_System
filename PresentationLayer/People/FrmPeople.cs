@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Global;
+using Shared;
 using BusinessLayer;
 namespace PresentationLayer {
     public partial class FrmPeople : Form {
@@ -85,19 +78,19 @@ namespace PresentationLayer {
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e) {
             int selectedNationalNo = (int)dgvPeople.CurrentRow.Cells[0].Value;
             if (Person.deletePerson(selectedNationalNo)) {
-                Helpers.SuccessfulMessage("Person deleted successfully");
+                Alert.SuccessfulMessage("Person deleted successfully");
             } else {
-                Helpers.ShowErrorMessage("this Person is a user now, you cant delete user");
+                Alert.ShowErrorMessage("this Person is a user now, you cant delete user");
             }
             _ReloadData();
         }
 
         private void cToolStripMenuItem_Click(object sender, EventArgs e) {
-            Helpers.ShowGeneralMessage("Will be implemented later on");
+            Alert.ShowGeneralMessage("Will be implemented later on");
         }
 
         private void phoneCallToolStripMenuItem_Click(object sender, EventArgs e) {
-            Helpers.ShowGeneralMessage("Will be implemented later on");
+            Alert.ShowGeneralMessage("Will be implemented later on");
         }
     }
 }

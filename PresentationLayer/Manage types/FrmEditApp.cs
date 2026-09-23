@@ -2,7 +2,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Global;
+using Shared;
 namespace PresentationLayer.Manage_types {
     public partial class FrmEditApp : Form {
         ApplicationType appType = null;
@@ -32,14 +32,14 @@ namespace PresentationLayer.Manage_types {
             decimal oldFee = appType.AppTypeFees;
             appType.AppTypeFees = nFees.Value;
             if (appType.Save()) {
-                Helpers.SuccessfulMessage("Application type updated successfully!");
+                Alert.SuccessfulMessage("Application type updated successfully!");
                 if (oldFee > appType.AppTypeFees) 
                     nFees.BackColor = Color.OrangeRed;
                 else if (oldFee < appType.AppTypeFees)
                     nFees.BackColor = Color.SpringGreen;
             }
             else {
-                Helpers.ShowErrorMessage("something went wrong");
+                Alert.ShowErrorMessage("something went wrong");
             }
         }
 

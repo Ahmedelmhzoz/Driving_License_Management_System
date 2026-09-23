@@ -1,11 +1,8 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using BusinessLayer;
 using BusinessLayer.License_Applications;
-using Global;
 using Shared;
 
 namespace PresentationLayer.Local_License_Appliaction {
@@ -27,7 +24,7 @@ namespace PresentationLayer.Local_License_Appliaction {
                 Driver.createdByUserID = ImportantSessionData.user.userID;
                 Driver.personID = licenseApp.personID;
                 if (!Driver.Save()) {
-                    Helpers.ShowErrorMessage("Error happend while saving driver");
+                    Alert.ShowErrorMessage("Error happend while saving driver");
                     return;
                 }
             } else {
@@ -50,11 +47,11 @@ namespace PresentationLayer.Local_License_Appliaction {
             newLicense.IssueReason = enIssueReason.enFirstTime;
             newLicense.CreatedByUserID = ImportantSessionData.user.userID;
             if (newLicense.Save()) {
-                Helpers.SuccessfulMessage("License issued successfully!");
+                Alert.SuccessfulMessage("License issued successfully!");
                 licenseApp.appStatus = enApplicationStatus.enCompleted;
                 licenseApp.lastStatusDate = DateTime.Now;
                 if (!licenseApp.SaveApplication()) {
-                    Helpers.ShowErrorMessage("Error happend while saving license app status!");
+                    Alert.ShowErrorMessage("Error happend while saving license app status!");
                     return;
                 }
 
@@ -63,7 +60,7 @@ namespace PresentationLayer.Local_License_Appliaction {
                 btnIssueLicense.Enabled = false;
             }
             else {
-                Helpers.ShowErrorMessage("Error happend while saving license!");
+                Alert.ShowErrorMessage("Error happend while saving license!");
             }
         }
     }

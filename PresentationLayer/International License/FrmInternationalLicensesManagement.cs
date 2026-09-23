@@ -1,18 +1,9 @@
 ﻿using BusinessLayer;
-using Global;
 using PresentationLayer.Licenses;
 using Shared;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PresentationLayer.International_License {
     public partial class FrmInternationalLicensesManagement : Form {
@@ -110,10 +101,10 @@ namespace PresentationLayer.International_License {
         Person _getSelectedDriverRowPersonality() {
             int DriverID = (int)dgvInternationalLic.CurrentRow.Cells["DriverID"].Value;
             Driver driver = Driver.findDriverByID(DriverID);
-            if (driver == null) { Helpers.ShowErrorMessage("Cant get Driver"); return null; }
+            if (driver == null) { Alert.ShowErrorMessage("Cant get Driver"); return null; }
 
             Person person = driver.personInfo;
-            if (person == null) { Helpers.ShowErrorMessage("Cant get Person"); return null; }
+            if (person == null) { Alert.ShowErrorMessage("Cant get Person"); return null; }
 
             return person;
         }
@@ -127,7 +118,7 @@ namespace PresentationLayer.International_License {
         private void tmsiShowLicense_Click(object sender, EventArgs e) {
             int LicenseID = (int)dgvInternationalLic.CurrentRow.Cells["InternationalLicenseID"].Value;
             InternationalLicense License = InternationalLicense.GetInternationalLicenseByID(LicenseID);
-            if (License == null) { Helpers.ShowErrorMessage("Cant get international license"); return; }
+            if (License == null) { Alert.ShowErrorMessage("Cant get international license"); return; }
 
             FrmInternationalLicenseDetails frm = new FrmInternationalLicenseDetails(License);
             frm.ShowDialog();

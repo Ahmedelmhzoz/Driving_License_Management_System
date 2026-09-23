@@ -1,6 +1,5 @@
 ﻿using BusinessLayer;
 using BusinessLayer.License_Applications;
-using Global;
 using PresentationLayer.Properties;
 using System;
 using System.Drawing;
@@ -79,7 +78,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
             if (tcApplicationManagement.SelectedTab == tpAppInfo && !personIsFounded && licenseApplication.currentMode == enAppMode.addApp) {
                 // if he moved to the next tap before selecting a person
                 tcApplicationManagement.SelectedTab = tpPerson;
-                Helpers.ShowErrorMessage("You cant move to the next tap before you select a person");
+                Alert.ShowErrorMessage("You cant move to the next tap before you select a person");
             }
             else if (tcApplicationManagement.SelectedTab == tpAppInfo && personIsFounded && licenseApplication.currentMode == enAppMode.addApp) {
                 // if he moved to the next tap after selecting a person
@@ -100,14 +99,14 @@ namespace PresentationLayer.Local_DL_Appliaction {
             bool successfulSaving = false;
             switch (result) {
                 case enHowDidSavingGo.enNotAllowedAge:
-                    Helpers.ShowErrorMessage("Person age is below the minimum allowed age for this license training course!");
+                    Alert.ShowErrorMessage("Person age is below the minimum allowed age for this license training course!");
                     break;
                 case enHowDidSavingGo.enErrorWhileSavingLicenseApp:
                 case enHowDidSavingGo.enErrorWhileSavingOriginalApp:
-                    Helpers.ShowErrorMessage("Error happend while saving Local driving license application !");
+                    Alert.ShowErrorMessage("Error happend while saving Local driving license application !");
                     break;
                 case enHowDidSavingGo.enSaved:
-                    Helpers.SuccessfulMessage("Application saved successfully!");
+                    Alert.SuccessfulMessage("Application saved successfully!");
                     successfulSaving = true;
                     break;
             }
@@ -125,7 +124,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
             int activeAppID;
             if ((activeAppID = LocalLicenseIssuingApp.DidPersonMakeSameApplication(personID, LicenseClassID)) != -1) {
                 // there is active application to this person 
-                Helpers.ShowErrorMessage($"Person already has an active application for this class with ApplicationID = {activeAppID}!");
+                Alert.ShowErrorMessage($"Person already has an active application for this class with ApplicationID = {activeAppID}!");
                 return false;
             }
             return true;

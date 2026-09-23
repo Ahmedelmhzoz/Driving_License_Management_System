@@ -2,7 +2,6 @@
 using PresentationLayer.Users;
 using System;
 using System.Windows.Forms;
-using Global;
 using Shared;
 using System.Drawing;
 namespace PresentationLayer {
@@ -116,12 +115,12 @@ namespace PresentationLayer {
            
             if (!User.didUserCreateApp(userID)) {
                 if (User.deleteUser(userID)) {
-                    Helpers.SuccessfulMessage($"The user with ID = {userID} was deleted successfully!");
+                    Alert.SuccessfulMessage($"The user with ID = {userID} was deleted successfully!");
                 } else {
-                    Helpers.ShowErrorMessage("Error happend while deleting");
+                    Alert.ShowErrorMessage("Error happend while deleting");
                 }
             } else {
-                Helpers.ShowErrorMessage($"The user with ID = {userID} participated in creating an Application, you cant delete this user");
+                Alert.ShowErrorMessage($"The user with ID = {userID} participated in creating an Application, you cant delete this user");
             }
             _ReloadDate();
         }

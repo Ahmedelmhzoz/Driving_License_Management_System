@@ -4,12 +4,10 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using  BusinessLayer;
 using BusinessLayer.License_Applications;
-using Global;
+using Shared;
 
 namespace PresentationLayer.Users {
     public partial class FrmAddOrUpdateUser : Form {
@@ -67,12 +65,12 @@ namespace PresentationLayer.Users {
             if (CanMoveToNextTab())
                 tcAddUser.SelectedIndex = 1;
             else
-                Helpers.ShowErrorMessage("Please select a non-applicant to become a user");
+                Alert.ShowErrorMessage("Please select a non-applicant to become a user");
         }
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e) {
             if (tcAddUser.SelectedIndex == 1 && !CanMoveToNextTab()) { // if he went to next tab before finding valid person
                 tcAddUser.SelectedIndex = 0;
-                Helpers.ShowErrorMessage("Please select a non-applicant to become a user");
+                Alert.ShowErrorMessage("Please select a non-applicant to become a user");
             }
             else if (tcAddUser.SelectedIndex == 1 && CanMoveToNextTab() && currentUser.currentMode == enUserMode.addUser) { // if he went to the user tab after finding a person
                 _LoginDataControlsEnablity(true);
@@ -164,7 +162,7 @@ namespace PresentationLayer.Users {
         
         private void btnSave_Click(object sender, EventArgs e) {
             if (!_AreEveryThingValid()) {
-                Helpers.ShowErrorMessage("Please fill all text boxes correctly!");
+                Alert.ShowErrorMessage("Please fill all text boxes correctly!");
                 return;
             }
             enUserMode WhatPersonModeWas = currentUser.currentMode;
@@ -174,7 +172,7 @@ namespace PresentationLayer.Users {
             currentUser.personID = (currentUser.currentMode == enUserMode.addUser ? ucGetPersonWithFilter.getPersonID() : currentUser.personID); // in update mode we dont change it
             currentUser.isActive = chkActive.Checked;
             if (currentUser.Save()) {
-                Helpers.SuccessfulMessage("User saves successfully!");
+                Alert.SuccessfulMessage("User saves successfully!");
                 if (WhatPersonModeWas == enUserMode.addUser) {
                     lblID.Text = currentUser.userID.ToString();
                     lblID.BackColor = Color.SpringGreen;
@@ -187,15 +185,12 @@ namespace PresentationLayer.Users {
                 
             }
             else {
-                Helpers.ShowErrorMessage("something went wrong");
+                Alert.ShowErrorMessage("something went wrong");
             }
         }
         private void AnyChangeInInput(object sender, EventArgs e) {
             btnSave.Enabled = true;
         }
 
-        private void tabPage2_Click(object sender, EventArgs e) {
-
-        }
     }
 }

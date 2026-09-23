@@ -1,16 +1,10 @@
 ﻿using BusinessLayer;
-using Global;
 using PresentationLayer.Local_License;
 using Shared;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer.Detain_license {
@@ -72,7 +66,7 @@ namespace PresentationLayer.Detain_license {
             return selected.Key;
         }
         void _ExceptionHappend() {
-            Helpers.ShowErrorMessage("Unexpected error happend");
+            Alert.ShowErrorMessage("Unexpected error happend");
         }
         void _ReloadData() {
             enDetainFilterBy filter = _GetSelectedFilter();

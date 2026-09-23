@@ -3,7 +3,7 @@ using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-using Global;
+using Shared;
 namespace PresentationLayer.Users {
     public partial class ucGetPersonWithFilter : UserControl {
         public ucGetPersonWithFilter() {
@@ -85,7 +85,7 @@ namespace PresentationLayer.Users {
         void _NoResultScreen(bool withMessage = true) {
             ucPersonViewer.returnToDefault();
             if (withMessage) 
-                Helpers.ShowErrorMessage($"There is no result have {cbFilterBy.Text} = {txtSearch.Text}");
+                Alert.ShowErrorMessage($"There is no result have {cbFilterBy.Text} = {txtSearch.Text}");
             btnNextPerson.Enabled = false;
             lblNext.ForeColor = Color.DimGray;
             OnPersonSelection?.Invoke(false);

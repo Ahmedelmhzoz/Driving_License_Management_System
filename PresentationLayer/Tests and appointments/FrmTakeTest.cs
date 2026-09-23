@@ -1,5 +1,5 @@
 ﻿using BusinessLayer;
-using Global;
+using Shared;
 using System;
 using System.Windows.Forms;
 
@@ -32,7 +32,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
             scheduledTest.TestAppointmentID = appointment.TestAppointmentID;
             scheduledTest.CreatedByUserID = ImportantSessionData.user.userID;
             if (_HasTheExamDatePassed()) {
-                Helpers.ShowErrorMessage("The exam time has passed, schedule a new test");
+                Alert.ShowErrorMessage("The exam time has passed, schedule a new test");
                 scheduledTest.TestResult = false;
                 scheduledTest.Notes = "Applicant was absent";
                 scheduledTest.Save();
@@ -44,12 +44,12 @@ namespace PresentationLayer.Local_DL_Appliaction {
             scheduledTest.TestResult = rbPass.Checked;
             scheduledTest.Notes = txtNotes.Text.Trim();
 
-            if (Helpers.ShowConfirmation("Are you sure you want to save this result? After that you cannot change the pass/fail result") == DialogResult.Yes) {
+            if (Alert.ShowConfirmation("Are you sure you want to save this result? After that you cannot change the pass/fail result") == DialogResult.Yes) {
                 if (scheduledTest.Save()) {
-                    Helpers.SuccessfulMessage("Test result saved successfully!");
+                    Alert.SuccessfulMessage("Test result saved successfully!");
                      OnPassExam?.Invoke(rbPass.Checked);
                 } else {
-                    Helpers.ShowErrorMessage("Error happend while saving");
+                    Alert.ShowErrorMessage("Error happend while saving");
                 }
                 this.Close();
             }

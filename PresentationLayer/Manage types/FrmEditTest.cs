@@ -2,7 +2,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Global;
+using Shared;
 namespace PresentationLayer.Manage_types {
     public partial class FrmEditTest : Form {
         TestType testType = null;
@@ -46,7 +46,7 @@ namespace PresentationLayer.Manage_types {
             testType.TestTypeFees = nFees.Value;
 
             if (testType.Save()) {
-                Helpers.SuccessfulMessage("Test type updated successfully!");
+                Alert.SuccessfulMessage("Test type updated successfully!");
 
                 if (oldFee > testType.TestTypeFees)
                     nFees.BackColor = Color.OrangeRed;
@@ -54,7 +54,7 @@ namespace PresentationLayer.Manage_types {
                     nFees.BackColor = Color.SpringGreen;
             }
             else {
-                Helpers.ShowErrorMessage("Something went wrong");
+                Alert.ShowErrorMessage("Something went wrong");
             }
         }
 

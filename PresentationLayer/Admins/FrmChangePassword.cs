@@ -1,8 +1,7 @@
 ﻿using BusinessLayer;
 using System;
 using System.Windows.Forms;
-using Global;
-
+using Shared;
 namespace PresentationLayer.Users {
     public partial class FrmChangePassword : Form {
         User currentUser = null;
@@ -53,12 +52,12 @@ namespace PresentationLayer.Users {
             }
             currentUser.password = txtPasswordNew.Text.Trim();
             if (currentUser.Save()) {
-                Helpers.SuccessfulMessage("Password changed successfully!");
+                Alert.SuccessfulMessage("Password changed successfully!");
                 txtPasswordConf.Text = "";
                 txtPasswordNew.Text = "";
                 txtPasswordOld.Text = "";
             } else {
-                Helpers.ShowErrorMessage("Error happend while saving");
+                Alert.ShowErrorMessage("Error happend while saving");
             }
         }
 

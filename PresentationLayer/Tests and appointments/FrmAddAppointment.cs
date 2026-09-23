@@ -1,16 +1,8 @@
 ﻿using BusinessLayer;
 using BusinessLayer.License_Applications;
-using Global;
 using Shared;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer.Local_DL_Appliaction {
@@ -98,7 +90,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
                 if (_RetakeAppSavedSuccessfully(newRetakeApplication)) 
                     appointment.RetakeTestApplicationID = newRetakeApplication.AppID;
                 else 
-                    Helpers.ShowErrorMessage("Error happend while saving retake app");
+                    Alert.ShowErrorMessage("Error happend while saving retake app");
             }
 
             if (appointment.currentMode == enAppointmentMode.enAddAppointment) {
@@ -110,7 +102,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
             }
 
             if (dpAppointmentDate.Value.Date < DateTime.Today) {
-                Helpers.ShowErrorMessage("The date cannot be chosen in the past");
+                Alert.ShowErrorMessage("The date cannot be chosen in the past");
                 return;
             }
             appointment.AppointmentDate = dpAppointmentDate.Value;
@@ -119,7 +111,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
             enAppointmentMode whatAppointmentModeWas = appointment.currentMode;
 
             if (appointment.Save()) {
-                Helpers.SuccessfulMessage("Appointment saved successfully!");
+                Alert.SuccessfulMessage("Appointment saved successfully!");
                 if (newRetakeApplication != null) {
                     lblRetakeID.Text = newRetakeApplication.AppID.ToString();
                     lblRetakeID.BackColor = Color.SpringGreen;
@@ -131,7 +123,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
                 btnAddAppointment.Enabled = false;
             }
             else {
-                Helpers.ShowErrorMessage("Error while saving");
+                Alert.ShowErrorMessage("Error while saving");
             }
         }
     }

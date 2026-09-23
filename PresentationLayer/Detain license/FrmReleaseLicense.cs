@@ -1,14 +1,7 @@
 ﻿using BusinessLayer;
-using Global;
 using Shared;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer.Detain_license {
@@ -57,7 +50,7 @@ namespace PresentationLayer.Detain_license {
                 _ReleaseBtnEnibility(true);
             }
             else {
-                Helpers.ShowErrorMessage($"There is no license has ID = {licenseID}");
+                Alert.ShowErrorMessage($"There is no license has ID = {licenseID}");
 
                 selectedLocalLicense = null;
                 ucLocalLicenseDetails.ResetLicenseInfo();
@@ -70,15 +63,15 @@ namespace PresentationLayer.Detain_license {
             bool isDetained = selectedLocalLicense.isLicenseDenied();
             enLocalLicenseStatus status = selectedLocalLicense.getLicenseStatus();
             if (status == enLocalLicenseStatus.Expired) {
-                Helpers.ShowErrorMessage("This license has expired.");
+                Alert.ShowErrorMessage("This license has expired.");
                 return false;
             }
             else if (status == enLocalLicenseStatus.Suspended) {
-                Helpers.ShowErrorMessage("This license had been suspended.");
+                Alert.ShowErrorMessage("This license had been suspended.");
                 return false;
             }
             else if (!isDetained) {
-                Helpers.ShowErrorMessage("This license is not detained, so it cannot be released.");
+                Alert.ShowErrorMessage("This license is not detained, so it cannot be released.");
                 return false;
             }
             else {
@@ -97,7 +90,7 @@ namespace PresentationLayer.Detain_license {
             btnRelease.Enabled = !change;
         }
         void _ExceptionHappend() {
-            Helpers.ShowErrorMessage("Unexpected error happend");
+            Alert.ShowErrorMessage("Unexpected error happend");
         }
         void _ResetReleaseTab() {
             if (selectedLocalLicense == null || selectedLocalLicense.currentDetainInfo == null)
@@ -145,7 +138,7 @@ namespace PresentationLayer.Detain_license {
             try {
                 ReleaseDetails releaseDetails = new ReleaseDetails(selectedLocalLicense.currentDetainInfo.detainID, DateTime.Now, ImportantSessionData.user.userID);
                 selectedLocalLicense.Release(ref releaseDetails);
-                Helpers.SuccessfulMessage("The license has been successfully released");
+                Alert.SuccessfulMessage("The license has been successfully released");
                 lblApplicationID.Text = releaseDetails.applicationID.ToString();
                 _ChangeLblsColorAndBtnsEnability(true);
                 ucLocalLicenseDetails.approveLicense();

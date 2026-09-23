@@ -45,20 +45,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Licenses sevices\DetainedLicensesData.cs" />
+    <Compile Include="Licenses services\DetainedLicensesData.cs" />
     <Compile Include="Actors\DriversData.cs" />
-    <Compile Include="Licenses sevices\InternationalIssuingData.cs" />
+    <Compile Include="Licenses services\InternationalIssuingData.cs" />
     <Compile Include="Licenses\InternationalLicensesData.cs" />
     <Compile Include="General application\AppAndTestTypes.cs" />
     <Compile Include="General application\ApplicationsData.cs" />
     <Compile Include="CountriesData.cs" />
     <Compile Include="Licenses\LicenseClassesData.cs" />
     <Compile Include="General application\LocalLicenseAppsData.cs" />
-    <Compile Include="Licenses sevices\LicenseRenewalData.cs" />
+    <Compile Include="Licenses services\LicenseRenewalData.cs" />
     <Compile Include="Licenses\LocalLicensesData.cs" />
     <Compile Include="Actors\PeopleData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Licenses sevices\ReplacementIssuingData.cs" />
+    <Compile Include="Licenses services\ReplacementIssuingData.cs" />
     <Compile Include="Financial analytics\RevenueData.cs" />
     <Compile Include="Appointments and tests\TestAppointmentsData.cs" />
     <Compile Include="Appointments and tests\TestsData.cs" />

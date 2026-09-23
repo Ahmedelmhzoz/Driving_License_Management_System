@@ -4,7 +4,6 @@ using PresentationLayer.Properties;
 using Shared;
 using System;
 using System.Windows.Forms;
-using Global;
 using System.Drawing;
 using PresentationLayer.Tests_and_appointments;
 namespace PresentationLayer.Local_DL_Appliaction {
@@ -43,11 +42,11 @@ namespace PresentationLayer.Local_DL_Appliaction {
 
         private void btnAdd_Click(object sender, EventArgs e) {
             if (TestAppointments.isThereAnActiveAppointment(licenseApp.LicenseAppID, testType)) {
-                Helpers.ShowErrorMessage("This person already have an active appointment for this test, you cannot add new appointment!");
+                Alert.ShowErrorMessage("This person already have an active appointment for this test, you cannot add new appointment!");
                 return;
             }
             if (Tests.isPersonPassedInTestType(licenseApp.LicenseAppID, testType)) {
-                Helpers.ShowErrorMessage("This person already passed this test before!");
+                Alert.ShowErrorMessage("This person already passed this test before!");
                 return;
             }
             TestAppointments appointment = new TestAppointments();
@@ -79,7 +78,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
 
         bool _TestDayDidntCome(TestAppointments appointment) {
             if (appointment.AppointmentDate.Date > DateTime.Today) {
-                Helpers.ShowErrorMessage("It's still time for the exam to start, please wait");
+                Alert.ShowErrorMessage("It's still time for the exam to start, please wait");
                 return true;
             }
             return false;
@@ -92,7 +91,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
 
            
             if (selectedAppointment.IsLocked) {
-                Helpers.ShowErrorMessage("The test is already taken");
+                Alert.ShowErrorMessage("The test is already taken");
                 return;
             }
 
@@ -144,7 +143,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
                 frm.ShowDialog();
             }
             catch {
-                Helpers.ShowErrorMessage("Unexpected error happened");
+                Alert.ShowErrorMessage("Unexpected error happened");
             }
         }
 

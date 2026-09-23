@@ -1,14 +1,6 @@
 ﻿using BusinessLayer;
-using Global;
 using Shared;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer.International_License {
@@ -61,9 +53,9 @@ namespace PresentationLayer.International_License {
 
             Applications licenseBasicApp = intLicense.ApplicationInfo;
 
-            if (licenseBasicApp == null) { Helpers.ShowErrorMessage("Error while geting application"); return; }
+            if (licenseBasicApp == null) { Alert.ShowErrorMessage("Error while geting application"); return; }
 
-            if (licenseBasicApp.personInfo == null) { Helpers.ShowErrorMessage("Error while getting person info!"); return; }
+            if (licenseBasicApp.personInfo == null) { Alert.ShowErrorMessage("Error while getting person info!"); return; }
 
             ucPersonDetails.loadData(licenseBasicApp.personInfo);
         }

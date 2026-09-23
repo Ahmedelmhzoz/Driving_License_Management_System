@@ -1,11 +1,12 @@
-﻿using BusinessLayer;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using Shared;
-using BusinessLayer.License_Applications;
 
-namespace Global {  
-    public static class Helpers {
+namespace Shared {
+    public static class Alert {
         public static void ShowErrorMessage(string message, string title = "Error") {
             MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
@@ -18,13 +19,7 @@ namespace Global {
         public static DialogResult ShowConfirmation(string message, string title = "Confirmation") {
             return MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
         }
-        public static string _ConverStatusEnumToString(enApplicationStatus status) {
-            switch (status) {
-                case enApplicationStatus.enNew: return "New";
-                case enApplicationStatus.enCanceled: return "Canceled";
-                case enApplicationStatus.enCompleted: return "Completed";
-                default: return "Unknown";
-            }
-        }
+
     }
+
 }
