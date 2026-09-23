@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using Shared;
 
 namespace DataLinkLayer {
     public class UsersData {
@@ -113,28 +114,48 @@ namespace DataLinkLayer {
             }
         }
 
-        public static DataTable searchResultByCategory(string currentText, enSearchCategoryUsers mode, string activeOrNot) {
+        public static DataTable searchResultByCategory(string currentText, enSearchCategoryUsers mode, enUserStatus status) {
             DataTable dt = new DataTable();
-            SqlConnection conn = new SqlConnection(connectionSettings);
-            string[] searchModes = { "UserID = @CurrentText", "UserName Like @CurrentText + '%'", "PersonID = @CurrentText", "FullName Like @CurrentText + '%'" };
-            string cat = searchModes[(int)mode];
-            string query = $"Select * from Users_View where {cat} and IsActive like @activeOrNotOrGeneral + '%'";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@CurrentText", currentText);
-            cmd.Parameters.AddWithValue("@activeOrNotOrGeneral", activeOrNot);
-            try {
-                conn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.HasRows) {
+
+            string actualColumnName = string.Empty;
+            switch (mode) {
+                case enSearchCategoryUsers.enUserID:
+                    actualColumnName = "UserID"; break;
+                case enSearchCategoryUsers.enUserName:
+                    actualColumnName = "UserName"; break;
+                case enSearchCategoryUsers.enPersonID:
+                    actualColumnName = "PersonID"; break;
+                case enSearchCategoryUsers.enFullName:
+                    actualColumnName = "FullName";
+                    break;
+                default:
+                    actualColumnName = "UserID";
+                    break;
+            }
+
+            char StatusInBitToSearch = '\0';
+            switch (status) {
+                case enUserStatus.enActive: StatusInBitToSearch = '1'; break;
+                case enUserStatus.enNotActive: StatusInBitToSearch = '0'; break;
+                default: StatusInBitToSearch = '\0'; break;
+            }
+
+            string query = $@"Select * from Users_View where {actualColumnName} Like @CurrentText + '%' and IsActive like @activeOrNotOrGeneral + '%'
+                        ORDER BY UserID DESC";
+            using (SqlConnection conn = new SqlConnection(connectionSettings))
+
+            using (SqlCommand cmd = new SqlCommand(query, conn)) {
+                cmd.Parameters.AddWithValue("@CurrentText", currentText);
+                cmd.Parameters.AddWithValue("@activeOrNotOrGeneral", StatusInBitToSearch);
+                try {
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
                     dt.Load(reader);
                 }
-                reader.Close();
-            }
-            catch (Exception ex) {
-                Console.WriteLine(ex.Message);
-            }
-            finally {
-                conn.Close();
+                catch (Exception ex) {
+                    System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
+                }
+
             }
             return dt;
         }
@@ -153,7 +174,7 @@ namespace DataLinkLayer {
                 reader.Close();
             }
             catch (Exception ex) {
-                Console.WriteLine(ex.Message);
+                System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
             }
             finally {
                 conn.Close();

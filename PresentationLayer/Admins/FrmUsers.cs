@@ -2,15 +2,14 @@
 using PresentationLayer.Users;
 using System;
 using System.Windows.Forms;
-using static BusinessLayer.User;
 using Global;
+using Shared;
 using System.Drawing;
 namespace PresentationLayer {
     public partial class FrmUsers : Form {
         public FrmUsers() {
             InitializeComponent();
         }
-        enUserStatus currentStatue = enUserStatus.enGeneral;
 
         private void _ApplyGridFormatting() {
             foreach (DataGridViewRow row in dgvUsers.Rows) {
@@ -27,63 +26,57 @@ namespace PresentationLayer {
                     }
                 }
             }
+            dgvUsers.Columns["IsActive"].Visible = false;
         }
         private void FrmUsers_Load(object sender, EventArgs e) {
             cbFilterBy.SelectedIndex = 0;
             dgvUsers.RowTemplate.Height = 65;
-            dgvUsers.DataSource = User.getUsers();
-            lblRecordsNo.Text = dgvUsers.Rows.Count.ToString();
-            _ApplyGridFormatting();
             rbGeneral.Checked = true;
+            cbFilterBy.Text = "None";
+            txtSearch.Text = string.Empty;
+
+            _ReloadDate();
+        }
+
+        private void _ReloadDate() {
+            enUserStatus activation = enUserStatus.enGeneral;
+            if (rbActive.Checked) 
+                activation = enUserStatus.enActive;
+            else if (rbNotActive.Checked) 
+                activation = enUserStatus.enNotActive;
+            else 
+                activation = enUserStatus.enGeneral;
+
+            dgvUsers.DataSource = User.getCurrentSearchResult(txtSearch.Text, cbFilterBy.Text, activation);
+            _ApplyGridFormatting();
+            lblRecordsNo.Text = dgvUsers.Rows.Count.ToString();
         }
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e) {
+            txtSearch.Text = string.Empty;
             if (cbFilterBy.Text == "None")
                 {txtSearch.Text = "";
                 txtSearch.Visible = false;
             }
             else 
                 txtSearch.Visible = true;
-            _FilterUsersWithState();
-            _ApplyGridFormatting();
+
+            _ReloadDate();
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e) {
-            if (txtSearch.Text == "")
-                dgvUsers.DataSource = User.getUsers();
-            else
-                dgvUsers.DataSource = User.getCurrentSearchResult(txtSearch.Text, cbFilterBy.Text, currentStatue);
-            lblRecordsNo.Text = dgvUsers.Rows.Count.ToString();
-        }
-
-        void _FilterUsersWithState() {
-            if (cbFilterBy.Text == "None" || txtSearch.Text == "") {
-                dgvUsers.DataSource = User.selectUsersByState(currentStatue);
-            }
-            else {
-                dgvUsers.DataSource = User.getCurrentSearchResult(txtSearch.Text, cbFilterBy.Text, currentStatue);
-            }
-            lblRecordsNo.Text = dgvUsers.Rows.Count.ToString();
+            _ReloadDate();
         }
         private void rbGeneral_CheckedChanged(object sender, EventArgs e) {
-            if (rbGeneral.Checked) {
-                currentStatue = enUserStatus.enGeneral;
-                _FilterUsersWithState();
-            }
+            _ReloadDate();
         }
 
         private void rbActive_CheckedChanged(object sender, EventArgs e) {
-            if (rbActive.Checked) {
-                currentStatue = enUserStatus.enActive;
-                _FilterUsersWithState();
-            }
+            _ReloadDate();
         }
 
         private void rbIsntActive_CheckedChanged(object sender, EventArgs e) {
-            if (rbIsntActive.Checked) {
-                currentStatue = enUserStatus.enNotActive;
-                _FilterUsersWithState();
-            }
+            _ReloadDate();
         }
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e) {
             if (cbFilterBy.Text.Trim() == "Person ID" || cbFilterBy.Text.Trim() == "User ID") {
@@ -130,7 +123,7 @@ namespace PresentationLayer {
             } else {
                 Helpers.ShowErrorMessage($"The user with ID = {userID} participated in creating an Application, you cant delete this user");
             }
-            _FilterUsersWithState();
+            _ReloadDate();
         }
     }
 }

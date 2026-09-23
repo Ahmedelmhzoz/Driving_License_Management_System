@@ -3,16 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using System.Threading.Tasks;
 using static DataLinkLayer.UsersData;
-
+using Shared;
 namespace BusinessLayer {
     public enum enUserMode { addUser = 0, updateUser = 1 }
     public class User {
-        public enum enUserStatus { enActive = 0, enNotActive = 1, enGeneral = 2 }
         public int userID {  get; set; }
         public int personID { get; set; }
         public bool isActive { get; set; }
@@ -73,22 +68,11 @@ namespace BusinessLayer {
                 case "Person ID": searchMode = enSearchCategoryUsers.enPersonID; break;
                 case "Username": searchMode = enSearchCategoryUsers.enUserName; break;
                 case "Full Name": searchMode = enSearchCategoryUsers.enFullName; break;
+                case "None": searchMode = enSearchCategoryUsers.enGeneral; break;
                 default: break;
             }
-            string StatusInBitToSearch = "";
-            switch (status) {
-                case enUserStatus.enActive : StatusInBitToSearch = "1"; break;
-                case enUserStatus.enNotActive : StatusInBitToSearch = "0"; break;
-                default: StatusInBitToSearch = "";  break;
-            }
-            return UsersData.searchResultByCategory(currentTxt, searchMode, StatusInBitToSearch);
-        }
-        public static DataTable selectUsersByState(enUserStatus status) {
-            switch (status) {
-                case enUserStatus.enActive: return UsersData.getUsersByState(true);
-                case enUserStatus.enNotActive: return UsersData.getUsersByState(false);
-                default: return UsersData.getAllUsers();
-            }
+            
+            return UsersData.searchResultByCategory(currentTxt, searchMode, status);
         }
         private int addUser() {
             return UsersData.addAUser(Username, password, personID, isActive);

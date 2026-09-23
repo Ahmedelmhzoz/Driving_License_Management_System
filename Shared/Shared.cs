@@ -11,6 +11,7 @@ namespace Shared
         NationalNo = 3,
         FullName = 4
     }
+    public enum enUserStatus { enActive = 0, enNotActive = 1, enGeneral = 2 }
 
     public enum enInternationalLicenseEligibility {
         Eligible = 0,                  
