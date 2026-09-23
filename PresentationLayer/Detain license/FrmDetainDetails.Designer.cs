@@ -336,9 +336,10 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDetainDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmDetainDetails";
+            this.Text = "Detain Details";
             this.Load += new System.EventHandler(this.FrmDetainDetails_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();

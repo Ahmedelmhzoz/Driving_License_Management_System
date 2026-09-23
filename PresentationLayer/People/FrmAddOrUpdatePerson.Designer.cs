@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAddOrUpdatePerson));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblRemove = new System.Windows.Forms.Label();
@@ -606,9 +607,10 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblOperation);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAddOrUpdatePerson";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmAddOrUpdatePerson";
+            this.Text = "Add/Update person ";
             this.Load += new System.EventHandler(this.FrmAddOrUpdatePerson_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

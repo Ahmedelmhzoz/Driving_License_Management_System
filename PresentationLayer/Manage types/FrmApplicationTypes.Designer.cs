@@ -27,6 +27,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmApplicationTypes));
             this.label1 = new System.Windows.Forms.Label();
             this.cmsAppT = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showDetials = new System.Windows.Forms.ToolStripMenuItem();
@@ -194,9 +195,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmApplicationTypes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmApplicationTypes";
+            this.Text = "Applications management";
             this.Load += new System.EventHandler(this.FrmApplicationTypes_Load);
             this.cmsAppT.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppTypes)).EndInit();

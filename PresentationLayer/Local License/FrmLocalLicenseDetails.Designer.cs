@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLocalLicenseDetails));
             this.lblTestType = new System.Windows.Forms.Label();
             this.pbTestType = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
@@ -87,9 +88,10 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ucLocalLicenseDetails1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmLocalLicenseDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmLocalLicenseDetails";
+            this.Text = "Local License Details";
             this.Load += new System.EventHandler(this.FrmLocalLicenseDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbTestType)).EndInit();
             this.ResumeLayout(false);

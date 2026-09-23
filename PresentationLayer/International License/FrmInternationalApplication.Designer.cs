@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInternationalApplication));
             this.tcInternationApp = new System.Windows.Forms.TabControl();
             this.tbSelectLocalLic = new System.Windows.Forms.TabPage();
             this.lblApply = new System.Windows.Forms.Label();
@@ -579,9 +580,10 @@
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.lblProcess);
             this.Controls.Add(this.tcInternationApp);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmInternationalApplication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmInternationalApplication";
+            this.Text = "International Application";
             this.tcInternationApp.ResumeLayout(false);
             this.tbSelectLocalLic.ResumeLayout(false);
             this.tbSelectLocalLic.PerformLayout();

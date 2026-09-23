@@ -42,15 +42,15 @@
             this.gbRetakeTest = new System.Windows.Forms.GroupBox();
             this.lblTotalFees = new System.Windows.Forms.Label();
             this.lblRetakeFees = new System.Windows.Forms.Label();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.lblRetakeID = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblAppointmentID = new System.Windows.Forms.Label();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAddAppointment = new System.Windows.Forms.Button();
@@ -280,6 +280,26 @@
             this.lblRetakeFees.TabIndex = 71;
             this.lblRetakeFees.Text = "$5";
             // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = global::PresentationLayer.Properties.Resources.currency1;
+            this.pictureBox10.Location = new System.Drawing.Point(236, 220);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(68, 59);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 70;
+            this.pictureBox10.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::PresentationLayer.Properties.Resources.time;
+            this.pictureBox7.Location = new System.Drawing.Point(236, 70);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(68, 55);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 71;
+            this.pictureBox7.TabStop = false;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -290,6 +310,16 @@
             this.label12.Size = new System.Drawing.Size(207, 39);
             this.label12.TabIndex = 69;
             this.label12.Text = "Total Fees:";
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::PresentationLayer.Properties.Resources.currency1;
+            this.pictureBox8.Location = new System.Drawing.Point(1011, 66);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(68, 59);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 70;
+            this.pictureBox8.TabStop = false;
             // 
             // label9
             // 
@@ -345,36 +375,6 @@
             this.lblAppointmentID.Size = new System.Drawing.Size(167, 35);
             this.lblAppointmentID.TabIndex = 71;
             this.lblAppointmentID.Text = "Unknown";
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Image = global::PresentationLayer.Properties.Resources.currency1;
-            this.pictureBox10.Location = new System.Drawing.Point(236, 220);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(68, 59);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox10.TabIndex = 70;
-            this.pictureBox10.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::PresentationLayer.Properties.Resources.time;
-            this.pictureBox7.Location = new System.Drawing.Point(236, 70);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(68, 55);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 71;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = global::PresentationLayer.Properties.Resources.currency1;
-            this.pictureBox8.Location = new System.Drawing.Point(1011, 66);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(68, 59);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 70;
-            this.pictureBox8.TabStop = false;
             // 
             // pictureBox11
             // 
@@ -517,9 +517,10 @@
             this.Controls.Add(this.lblTestType);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblAppointmentLocked);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAddAppointment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmAddAppointment";
+            this.Text = "Add appointment";
             this.Load += new System.EventHandler(this.FrmAddAppointment_Load);
             this.gbRetakeTest.ResumeLayout(false);
             this.gbRetakeTest.PerformLayout();

@@ -398,7 +398,7 @@
             this.tbRelease.Location = new System.Drawing.Point(10, 48);
             this.tbRelease.Name = "tbRelease";
             this.tbRelease.Padding = new System.Windows.Forms.Padding(3);
-            this.tbRelease.Size = new System.Drawing.Size(2182, 1724);
+            this.tbRelease.Size = new System.Drawing.Size(2196, 1724);
             this.tbRelease.TabIndex = 1;
             this.tbRelease.Text = "Release the driving license";
             // 
@@ -602,9 +602,10 @@
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.tcDetainLicense);
             this.Controls.Add(this.lblProcess);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmReleaseLicense";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmReleaseLicense";
+            this.Text = "Release License";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();

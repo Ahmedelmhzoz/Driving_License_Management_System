@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInternationalLicenseDetails));
             this.ucInternationalLicenseDetails = new PresentationLayer.International_License.ucInternationalLicenseDetails();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblTestType = new System.Windows.Forms.Label();
@@ -85,9 +86,10 @@
             this.Controls.Add(this.pbTestType);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ucInternationalLicenseDetails);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmInternationalLicenseDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmInternationalLicenseDetails";
+            this.Text = "International License Details";
             this.Load += new System.EventHandler(this.FrmInternationalLicenseDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbTestType)).EndInit();
             this.ResumeLayout(false);

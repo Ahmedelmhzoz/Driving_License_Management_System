@@ -26,6 +26,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPeopleManagement));
             this.label1 = new System.Windows.Forms.Label();
             this.dgvPeople = new System.Windows.Forms.DataGridView();
             this.personID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -199,7 +200,7 @@
             this.editToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(398, 227);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(398, 172);
             // 
             // showDetailsToolStripMenuItem
             // 
@@ -361,6 +362,7 @@
             this.Controls.Add(this.dgvPeople);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPeopleManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage people";

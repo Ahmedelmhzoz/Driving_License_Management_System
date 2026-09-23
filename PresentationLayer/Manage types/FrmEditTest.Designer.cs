@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEditTest));
             this.nFees = new System.Windows.Forms.NumericUpDown();
             this.lblID = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -245,9 +246,10 @@
             this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblProcess);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmEditTest";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmEditTest";
+            this.Text = "Edit test";
             this.Load += new System.EventHandler(this.FrmEditTest_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nFees)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

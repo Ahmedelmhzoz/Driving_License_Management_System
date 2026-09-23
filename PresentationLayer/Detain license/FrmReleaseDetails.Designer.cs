@@ -246,9 +246,10 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmReleaseDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmReleaseDetails";
+            this.Text = "Release Details";
             this.Load += new System.EventHandler(this.FrmReleaseDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.groupBox3.ResumeLayout(false);

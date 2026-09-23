@@ -28,6 +28,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLocalLicenseAppManagement));
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dgvLocalApplications = new System.Windows.Forms.DataGridView();
@@ -282,7 +283,7 @@
             // 
             this.visionTestToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.vision1;
             this.visionTestToolStripMenuItem.Name = "visionTestToolStripMenuItem";
-            this.visionTestToolStripMenuItem.Size = new System.Drawing.Size(486, 62);
+            this.visionTestToolStripMenuItem.Size = new System.Drawing.Size(572, 62);
             this.visionTestToolStripMenuItem.Text = "Vision test";
             this.visionTestToolStripMenuItem.Click += new System.EventHandler(this.visionTestToolStripMenuItem_Click);
             // 
@@ -290,15 +291,15 @@
             // 
             this.writtenTestToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.writtenTest;
             this.writtenTestToolStripMenuItem.Name = "writtenTestToolStripMenuItem";
-            this.writtenTestToolStripMenuItem.Size = new System.Drawing.Size(486, 62);
-            this.writtenTestToolStripMenuItem.Text = "Written test";
+            this.writtenTestToolStripMenuItem.Size = new System.Drawing.Size(572, 62);
+            this.writtenTestToolStripMenuItem.Text = "Theoretical test";
             this.writtenTestToolStripMenuItem.Click += new System.EventHandler(this.writtenTestToolStripMenuItem_Click);
             // 
             // streetTestToolStripMenuItem
             // 
             this.streetTestToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.streets;
             this.streetTestToolStripMenuItem.Name = "streetTestToolStripMenuItem";
-            this.streetTestToolStripMenuItem.Size = new System.Drawing.Size(486, 62);
+            this.streetTestToolStripMenuItem.Size = new System.Drawing.Size(572, 62);
             this.streetTestToolStripMenuItem.Text = "Street test";
             this.streetTestToolStripMenuItem.Click += new System.EventHandler(this.streetTestToolStripMenuItem_Click);
             // 
@@ -451,9 +452,10 @@
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.cbFilterBy);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmLocalLicenseAppManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmLocalLicenseAppManagement";
+            this.Text = "Local License Application Management";
             this.Load += new System.EventHandler(this.FrmLocalLicenseAppManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocalApplications)).EndInit();
             this.cmsApp.ResumeLayout(false);

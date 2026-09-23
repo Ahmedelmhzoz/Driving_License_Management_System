@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLicensesHistory));
             this.label1 = new System.Windows.Forms.Label();
             this.pbTestType = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
@@ -115,9 +116,10 @@
             this.Controls.Add(this.ucPersonDetails);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pbTestType);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmLicensesHistory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmLicensesHistory";
+            this.Text = "Licenses History";
             this.Load += new System.EventHandler(this.FrmLicensesHistory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbTestType)).EndInit();
             this.cmsApp.ResumeLayout(false);

@@ -24,9 +24,12 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAddOrUpdateUser));
             this.tcAddUser = new System.Windows.Forms.TabControl();
             this.tpPerson = new System.Windows.Forms.TabPage();
             this.btnNext = new System.Windows.Forms.Button();
+            this.ucPersonDetails = new PresentationLayer.ucPersonDetails();
+            this.ucGetPersonWithFilter = new PresentationLayer.Users.ucGetPersonWithFilter();
             this.tpCreateUser = new System.Windows.Forms.TabPage();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -50,8 +53,6 @@
             this.lblProcess = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.button2 = new System.Windows.Forms.Button();
-            this.ucPersonDetails = new PresentationLayer.ucPersonDetails();
-            this.ucGetPersonWithFilter = new PresentationLayer.Users.ucGetPersonWithFilter();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.tcAddUser.SuspendLayout();
             this.tpPerson.SuspendLayout();
@@ -104,6 +105,22 @@
             this.btnNext.Text = "Next ";
             this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // ucPersonDetails
+            // 
+            this.ucPersonDetails.BackColor = System.Drawing.SystemColors.WindowText;
+            this.ucPersonDetails.Location = new System.Drawing.Point(69, 155);
+            this.ucPersonDetails.Name = "ucPersonDetails";
+            this.ucPersonDetails.Size = new System.Drawing.Size(1922, 855);
+            this.ucPersonDetails.TabIndex = 21;
+            // 
+            // ucGetPersonWithFilter
+            // 
+            this.ucGetPersonWithFilter.BackColor = System.Drawing.Color.Black;
+            this.ucGetPersonWithFilter.Location = new System.Drawing.Point(81, 6);
+            this.ucGetPersonWithFilter.Name = "ucGetPersonWithFilter";
+            this.ucGetPersonWithFilter.Size = new System.Drawing.Size(1961, 1237);
+            this.ucGetPersonWithFilter.TabIndex = 0;
             // 
             // tpCreateUser
             // 
@@ -364,22 +381,6 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // ucPersonDetails
-            // 
-            this.ucPersonDetails.BackColor = System.Drawing.SystemColors.WindowText;
-            this.ucPersonDetails.Location = new System.Drawing.Point(69, 155);
-            this.ucPersonDetails.Name = "ucPersonDetails";
-            this.ucPersonDetails.Size = new System.Drawing.Size(1922, 855);
-            this.ucPersonDetails.TabIndex = 21;
-            // 
-            // ucGetPersonWithFilter
-            // 
-            this.ucGetPersonWithFilter.BackColor = System.Drawing.Color.Black;
-            this.ucGetPersonWithFilter.Location = new System.Drawing.Point(81, 6);
-            this.ucGetPersonWithFilter.Name = "ucGetPersonWithFilter";
-            this.ucGetPersonWithFilter.Size = new System.Drawing.Size(1961, 1237);
-            this.ucGetPersonWithFilter.TabIndex = 0;
-            // 
             // pictureBox7
             // 
             this.pictureBox7.Image = global::PresentationLayer.Properties.Resources.system_administration;
@@ -400,9 +401,10 @@
             this.Controls.Add(this.lblProcess);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.tcAddUser);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAddOrUpdateUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmAddUser";
+            this.Text = "Add/Update user";
             this.Load += new System.EventHandler(this.FrmAddUser_Load);
             this.tcAddUser.ResumeLayout(false);
             this.tpPerson.ResumeLayout(false);

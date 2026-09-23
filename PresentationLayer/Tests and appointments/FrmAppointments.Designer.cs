@@ -271,9 +271,10 @@
             this.Controls.Add(this.ucLocalDrivingLicenseDetails1);
             this.Controls.Add(this.lblTestType);
             this.Controls.Add(this.pbTestType);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAppointments";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmAppointments";
+            this.Text = "Appointments";
             this.Load += new System.EventHandler(this.FrmAppointments_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).EndInit();
             this.cmsAppointment.ResumeLayout(false);

@@ -27,6 +27,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTestTypes));
             this.dgvTestTypes = new System.Windows.Forms.DataGridView();
             this.TestTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TestTypeTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -177,9 +178,10 @@
             this.Controls.Add(this.dgvTestTypes);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmTestTypes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmTestTypes";
+            this.Text = "Tests management";
             this.Load += new System.EventHandler(this.FrmTestTypes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTestTypes)).EndInit();
             this.cmsTestType.ResumeLayout(false);

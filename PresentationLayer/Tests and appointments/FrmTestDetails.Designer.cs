@@ -347,9 +347,10 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lblApplicantName);
             this.Controls.Add(this.label5);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmTestDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmTestDetails";
+            this.Text = "Test details";
             this.Load += new System.EventHandler(this.FrmTestDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

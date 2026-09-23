@@ -546,9 +546,10 @@
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.tcDetainLicense);
             this.Controls.Add(this.lblProcess);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDetainLicense";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmDetainLicense";
+            this.Text = "Detain License";
             this.tcDetainLicense.ResumeLayout(false);
             this.tbSelectLicense.ResumeLayout(false);
             this.tbSelectLicense.PerformLayout();

@@ -27,6 +27,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.ucLocalDrivingLicenseDetails = new PresentationLayer.Local_DL_Appliaction.ucLocalLicenseAppDetails();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -34,7 +36,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Georgia", 20F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(515, 36);
+            this.label1.Location = new System.Drawing.Point(585, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1433, 77);
             this.label1.TabIndex = 28;
@@ -64,19 +66,32 @@
             this.ucLocalDrivingLicenseDetails.Size = new System.Drawing.Size(2369, 1151);
             this.ucLocalDrivingLicenseDetails.TabIndex = 32;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::PresentationLayer.Properties.Resources.driving_school__2_;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(482, 20);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(97, 100);
+            this.pictureBox2.TabIndex = 89;
+            this.pictureBox2.TabStop = false;
+            // 
             // FrmLocalLicenseAppInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlText;
             this.ClientSize = new System.Drawing.Size(2447, 1413);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.ucLocalDrivingLicenseDetails);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmLocalLicenseAppInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmLocalLicenseAppInfo";
+            this.Text = "Local License Application details";
             this.Load += new System.EventHandler(this.FrmLocalLicenseAppInfo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -87,5 +102,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnClose;
         private ucLocalLicenseAppDetails ucLocalDrivingLicenseDetails;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
