@@ -70,6 +70,7 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnClose = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -82,6 +83,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -552,14 +554,14 @@
             // 
             // lblOperation
             // 
-            this.lblOperation.AutoSize = true;
             this.lblOperation.Font = new System.Drawing.Font("Georgia", 21.9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOperation.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblOperation.Location = new System.Drawing.Point(807, 33);
+            this.lblOperation.Location = new System.Drawing.Point(861, 34);
             this.lblOperation.Name = "lblOperation";
-            this.lblOperation.Size = new System.Drawing.Size(640, 84);
+            this.lblOperation.Size = new System.Drawing.Size(823, 84);
             this.lblOperation.TabIndex = 61;
             this.lblOperation.Text = "Add new person";
+            this.lblOperation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // errorProvider1
             // 
@@ -584,12 +586,23 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::PresentationLayer.Properties.Resources.group;
+            this.pictureBox1.Location = new System.Drawing.Point(759, 26);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(94, 96);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 63;
+            this.pictureBox1.TabStop = false;
+            // 
             // FrmAddOrUpdatePerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(2243, 1272);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblOperation);
             this.Controls.Add(this.groupBox1);
@@ -610,8 +623,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -662,5 +675,6 @@
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblRemove;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

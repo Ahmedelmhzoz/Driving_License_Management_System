@@ -1,5 +1,5 @@
 ﻿namespace PresentationLayer {
-    partial class FrmUsers {
+    partial class FrmUsersManagement {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -27,6 +27,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
@@ -49,13 +50,13 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAddUser = new System.Windows.Forms.Button();
+            this.lblLicense = new System.Windows.Forms.Label();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PersonID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Activation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblLicense = new System.Windows.Forms.Label();
             this.cmsUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
@@ -75,7 +76,7 @@
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(699, 488);
+            this.txtSearch.Location = new System.Drawing.Point(659, 473);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(299, 38);
             this.txtSearch.TabIndex = 15;
@@ -94,7 +95,7 @@
             "Person ID",
             "Username",
             "Full Name"});
-            this.cbFilterBy.Location = new System.Drawing.Point(319, 490);
+            this.cbFilterBy.Location = new System.Drawing.Point(279, 473);
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(352, 39);
             this.cbFilterBy.TabIndex = 14;
@@ -179,11 +180,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Georgia", 20F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(688, 279);
+            this.label1.Location = new System.Drawing.Point(679, 283);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(578, 77);
+            this.label1.Size = new System.Drawing.Size(767, 77);
             this.label1.TabIndex = 11;
-            this.label1.Text = "Manage admins";
+            this.label1.Text = "Admins management";
             // 
             // lblRecordsNo
             // 
@@ -212,7 +213,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Georgia", 14F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(72, 475);
+            this.label5.Location = new System.Drawing.Point(32, 458);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(249, 54);
             this.label5.TabIndex = 22;
@@ -222,7 +223,7 @@
             // 
             this.rbGeneral.AutoSize = true;
             this.rbGeneral.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbGeneral.Location = new System.Drawing.Point(1111, 481);
+            this.rbGeneral.Location = new System.Drawing.Point(1285, 471);
             this.rbGeneral.Name = "rbGeneral";
             this.rbGeneral.Size = new System.Drawing.Size(200, 36);
             this.rbGeneral.TabIndex = 23;
@@ -236,7 +237,7 @@
             this.rbNotActive.AutoSize = true;
             this.rbNotActive.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbNotActive.ForeColor = System.Drawing.Color.Red;
-            this.rbNotActive.Location = new System.Drawing.Point(1514, 481);
+            this.rbNotActive.Location = new System.Drawing.Point(1688, 471);
             this.rbNotActive.Name = "rbNotActive";
             this.rbNotActive.Size = new System.Drawing.Size(196, 36);
             this.rbNotActive.TabIndex = 24;
@@ -250,7 +251,7 @@
             this.rbActive.AutoSize = true;
             this.rbActive.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbActive.ForeColor = System.Drawing.Color.SpringGreen;
-            this.rbActive.Location = new System.Drawing.Point(1346, 481);
+            this.rbActive.Location = new System.Drawing.Point(1520, 471);
             this.rbActive.Name = "rbActive";
             this.rbActive.Size = new System.Drawing.Size(140, 36);
             this.rbActive.TabIndex = 25;
@@ -266,7 +267,7 @@
             this.btnClose.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnClose.Image = global::PresentationLayer.Properties.Resources.close;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(1704, 1415);
+            this.btnClose.Location = new System.Drawing.Point(1855, 1410);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(213, 49);
             this.btnClose.TabIndex = 19;
@@ -277,7 +278,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PresentationLayer.Properties.Resources.system_administration1;
-            this.pictureBox1.Location = new System.Drawing.Point(856, -7);
+            this.pictureBox1.Location = new System.Drawing.Point(946, -7);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(253, 287);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -288,57 +289,73 @@
             // 
             this.btnAddUser.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btnAddUser.Image = global::PresentationLayer.Properties.Resources.AddPerson;
-            this.btnAddUser.Location = new System.Drawing.Point(1766, 442);
+            this.btnAddUser.Location = new System.Drawing.Point(1923, 442);
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(130, 83);
             this.btnAddUser.TabIndex = 18;
             this.btnAddUser.UseVisualStyleBackColor = false;
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
+            // lblLicense
+            // 
+            this.lblLicense.AutoSize = true;
+            this.lblLicense.Font = new System.Drawing.Font("Georgia", 8F, System.Drawing.FontStyle.Bold);
+            this.lblLicense.ForeColor = System.Drawing.Color.White;
+            this.lblLicense.Location = new System.Drawing.Point(1921, 400);
+            this.lblLicense.Name = "lblLicense";
+            this.lblLicense.Size = new System.Drawing.Size(138, 31);
+            this.lblLicense.TabIndex = 46;
+            this.lblLicense.Text = "Add user";
+            // 
             // dgvUsers
             // 
             this.dgvUsers.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Georgia", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            this.dgvUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUsers.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Georgia", 10.1F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UserID,
             this.PersonID,
-            this.fullName,
+            this.FullName,
             this.UserName,
             this.Activation});
-            this.dgvUsers.ContextMenuStrip = this.cmsUsers;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUsers.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvUsers.Location = new System.Drawing.Point(33, 545);
-            this.dgvUsers.Name = "dgvUsers";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Georgia", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsers.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUsers.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvUsers.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvUsers.Location = new System.Drawing.Point(22, 548);
+            this.dgvUsers.Name = "dgvUsers";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsers.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvUsers.RowHeadersWidth = 102;
             this.dgvUsers.RowTemplate.Height = 40;
             this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsers.Size = new System.Drawing.Size(1884, 843);
-            this.dgvUsers.TabIndex = 27;
+            this.dgvUsers.Size = new System.Drawing.Size(2044, 843);
+            this.dgvUsers.TabIndex = 48;
             // 
             // UserID
             // 
@@ -354,17 +371,17 @@
             this.PersonID.MinimumWidth = 12;
             this.PersonID.Name = "PersonID";
             // 
-            // fullName
+            // FullName
             // 
-            this.fullName.DataPropertyName = "FullName";
-            this.fullName.HeaderText = "Full Name";
-            this.fullName.MinimumWidth = 12;
-            this.fullName.Name = "fullName";
+            this.FullName.DataPropertyName = "FullName";
+            this.FullName.HeaderText = "Full name";
+            this.FullName.MinimumWidth = 12;
+            this.FullName.Name = "FullName";
             // 
             // UserName
             // 
             this.UserName.DataPropertyName = "UserName";
-            this.UserName.HeaderText = "Username ";
+            this.UserName.HeaderText = "Username";
             this.UserName.MinimumWidth = 12;
             this.UserName.Name = "UserName";
             // 
@@ -375,25 +392,14 @@
             this.Activation.MinimumWidth = 12;
             this.Activation.Name = "Activation";
             // 
-            // lblLicense
-            // 
-            this.lblLicense.AutoSize = true;
-            this.lblLicense.Font = new System.Drawing.Font("Georgia", 8F, System.Drawing.FontStyle.Bold);
-            this.lblLicense.ForeColor = System.Drawing.Color.White;
-            this.lblLicense.Location = new System.Drawing.Point(1764, 400);
-            this.lblLicense.Name = "lblLicense";
-            this.lblLicense.Size = new System.Drawing.Size(138, 31);
-            this.lblLicense.TabIndex = 46;
-            this.lblLicense.Text = "Add user";
-            // 
-            // FrmUsers
+            // FrmUsersManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1931, 1476);
-            this.Controls.Add(this.lblLicense);
+            this.ClientSize = new System.Drawing.Size(2078, 1476);
             this.Controls.Add(this.dgvUsers);
+            this.Controls.Add(this.lblLicense);
             this.Controls.Add(this.rbActive);
             this.Controls.Add(this.rbNotActive);
             this.Controls.Add(this.rbGeneral);
@@ -408,8 +414,8 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnAddUser);
             this.Controls.Add(this.label1);
-            this.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.Name = "FrmUsers";
+            this.ForeColor = System.Drawing.Color.White;
+            this.Name = "FrmUsersManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmUsers";
             this.Load += new System.EventHandler(this.FrmUsers_Load);
@@ -445,11 +451,11 @@
         private System.Windows.Forms.RadioButton rbActive;
         private System.Windows.Forms.ToolStripMenuItem showDetials;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.DataGridView dgvUsers;
         private System.Windows.Forms.Label lblLicense;
+        private System.Windows.Forms.DataGridView dgvUsers;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserID;
         private System.Windows.Forms.DataGridViewTextBoxColumn PersonID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fullName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Activation;
     }

@@ -5,8 +5,8 @@ using System.Windows.Forms;
 using Shared;
 using System.Drawing;
 namespace PresentationLayer {
-    public partial class FrmUsers : Form {
-        public FrmUsers() {
+    public partial class FrmUsersManagement : Form {
+        public FrmUsersManagement() {
             InitializeComponent();
         }
 

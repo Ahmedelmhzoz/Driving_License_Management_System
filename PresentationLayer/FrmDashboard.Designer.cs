@@ -1134,7 +1134,7 @@
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Georgia", 20F, System.Drawing.FontStyle.Bold);
             this.label23.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label23.Location = new System.Drawing.Point(1268, 249);
+            this.label23.Location = new System.Drawing.Point(1270, 249);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(414, 77);
             this.label23.TabIndex = 104;
@@ -2201,7 +2201,7 @@
             // pictureBox33
             // 
             this.pictureBox33.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox33.Image = global::PresentationLayer.Properties.Resources.resume;
+            this.pictureBox33.Image = global::PresentationLayer.Properties.Resources.curriculum;
             this.pictureBox33.Location = new System.Drawing.Point(181, 64);
             this.pictureBox33.Name = "pictureBox33";
             this.pictureBox33.Size = new System.Drawing.Size(123, 74);
@@ -2338,7 +2338,7 @@
             // 
             this.pictureBox11.BackgroundImage = global::PresentationLayer.Properties.Resources.dashboard;
             this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox11.Location = new System.Drawing.Point(1347, 83);
+            this.pictureBox11.Location = new System.Drawing.Point(1349, 83);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(255, 170);
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

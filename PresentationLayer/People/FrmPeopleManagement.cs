@@ -1,43 +1,49 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using BusinessLayer;
 using Shared;
-using BusinessLayer;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 namespace PresentationLayer {
-    public partial class FrmPeople : Form {
-        public FrmPeople() {
+    public partial class FrmPeopleManagement : Form {
+        public FrmPeopleManagement() {
             InitializeComponent();
         }
-        
-        void _ReloadData() {
-            dgvPeople.DataSource = Person.getAllPeople();
+
+        private void _ApplyGridFormatting() {
+            foreach (DataGridViewRow row in dgvPeople.Rows) {
+                if (row.Cells["Email"].Value == null || row.Cells["Email"].Value.ToString() == string.Empty) {
+                    row.Cells["Email"].Value = "There is no email";
+                    row.Cells["Email"].Style.ForeColor = Color.Red;
+                    row.Cells["Email"].Style.BackColor = Color.Pink;
+                }
+            }
+            dgvPeople.Columns["ImagePath"].Visible = false;
+            dgvPeople.Columns["Address"].Visible = false;
+            dgvPeople.Columns["NationalityCountryID"].Visible = false;
+        }
+        private void _ReloadData() {
+
+            dgvPeople.DataSource = Person.getCurrentSearchResult(txtSearch.Text, cbFilterBy.Text);
             lblRecordsNo.Text = dgvPeople.Rows.Count.ToString();
+            _ApplyGridFormatting();
         }
         private void FrmPeople_Load(object sender, EventArgs e) {
             cbFilterBy.SelectedIndex = 0;
             dgvPeople.RowTemplate.Height = 60;
             _ReloadData();
-            if (dgvPeople.Rows.Count > 0) {
-                dgvPeople.Columns["Address"].Visible = false;
-                dgvPeople.Columns["ImagePath"].Visible = false;
-                dgvPeople.Columns["NationalityCountryID"].Visible = false;
-            }
         }
 
         private void cbCategories_SelectedIndexChanged(object sender, EventArgs e) {
-            if (cbFilterBy.Text == "None") {
+            if (cbFilterBy.Text == "None") 
                 txtSearch.Visible = false;
-                _ReloadData();
-            } else {
+            else 
                 txtSearch.Visible = true;
-                dgvPeople.DataSource = Person.getCurrentSearchResult(txtSearch.Text, cbFilterBy.Text);
-            }
+            txtSearch.Text = string.Empty;
+            _ReloadData();
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e) {
-            if (txtSearch.Text == "")
-                _ReloadData();
-            else
-                dgvPeople.DataSource = Person.getCurrentSearchResult(txtSearch.Text, cbFilterBy.Text);
+            _ReloadData();
         }
 
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e) {

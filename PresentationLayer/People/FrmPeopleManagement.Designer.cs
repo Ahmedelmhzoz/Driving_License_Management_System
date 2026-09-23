@@ -1,5 +1,5 @@
 ﻿namespace PresentationLayer {
-    partial class FrmPeople {
+    partial class FrmPeopleManagement {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -55,6 +55,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnAddPerson = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblLicense = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -65,11 +66,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Georgia", 20F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(1230, 325);
+            this.label1.Location = new System.Drawing.Point(1240, 323);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(552, 77);
+            this.label1.Size = new System.Drawing.Size(733, 77);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Manage people";
+            this.label1.Text = "Pepole management";
             // 
             // dgvPeople
             // 
@@ -111,7 +112,7 @@
             this.dgvPeople.RowHeadersWidth = 102;
             this.dgvPeople.RowTemplate.Height = 40;
             this.dgvPeople.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPeople.Size = new System.Drawing.Size(2851, 843);
+            this.dgvPeople.Size = new System.Drawing.Size(3120, 843);
             this.dgvPeople.TabIndex = 2;
             // 
             // personID
@@ -270,6 +271,8 @@
             // 
             // cbFilterBy
             // 
+            this.cbFilterBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFilterBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFilterBy.FormattingEnabled = true;
             this.cbFilterBy.Items.AddRange(new object[] {
             "None",
@@ -340,7 +343,7 @@
             // 
             this.btnAddPerson.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btnAddPerson.Image = global::PresentationLayer.Properties.Resources.AddPerson;
-            this.btnAddPerson.Location = new System.Drawing.Point(2678, 512);
+            this.btnAddPerson.Location = new System.Drawing.Point(2964, 512);
             this.btnAddPerson.Name = "btnAddPerson";
             this.btnAddPerson.Size = new System.Drawing.Size(159, 104);
             this.btnAddPerson.TabIndex = 8;
@@ -350,19 +353,31 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PresentationLayer.Properties.Resources.group;
-            this.pictureBox1.Location = new System.Drawing.Point(1354, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(1455, -2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(298, 337);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // FrmPeople
+            // lblLicense
+            // 
+            this.lblLicense.AutoSize = true;
+            this.lblLicense.Font = new System.Drawing.Font("Georgia", 8F, System.Drawing.FontStyle.Bold);
+            this.lblLicense.ForeColor = System.Drawing.Color.White;
+            this.lblLicense.Location = new System.Drawing.Point(2955, 469);
+            this.lblLicense.Name = "lblLicense";
+            this.lblLicense.Size = new System.Drawing.Size(174, 31);
+            this.lblLicense.TabIndex = 47;
+            this.lblLicense.Text = "Add person";
+            // 
+            // FrmPeopleManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(2893, 1566);
+            this.ClientSize = new System.Drawing.Size(3162, 1566);
+            this.Controls.Add(this.lblLicense);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAddPerson);
             this.Controls.Add(this.lblRecordsNo);
@@ -373,7 +388,7 @@
             this.Controls.Add(this.dgvPeople);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "FrmPeople";
+            this.Name = "FrmPeopleManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage people";
             this.Load += new System.EventHandler(this.FrmPeople_Load);
@@ -416,5 +431,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem cToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem phoneCallToolStripMenuItem;
+        private System.Windows.Forms.Label lblLicense;
     }
 }

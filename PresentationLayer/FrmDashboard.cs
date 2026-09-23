@@ -367,13 +367,13 @@ namespace PresentationLayer {
             _RefreshAppStatistics();
         }
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e) {
-            FrmPeople frm = new FrmPeople();
+            FrmPeopleManagement frm = new FrmPeopleManagement();
             frm.ShowDialog();
             _Refresh();
         }
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e) {
-            FrmUsers frm = new FrmUsers();
+            FrmUsersManagement frm = new FrmUsersManagement();
             frm.ShowDialog();
             _Refresh();
 

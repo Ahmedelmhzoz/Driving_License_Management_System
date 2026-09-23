@@ -105,6 +105,7 @@ namespace BusinessLayer {
                 case "Gender": return enSearchCategory.enGender; 
                 case "Phone": return enSearchCategory.enPhone; 
                 case "Email": return enSearchCategory.enEmail; 
+                case "None": return enSearchCategory.enNone;
                 default: return enSearchCategory.enPersonID;
             }
         }

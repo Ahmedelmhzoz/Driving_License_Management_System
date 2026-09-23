@@ -25,7 +25,7 @@ namespace DataLinkLayer {
 
         public enum enSearchCategory {
             enPersonID = 0, enNationalNo = 1, enFirst = 2, enSecond = 3, enThird = 4,
-            enLast = 5, enNationality = 6, enGender = 7, enPhone = 8, enEmail = 9
+            enLast = 5, enNationality = 6, enGender = 7, enPhone = 8, enEmail = 9, enNone = 10
         };
         public static DataTable getPeople() {
             DataTable dt = new DataTable();
@@ -53,10 +53,9 @@ namespace DataLinkLayer {
             DataTable dt = new DataTable();
             SqlConnection conn = new SqlConnection(connectionSettings);
             string[] searchModes = { "PersonID", "NationalNo", "FirstName", "SecondName", "ThirdName",
-                "LastName", "CountryName", "Gender", "Phone", "Email" };
+                "LastName", "CountryName", "Gender", "Phone", "Email", "PersonID" };
             string searchMode = searchModes[(int)mode];
-            string LikeOrEqual = (searchMode == "PersonID" ? " = @CurrentText" : " Like @CurrentText + '%'");
-            string query = $"Select * from People_View where {searchMode} {LikeOrEqual}";
+            string query = $"Select * from People_View where {searchMode} Like @CurrentText + '%'";
             if (withoutLinkedPersons) {
                 query += " and PersonID not in (select PersonID from Users)";
             }
@@ -65,9 +64,7 @@ namespace DataLinkLayer {
             try {
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.HasRows) {
-                    dt.Load(reader);
-                }
+                dt.Load(reader);
                 reader.Close();
 
             }

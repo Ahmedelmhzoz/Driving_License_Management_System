@@ -194,7 +194,5 @@ namespace PresentationLayer {
             btnRemove.Enabled = false;
             lblRemove.ForeColor = Color.DarkGray;
         }
-
-
     }
 }

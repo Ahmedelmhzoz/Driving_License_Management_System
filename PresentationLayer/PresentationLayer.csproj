@@ -237,11 +237,11 @@
     <Compile Include="FrmDashboard.Designer.cs">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\FrmPeople.cs">
+    <Compile Include="People\FrmPeopleManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="People\FrmPeople.Designer.cs">
-      <DependentUpon>FrmPeople.cs</DependentUpon>
+    <Compile Include="People\FrmPeopleManagement.Designer.cs">
+      <DependentUpon>FrmPeopleManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="People\FrmPersonDetails.cs">
       <SubType>Form</SubType>
@@ -261,29 +261,29 @@
     <Compile Include="Replacement app\FrmReplacementApp.Designer.cs">
       <DependentUpon>FrmReplacementApp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admins\FrmAddOrUpdateUser.cs">
+    <Compile Include="Users\FrmAddOrUpdateUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admins\FrmAddOrUpdateUser.Designer.cs">
+    <Compile Include="Users\FrmAddOrUpdateUser.Designer.cs">
       <DependentUpon>FrmAddOrUpdateUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admins\FrmChangePassword.cs">
+    <Compile Include="Users\FrmChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admins\FrmChangePassword.Designer.cs">
+    <Compile Include="Users\FrmChangePassword.Designer.cs">
       <DependentUpon>FrmChangePassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admins\FrmUserDetails.cs">
+    <Compile Include="Users\FrmUserDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admins\FrmUserDetails.Designer.cs">
+    <Compile Include="Users\FrmUserDetails.Designer.cs">
       <DependentUpon>FrmUserDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admins\FrmUsers.cs">
+    <Compile Include="Users\FrmUsersManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admins\FrmUsers.Designer.cs">
-      <DependentUpon>FrmUsers.cs</DependentUpon>
+    <Compile Include="Users\FrmUsersManagement.Designer.cs">
+      <DependentUpon>FrmUsersManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -293,10 +293,10 @@
     <Compile Include="People\ucPersonDetails.Designer.cs">
       <DependentUpon>ucPersonDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admins\ucUserInformation.cs">
+    <Compile Include="Users\ucUserInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Admins\ucUserInformation.Designer.cs">
+    <Compile Include="Users\ucUserInformation.Designer.cs">
       <DependentUpon>ucUserInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="People\ucGetPersonWithFilter.cs">
@@ -404,8 +404,8 @@
     <EmbeddedResource Include="FrmDashboard.resx">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="People\FrmPeople.resx">
-      <DependentUpon>FrmPeople.cs</DependentUpon>
+    <EmbeddedResource Include="People\FrmPeopleManagement.resx">
+      <DependentUpon>FrmPeopleManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\FrmPersonDetails.resx">
       <DependentUpon>FrmPersonDetails.cs</DependentUpon>
@@ -416,17 +416,17 @@
     <EmbeddedResource Include="Replacement app\FrmReplacementApp.resx">
       <DependentUpon>FrmReplacementApp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admins\FrmAddOrUpdateUser.resx">
+    <EmbeddedResource Include="Users\FrmAddOrUpdateUser.resx">
       <DependentUpon>FrmAddOrUpdateUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admins\FrmChangePassword.resx">
+    <EmbeddedResource Include="Users\FrmChangePassword.resx">
       <DependentUpon>FrmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admins\FrmUserDetails.resx">
+    <EmbeddedResource Include="Users\FrmUserDetails.resx">
       <DependentUpon>FrmUserDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admins\FrmUsers.resx">
-      <DependentUpon>FrmUsers.cs</DependentUpon>
+    <EmbeddedResource Include="Users\FrmUsersManagement.resx">
+      <DependentUpon>FrmUsersManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -441,7 +441,7 @@
     <EmbeddedResource Include="People\ucPersonDetails.resx">
       <DependentUpon>ucPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admins\ucUserInformation.resx">
+    <EmbeddedResource Include="Users\ucUserInformation.resx">
       <DependentUpon>ucUserInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\ucGetPersonWithFilter.resx">
