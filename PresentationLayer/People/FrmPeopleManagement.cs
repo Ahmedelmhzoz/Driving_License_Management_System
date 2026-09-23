@@ -90,13 +90,5 @@ namespace PresentationLayer {
             }
             _ReloadData();
         }
-
-        private void cToolStripMenuItem_Click(object sender, EventArgs e) {
-            Alert.ShowGeneralMessage("Will be implemented later on");
-        }
-
-        private void phoneCallToolStripMenuItem_Click(object sender, EventArgs e) {
-            Alert.ShowGeneralMessage("Will be implemented later on");
-        }
     }
 }

@@ -24,7 +24,6 @@ namespace PresentationLayer.Users {
 
             lblUserID.Text = user.userID.ToString();
 
-            lblActive.Text = user.isActive ? "Yes" : "No";
 
         }
 

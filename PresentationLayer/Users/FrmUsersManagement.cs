@@ -88,7 +88,7 @@ namespace PresentationLayer {
         private void btnAddUser_Click(object sender, EventArgs e) {
             FrmAddOrUpdateUser frm = new FrmAddOrUpdateUser();
             frm.ShowDialog();
-            dgvUsers.DataSource = User.getUsers();
+            _ReloadDate();
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -96,7 +96,7 @@ namespace PresentationLayer {
             User user = User.getUserByUserName(username);
             FrmAddOrUpdateUser frm = new FrmAddOrUpdateUser(user);
             frm.ShowDialog();
-            dgvUsers.DataSource = User.getUsers();
+            _ReloadDate();
         }
 
         private void showDetials_Click(object sender, EventArgs e) {

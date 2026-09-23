@@ -32,14 +32,11 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.cmsUsers = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showDetials = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.phoneCallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.lblRecordsNo = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -112,11 +109,6 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "Filter By:";
             // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(383, 6);
-            // 
             // cmsUsers
             // 
             this.cmsUsers.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold);
@@ -125,12 +117,9 @@
             this.showDetials,
             this.toolStripSeparator1,
             this.editToolStripMenuItem,
-            this.deleteToolStripMenuItem,
-            this.toolStripMenuItem2,
-            this.cToolStripMenuItem,
-            this.phoneCallToolStripMenuItem});
+            this.deleteToolStripMenuItem});
             this.cmsUsers.Name = "contextMenuStrip1";
-            this.cmsUsers.Size = new System.Drawing.Size(387, 276);
+            this.cmsUsers.Size = new System.Drawing.Size(387, 166);
             // 
             // showDetials
             // 
@@ -160,20 +149,6 @@
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(386, 52);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
-            // 
-            // cToolStripMenuItem
-            // 
-            this.cToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.send_mail;
-            this.cToolStripMenuItem.Name = "cToolStripMenuItem";
-            this.cToolStripMenuItem.Size = new System.Drawing.Size(386, 52);
-            this.cToolStripMenuItem.Text = "Send email";
-            // 
-            // phoneCallToolStripMenuItem
-            // 
-            this.phoneCallToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.phoneCall;
-            this.phoneCallToolStripMenuItem.Name = "phoneCallToolStripMenuItem";
-            this.phoneCallToolStripMenuItem.Size = new System.Drawing.Size(386, 52);
-            this.phoneCallToolStripMenuItem.Text = "Phone call";
             // 
             // label1
             // 
@@ -332,6 +307,7 @@
             this.FullName,
             this.UserName,
             this.Activation});
+            this.dgvUsers.ContextMenuStrip = this.cmsUsers;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Georgia", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -435,9 +411,6 @@
         private System.Windows.Forms.ComboBox cbFilterBy;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ToolStripMenuItem phoneCallToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.Button btnAddUser;

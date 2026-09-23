@@ -37,6 +37,8 @@ namespace PresentationLayer.Users {
                 Person person = Person.findPerson(currentUser.personID);
                 ucPersonDetails.loadData(person);
                 btnNext.Enabled = true;
+                txtPassword.Enabled = false;
+                txtPasswordConf.Enabled = false;
                 ucGetPersonWithFilter.Visible = false;
             }
         }

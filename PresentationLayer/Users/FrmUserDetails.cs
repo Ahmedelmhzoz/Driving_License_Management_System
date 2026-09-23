@@ -18,7 +18,14 @@ namespace PresentationLayer.Users {
         }
 
         private void FrmUserDetails_Load(object sender, EventArgs e) {
-            ucUserInformations1.loadData(currentUser);
+            ucUserInformation1.loadData(currentUser);
+            UserActivity userActivity = UserActivity.getUserActivity(currentUser.userID);
+            if (userActivity != null) {
+                lblApplications.Text = userActivity.ApplicationsCount.ToString();
+                lblTests.Text = userActivity.TestsCount.ToString();
+                lblLicenses.Text = userActivity.LicensesCount.ToString();
+                lblDetainment.Text = userActivity.DetainedLicensesCount.ToString();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e) {

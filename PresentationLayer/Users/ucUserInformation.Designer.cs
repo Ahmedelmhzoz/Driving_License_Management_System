@@ -25,9 +25,6 @@
         private void InitializeComponent() {
             this.ucPersonDetails1 = new PresentationLayer.ucPersonDetails();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblActive = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -35,7 +32,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblUserID = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -50,9 +46,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lblActive);
-            this.groupBox1.Controls.Add(this.pictureBox3);
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.lblName);
             this.groupBox1.Controls.Add(this.pictureBox2);
             this.groupBox1.Controls.Add(this.label2);
@@ -68,44 +61,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Login information";
             // 
-            // lblActive
-            // 
-            this.lblActive.AutoSize = true;
-            this.lblActive.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
-            this.lblActive.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblActive.Location = new System.Drawing.Point(1654, 86);
-            this.lblActive.Name = "lblActive";
-            this.lblActive.Size = new System.Drawing.Size(186, 39);
-            this.lblActive.TabIndex = 26;
-            this.lblActive.Text = "Unknown";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::PresentationLayer.Properties.Resources.Active1;
-            this.pictureBox3.Location = new System.Drawing.Point(1584, 86);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(64, 39);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 25;
-            this.pictureBox3.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(1399, 86);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(179, 39);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "Is active?";
-            // 
             // lblName
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.lblName.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblName.Location = new System.Drawing.Point(1005, 86);
+            this.lblName.Location = new System.Drawing.Point(1491, 86);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(186, 39);
             this.lblName.TabIndex = 23;
@@ -114,7 +75,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::PresentationLayer.Properties.Resources.name;
-            this.pictureBox2.Location = new System.Drawing.Point(935, 86);
+            this.pictureBox2.Location = new System.Drawing.Point(1421, 86);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(64, 39);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -126,7 +87,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Georgia", 10F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(721, 86);
+            this.label2.Location = new System.Drawing.Point(1207, 86);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(208, 39);
             this.label2.TabIndex = 21;
@@ -175,7 +136,6 @@
             this.Size = new System.Drawing.Size(1945, 1098);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -189,9 +149,6 @@
         private System.Windows.Forms.Label Personi;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblUserID;
-        private System.Windows.Forms.Label lblActive;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label2;

@@ -7,6 +7,28 @@ using static DataLinkLayer.UsersData;
 using Shared;
 namespace BusinessLayer {
     public enum enUserMode { addUser = 0, updateUser = 1 }
+    public class UserActivity {
+        public int ApplicationsCount { get; set; }
+        public int TestsCount { get; set; }
+        public int LicensesCount { get; set; }
+        public int DetainedLicensesCount { get; set; }
+
+        private UserActivity(UserActivityDTO dto) {
+            ApplicationsCount = dto.ApplicationsCount;
+            TestsCount = dto.TestsCount;
+            LicensesCount = dto.LicensesCount;
+            DetainedLicensesCount = dto.DetainedLicensesCount;
+        }
+
+        public static UserActivity getUserActivity(int userID) {
+            UserActivityDTO dto = UsersData.GetUserActivity(userID);
+
+            if (dto == null)
+                return null;
+
+            return new UserActivity(dto);
+        }
+    }
     public class User {
         public int userID {  get; set; }
         public int personID { get; set; }

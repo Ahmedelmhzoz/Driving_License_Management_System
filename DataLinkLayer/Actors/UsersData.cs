@@ -10,6 +10,12 @@ namespace DataLinkLayer {
         public enum enSearchCategoryUsers {
             enUserID = 0, enUserName = 1, enPersonID = 2, enFullName = 3, enGeneral = 4
         };
+        public class UserActivityDTO {
+            public int ApplicationsCount { get; set; }
+            public int TestsCount { get; set; }
+            public int LicensesCount { get; set; }
+            public int DetainedLicensesCount { get; set; }
+        }
         public static DataTable getAllUsers() {
             DataTable dt = new DataTable();
             try {
@@ -273,6 +279,66 @@ namespace DataLinkLayer {
                 using (SqlCommand cmd = new SqlCommand(query, conn)) {
                     conn.Open();
                     return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+        }
+        public static UserActivityDTO GetUserActivity(int userID) {
+            string query = @"SELECT COUNT(*) AS ApplicationsCount
+                            FROM Applications
+                            WHERE CreatedByUserID = @UserID;
+
+                            SELECT COUNT(*) AS TestsCount
+                            FROM Tests
+                            WHERE CreatedByUserID = @UserID;
+
+                            SELECT COUNT(*) AS LicensesCount
+                            FROM Licenses
+                            WHERE CreatedByUserID = @UserID;
+
+                            SELECT COUNT(*) AS DetainedLicensesCount
+                            FROM DetainedLicenses
+                            WHERE CreatedByUserID = @UserID;";
+
+            using (SqlConnection connection = new SqlConnection(connectionSettings))
+            using (SqlCommand command = new SqlCommand(query, connection)) {
+                command.Parameters.Add("@UserID", SqlDbType.Int).Value = userID;
+
+                connection.Open();
+
+                using (SqlDataReader reader = command.ExecuteReader()) {
+                    UserActivityDTO dto = new UserActivityDTO();
+
+                    // Applications
+                    if (reader.Read()) {
+                        dto.ApplicationsCount =
+                            Convert.ToInt32(reader["ApplicationsCount"]);
+                    }
+
+                    // Tests
+                    reader.NextResult();
+
+                    if (reader.Read()) {
+                        dto.TestsCount =
+                            Convert.ToInt32(reader["TestsCount"]);
+                    }
+
+                    // Licenses
+                    reader.NextResult();
+
+                    if (reader.Read()) {
+                        dto.LicensesCount =
+                            Convert.ToInt32(reader["LicensesCount"]);
+                    }
+
+                    // Detained Licenses
+                    reader.NextResult();
+
+                    if (reader.Read()) {
+                        dto.DetainedLicensesCount =
+                            Convert.ToInt32(reader["DetainedLicensesCount"]);
+                    }
+
+                    return dto;
                 }
             }
         }
