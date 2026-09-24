@@ -1,14 +1,9 @@
 ﻿using BusinessLayer;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using Global;
-
+using Shared;
 namespace PresentationLayer {
     public partial class FrmLogin : Form {
         public FrmLogin() {
@@ -45,7 +40,7 @@ namespace PresentationLayer {
         }
         bool _UsernameNotFound() {
             if (!User.IsUsernameTaken(txtUsername.Text.Trim())) {
-                Helpers.ShowErrorMessage("The username you entered is not exists");
+                Alert.ShowErrorMessage("The username you entered is not exists");
                 lblErrorMessage.Visible = true;
                 return true;
             }
@@ -54,7 +49,7 @@ namespace PresentationLayer {
         bool _UserNotActive(bool isActive) {
             if (!isActive) {
                 lblErrorMessage.Visible = false;
-                Helpers.ShowErrorMessage("This account is not activeted, please contact your admin");
+                Alert.ShowErrorMessage("This account is not activeted, please contact your admin");
                 return true;
             }
             return false;
@@ -85,7 +80,7 @@ namespace PresentationLayer {
                     return;
                 else {
                     lblErrorMessage.Visible = false;
-                    Helpers.SuccessfulMessage($"Welcome, " + user.Username + " (-:");
+                    Alert.SuccessfulMessage($"Welcome, " + user.Username + " (-:");
 
                     if (chkActive.Checked) {
                         _SaveUserData();
@@ -104,7 +99,7 @@ namespace PresentationLayer {
             else {
                 lblErrorMessage.Visible = true;
                 string message = "Wrong Password or Username" + Environment.NewLine + "Please enter user data correctly";
-                Helpers.ShowErrorMessage(message);
+                Alert.ShowErrorMessage(message);
             }
         }
 

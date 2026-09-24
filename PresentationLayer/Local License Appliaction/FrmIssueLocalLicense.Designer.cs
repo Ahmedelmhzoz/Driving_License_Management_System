@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmIssueLocalLicense));
             this.ucLocalDrivingLicenseDetails1 = new PresentationLayer.Local_DL_Appliaction.ucLocalLicenseAppDetails();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNotes = new System.Windows.Forms.TextBox();
@@ -36,9 +37,11 @@
             this.lbl = new System.Windows.Forms.Label();
             this.lblLicenseID = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbDescription)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // ucLocalDrivingLicenseDetails1
@@ -54,7 +57,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Georgia", 20F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(499, 32);
+            this.label1.Location = new System.Drawing.Point(595, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1366, 77);
             this.label1.TabIndex = 28;
@@ -181,12 +184,23 @@
             this.pictureBox1.TabIndex = 87;
             this.pictureBox1.TabStop = false;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::PresentationLayer.Properties.Resources.driving_license__2_1;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(501, 17);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(97, 100);
+            this.pictureBox2.TabIndex = 88;
+            this.pictureBox2.TabStop = false;
+            // 
             // FrmIssueLocalLicense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlText;
             this.ClientSize = new System.Drawing.Size(2447, 1463);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblLicenseID);
             this.Controls.Add(this.lbl);
@@ -200,13 +214,15 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ucLocalDrivingLicenseDetails1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmIssueLocalLicense";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmIssueLocalLicense";
+            this.Text = "Local license issuance";
             this.Load += new System.EventHandler(this.FrmIssueLocalLicense_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbDescription)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,5 +243,6 @@
         private System.Windows.Forms.Label lbl;
         private System.Windows.Forms.Label lblLicenseID;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

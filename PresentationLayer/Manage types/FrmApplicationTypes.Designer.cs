@@ -27,6 +27,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmApplicationTypes));
             this.label1 = new System.Windows.Forms.Label();
             this.cmsAppT = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showDetials = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,7 +49,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Georgia", 20F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(299, 317);
+            this.label1.Location = new System.Drawing.Point(430, 318);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(941, 77);
             this.label1.TabIndex = 27;
@@ -91,14 +92,14 @@
             this.ApplicationFees});
             this.dgvAppTypes.ContextMenuStrip = this.cmsAppT;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvAppTypes.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvAppTypes.Location = new System.Drawing.Point(32, 433);
+            this.dgvAppTypes.Location = new System.Drawing.Point(12, 429);
             this.dgvAppTypes.Name = "dgvAppTypes";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -111,7 +112,7 @@
             this.dgvAppTypes.RowHeadersWidth = 102;
             this.dgvAppTypes.RowTemplate.Height = 40;
             this.dgvAppTypes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAppTypes.Size = new System.Drawing.Size(1462, 843);
+            this.dgvAppTypes.Size = new System.Drawing.Size(1857, 603);
             this.dgvAppTypes.TabIndex = 28;
             // 
             // ApplicationTypeID
@@ -164,7 +165,7 @@
             this.btnClose.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnClose.Image = global::PresentationLayer.Properties.Resources.close;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(1301, 1301);
+            this.btnClose.Location = new System.Drawing.Point(1656, 1045);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(213, 49);
             this.btnClose.TabIndex = 34;
@@ -174,8 +175,8 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::PresentationLayer.Properties.Resources.ManageAppTypes;
-            this.pictureBox1.Location = new System.Drawing.Point(662, 12);
+            this.pictureBox1.Image = global::PresentationLayer.Properties.Resources.curriculum;
+            this.pictureBox1.Location = new System.Drawing.Point(779, 13);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(253, 287);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -187,16 +188,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1526, 1372);
+            this.ClientSize = new System.Drawing.Size(1874, 1108);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvAppTypes);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmApplicationTypes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmApplicationTypes";
+            this.Text = "Applications management";
             this.Load += new System.EventHandler(this.FrmApplicationTypes_Load);
             this.cmsAppT.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppTypes)).EndInit();

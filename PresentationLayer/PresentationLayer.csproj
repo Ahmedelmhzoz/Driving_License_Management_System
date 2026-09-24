@@ -68,12 +68,6 @@
     <Compile Include="Detain license\FrmDetainManagement.Designer.cs">
       <DependentUpon>FrmDetainManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Detain license\FrmDetainmentHistory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Detain license\FrmDetainmentHistory.Designer.cs">
-      <DependentUpon>FrmDetainmentHistory.cs</DependentUpon>
-    </Compile>
     <Compile Include="Detain license\FrmReleaseDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +80,7 @@
     <Compile Include="Detain license\FrmReleaseLicense.Designer.cs">
       <DependentUpon>FrmReleaseLicense.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImportantSessionData.cs" />
     <Compile Include="International License\FrmInternationalApplication.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,16 +123,16 @@
     <Compile Include="Local License\ucDrivingLicenses.Designer.cs">
       <DependentUpon>ucDrivingLicenses.cs</DependentUpon>
     </Compile>
-    <Compile Include="Local License Appliaction\FrmAddAppointment.cs">
+    <Compile Include="Tests and appointments\FrmAddAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Local License Appliaction\FrmAddAppointment.Designer.cs">
+    <Compile Include="Tests and appointments\FrmAddAppointment.Designer.cs">
       <DependentUpon>FrmAddAppointment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Local License Appliaction\FrmAppointments.cs">
+    <Compile Include="Tests and appointments\FrmAppointments.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Local License Appliaction\FrmAppointments.Designer.cs">
+    <Compile Include="Tests and appointments\FrmAppointments.Designer.cs">
       <DependentUpon>FrmAppointments.cs</DependentUpon>
     </Compile>
     <Compile Include="Local License Appliaction\FrmIssueLocalLicense.cs">
@@ -164,10 +159,10 @@
     <Compile Include="Local License Appliaction\FrmSelectPersonForApp.Designer.cs">
       <DependentUpon>FrmSelectPersonForApp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Local License Appliaction\FrmTakeTest.cs">
+    <Compile Include="Tests and appointments\FrmTakeTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Local License Appliaction\FrmTakeTest.Designer.cs">
+    <Compile Include="Tests and appointments\FrmTakeTest.Designer.cs">
       <DependentUpon>FrmTakeTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Local License Appliaction\ucApplicationDetails.cs">
@@ -200,7 +195,6 @@
     <Compile Include="Login\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Global\ImportantSessionData.cs" />
     <Compile Include="Manage types\FrmApplicationTypes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -237,11 +231,11 @@
     <Compile Include="FrmDashboard.Designer.cs">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\FrmPeople.cs">
+    <Compile Include="People\FrmPeopleManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="People\FrmPeople.Designer.cs">
-      <DependentUpon>FrmPeople.cs</DependentUpon>
+    <Compile Include="People\FrmPeopleManagement.Designer.cs">
+      <DependentUpon>FrmPeopleManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="People\FrmPersonDetails.cs">
       <SubType>Form</SubType>
@@ -261,31 +255,30 @@
     <Compile Include="Replacement app\FrmReplacementApp.Designer.cs">
       <DependentUpon>FrmReplacementApp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admins\FrmAddOrUpdateUser.cs">
+    <Compile Include="Users\FrmAddOrUpdateUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admins\FrmAddOrUpdateUser.Designer.cs">
+    <Compile Include="Users\FrmAddOrUpdateUser.Designer.cs">
       <DependentUpon>FrmAddOrUpdateUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admins\FrmChangePassword.cs">
+    <Compile Include="Users\FrmChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admins\FrmChangePassword.Designer.cs">
+    <Compile Include="Users\FrmChangePassword.Designer.cs">
       <DependentUpon>FrmChangePassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admins\FrmUserDetails.cs">
+    <Compile Include="Users\FrmUserDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admins\FrmUserDetails.Designer.cs">
+    <Compile Include="Users\FrmUserDetails.Designer.cs">
       <DependentUpon>FrmUserDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admins\FrmUsers.cs">
+    <Compile Include="Users\FrmUsersManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admins\FrmUsers.Designer.cs">
-      <DependentUpon>FrmUsers.cs</DependentUpon>
+    <Compile Include="Users\FrmUsersManagement.Designer.cs">
+      <DependentUpon>FrmUsersManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Global\Helpers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="People\ucPersonDetails.cs">
@@ -294,10 +287,10 @@
     <Compile Include="People\ucPersonDetails.Designer.cs">
       <DependentUpon>ucPersonDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admins\ucUserInformation.cs">
+    <Compile Include="Users\ucUserInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Admins\ucUserInformation.Designer.cs">
+    <Compile Include="Users\ucUserInformation.Designer.cs">
       <DependentUpon>ucUserInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="People\ucGetPersonWithFilter.cs">
@@ -305,6 +298,12 @@
     </Compile>
     <Compile Include="People\ucGetPersonWithFilter.Designer.cs">
       <DependentUpon>ucGetPersonWithFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tests and appointments\FrmTestDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tests and appointments\FrmTestDetails.Designer.cs">
+      <DependentUpon>FrmTestDetails.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Detain license\FrmDetainDetails.resx">
       <DependentUpon>FrmDetainDetails.cs</DependentUpon>
@@ -314,9 +313,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Detain license\FrmDetainManagement.resx">
       <DependentUpon>FrmDetainManagement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Detain license\FrmDetainmentHistory.resx">
-      <DependentUpon>FrmDetainmentHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Detain license\FrmReleaseDetails.resx">
       <DependentUpon>FrmReleaseDetails.cs</DependentUpon>
@@ -345,10 +341,10 @@
     <EmbeddedResource Include="Local License\ucDrivingLicenses.resx">
       <DependentUpon>ucDrivingLicenses.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Local License Appliaction\FrmAddAppointment.resx">
+    <EmbeddedResource Include="Tests and appointments\FrmAddAppointment.resx">
       <DependentUpon>FrmAddAppointment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Local License Appliaction\FrmAppointments.resx">
+    <EmbeddedResource Include="Tests and appointments\FrmAppointments.resx">
       <DependentUpon>FrmAppointments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Local License Appliaction\FrmIssueLocalLicense.resx">
@@ -363,7 +359,7 @@
     <EmbeddedResource Include="Local License Appliaction\FrmSelectPersonForApp.resx">
       <DependentUpon>FrmSelectPersonForApp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Local License Appliaction\FrmTakeTest.resx">
+    <EmbeddedResource Include="Tests and appointments\FrmTakeTest.resx">
       <DependentUpon>FrmTakeTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Local License Appliaction\ucApplicationDetails.resx">
@@ -399,8 +395,8 @@
     <EmbeddedResource Include="FrmDashboard.resx">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="People\FrmPeople.resx">
-      <DependentUpon>FrmPeople.cs</DependentUpon>
+    <EmbeddedResource Include="People\FrmPeopleManagement.resx">
+      <DependentUpon>FrmPeopleManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\FrmPersonDetails.resx">
       <DependentUpon>FrmPersonDetails.cs</DependentUpon>
@@ -411,17 +407,17 @@
     <EmbeddedResource Include="Replacement app\FrmReplacementApp.resx">
       <DependentUpon>FrmReplacementApp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admins\FrmAddOrUpdateUser.resx">
+    <EmbeddedResource Include="Users\FrmAddOrUpdateUser.resx">
       <DependentUpon>FrmAddOrUpdateUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admins\FrmChangePassword.resx">
+    <EmbeddedResource Include="Users\FrmChangePassword.resx">
       <DependentUpon>FrmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admins\FrmUserDetails.resx">
+    <EmbeddedResource Include="Users\FrmUserDetails.resx">
       <DependentUpon>FrmUserDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admins\FrmUsers.resx">
-      <DependentUpon>FrmUsers.cs</DependentUpon>
+    <EmbeddedResource Include="Users\FrmUsersManagement.resx">
+      <DependentUpon>FrmUsersManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -436,11 +432,14 @@
     <EmbeddedResource Include="People\ucPersonDetails.resx">
       <DependentUpon>ucPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admins\ucUserInformation.resx">
+    <EmbeddedResource Include="Users\ucUserInformation.resx">
       <DependentUpon>ucUserInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\ucGetPersonWithFilter.resx">
       <DependentUpon>ucGetPersonWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tests and appointments\FrmTestDetails.resx">
+      <DependentUpon>FrmTestDetails.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -1050,6 +1049,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\driving-license %2810%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\curriculum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\curriculum %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\time.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

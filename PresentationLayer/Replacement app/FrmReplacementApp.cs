@@ -1,5 +1,4 @@
 ﻿using BusinessLayer;
-using Global;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -43,7 +42,7 @@ namespace PresentationLayer.Replacement_app {
                 _ReplaceBtnEnablity(true);
             }
             else {
-                Helpers.ShowErrorMessage($"There is no license has ID = {licenseID}");
+                Alert.ShowErrorMessage($"There is no license has ID = {licenseID}");
                 selectedLocalLicense = null;
                 ucLocalLicenseDetails.ResetLicenseInfo();
                 _ReplaceBtnEnablity(false);
@@ -54,15 +53,15 @@ namespace PresentationLayer.Replacement_app {
 
             enLocalLicenseStatus status = selectedLocalLicense.getLicenseStatus();
             if (selectedLocalLicense.isLicenseDenied()) {
-                Helpers.ShowErrorMessage("This license is detained, pay the Fine first");
+                Alert.ShowErrorMessage("This license is detained, pay the Fine first");
                 return false;
             }
             else if (status == enLocalLicenseStatus.Expired) {
-                Helpers.ShowErrorMessage("This license is expired and cannot be replacement.");
+                Alert.ShowErrorMessage("This license is expired and cannot be replacement.");
                 return false;
             }
             else if (status == enLocalLicenseStatus.Suspended) {
-                Helpers.ShowErrorMessage("This license is suspended and cannot be replacement.");
+                Alert.ShowErrorMessage("This license is suspended and cannot be replacement.");
                 return false;
             }
             else {
@@ -102,21 +101,21 @@ namespace PresentationLayer.Replacement_app {
 
             enApplicationType appType = rbDamage.Checked ? enApplicationType.ReplaceDamagedDrivingLicense : enApplicationType.ReplaceLostDrivingLicense;
 
-            lblAppFees.Text = '$' + AppType.getAppFees(appType).ToString("0.##");
+            lblAppFees.Text = '$' + ApplicationType.getAppFees(appType).ToString("0.##");
             lblUsername.Text = ImportantSessionData.user.Username;
             txtNote.Text = string.Empty;
         }
         private void tcReplaceApp_SelectedIndexChanged(object sender, EventArgs e) { 
             if (tcReplaceApp.SelectedTab == tbReplacementApp && !_CanReplaceLicense()) {
                 tcReplaceApp.SelectedTab = tbSelectLicense;
-                Helpers.ShowErrorMessage("Please enter an (Active) License ID");
+                Alert.ShowErrorMessage("Please enter an (Active) License ID");
             }
             else if (tcReplaceApp.SelectedTab == tbReplacementApp && _CanReplaceLicense()) {
                 _ResetReplacementTab();
             }
         }
         void _PrintException(Exception ex) {
-            Helpers.ShowErrorMessage(ex.Message);
+            Alert.ShowErrorMessage(ex.Message);
         }
         private void brnReplace_Click(object sender, EventArgs e) {
             if (selectedLocalLicense == null) return;
@@ -141,7 +140,7 @@ namespace PresentationLayer.Replacement_app {
                 }
             }
             selectedLocalLicense.NotSuspended = false;
-            Helpers.SuccessfulMessage("The replacer license was issued successfully");
+            Alert.SuccessfulMessage("The replacer license was issued successfully");
             lblReplacementAppID.Text = replacerLicense.ApplicationID.ToString();
             lblNewLicenseID.Text = replacerLicense.LicenseID.ToString();
             _ChangeLblsColorAndBtnsEnability(true);

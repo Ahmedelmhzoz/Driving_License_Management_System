@@ -13,8 +13,8 @@ using Shared;
 
 namespace PresentationLayer.Local_DL_Appliaction {
     public partial class FrmLocalLicenseAppInfo : Form {
-        LocalLicenseApp licenseApp= null;
-        public FrmLocalLicenseAppInfo(LocalLicenseApp licenseApp) {
+        LocalLicenseIssuingApp licenseApp= null;
+        public FrmLocalLicenseAppInfo(LocalLicenseIssuingApp licenseApp) {
             InitializeComponent();
             this.licenseApp = licenseApp;
         }

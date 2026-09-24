@@ -51,6 +51,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnSubmitApp = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.tcApplicationManagement.SuspendLayout();
             this.tpPerson.SuspendLayout();
@@ -60,6 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // lblProcess
@@ -67,7 +69,7 @@
             this.lblProcess.AutoSize = true;
             this.lblProcess.Font = new System.Drawing.Font("Georgia", 20F, System.Drawing.FontStyle.Bold);
             this.lblProcess.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblProcess.Location = new System.Drawing.Point(448, 54);
+            this.lblProcess.Location = new System.Drawing.Point(515, 60);
             this.lblProcess.Name = "lblProcess";
             this.lblProcess.Size = new System.Drawing.Size(1367, 77);
             this.lblProcess.TabIndex = 25;
@@ -359,18 +361,30 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImage = global::PresentationLayer.Properties.Resources.driving_school__2_;
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox6.Location = new System.Drawing.Point(412, 46);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(97, 100);
+            this.pictureBox6.TabIndex = 90;
+            this.pictureBox6.TabStop = false;
+            // 
             // FrmSelectPersonForApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(2230, 1614);
+            this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.lblProcess);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.tcApplicationManagement);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmSelectPersonForApp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmSelectPersonForApp";
+            this.Text = "Select Person For Application";
             this.Load += new System.EventHandler(this.FrmSelectPersonForApp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.tcApplicationManagement.ResumeLayout(false);
@@ -382,6 +396,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -415,5 +430,6 @@
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblSubmit;
+        private System.Windows.Forms.PictureBox pictureBox6;
     }
 }

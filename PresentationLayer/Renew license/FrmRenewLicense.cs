@@ -1,12 +1,8 @@
 ﻿using BusinessLayer;
-using Global;
 using PresentationLayer.Properties;
 using Shared;
 using System;
-using System.ComponentModel;
 using System.Drawing;
-using System.Resources;
-using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
 namespace PresentationLayer.Renew_license {
     public partial class FrmRenewLicense : Form {
@@ -80,19 +76,19 @@ namespace PresentationLayer.Renew_license {
                     return true;
 
                 case enLicenseRenewalResult.BasicAppNotFound:
-                    Helpers.ShowErrorMessage("The original application for this license was not found.");
+                    Alert.ShowErrorMessage("The original application for this license was not found.");
                     return false;
 
                 case enLicenseRenewalResult.PersonNotFound:
-                    Helpers.ShowErrorMessage("The license holder's information was not found.");
+                    Alert.ShowErrorMessage("The license holder's information was not found.");
                     return false;
 
                 case enLicenseRenewalResult.Failed:
-                    Helpers.ShowErrorMessage("An error occurred while renewing the license.");
+                    Alert.ShowErrorMessage("An error occurred while renewing the license.");
                     return false;
 
                 default:
-                    Helpers.ShowErrorMessage("Unexpected renewal result.");
+                    Alert.ShowErrorMessage("Unexpected renewal result.");
                     return false;
             }
         }
@@ -134,7 +130,7 @@ namespace PresentationLayer.Renew_license {
                     _RenewalEnablity(true);
                 }
                 else {
-                    Helpers.ShowErrorMessage($"There is no license has ID = {licenseID}");
+                    Alert.ShowErrorMessage($"There is no license has ID = {licenseID}");
                     _NoResultSettings();
                     txtSearch.Text = string.Empty;
                 }
@@ -146,7 +142,7 @@ namespace PresentationLayer.Renew_license {
                     _RenewalEnablity(true);
                 }
                 else {
-                    Helpers.ShowErrorMessage($"There is no license has ID = {licenseID}");
+                    Alert.ShowErrorMessage($"There is no license has ID = {licenseID}");
                     _NoResultSettings();
                     txtSearch.Text = string.Empty;
                 }
@@ -168,13 +164,13 @@ namespace PresentationLayer.Renew_license {
         private void _reasonOfRejection(enLocalLicenseStatus status) {
             switch (status) {
                 case enLocalLicenseStatus.Active:
-                    Helpers.ShowErrorMessage("The license is active, Only expired licenses can be renewed.");
+                    Alert.ShowErrorMessage("The license is active, Only expired licenses can be renewed.");
                     break;
                 case enLocalLicenseStatus.Suspended:
-                    Helpers.ShowErrorMessage("A suspended license cannot be renewed.");
+                    Alert.ShowErrorMessage("A suspended license cannot be renewed.");
                     break;
                 case enLocalLicenseStatus.Expired: // as long as it had been expired and rejected, it had renewed already 
-                    Helpers.ShowErrorMessage($"The license Has been renewed already and the new Renewal license ID = {_getRenewalLicenseID()}");
+                    Alert.ShowErrorMessage($"The license Has been renewed already and the new Renewal license ID = {_getRenewalLicenseID()}");
                     break;
             }
         }
@@ -202,7 +198,7 @@ namespace PresentationLayer.Renew_license {
         }
         void _ResetRenewalTab() {
             DateTime today = DateTime.Today;
-            decimal applicationFees = AppType.getAppFees(enApplicationType.RenewDrivingLicense);
+            decimal applicationFees = ApplicationType.getAppFees(enApplicationType.RenewDrivingLicense);
 
             decimal licenseFees = 0m;
             int oldLicenseID;
@@ -211,7 +207,7 @@ namespace PresentationLayer.Renew_license {
             if (rbLocal.Checked && selectedLocalLicense != null) {
                 LicenseClass licenseClass = selectedLocalLicense.licenseInfo;
                 if (licenseClass == null) {
-                    Helpers.ShowErrorMessage(
+                    Alert.ShowErrorMessage(
                         "Could not load the selected license class information.");
                     return;
                 }
@@ -257,7 +253,7 @@ namespace PresentationLayer.Renew_license {
         private void tcRenewalApp_SelectedIndexChanged(object sender, EventArgs e) {
             if (tcRenewalApp.SelectedTab == tbRenewalApp && !_DoseLicenseAbleToRenew()) {
                 tcRenewalApp.SelectedTab = tbSelectLicense;
-                Helpers.ShowErrorMessage("Please enter an (Expired) License ID");
+                Alert.ShowErrorMessage("Please enter an (Expired) License ID");
             }
             else if (tcRenewalApp.SelectedTab == tbRenewalApp && _DoseLicenseAbleToRenew()) {
                 _ResetRenewalTab();
@@ -268,7 +264,7 @@ namespace PresentationLayer.Renew_license {
             if (rbLocal.Checked) {
                 LicenseRenewalResult result = selectedLocalLicense.Renew(ImportantSessionData.user.userID, txtNote.Text);
                 if (_HandleRenewalResult(result.Result)) {
-                    Helpers.SuccessfulMessage($"License renewed successfully, Your new License ID: {result.NewLicenseID}");
+                    Alert.SuccessfulMessage($"License renewed successfully, Your new License ID: {result.NewLicenseID}");
                     lblNewLicenseID.Text = result.NewLicenseID.ToString();
                     lblRenewalAppID.Text = result.RenewApplicationID.ToString();
                     _ColoringLblsAndButtonsEnablityByStatus(false);
@@ -277,7 +273,7 @@ namespace PresentationLayer.Renew_license {
             else {
                 LicenseRenewalResult result = selectedInternationalLicense.Renew(ImportantSessionData.user.userID);
                 if (_HandleRenewalResult(result.Result)) {
-                    Helpers.SuccessfulMessage($"License renewed successfully, Your new License ID: {result.NewLicenseID}");
+                    Alert.SuccessfulMessage($"License renewed successfully, Your new License ID: {result.NewLicenseID}");
                     lblNewLicenseID.Text = result.NewLicenseID.ToString();
                     lblRenewalAppID.Text = result.RenewApplicationID.ToString();
                     _ColoringLblsAndButtonsEnablityByStatus(false);

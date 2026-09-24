@@ -27,6 +27,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTestTypes));
             this.dgvTestTypes = new System.Windows.Forms.DataGridView();
             this.TestTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TestTypeTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,14 +64,14 @@
             this.TestTypeFees});
             this.dgvTestTypes.ContextMenuStrip = this.cmsTestType;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.InfoText;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Georgia", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvTestTypes.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvTestTypes.Location = new System.Drawing.Point(33, 448);
+            this.dgvTestTypes.Location = new System.Drawing.Point(15, 327);
             this.dgvTestTypes.Name = "dgvTestTypes";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -83,7 +84,7 @@
             this.dgvTestTypes.RowHeadersWidth = 102;
             this.dgvTestTypes.RowTemplate.Height = 40;
             this.dgvTestTypes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTestTypes.Size = new System.Drawing.Size(1462, 843);
+            this.dgvTestTypes.Size = new System.Drawing.Size(1992, 282);
             this.dgvTestTypes.TabIndex = 37;
             // 
             // TestTypeID
@@ -136,7 +137,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Georgia", 20F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(445, 326);
+            this.label1.Location = new System.Drawing.Point(677, 219);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(684, 77);
             this.label1.TabIndex = 36;
@@ -149,7 +150,7 @@
             this.btnClose.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnClose.Image = global::PresentationLayer.Properties.Resources.close;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(1298, 1308);
+            this.btnClose.Location = new System.Drawing.Point(1804, 619);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(213, 49);
             this.btnClose.TabIndex = 40;
@@ -160,9 +161,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PresentationLayer.Properties.Resources.test;
-            this.pictureBox1.Location = new System.Drawing.Point(661, 24);
+            this.pictureBox1.Location = new System.Drawing.Point(941, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(253, 287);
+            this.pictureBox1.Size = new System.Drawing.Size(199, 193);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 35;
             this.pictureBox1.TabStop = false;
@@ -172,14 +173,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlText;
-            this.ClientSize = new System.Drawing.Size(1526, 1372);
+            this.ClientSize = new System.Drawing.Size(2022, 681);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvTestTypes);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmTestTypes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmTestTypes";
+            this.Text = "Tests management";
             this.Load += new System.EventHandler(this.FrmTestTypes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTestTypes)).EndInit();
             this.cmsTestType.ResumeLayout(false);

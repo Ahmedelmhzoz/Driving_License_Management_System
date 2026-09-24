@@ -1,16 +1,7 @@
 ﻿using BusinessLayer;
-using Global;
 using PresentationLayer.Properties;
 using Shared;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer.Local_License {
@@ -115,9 +106,9 @@ namespace PresentationLayer.Local_License {
 
             Applications licenseBasicApp = license.applicationInfo;
 
-            if (licenseBasicApp == null) { Helpers.ShowErrorMessage("Error while geting application"); return; }
+            if (licenseBasicApp == null) { Alert.ShowErrorMessage("Error while geting application"); return; }
 
-            if (licenseBasicApp.personInfo == null) { Helpers.ShowErrorMessage("Error while getting person info!"); return; }
+            if (licenseBasicApp.personInfo == null) { Alert.ShowErrorMessage("Error while getting person info!"); return; }
 
             ucPersonDetails.loadData(licenseBasicApp.personInfo);
         }

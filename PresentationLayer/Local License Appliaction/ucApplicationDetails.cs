@@ -2,8 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using BusinessLayer;
-using BusinessLayer.License_Applications;
-using Global;
+using Shared;
 
 namespace PresentationLayer.Local_DL_Appliaction {
     public partial class ucApplicationDetails : UserControl {
@@ -15,12 +14,12 @@ namespace PresentationLayer.Local_DL_Appliaction {
         void _ShowData() {
             if (BasicApp != null) {
                 lblApplicationID.Text = BasicApp.AppID.ToString();
-                lblStatus.Text = Helpers._ConverStatusEnumToString(BasicApp.appStatus);
+                lblStatus.Text = Utilities._ConverStatusEnumToString(BasicApp.appStatus);
                 lblFees.Text = BasicApp.paidFees.ToString("0.##");
                 lblDate.Text = BasicApp.AppDate.ToShortDateString();
                 lblLastStatusDate.Text = BasicApp.lastStatusDate.ToShortDateString();
 
-                AppType appType = AppType.getApplicationType(BasicApp.ApplicaitionTypeID);
+                ApplicationType appType = ApplicationType.getApplicationType(BasicApp.ApplicaitionTypeID);
                 lblAppType.Text = (appType != null) ? appType.AppTypeTitle : "Unknown";
 
                 User user = User.getUserByID(BasicApp.createdByUserID);

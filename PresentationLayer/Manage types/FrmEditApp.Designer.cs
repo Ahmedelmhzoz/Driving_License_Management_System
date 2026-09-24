@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEditApp));
             this.lblProcess = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTitle = new System.Windows.Forms.TextBox();
@@ -37,11 +38,13 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.nFees = new System.Windows.Forms.NumericUpDown();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nFees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // lblProcess
@@ -49,7 +52,7 @@
             this.lblProcess.AutoSize = true;
             this.lblProcess.Font = new System.Drawing.Font("Georgia", 20F, System.Drawing.FontStyle.Bold);
             this.lblProcess.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblProcess.Location = new System.Drawing.Point(274, 44);
+            this.lblProcess.Location = new System.Drawing.Point(305, 50);
             this.lblProcess.Name = "lblProcess";
             this.lblProcess.Size = new System.Drawing.Size(748, 77);
             this.lblProcess.TabIndex = 23;
@@ -60,7 +63,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Georgia", 14F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(73, 407);
+            this.label3.Location = new System.Drawing.Point(73, 509);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(150, 54);
             this.label3.TabIndex = 40;
@@ -68,9 +71,11 @@
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(387, 318);
+            this.txtTitle.Enabled = false;
+            this.txtTitle.Location = new System.Drawing.Point(387, 356);
+            this.txtTitle.Multiline = true;
             this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(366, 38);
+            this.txtTitle.Size = new System.Drawing.Size(366, 92);
             this.txtTitle.TabIndex = 39;
             // 
             // label2
@@ -78,7 +83,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Georgia", 14F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(73, 303);
+            this.label2.Location = new System.Drawing.Point(73, 341);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(151, 54);
             this.label2.TabIndex = 38;
@@ -113,7 +118,7 @@
             this.btnSave.ForeColor = System.Drawing.Color.Transparent;
             this.btnSave.Image = global::PresentationLayer.Properties.Resources.save1;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(740, 613);
+            this.btnSave.Location = new System.Drawing.Point(748, 682);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(230, 83);
             this.btnSave.TabIndex = 48;
@@ -128,7 +133,7 @@
             this.btnClose.ForeColor = System.Drawing.Color.Transparent;
             this.btnClose.Image = global::PresentationLayer.Properties.Resources.close1;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(1010, 613);
+            this.btnClose.Location = new System.Drawing.Point(1018, 682);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(230, 83);
             this.btnClose.TabIndex = 47;
@@ -149,7 +154,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PresentationLayer.Properties.Resources.salary;
-            this.pictureBox1.Location = new System.Drawing.Point(297, 421);
+            this.pictureBox1.Location = new System.Drawing.Point(297, 523);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(64, 39);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -159,7 +164,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::PresentationLayer.Properties.Resources.sync;
-            this.pictureBox2.Location = new System.Drawing.Point(297, 318);
+            this.pictureBox2.Location = new System.Drawing.Point(297, 356);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(64, 39);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -168,7 +173,7 @@
             // 
             // nFees
             // 
-            this.nFees.Location = new System.Drawing.Point(387, 423);
+            this.nFees.Location = new System.Drawing.Point(387, 525);
             this.nFees.Name = "nFees";
             this.nFees.Size = new System.Drawing.Size(366, 38);
             this.nFees.TabIndex = 49;
@@ -177,12 +182,23 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::PresentationLayer.Properties.Resources.curriculum;
+            this.pictureBox3.Location = new System.Drawing.Point(223, 46);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(92, 80);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 50;
+            this.pictureBox3.TabStop = false;
+            // 
             // FrmEditApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlText;
-            this.ClientSize = new System.Drawing.Size(1270, 718);
+            this.ClientSize = new System.Drawing.Size(1270, 797);
+            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.nFees);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
@@ -195,15 +211,17 @@
             this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblProcess);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmEditApp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmEditApp";
+            this.Text = "Edit application";
             this.Load += new System.EventHandler(this.FrmEditApp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nFees)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,5 +242,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.NumericUpDown nFees;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

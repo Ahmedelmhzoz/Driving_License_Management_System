@@ -1,29 +1,51 @@
 ﻿using BusinessLayer;
 using BusinessLayer.License_Applications;
-using Global;
-using System;
-using System.Collections.Generic;
-using Shared;
-using System.Windows.Forms;
-using PresentationLayer.Local_License_Appliaction;
-using PresentationLayer.Local_License;
 using PresentationLayer.Licenses;
+using PresentationLayer.Local_License;
+using PresentationLayer.Local_License_Appliaction;
+using Shared;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 namespace PresentationLayer.Local_DL_Appliaction {
     public partial class FrmLocalLicenseAppManagement : Form {
         public FrmLocalLicenseAppManagement() {
             InitializeComponent();
         }
+        private void _ApplyGridFormatting() {
+            foreach (DataGridViewRow row in dgvLocalApplications.Rows) {
+                if (row.Cells["ApplicationStatus"].Value != null) {
+                    string status = row.Cells["ApplicationStatus"].Value.ToString();
+
+                    if (status == "New") {
+                        row.Cells["ApplicationStatus"].Style.ForeColor = Color.Blue;
+                        row.Cells["ApplicationStatus"].Style.BackColor = Color.DeepSkyBlue;
+                    }
+                    else if (status == "Canceled") {
+                        row.Cells["ApplicationStatus"].Style.ForeColor = Color.Red;
+                        row.Cells["ApplicationStatus"].Style.BackColor = Color.Pink;
+                    }
+                    else {
+                        row.Cells["ApplicationStatus"].Style.ForeColor = Color.Green;
+                        row.Cells["ApplicationStatus"].Style.BackColor = Color.LightGreen;
+                    }
+                }
+            }
+        }
         void _loadAllApplication() {
-            dgvLocalApplications.DataSource = LocalLicenseApp.getAllApplications();
+            dgvLocalApplications.DataSource = LocalLicenseIssuingApp.getAllApplications();
             lblRecordsNo.Text = dgvLocalApplications.Rows.Count.ToString();
+            _ApplyGridFormatting();
         }
         void _ReloadData() {
             if (cbFilterBy.Text == "None" || string.IsNullOrWhiteSpace(txtSearch.Text)) {
                 _loadAllApplication();
             }
             else {
-                dgvLocalApplications.DataSource = LocalLicenseApp.GetApplicationsSearchResult(txtSearch.Text, cbFilterBy.Text);
+                dgvLocalApplications.DataSource = LocalLicenseIssuingApp.GetApplicationsSearchResult(txtSearch.Text, cbFilterBy.Text);
             }
+            _ApplyGridFormatting();
+            lblRecordsNo.Text = dgvLocalApplications.Rows.Count.ToString();
         }
         private void FrmLocalLicenseAppManagement_Load(object sender, EventArgs e) {
             cbFilterBy.SelectedIndex = 0;
@@ -62,7 +84,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
         }
         private void showApplicationDetailsToolStripMenuItem_Click(object sender, EventArgs e) {
             int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
-            LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
+            LocalLicenseIssuingApp loaclLicenseApp = LocalLicenseIssuingApp.getLocalLicenseAppByID(ID);
             if (loaclLicenseApp != null) {
                 FrmLocalLicenseAppInfo frm = new FrmLocalLicenseAppInfo(loaclLicenseApp);
                 frm.ShowDialog();
@@ -71,7 +93,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
 
         private void editApp_Click(object sender, EventArgs e) {
             int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
-            LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
+            LocalLicenseIssuingApp loaclLicenseApp = LocalLicenseIssuingApp.getLocalLicenseAppByID(ID);
             if (loaclLicenseApp != null) {
                 FrmSelectPersonForApp frm = new FrmSelectPersonForApp(loaclLicenseApp);
                 frm.ShowDialog();
@@ -81,23 +103,23 @@ namespace PresentationLayer.Local_DL_Appliaction {
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e) {
             int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
-            if (LocalLicenseApp.deleteLocalLicenseApp(ID)) {
-                Helpers.SuccessfulMessage("Local driving license application was deleted successfully!");
+            if (LocalLicenseIssuingApp.deleteLocalLicenseApp(ID)) {
+                Alert.SuccessfulMessage("Local driving license application was deleted successfully!");
                 _ReloadData();
             }
             else
-                Helpers.ShowErrorMessage("Error happend while deleting");
+                Alert.ShowErrorMessage("Error happend while deleting");
         }
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e) {
             int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
-            LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
+            LocalLicenseIssuingApp loaclLicenseApp = LocalLicenseIssuingApp.getLocalLicenseAppByID(ID);
             if (loaclLicenseApp.cancelApplication()) {
-                Helpers.SuccessfulMessage("Local driving license application was canceled successfully!");
+                Alert.SuccessfulMessage("Local driving license application was canceled successfully!");
                 _ReloadData();
             }
             else
-                Helpers.ShowErrorMessage("Error happend while canceling");
+                Alert.ShowErrorMessage("Error happend while canceling");
         }
         void _EnablityByStatus() {
             string status = (string)dgvLocalApplications.CurrentRow.Cells["ApplicationStatus"].Value;
@@ -114,7 +136,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
                 tmsiScheduleTest.Enabled = true;
             }
             else { // canceled
-                tmsiDeleteApp.Enabled = true;
+                tmsiDeleteApp.Enabled = false;
                 editApp.Enabled = false;
                 tsmiCancelApp.Enabled = false;
                 tmsiScheduleTest.Enabled = false;
@@ -156,8 +178,8 @@ namespace PresentationLayer.Local_DL_Appliaction {
             _EnablityByStatus();
             int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
 
-            LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
-            if (loaclLicenseApp == null) { Helpers.ShowErrorMessage("Cant get loaclLicenseApp"); return; }
+            LocalLicenseIssuingApp loaclLicenseApp = LocalLicenseIssuingApp.getLocalLicenseAppByID(ID);
+            if (loaclLicenseApp == null) { Alert.ShowErrorMessage("Cant get loaclLicenseApp"); return; }
 
             
             _EnableProcessesUnderPersonProgress(loaclLicenseApp.personID);
@@ -165,7 +187,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
 
         void _ShowScheduledTestsForm(enTestType testType) {
             int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
-            LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
+            LocalLicenseIssuingApp loaclLicenseApp = LocalLicenseIssuingApp.getLocalLicenseAppByID(ID);
             if (loaclLicenseApp != null) {
                 FrmAppointments frm = new FrmAppointments(loaclLicenseApp, testType);
                 frm.ShowDialog();
@@ -186,7 +208,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
 
         private void tmsiIssueLicense_Click(object sender, EventArgs e) {
             int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
-            LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
+            LocalLicenseIssuingApp loaclLicenseApp = LocalLicenseIssuingApp.getLocalLicenseAppByID(ID);
             if (loaclLicenseApp != null) {
                 FrmIssueLocalLicense frm = new FrmIssueLocalLicense(loaclLicenseApp);
                 frm.ShowDialog();
@@ -196,11 +218,11 @@ namespace PresentationLayer.Local_DL_Appliaction {
         private void tmsiShowLicense_Click(object sender, EventArgs e) {
             int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
 
-            LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
-            if (loaclLicenseApp == null){ Helpers.ShowErrorMessage("Cant get loaclLicenseApp"); return; }
+            LocalLicenseIssuingApp loaclLicenseApp = LocalLicenseIssuingApp.getLocalLicenseAppByID(ID);
+            if (loaclLicenseApp == null){ Alert.ShowErrorMessage("Cant get loaclLicenseApp"); return; }
 
             LocalLicense license = LocalLicense.GetLicenseByApplicationID(loaclLicenseApp.AppID);
-            if (license == null) { Helpers.ShowErrorMessage("Cant get license"); return; }
+            if (license == null) { Alert.ShowErrorMessage("Cant get license"); return; }
 
             FrmLocalLicenseDetails frm = new FrmLocalLicenseDetails(license);
             frm.ShowDialog();
@@ -209,10 +231,10 @@ namespace PresentationLayer.Local_DL_Appliaction {
         private void tmsiHistory_Click(object sender, EventArgs e) {
             int ID = (int)dgvLocalApplications.CurrentRow.Cells[0].Value;
 
-             LocalLicenseApp loaclLicenseApp = LocalLicenseApp.getLocalLicenseAppByID(ID);
-            if (loaclLicenseApp == null) { Helpers.ShowErrorMessage("Cant get loaclLicenseApp"); return; }
+             LocalLicenseIssuingApp loaclLicenseApp = LocalLicenseIssuingApp.getLocalLicenseAppByID(ID);
+            if (loaclLicenseApp == null) { Alert.ShowErrorMessage("Cant get loaclLicenseApp"); return; }
 
-            if (loaclLicenseApp.personInfo == null) { Helpers.ShowErrorMessage("Cant get Person"); return; }
+            if (loaclLicenseApp.personInfo == null) { Alert.ShowErrorMessage("Cant get Person"); return; }
 
             FrmLicensesHistory frm = new FrmLicensesHistory(loaclLicenseApp.personInfo);
             frm.ShowDialog();

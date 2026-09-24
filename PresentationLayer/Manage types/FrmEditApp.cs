@@ -2,11 +2,11 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Global;
+using Shared;
 namespace PresentationLayer.Manage_types {
     public partial class FrmEditApp : Form {
-        AppType appType = null;
-        public FrmEditApp(AppType appType) {
+        ApplicationType appType = null;
+        public FrmEditApp(ApplicationType appType) {
             InitializeComponent();
             this.appType = appType;
         }
@@ -19,10 +19,6 @@ namespace PresentationLayer.Manage_types {
         bool _AreEveryThingValid() {
             bool isValid = true;
             errorProvider1.Clear();
-            if (string.IsNullOrWhiteSpace(txtTitle.Text)) {
-                errorProvider1.SetError(txtTitle, "Title is required!");
-                isValid = false;
-            }
             if (nFees.Value < 1) {
                 errorProvider1.SetError(nFees, "Fees is required!");
                 isValid = false;
@@ -34,17 +30,16 @@ namespace PresentationLayer.Manage_types {
             if (!_AreEveryThingValid())
                 return;
             decimal oldFee = appType.AppTypeFees;
-            appType.AppTypeTitle = txtTitle.Text;
             appType.AppTypeFees = nFees.Value;
             if (appType.Save()) {
-                Helpers.SuccessfulMessage("Application type updated successfully!");
+                Alert.SuccessfulMessage("Application type updated successfully!");
                 if (oldFee > appType.AppTypeFees) 
                     nFees.BackColor = Color.OrangeRed;
                 else if (oldFee < appType.AppTypeFees)
                     nFees.BackColor = Color.SpringGreen;
             }
             else {
-                Helpers.ShowErrorMessage("something went wrong");
+                Alert.ShowErrorMessage("something went wrong");
             }
         }
 

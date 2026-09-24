@@ -1,6 +1,5 @@
 ﻿using BusinessLayer;
 using BusinessLayer.Dashboard;
-using Global;
 using PresentationLayer.Detain_license;
 using PresentationLayer.International_License;
 using PresentationLayer.Licenses_and_drivers;
@@ -23,7 +22,7 @@ namespace PresentationLayer {
             InitializeComponent();
         }
         void _UnexpectedError() {
-            Helpers.ShowErrorMessage("Unexpected error has happened");
+            Alert.ShowErrorMessage("Unexpected error has happened");
         }
         void _FillEnumComboBoxes() {
             cbLocalLicStatus.DataSource = Enum.GetValues(typeof(enLocalLicenseStatus));
@@ -368,13 +367,13 @@ namespace PresentationLayer {
             _RefreshAppStatistics();
         }
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e) {
-            FrmPeople frm = new FrmPeople();
+            FrmPeopleManagement frm = new FrmPeopleManagement();
             frm.ShowDialog();
             _Refresh();
         }
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e) {
-            FrmUsers frm = new FrmUsers();
+            FrmUsersManagement frm = new FrmUsersManagement();
             frm.ShowDialog();
             _Refresh();
 

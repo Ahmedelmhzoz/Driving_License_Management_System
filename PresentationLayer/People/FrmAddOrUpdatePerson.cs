@@ -1,14 +1,11 @@
 ﻿using BusinessLayer;
 using PresentationLayer.Properties;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Resources;
 using System.Windows.Forms;
-using Global;
+using Shared;
 
 namespace PresentationLayer {
     public partial class FrmAddOrUpdatePerson : Form {
@@ -144,7 +141,7 @@ namespace PresentationLayer {
 
         private void btnSave_Click(object sender, EventArgs e) {
             if (!areTxTBoxesFilled()) {
-                Helpers.ShowErrorMessage("Please fill the required fields");
+                Alert.ShowErrorMessage("Please fill the required fields");
                 return;
             }
 
@@ -161,7 +158,7 @@ namespace PresentationLayer {
             currentPerson.Address = txtAddress.Text.Trim();
             currentPerson.NationalityCountryID = Convert.ToInt32(cbCountries.SelectedValue);
             if (currentPerson.Save()) {
-                Helpers.SuccessfulMessage("Person saves successfully!");
+                Alert.SuccessfulMessage("Person saves successfully!");
                 if (whatPersonModeWas == enPersonMode.addPerson) {
                     lblpersonID.Text = currentPerson.personID.ToString();
                     lblpersonID.BackColor = Color.SpringGreen;
@@ -171,7 +168,7 @@ namespace PresentationLayer {
                 }
                
             } else {
-                Helpers.ShowErrorMessage("something went wrong");
+                Alert.ShowErrorMessage("something went wrong");
             }
         }
 
@@ -197,7 +194,5 @@ namespace PresentationLayer {
             btnRemove.Enabled = false;
             lblRemove.ForeColor = Color.DarkGray;
         }
-
-
     }
 }

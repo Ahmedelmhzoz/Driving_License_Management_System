@@ -22,9 +22,9 @@ namespace BusinessLayer {
                 return TestType.getTestType(this.TestTypeID);
             }
         }
-        public LocalLicenseApp LocalLicenseAppInfo {
+        public LocalLicenseIssuingApp LocalLicenseAppInfo {
             get {
-                return LocalLicenseApp.getLocalLicenseAppByID(this.LocalDrivingLicenseApplicationID);
+                return LocalLicenseIssuingApp.getLocalLicenseAppByID(this.LocalDrivingLicenseApplicationID);
             }
         }
         public enAppointmentMode currentMode = enAppointmentMode.enAddAppointment;

@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPersonDetails));
             this.label1 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.ucPersonDetails1 = new PresentationLayer.ucPersonDetails();
@@ -59,9 +60,10 @@
             this.ClientSize = new System.Drawing.Size(1924, 1052);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ucPersonDetails1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPersonDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmPersonDetails";
+            this.Text = "Person details";
             this.ResumeLayout(false);
             this.PerformLayout();
 

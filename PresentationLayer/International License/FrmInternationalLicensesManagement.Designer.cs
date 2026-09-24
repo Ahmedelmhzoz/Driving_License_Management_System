@@ -28,6 +28,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInternationalLicensesManagement));
             this.lblRecordsNo = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -103,6 +104,7 @@
             // cbFilterBy
             // 
             this.cbFilterBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFilterBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFilterBy.FormattingEnabled = true;
             this.cbFilterBy.Location = new System.Drawing.Point(275, 442);
             this.cbFilterBy.Name = "cbFilterBy";
@@ -298,7 +300,7 @@
             this.lblLicense.AutoSize = true;
             this.lblLicense.Font = new System.Drawing.Font("Georgia", 8F, System.Drawing.FontStyle.Bold);
             this.lblLicense.ForeColor = System.Drawing.Color.White;
-            this.lblLicense.Location = new System.Drawing.Point(1979, 375);
+            this.lblLicense.Location = new System.Drawing.Point(1983, 375);
             this.lblLicense.Name = "lblLicense";
             this.lblLicense.Size = new System.Drawing.Size(308, 31);
             this.lblLicense.TabIndex = 69;
@@ -307,9 +309,9 @@
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnAdd.BackgroundImage = global::PresentationLayer.Properties.Resources.resume;
+            this.btnAdd.BackgroundImage = global::PresentationLayer.Properties.Resources.curriculum;
             this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAdd.Location = new System.Drawing.Point(2061, 419);
+            this.btnAdd.Location = new System.Drawing.Point(2065, 419);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(152, 83);
             this.btnAdd.TabIndex = 68;
@@ -334,9 +336,10 @@
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cbLicenseStatus);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmInternationalLicensesManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmInternationalLicensesManagement";
+            this.Text = "International Licenses Management";
             this.Load += new System.EventHandler(this.FrmInternationalLicensesManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInternationalLic)).EndInit();
             this.cmsInterApp.ResumeLayout(false);

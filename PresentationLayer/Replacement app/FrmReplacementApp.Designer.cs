@@ -695,9 +695,10 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblProcess);
             this.Controls.Add(this.tcReplaceApp);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmReplacementApp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmReplacementApp";
+            this.Text = "Replacement application";
             this.Load += new System.EventHandler(this.FrmReplacementApp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.tbReplacementApp.ResumeLayout(false);

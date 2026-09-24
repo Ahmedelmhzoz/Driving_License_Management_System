@@ -1,14 +1,7 @@
 ﻿using BusinessLayer;
-using Global;
 using Shared;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer.Detain_license {
@@ -50,7 +43,7 @@ namespace PresentationLayer.Detain_license {
                 _DetainBtnEnibility(true);
             }
             else {
-                Helpers.ShowErrorMessage($"There is no license has ID = {licenseID}");
+                Alert.ShowErrorMessage($"There is no license has ID = {licenseID}");
                 selectedLocalLicense = null;
                 ucLocalLicenseDetails.ResetLicenseInfo();
                 _DetainBtnEnibility(false);
@@ -61,15 +54,15 @@ namespace PresentationLayer.Detain_license {
 
             enLocalLicenseStatus status = selectedLocalLicense.getLicenseStatus();
             if (selectedLocalLicense.isLicenseDenied()) {
-                Helpers.ShowErrorMessage("This license is already detained.");
+                Alert.ShowErrorMessage("This license is already detained.");
                 return false;
             }
             else if (status == enLocalLicenseStatus.Expired) {
-                Helpers.ShowErrorMessage("This license is expired and cannot be detained.");
+                Alert.ShowErrorMessage("This license is expired and cannot be detained.");
                 return false;
             }
             else if (status == enLocalLicenseStatus.Suspended) {
-                Helpers.ShowErrorMessage("This license is suspended and cannot be detained.");
+                Alert.ShowErrorMessage("This license is suspended and cannot be detained.");
                 return false;
             }
             else {
@@ -108,15 +101,15 @@ namespace PresentationLayer.Detain_license {
             }
         }
         void _PrintException(Exception ex) {
-            Helpers.ShowErrorMessage(ex.Message);
+            Alert.ShowErrorMessage(ex.Message);
         }
         void _HandelDetaintionResult(DetainResult detainResult) {
             if (detainResult.result == enDetainResult.FineOutOfRange) {
-                Helpers.ShowErrorMessage("The fine aount should be Between $1 to $1000");
+                Alert.ShowErrorMessage("The fine aount should be Between $1 to $1000");
                 return;
             }
             else if (detainResult.result == enDetainResult.Success) {
-                Helpers.SuccessfulMessage("The detaintion process done successfully");
+                Alert.SuccessfulMessage("The detaintion process done successfully");
                 lblDetainID.Text = detainResult.detainRecordID.ToString();
                 _ChangeLblsColorAndBtnsEnability(true);
                 ucLocalLicenseDetails.DenieLicense();

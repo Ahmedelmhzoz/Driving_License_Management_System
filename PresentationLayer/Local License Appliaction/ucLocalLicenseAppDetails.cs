@@ -18,8 +18,8 @@ namespace PresentationLayer.Local_DL_Appliaction {
         public ucLocalLicenseAppDetails() {
             InitializeComponent();
         }
-        LocalLicenseApp licenseApp = null;
-        public void loadData(LocalLicenseApp licenseApp) {
+        LocalLicenseIssuingApp licenseApp = null;
+        public void loadData(LocalLicenseIssuingApp licenseApp) {
             this.licenseApp = licenseApp;
 
             lblApplicationID.Text = licenseApp.LicenseAppID.ToString();
@@ -27,7 +27,7 @@ namespace PresentationLayer.Local_DL_Appliaction {
             LicenseClass Class = LicenseClass.getLicenseClassByID(licenseApp.LicenseClassID);
             lblLicenseClass.Text = Class != null ? Class.className : "Unknown";
 
-            lblPassedExams.Text = LocalLicenseApp.getPassedExams(licenseApp.LicenseAppID).ToString();
+            lblPassedExams.Text = LocalLicenseIssuingApp.getPassedExams(licenseApp.LicenseAppID).ToString();
 
             ucApplicationDetails1.loadData(licenseApp.getBasicApplication());
 

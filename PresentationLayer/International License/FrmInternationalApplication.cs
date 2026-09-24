@@ -1,10 +1,8 @@
 ﻿using BusinessLayer;
-using Global;
 using PresentationLayer.Licenses;
 using PresentationLayer.Local_License;
 using Shared;
 using System;
-using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -19,16 +17,16 @@ namespace PresentationLayer.International_License {
         bool _LicenseIDIsValid(enInternationalLicenseEligibility status, int activeInternationalLicenseID) {
             switch (status) {
                 case enInternationalLicenseEligibility.NotFound:
-                    Helpers.ShowErrorMessage("Local License ID is not found in the system!");
+                    Alert.ShowErrorMessage("Local License ID is not found in the system!");
                     return false;
                 case enInternationalLicenseEligibility.NotOrdinaryLicenseCLass:
-                    Helpers.ShowErrorMessage("License must be Class 3 (Ordinary Driving License) to issue an International License.");
+                    Alert.ShowErrorMessage("License must be Class 3 (Ordinary Driving License) to issue an International License.");
                     return false;
                 case enInternationalLicenseEligibility.NotActive:
-                    Helpers.ShowErrorMessage("Selected Local License is NOT Active. Cannot issue International License.");
+                    Alert.ShowErrorMessage("Selected Local License is NOT Active. Cannot issue International License.");
                     return false;
                 case enInternationalLicenseEligibility.HasActiveInternational:
-                    Helpers.ShowErrorMessage($"Person already has an Active International License with ID = {activeInternationalLicenseID}");
+                    Alert.ShowErrorMessage($"Person already has an Active International License with ID = {activeInternationalLicenseID}");
                     return false;
 
                 case enInternationalLicenseEligibility.Eligible:
@@ -67,14 +65,14 @@ namespace PresentationLayer.International_License {
             lblReleseDate.Text = today.ToShortDateString();
             lblExpireDate.Text = today.AddYears(1).ToShortDateString();
             lblUsername.Text = ImportantSessionData.user.Username;
-            lblFees.Text = '$' + AppType.getAppFees(enApplicationType.NewInternationalLicense).ToString("0.##");
+            lblFees.Text = '$' + ApplicationType.getAppFees(enApplicationType.NewInternationalLicense).ToString("0.##");
              
             _ColoringLblsAndButtonsEnablityByStatus(true);
         }
         private void tcInternationApp_SelectedIndexChanged(object sender, EventArgs e) {
             if (tcInternationApp.SelectedTab == tbInternationalIssuing && !ValidLicenseWasFound) { 
                 tcInternationApp.SelectedIndex = 0;
-                Helpers.ShowErrorMessage("You cant move to the next tap before you select a valid license");
+                Alert.ShowErrorMessage("You cant move to the next tap before you select a valid license");
             }
             else if (tcInternationApp.SelectedTab == tbInternationalIssuing && ValidLicenseWasFound) {
                 _ResetInternatioalLicTab();
@@ -91,14 +89,14 @@ namespace PresentationLayer.International_License {
             InternationalLicense interIssueResult = InternationalLicense.issueInternationaLicense(localLicenseID, ImportantSessionData.user.userID);
 
             if (interIssueResult != null) {
-                Helpers.SuccessfulMessage("International driving license issued successfully");
+                Alert.SuccessfulMessage("International driving license issued successfully");
                 lblApplicationID.Text = interIssueResult.ApplicationID.ToString();
                 lblInterLicID.Text = interIssueResult.InternationalLicenseID.ToString();
                 _ColoringLblsAndButtonsEnablityByStatus(false);
                 currentInternationalLicense = interIssueResult; 
             }
             else {
-                Helpers.ShowErrorMessage("Error Happend while saving international license");
+                Alert.ShowErrorMessage("Error Happend while saving international license");
             }
         }
 
@@ -152,7 +150,7 @@ namespace PresentationLayer.International_License {
                 _ApplyBtEnablity(true);
             }
             else {
-                Helpers.ShowErrorMessage($"There is no licese with ID: {licenseID}");
+                Alert.ShowErrorMessage($"There is no licese with ID: {licenseID}");
                 txtSearch.Text = string.Empty;
                 ucLocalLicenseDetails.ResetLicenseInfo();
                 _ApplyBtEnablity(false);
