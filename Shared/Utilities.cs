@@ -25,7 +25,7 @@ namespace Shared {
         public static string convertTestTypeToString(enTestType testType) {
             switch (testType) {
                 case enTestType.Vision: return "Vision Test";
-                case enTestType.Theoretical: return "Written Test";
+                case enTestType.Theoretical: return "Theoretical Test";
                 case enTestType.Street: return "Street Test";
                 default: return "Vision Test";
             }
